@@ -33,7 +33,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="bg-[#F7F7F7]">
+<body class="bg-[#F7F7F7] tracking-wide">
     <!-- Navigation -->
     <nav class="bg-gray-800 border-gray-200">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -86,6 +86,40 @@
             </div>
         </div>
     </nav>
+
+    <!-- collaborator card -->
+    <div class="flex justify-center items-center mt-10">
+        <div class="flex items-center border border-8 p-12 w-3/4 flex-col lg:flex-row">
+            <div class="rounded-full bg-[#D9D9D9] w-52 lg:w-52 flex-none">
+                <img src="../resources/img/logo.png" alt="" />
+            </div>
+            <div class="flex justify-center items-center grow">
+                <div class="space-y-3.5 flex flex-col ">
+                    <h1 class="font-semibold text-xl text-[#DD3C4A] mt-3 ">
+                        Real Estate & Service Co., Ltd
+                    </h1>
+                    <div class="flex items-center space-x-4">
+                        <i class="fa-solid fa-location-dot text-[#DD3C4A]"></i>
+                        <span>No. 18, Yangon, Myanmar</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <i class="fa-solid fa-phone text-[#DD3C4A]"></i>
+                        <div class="flex items-start flex-col">
+                            <span>01 — 554369</span>
+                            <span>09 — 699915350</span>
+                        </div>
+
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <i class="fa-solid fa-envelope text-[#DD3C4A]"></i>
+                        <span>realestateservice@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 
     <!-- recommended section -->
     <div class="flex flex-col items-center justify-center mt-10">
@@ -464,7 +498,7 @@
             </div>
         </div>
     </div>
-    <hr class="h-1 bg-black mb-20">
+    <hr class="h-1 bg-black mb-10">
 
     <!-- Collaborator detail section -->
     <div class="flex items-center justify-center flex-col">
@@ -476,6 +510,7 @@
             Real Estate & Service Co., Ltd
         </h1>
 
+        <!-- site stats -->
         <div class="flex items-center w-3/4 justify-evenly mt-6">
             <div class="flex flex-col justify-center items-center">
                 <i class="fa-solid fa-building text-5xl"></i>
@@ -494,10 +529,12 @@
             </div>
         </div>
 
-        <div class="flex mt-6 mb-20 flex-col lg:flex-row items-center w-auto justify-between">
-            <div class="w-2/3 h-56 bg-cover flex items-center justify-center"
+        <!-- buy rent 2 cards -->
+        <div class="flex mt-6 mb-10 flex-col lg:flex-row items-center w-auto justify-between">
+            <!-- buy property card -->
+            <div class="w-3/4 lg:w-5/12 h-56 bg-cover flex items-center justify-center"
                 style="background-image: url('../resources/img/pic1.png')">
-                <ul class="list-disc text-white list-inside">
+                <ul class="list-disc text-white list-inside w-4/5 text-2xs lg:text-sm space-y-2.5">
                     <span class="text-xl" style="font-family: 'Playfair Display'">Buy Property</span>
                     <li>
                         Valuable expertise in pricing, marketing, negotiating.
@@ -514,10 +551,12 @@
 
                 </ul>
             </div>
-            <div class="w-2/3 h-56 mt-16 lg:mt-auto bg-cover flex items-center justify-center"
+
+            <!-- rent property card -->
+            <div class="w-3/4 lg:w-5/12 h-56 mt-16 lg:mt-auto bg-cover flex items-center justify-center"
                 style="background-image: url('../resources/img/pic2.png')">
-                <ul class="list-disc text-white list-inside">
-                    <span class="text-xl" style="font-family: 'Playfair Display'">Rent Property</span>
+                <ul class="list-disc text-white list-inside w-4/5 lg:text-sm text-2xs space-y-2.5">
+                    <span class="text-xl lg:text-xl" style="font-family: 'Playfair Display'">Rent Property</span>
                     <li>
                         Photography services to create high-quality images.
                     </li>
