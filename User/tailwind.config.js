@@ -1,3 +1,4 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./View/**/*.{html,php,js}"],
@@ -15,6 +16,7 @@ module.exports = {
       fontFamily: {
         roboto: ["Roboto"],
         playFair: ['"Playfair Display"'],
+        sans: ["Roboto", ...defaultTheme.fontFamily.sans],
       },
     },
   },
