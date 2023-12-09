@@ -25,7 +25,7 @@
     <!-- tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="bg-primary">
+  <body class='bg-primary'>
     <!-- start hero -->
     <div class="relative mb-20">
       <img src="../resources/img/home.jpg" width="100%" alt="" />
