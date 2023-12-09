@@ -21,7 +21,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 
     <!-- tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="../resources/css/dist/output.css" rel="stylesheet">
 
     <!-- ionic icon -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -75,7 +75,7 @@
                     </li>
                     <li>
                         <a href="#"
-                            class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-500 md:text-blue-500">Collaborator</a>
+                            class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparen md:text-blue-500">Collaborator</a>
                     </li>
                     <li>
                         <a href="#"
@@ -96,15 +96,14 @@
             <div class="grid md:grid-cols-2 md:gap-16 ">
                 <div class="">
                     <div class=" mb-5">
-                        <label for="clogo"
-                            class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
+                        <label for="clogo" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                             Company Logo</label>
-                       <img   class=" h-40 mb-2 " src="../resources/img/common/blank photo.png" alt="">
+                        <img class=" h-40 mb-2 " src="../resources/img/common/blank photo.png" alt="">
                     </div>
                     <div class="mb-5">
                         <label for="cname" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                             Full Name</label>
-                        <input type="text" name="cname"  id="cname"
+                        <input type="text" name="cname" id="cname"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Owner Name">
                     </div>
@@ -126,7 +125,7 @@
                 </div>
 
                 <div class="">
-                   
+
                     <div class="mb-5">
                         <label for="cCompanyName"
                             class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
@@ -137,16 +136,16 @@
                     </div>
 
                     <div class="mb-5">
-                        <label for="cCompanyId"
-                            class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
+                        <label for="cCompanyId" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                             Company ID</label>
                         <input type="text" name="cCompanyId" id="cCompanyId"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Enter your Company Register ID Number">
                     </div>
-                    
+
                     <div class="mb-5">
-                        <label for="caddress" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Your
+                        <label for="caddress"
+                            class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Your
                             Address</label>
                         <textarea name="caddress" id="caddress" rows="4"
                             class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -154,23 +153,24 @@
 
                     </div>
                     <div class="mb-5">
-                        <label for="caddress" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Your
+                        <label for="caddress"
+                            class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Your
                             Message</label>
                         <textarea name="caddress" id="caddress" rows="4"
                             class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Write note Here....."></textarea>
                     </div>
                     <div class="flex items-end m-16">
-                     
-                      <button type="submit" class="text-white bg-green-700 hover:bg-green-800 
-                      focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium px-8 py-2 text-center 
+
+                        <button type="submit" class="text-white border-2 bg-darkGreen
+                      focus:ring-4 focus:outline-none font-semibold rounded-lg text-medium px-8 py-2 text-center 
                       dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-                     Submit</button>
-                      <button type="" class="mx-16 text-green-700 border-2 border-green-700 bg-transparent hover:bg-green-800 hover:text-black
+                            Submit</button>
+                        <button type="" class="mx-16 text-darkGreen border-2 border-darkGreen bg-transparent hover:bg-green-800 hover:text-black
                       focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium  px-7 py-2 text-center 
                       dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                     Cancle</button>
-  
+                            Cancle</button>
+
                     </div>
 
                 </div>
@@ -179,12 +179,13 @@
 
         </form>
         <div class="flex items-center h-5">
-            
-          <label for="terms" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-           Already have account?<a href="#" class="text-blue-600 hover:underline dark:text-blue-500">Sign in</a></label>
+
+            <label for="terms" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                Already have account?<a href="#" class="text-blue-600 hover:underline dark:text-blue-500">Sign
+                    in</a></label>
 
 
-    </div>
+        </div>
 
 
 </body>
