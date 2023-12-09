@@ -11,17 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap"
         rel="stylesheet" />
 
-    <style>
-        * {
-            font-family: "Roboto";
-        }
-    </style>
     <!-- flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 
     <!-- tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="../resources/css/dist/output.css" rel="stylesheet">
 
     <!-- ionic icon -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -67,7 +62,7 @@
                     </li>
                     <li>
                         <a href="#"
-                            class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-500 md:text-blue-500">Rent</a>
+                            class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-500">Rent</a>
                     </li>
 
                     <li>
@@ -91,7 +86,7 @@
     <!-- filter dropdown (select) boxes -->
     <div class="flex items-center justify-evenly my-8">
         <div>
-            <select name="p_type" class="lg:w-52 w-28 px-5 py-2.5 rounded-lg border border-2">
+            <select name="p_type" class="lg:w-52 w-28 px-5 py-2.5 rounded-lg  border-2">
                 <option value="" disabled selected>Property Type</option>
                 <option value="">Apartment</option>
                 <option value="">Commercial</option>
@@ -100,21 +95,21 @@
             </select>
         </div>
         <div>
-            <select name="p_township" class="lg:w-52 w-28 px-5 py-2.5 rounded-lg border border-2">
+            <select name="p_township" class="lg:w-52 w-28 px-5 py-2.5 rounded-lg  border-2">
                 <option value="" disabled selected>Township</option>
                 <option value="">Bahan</option>
                 <option value="">Tamwe</option>
             </select>
         </div>
         <div>
-            <select name="price_min" class="lg:w-52 w-28 px-5 py-2.5 rounded-lg border border-2">
+            <select name="price_min" class="lg:w-52 w-28 px-5 py-2.5 rounded-lg  border-2">
                 <option value="" disabled selected>Minimum Price</option>
                 <option value="">100</option>
                 <option value="">200</option>
             </select>
         </div>
         <div>
-            <select name="p_type" class="lg:w-52 w-28 px-5 py-2.5 rounded-lg border border-2">
+            <select name="p_type" class="lg:w-52 w-28 px-5 py-2.5 rounded-lg  border-2">
                 <option value="" disabled selected>Maximum Price</option>
                 <option value="">100</option>
                 <option value="">200</option>
