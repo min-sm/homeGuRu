@@ -725,10 +725,6 @@ video {
   height: 0.25rem;
 }
 
-.h-1\/2{
-  height: 50%;
-}
-
 .h-10{
   height: 2.5rem;
 }
@@ -751,10 +747,6 @@ video {
 
 .h-8{
   height: 2rem;
-}
-
-.w-1\/2{
-  width: 50%;
 }
 
 .w-10{
@@ -1058,16 +1050,6 @@ video {
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
 
-.bg-red-700{
-  --tw-bg-opacity: 1;
-  background-color: rgb(185 28 28 / var(--tw-bg-opacity));
-}
-
-.bg-secondary{
-  --tw-bg-opacity: 1;
-  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
-}
-
 .bg-transparent{
   background-color: transparent;
 }
@@ -1152,14 +1134,6 @@ video {
 
 .text-center{
   text-align: center;
-}
-
-.font-playFair{
-  font-family: "Playfair Display";
-}
-
-.font-roboto{
-  font-family: Roboto;
 }
 
 .text-2xl{
