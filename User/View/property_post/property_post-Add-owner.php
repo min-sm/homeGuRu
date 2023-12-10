@@ -92,7 +92,7 @@
                         <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Sell</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-500 md:text-blue-500">Collaborator</a>
+                        <a href="#" class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-500">Collaborator</a>
                     </li>
                     <li>
                         <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Our
@@ -120,12 +120,12 @@
 
             <div class="grid md:grid-cols-2 md:gap-12 ">
                 <!-- Start Property Info form -->
-                <div class="flex flex-col items-center  ">
+                <div class="flex flex-col   ">
                     <!-- Start Property Type-->
                     <div class="mb-5">
                         <label for="p_type" class="w-full block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                             Property Type</label>
-                        <select name="p_type" class="lg:w-72 w-28 px-5 py-2.5 rounded-lg border border-2 border-gray-300">
+                        <select name="p_type" class="lg:w-72 w-28 px-5 py-2.5 rounded-lg  border-2 border-gray-300">
                             <option value="" disabled selected>Select Property Type</option>
                             <option value="">Apartment</option>
                             <option value="">Commercial</option>
@@ -137,7 +137,7 @@
                     <div class="mb-5">
                         <label for="p_floor_level" class="w-full block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                             Floor Level</label>
-                        <select name="p_floor_level" class="lg:w-72 w-28 px-5 py-2.5 rounded-lg border border-2 border-gray-300">
+                        <select name="p_floor_level" class="lg:w-72 w-28 px-5 py-2.5 rounded-lg border-2 border-gray-300">
                             <option value="" disabled selected>Select Floor Level</option>
                             <option value="">1st floor</option>
                             <option value="">2nd floor</option>
@@ -208,10 +208,10 @@
                     <!-- Start Price-->
                     <div class="flex lg:w-72 w-42  mb-5">
 
-                        <div class="lg:w-36 w-28 ">
+                        <div class="lg:w-40 w-28 lg:mr-10 mr-4">
                             <label for="p_price" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                                 Price</label>
-                            <input type="text" name="p_price" class="w-full  lg:mr-10 mr-4  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 
+                            <input type="text" name="p_price" class="w-full    bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 
                             block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="30,000,000">
                         </div>
@@ -231,7 +231,7 @@
                     <div class="mb-5">
                         <label for="p_bedroom" class="w-full block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                             Bedroom</label>
-                        <select name="p_bedroom" class="lg:w-72 w-28 px-5 py-2.5 rounded-lg border border-2 border-gray-300">
+                        <select name="p_bedroom" class="lg:w-72 w-28 px-5 py-2.5 rounded-lg  border-2 border-gray-300">
                             <option value="" disabled selected>Select No. of Bedroom</option>
                             <option value="">1 Bedroom</option>
                             <option value="">2 Bedrooms</option>
@@ -286,7 +286,7 @@
 
                 </div>
                 <!-- Start Owner Info form -->
-                <div class="flex flex-col items-center ">
+                <div class="flex flex-col  ">
 
                     <div class="mb-5 lg:w-72 w-28">
                         <label for="p_owner_name" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
@@ -321,12 +321,12 @@
             </div>
 
 
-            <div class="mb-2 w-full flex flex-col items-center relative">
+            <div class="mb-2 w-full flex flex-col  relative">
                 <div class="w-5/6 relative mt-7 mb-2">
                     <label for="p_map_location" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                         Location Map</label>
                     <div class=" flex ">
-                        <input type="text" name="p_map_location" id="" class="w-3/5 mr-16  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for NearBy Name ">
+                        <input type="text" name="p_map_location" id="" class="w-3/5 mr-16  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for NearBy Name ">
                         <button type="submit" class="text-white bg-green-700 hover:bg-green-800 
                             focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium px-8 py-2 text-center 
                             dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
@@ -400,10 +400,10 @@
                 <!-- End Facilities  -->
 
                 <div class="w-5/6 relative my-5">
-                    <div class="mb-5 lg:w-full w-28">
+                    <div class="mb-5 lg:w-full w-40">
                         <label for="p_detail" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                             Detail Description</label>
-                        <textarea name="p_detail" id="" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write note Here....."></textarea>
+                        <textarea name="p_detail" id="" rows="4" class="block p-2.5 lg:w-full  h-40 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write note Here....."></textarea>
                     </div>
                 </div>
 

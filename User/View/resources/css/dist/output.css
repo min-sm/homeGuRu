@@ -1080,6 +1080,10 @@ html {
   width: 8rem;
 }
 
+.w-60{
+  width: 15rem;
+}
+
 .max-w-screen-xl{
   max-width: 1280px;
 }
@@ -2164,6 +2168,10 @@ html {
 
   .lg\:w-\[680px\]{
     width: 680px;
+  }
+
+  .lg\:w-40{
+    width: 10rem;
   }
 
   .lg\:grid-cols-3{
