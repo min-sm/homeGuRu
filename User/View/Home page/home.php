@@ -653,7 +653,7 @@ include '../header/header.html'
 
   <div class=" mb-28 ">
   <h1 class="tracking-wider font-playFair text-2xl font-extrabold text-center mb-10">Our Services</h1>
-  <p class="whitespace-pre-warp text-center tracking-wider">At Home GuRu, experience seamless property transactions. From listing to closing deals, our expert team ensures satisfaction, making your real estate journey effortless and rewarding. Trust the experts.</p>
+  <p class="whitespace-pre-warp text-center tracking-wider px-5">At Home GuRu, experience seamless property transactions. From listing to closing deals, our expert team ensures satisfaction, making your real estate journey effortless and rewarding. Trust the experts.</p>
   <div class="flex justify-evenly mt-16">
     <div class="w-32 "><img src="../resources/img/rentlogo.png" height="100%" width="100%" alt=""><p class="text-center font-semibold">Rent service</p></div>
     <div class="w-32 relative"><img src="../resources/img/Sale logo.png" height="100%" width="100%" alt=""><p class="text-center font-semibold absolute left-5 -bottom-1">Sale service</p> </div>
