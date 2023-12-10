@@ -17,10 +17,14 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
   <!-- tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <title>home</title>
 </head>
 
 <body class='bg-primary
   '>
+<?php 
+include '../header/header.html'
+?>
   <!-- start hero -->
   <div class="relative mb-20">
     <img src="../resources/img/home.jpg" width="100%" alt="" />
@@ -195,12 +199,12 @@
         </div>
       </div>
       <!-- Slider indicators -->
-      <div class="absolute -bottom-10 z-30 flex -translate-x-1/2 left-1/2 space-x-3 rtl:space-x-reverse">
-        <button type="button" class="w-3 h-3 rounded-full text-darkGreen" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-        <button type="button" class="w-3 h-3 rounded-full bg-darkGreen" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-        <button type="button" class="w-3 h-3 rounded-full bg-darkGreen" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-        <button type="button" class="w-3 h-3 rounded-full bg-darkGreen" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-        <button type="button" class="w-3 h-3 rounded-full bg-darkGreen" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+      <div class="absolute -bottom-10 z-30 flex -translate-x-1/2 left-1/2 space-x-3 rtl:space-x-reverse px-3 py-2 rounded-lg bg-teal-100 ">
+        <button type="button" class="w-3 h-3 rounded-full bg-paleGray" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+        <button type="button" class="w-3 h-3 rounded-full bg-paleGray" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+        <button type="button" class="w-3 h-3 rounded-full bg-paleGray" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+        <button type="button" class="w-3 h-3 rounded-full bg-paleGray" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+        <button type="button" class="w-3 h-3 rounded-full bg-paleGray" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
       </div>
       <!-- Slider controls -->
       <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
@@ -607,7 +611,7 @@
 
   <!-- Testimonials -->
 
-  <div class="mb-28 bg-white rounded-md py-10 w-11/12 m-auto">
+  <div class="mb-28 bg-white rounded-md pt-10 w-11/12 m-auto pb-14">
     <!-- title -->
     <h1 class="font-playFair text-2xl font-extrabold ml-20 mb-7 tracking-wider">Testimonials</h1>
     <!-- maincontainer -->
@@ -669,7 +673,7 @@
   </div>
 
   <!-- buy rent 2 cards -->
-  <div class="flex mt-6 mb-10 flex-col lg:flex-row items-center w-auto justify-between px-5">
+  <div class="flex mt-6 mb-10 flex-col lg:flex-row items-center w-auto justify-around">
             <!-- buy property card -->
             <div class="w-3/4 lg:w-5/12 h-56 bg-cover flex items-center justify-center"
                 style="background-image: url('../resources/img/pic1.png')">
