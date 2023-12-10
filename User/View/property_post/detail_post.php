@@ -245,7 +245,7 @@
     </div>
   </div>
   <!-- line break -->
-  <hr class="w-full my-6 h-1 bg-paleGray" />
+ 
   <!-- related properties section -->
   <div class="flex flex-col items-center justify-center mt-10">
     <h1 class="text-3xl font-bold" style="font-family: 'Playfair Display';">Related Properties</h1>

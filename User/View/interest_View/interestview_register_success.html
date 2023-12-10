@@ -16,6 +16,36 @@
             font-family: "Roboto";
         }
     </style>
+     <style>
+        /* The Modal (background) */
+        #myModal {
+          display: none;
+          /* Hidden by default */
+          text-align: center;
+          justify-content: center;
+          align-items: center;
+          position: fixed;
+          /* Stay in place */
+          z-index: 1;
+          /* Sit on top */
+          top: 0;
+          left: 0;
+          width: 100%;
+          /* Full width */
+          height: 100%;
+          overflow: auto;
+          /* Enable scroll if needed */
+          background-color: rgba(0, 0, 0, 0.8);
+          /* Black w/ opacity */
+        }
+    
+        /* Modal Content */
+        #modal-content {
+          flex-direction: column;
+          background-color: rgba(255, 255, 255, 0.8);
+          width: fit-content;
+        }
+      </style>
     <!-- flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
@@ -87,12 +117,95 @@
             </div>
         </div>
     </nav>
+       <!-- uploader info -->
+       <div class="flex flex-row items-center w-4/5 lg:w-1/2 my-6 ms-4 lg:ms-24">
+        <!-- collaborator logo -->
+        <div class="basis-1/5">
+            <div class="rounded-full bg-[#D9D9D9] w-24">
+                <img src="../resources/img/logo.png" alt="test2" />
+            </div>
+        </div>
 
-    <div class="flex flex-col w-full items-center justify-evenly my-10">
+        <div class="lg:basis-4/5 w-fit">
+            <div class="flex flex-col">
+                <h1 class="font-semibold text-xl w-fit">
+                    Real Estate & Service Co., Ltd
+                </h1>
+                <div class="flex flex-row items-center mt-3 justify-between w-1/2 text-xs">
+                    <p>Feb 23 2023/ 5:00 PM</p>
+                    <p>13 people interest</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- property imgs & property info  -->
+    <div class="flex flex-col lg:flex-row justify-between w-full lg:w-11/12">
+        <!-- imgs -->
+        <div class="w-full flex flex-col items-center justify-around">
+            <div class="w-96 lg:w-[674.86px] lg:h-96 h-56 bg-cover bg-center rounded-lg property-img"
+                style="background-image: url('../resources/img/entrance-hall.jpg')"></div>
+            <div class="flex flex-row items-center w-3/4 justify-evenly mt-7">
+                <div class="w-20 lg:w-40 h-12 lg:h-24 bg-cover bg-center rounded-lg property-img"
+                    style="background-image: url('../resources/img/study-room.jpg')"></div>
+                <div class="w-20 lg:w-40 h-12 lg:h-24 bg-cover bg-center rounded-lg property-img"
+                    style="background-image: url('../resources/img/living-room.jpg')"></div>
+                <div class="w-20 lg:w-40 h-12 lg:h-24 bg-cover bg-center rounded-lg property-img"
+                    style="background-image: url('../resources/img/dining-room.jpg')"></div>
+                <div class="w-20 lg:w-40 h-12 lg:h-24 bg-cover bg-center rounded-lg property-img"
+                    style="background-image: url('../resources/img/kitchen.jpg')"></div>
+            </div>
+        </div>
+
+        <!-- property info -->
+        <div class="mt-5 lg:mt-0 space-y-4 text-center lg:text-left w-full lg:w-2/5">
+            <h5 class="text-xl font-semibold tracking-tight text-black">
+                4 Bed House in Golden Valley
+            </h5>
+            <div class="bg-gray-800 text-white text-center py-1.5 rounded-md text-xl font-semibold lg:mx-0 mx-5">
+                1500 lakhs / month
+            </div>
+            <div>
+                <span class="font-playFair font-semibold">Property ID: </span>CD354#E
+            </div>
+            <div>
+                <span class="font-playFair font-semibold">Offer Type: </span>CD354#E
+            </div>
+            <div>
+                <span class="font-playFair font-semibold">Property Type: </span>CD354#E
+            </div>
+            <div>
+                <span class="font-playFair font-semibold">Size: </span>CD354#E
+            </div>
+            <div>
+                <span class="font-playFair font-semibold">Township: </span>CD354#E
+            </div>
+
+            <button type="button"
+                class="text-white bg-[#3b5998] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 me-2 mb-2">
+                <ion-icon name="logo-facebook" class="text-lg mr-2"></ion-icon> Share
+            </button>
+            <button type="button"
+                class="text-white bg-green-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 mb-2">
+                <ion-icon name="call" class="text-lg mr-2"></ion-icon> Contact
+            </button>
+
+        </div>
+    </div>
+    <!-- The Modal -->
+    <div id="myModal">
+        <!-- Modal content -->
+        <div id="modal-content" class="flex items-center justify-center">
+            <img id="display-full-img" class="w-4/5 h-auto lg:w-auto lg:h-[80vh]" src="" />
+            <span id="img-description" class="mt-4"></span>
+        </div>
+    </div>
+  
+    
+    <div class="flex flex-col w-full bg-white items-center justify-evenly mt-5 py-10">
         <h1 class="font-semibold text-3xl text-center  tracking-wide " >
             Interest View Register
         </h1>
-
         <ion-icon class="w-36 h-36 m-10 text-darkGreen" name="checkmark-circle-outline"></ion-icon>
         <p class="font-bold text-3xl tracking-wide mb-10">Success !</p>
         <p class="font-medium text-xl tracking-wide mb-2">
@@ -484,6 +597,7 @@
        
     </div>
 
+    <hr class="w-full my-6 h-1 bg-paleGray" />
 
     <!-- pagination -->
     <div class="flex justify-center my-16">
@@ -538,6 +652,8 @@
 
     </div>
     <!-- End  Related Properties -->
+    <script src="../resources/js/property_detail.js"></script>
+
 
 </body>
 
