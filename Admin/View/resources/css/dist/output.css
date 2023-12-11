@@ -977,6 +977,10 @@ html {
   border-radius: 0.5rem;
 }
 
+.rounded-md{
+  border-radius: 0.375rem;
+}
+
 .rounded-e-lg{
   border-start-end-radius: 0.5rem;
   border-end-end-radius: 0.5rem;
