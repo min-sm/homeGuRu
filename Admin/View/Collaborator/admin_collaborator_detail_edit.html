@@ -182,63 +182,97 @@
     </aside>
   <!--Start  Collaborator Request Preview -->
     <div class="p-4 sm:ml-64 flex flex-col items-center">
-        <h1 class=" text-center font-bold text-2xl m-7 tracking-wide ">Collaborator Detail</h1>
-        <div class=" lg:w-3/5 w-full grid grid-row-13 gap-2">
-            <div class="grid grid-cols-2 gap-7 ">
-                <div class=" lg:w-72 w-28">
-                    <label for="ga_phone" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
-                        Phone Number</label>
-                    <input type="text" name="ga_phone" id="ga_phone"
+        <h1 class=" text-center font-bold text-2xl m-7 tracking-wide ">Collaborator Edit Detail</h1>
+        
+        <form class="lg:w-3/5 w-full">
+            <div class="grid grid-cols-2 gap-20  mb-5">
+                <div class=" lg:w-72 w-28 mt-4">
+                    <label for="gc_photo" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
+                        Choose Logo</label>
+                    <input type="file" name="gc_logo" id="ga_phone"
                         class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="01-554369">
+                        placeholder="Choose Logo">
                 </div>
-                <img class="w-30" src="../resources/img/marga.png" alt="">
+                <img class="w-28 " src="../resources/img/marga.png" alt="">
             </div>
-            <div class="grid grid-cols-2 gap-7 ">
-                <p class="font-medium text-lg">Company Name</p>
-                <p name="gc_name">MARGA GROUP Co.,Ltd</p>
+            <div class="grid grid-cols-2 gap-20 ">           
+                <div class="grid grid-rows-3 gap-5">
+                    <div class="lg:w-72 w-28">
+                        <label for="gc_company_name"
+                            class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
+                            Company Name</label>
+                        <input type="text" name="gc_company_name" id="" class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            value=" MARGA GROUP Co.,Ltd">
+                    </div>
+                    
+                    <div class="lg:w-72 w-28">
+                        <label for="gc_company_id  class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
+                            Company ID Number</label>
+                        <input type="text" name="gc_company_id" id=""
+                            class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            value="23457">
+                    </div>
+                    <div class="lg:w-72 w-28">
+                        <label for="gc_email" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
+                            National ID</label>
+                        <input type="text" name="gc_email" id=""
+                            class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            value="johnsmith@gmail.com">
+                    </div>
+                    
+                </div>
+
+                <div class="grid grid-rows-3 gap-5">
+                    
+                    <div class=" lg:w-72 w-28">
+                        <label for="gc_owner_name" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
+                            Email</label>
+                        <input type="text" name="gc_owner_name" id=""
+                            class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            value="U John Smith">
+                    </div>
+                    <div class=" lg:w-72 w-28">
+                        <label for="gc_nrc" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
+                            National ID</label>
+                        <input type="text" name="gc_nrc" id=""
+                            class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            value="12/ TaTaTa (N) 123456">
+                    </div>
+                    <div class=" lg:w-72 w-28">
+                        <label for="gc_phone" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
+                            Phone Number</label>
+                        <input type="text" name="gc_phone" id=""
+                            class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            value="(+95) 9123456789">
+                    </div>
+                    
+                    
+                </div>
             </div>
-            <div class="grid grid-cols-2 gap-7 ">
-                <p class="font-medium text-lg" >Company ID Number</p>
-                <p name="gc_company_Id">123456</p>
-            </div>
-            <div class="grid grid-cols-2 gap-7 ">
-                <p class="font-medium text-lg" >Owner Name</p>
-                <p name="gc_owner_name">U John Smith</p>
-            </div>
-            <div class="grid grid-cols-2 gap-7 ">
-                <p class="font-medium text-lg" >National ID</p>
-                <p name="gc_owner_nrc">12/ TaTaTa (N) 123456</p>
-            </div>
-            <div class="grid grid-cols-2 gap-7 ">
-                <p class="font-medium text-lg" >Email Address</p>
-                <p name="gc_email">info@margaglobal.com</p>
-            </div>
-            <div class="grid grid-cols-2 gap-7 ">
-                <p class="font-medium text-lg" >Phone Number</p>
-                <p name="gc_phone">(+95) 1 4700 111</p>
-            </div>
-            <div class="grid grid-cols-2 gap-7 ">
-                <p class="font-medium text-lg" >Address</p>
-                <p name="gc_address">Corner of Kabar Aye Pagoda Road and Kanbe Road, Shop 5, The Central Boulevard, Yankin Township, Yangon, Myanmar.</p>
-            </div>
-          
-        </div>
-        <div class=" flex  my-5 ">
+                <div class=" ">
+                    <div class="mb-5 lg:w-full w-40">
+                        <label for="gc_address" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
+                            Address</label>
+                        <textarea name="gc_address" id="" rows="4" class="block p-2.5 lg:w-full lg:h-20  h-40 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                         value="1096 Shwe Taung Gyar St, Yangon"></textarea>
+                    </div>
+                </div>
+               
+        </form>
+
+        
+        <div class=" flex  my-10 ">
             <button type="submit"
                 class="tracking-wider text-white bg-goldYellow opacity-75 hover:opacity-100
             focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium px-8 py-2 text-center  ">
-                Edit Detail</button>
+                Update</button>
 
             <button type=""
-                class="tracking-wider mx-10 text-white border-2 border-green-700 bg-alert opacity-80 hover:opacity-100
+                class="tracking-wider mx-10 text-white  bg-alert opacity-80 hover:opacity-100
             focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium  px-7 py-2 text-center ">
-                Delete</button>
+                Cancle</button>
 
-            <button type="submit"
-                class="tracking-wider text-white bg-darkGreen opacity-75 hover:opacity-100
-                focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium px-8 py-2 text-center ">
-                Renew Contract</button>
+           
         </div>
 
     </div>
