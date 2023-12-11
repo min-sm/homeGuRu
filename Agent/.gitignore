@@ -1,2 +1,6 @@
 /node_modules
+<<<<<<< HEAD
 /View/resources/css/dist/output.css
+=======
+/View/resources/css/dist/output.css
+>>>>>>> 4fd8e32ec28c7205900a5da2a00f32c73b64fb37
