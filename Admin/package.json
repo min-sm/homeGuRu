@@ -1,9 +1,8 @@
 {
   "devDependencies": {
     "tailwindcss": "^3.3.6"
-  },cd
+  },
   "scripts": {
-    "build": "npx tailwind -i ./View/resources/css/input.css -o ./View/resources/css/dist/output.css"
-   }
- 
+  "build": "npx tailwind -i ./View/resources/css/input.css -o ./View/resources/css/dist/output.css"
+  }
 }
