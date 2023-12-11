@@ -155,8 +155,6 @@
 
     </div>
 
-    <script src="../resources/js/naviSelect.js"></script>
-    <script src="../resources/js/darkmode.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 </body>
 

@@ -7,7 +7,7 @@
 
     <title>Dashboard</title>
 </head>
-<body>
+<body class="bg-primary dark:bg-gray-700">
   <?php include '../commonView/menu.php' ?>  
 
 
