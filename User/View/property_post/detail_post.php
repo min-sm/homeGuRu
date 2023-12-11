@@ -109,7 +109,7 @@
     <!-- collaborator logo -->
     <div class="basis-1/5">
       <div class="rounded-full bg-[#D9D9D9] w-24">
-        <img src="../resources/img/logo.png" alt="test2" />
+        <img src="../resources/img/collaborator-tpj-logo.png" alt="test2" />
       </div>
     </div>
 
