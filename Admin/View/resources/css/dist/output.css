@@ -570,6 +570,10 @@ html {
   position: relative;
 }
 
+.bottom-0{
+  bottom: 0px;
+}
+
 .left-0{
   left: 0px;
 }
@@ -592,6 +596,10 @@ html {
 
 .top-7{
   top: 1.75rem;
+}
+
+.top-8{
+  top: 2rem;
 }
 
 .z-10{
@@ -633,6 +641,16 @@ html {
   margin-bottom: 4rem;
 }
 
+.my-20{
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.my-36{
+  margin-top: 9rem;
+  margin-bottom: 9rem;
+}
+
 .my-4{
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -641,11 +659,6 @@ html {
 .my-5{
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
-}
-
-.my-12{
-  margin-top: 3rem;
-  margin-bottom: 3rem;
 }
 
 .mb-10{
@@ -692,6 +705,14 @@ html {
   margin-right: 4rem;
 }
 
+.mr-4{
+  margin-right: 1rem;
+}
+
+.mr-5{
+  margin-right: 1.25rem;
+}
+
 .ms-0{
   margin-inline-start: 0px;
 }
@@ -708,24 +729,16 @@ html {
   margin-top: 0.5rem;
 }
 
+.mt-20{
+  margin-top: 5rem;
+}
+
 .mt-4{
   margin-top: 1rem;
 }
 
 .mt-5{
   margin-top: 1.25rem;
-}
-
-.mt-12{
-  margin-top: 3rem;
-}
-
-.mt-20{
-  margin-top: 5rem;
-}
-
-.mr-5{
-  margin-right: 1.25rem;
 }
 
 .block{
@@ -806,6 +819,10 @@ html {
 
 .h-screen{
   height: 100vh;
+}
+
+.w-14{
+  width: 3.5rem;
 }
 
 .w-2\/5{
@@ -1090,6 +1107,11 @@ html {
   background-color: rgb(239 246 255 / var(--tw-bg-opacity));
 }
 
+.bg-blue-800{
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 64 175 / var(--tw-bg-opacity));
+}
+
 .bg-darkGreen{
   --tw-bg-opacity: 1;
   background-color: rgb(0 83 79 / var(--tw-bg-opacity));
@@ -1127,11 +1149,6 @@ html {
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-blue-800{
-  --tw-bg-opacity: 1;
-  background-color: rgb(30 64 175 / var(--tw-bg-opacity));
 }
 
 .p-2{
@@ -1378,20 +1395,16 @@ html {
   text-underline-offset: 2px;
 }
 
+.opacity-70{
+  opacity: 0.7;
+}
+
 .opacity-75{
   opacity: 0.75;
 }
 
 .opacity-80{
   opacity: 0.8;
-}
-
-.opacity-90{
-  opacity: 0.9;
-}
-
-.opacity-70{
-  opacity: 0.7;
 }
 
 .shadow{
@@ -1748,6 +1761,10 @@ html {
 
   .lg\:w-11\/12{
     width: 91.666667%;
+  }
+
+  .lg\:w-28{
+    width: 7rem;
   }
 
   .lg\:w-3\/5{
