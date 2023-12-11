@@ -1693,6 +1693,14 @@ html {
   background-color: rgb(220 38 38 / var(--tw-bg-opacity));
 }
 
+<<<<<<< HEAD
+=======
+.bg-teal-100{
+  --tw-bg-opacity: 1;
+  background-color: rgb(204 251 241 / var(--tw-bg-opacity));
+}
+
+>>>>>>> tth
 .bg-cover{
   background-size: cover;
 }
