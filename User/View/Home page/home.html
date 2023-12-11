@@ -22,20 +22,19 @@
 
 <body class='bg-primary
   '>
-<?php 
-include '../header/header.html'
-?>
+
+<!-- // include '../header/header.html' -->
   <!-- start hero -->
   <div class="relative mb-20">
     <img src="../resources/img/home.jpg" width="100%" alt="" />
     <!--start search bar -->
 
-    <div class="w-11/12 lg:w-1/2 h-10 md:h-14 bg-secondary rounded-md absolute -bottom-5 md:-bottom-8 left-5 md:left-10 lg:left-1/4 py-2 px-2 flex text-sm lg:text-base">
+    <div class="w-11/12 lg:w-1/2 h-10 md:h-14 bg-secondary rounded-md absolute -bottom-5 md:-bottom-8 left-5 md:left-10 lg:left-1/4 py-2 px-2 flex text-xs lg:text-base">
       <!-- location -->
       <div class="flex w-1/4 items-center border-r">
-        <ion-icon name="location" class="text-alert pr-2"></ion-icon>
+        <ion-icon name="location" class="text-alert mr-1"></ion-icon>
         <div>
-          <select name="location" class="bg-secondary text-primary w-20 lg:w-28 2xl:w-40 border-none">
+          <select name="location" class="bg-secondary text-primary w-20 lg:w-28 2xl:w-40 border-none text-2xs md:text-base">
             <option value="" disabled selected>Location</option>
             <option value="">Kamayut</option>
             <option value="">Thar Kay Tha</option>
@@ -46,9 +45,9 @@ include '../header/header.html'
       </div>
       <!-- type -->
       <div class="flex w-1/4 items-center border-r pr-1">
-        <ion-icon name="business" class="text-primary px-2"></ion-icon>
+        <ion-icon name="business" class="text-primary mx-2"></ion-icon>
         <div>
-          <select name="type" class="bg-secondary text-primary w-20 border-none lg:w-28 2xl:w-40">
+          <select name="type" class="bg-secondary text-primary w-20 border-none lg:w-28 2xl:w-40 text-2xs md:text-base">
             <option value="" disabled selected>Type</option>
             <option value="">Apartment</option>
             <option value="">Commercial</option>
@@ -58,10 +57,10 @@ include '../header/header.html'
         </div>
       </div>
       <!-- price -->
-      <div class="flex w-1/4 items-center pr-1 border-r">
-        <ion-icon name="cash-outline" class="text-darkGreen px-2"></ion-icon>
+      <div class="flex w-1/4 items-center mr-1 border-r">
+        <ion-icon name="cash-outline" class="text-darkGreen mx-2"></ion-icon>
         <div>
-          <select name="price" class="bg-secondary text-primary w-20 lg:w-28 2xl:w-40 border-none">
+          <select name="price" class="bg-secondary text-primary w-20 lg:w-28 2xl:w-40 border-none text-2xs md:text-base">
             <option value="" disabled selected>Price</option>
             <option value="">below 1000lakhs</option>
             <option value="">below 5000lakhs</option>
@@ -72,7 +71,7 @@ include '../header/header.html'
       </div>
       <!-- search btn -->
       <div class="flex justify-center items-center w-1/4">
-        <button class="text-primary bg-darkGreen h-6 md:h-8 rounded-md px-4 text-sm">
+        <button class="text-primary bg-darkGreen h-6 md:h-8 rounded-md px-4 text-2xs md:text-sm">
           Search
         </button>
       </div>
@@ -230,7 +229,7 @@ include '../header/header.html'
   <h1 class="font-playFair text-2xl font-extrabold ml-14 mb-10 tracking-wider">
     Latest Rent Properties
   </h1>
-  <div class="flex w-full flex-col content-stretch  space-y-2 items-center lg:flex-row lg:justify-around mb-20">
+  <div class=" px-2 flex w-full flex-col content-stretch  space-y-2 items-center lg:flex-row lg:justify-around mb-20">
 
   <div
                     class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -422,7 +421,7 @@ include '../header/header.html'
   <h1 class="font-playFair text-2xl font-extrabold ml-14 mb-10 tracking-wider">
     Latest Sale Properties
   </h1>
-  <div class="flex w-full flex-col content-stretch  space-y-2 items-center lg:flex-row lg:justify-around mb-28">
+  <div class="px-2 flex w-full flex-col content-stretch  space-y-2 items-center lg:flex-row lg:justify-around mb-28">
 
 <div
                   class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
