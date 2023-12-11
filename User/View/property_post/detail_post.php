@@ -263,7 +263,7 @@
               <div class="relative">
                 <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
                   Sale</div>
-                <img class="pb-4 rounded-t-lg" src="../resources/img/recommended-section-img.jpg" alt="product image" />
+                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
               </div>
             </a>
             <div class="px-5 pb-5">
@@ -319,7 +319,7 @@
               <div class="relative">
                 <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
                   Sale</div>
-                <img class="pb-4 rounded-t-lg" src="../resources/img/recommended-section-img.jpg" alt="product image" />
+                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
               </div>
             </a>
             <div class="px-5 pb-5">
@@ -375,7 +375,7 @@
               <div class="relative">
                 <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
                   Sale</div>
-                <img class="pb-4 rounded-t-lg" src="../resources/img/recommended-section-img.jpg" alt="product image" />
+                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
               </div>
             </a>
             <div class="px-5 pb-5">
@@ -435,7 +435,7 @@
               <div class="relative">
                 <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
                   Sale</div>
-                <img class="pb-4 rounded-t-lg" src="../resources/img/recommended-section-img.jpg" alt="product image" />
+                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
               </div>
             </a>
             <div class="px-5 pb-5">
@@ -491,7 +491,7 @@
               <div class="relative">
                 <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
                   Sale</div>
-                <img class="pb-4 rounded-t-lg" src="../resources/img/recommended-section-img.jpg" alt="product image" />
+                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
               </div>
             </a>
             <div class="px-5 pb-5">
@@ -547,7 +547,7 @@
               <div class="relative">
                 <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
                   Sale</div>
-                <img class="pb-4 rounded-t-lg" src="../resources/img/recommended-section-img.jpg" alt="product image" />
+                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
               </div>
             </a>
             <div class="px-5 pb-5">

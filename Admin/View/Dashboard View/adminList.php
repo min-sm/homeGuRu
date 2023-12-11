@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- tailwind -->
+    <link href="../resources/css/dist/output.css" rel="stylesheet" />
+
     <!-- flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <!-- fontawsome -->
@@ -20,13 +23,14 @@
         }
     </script>
 
-    <title>Home Guru</title>
+    <title>Admin List</title>
 </head>
 
 <body class="bg-primary dark:bg-gray-700">
     <?php include '../commonView/menu.php' ?>
-    <div class="p-4 sm:ml-64">
-        <h1 class="text-center font-bold text-2xl mb-8">Admin List</h1>
+    <!-- main body -->
+    <div class="p-4 pt-20 sm:ml-64">
+        <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">Admin List</h1>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-base text-gray-700 uppercase bg-primary dark:bg-gray-800 dark:text-gray-400">
