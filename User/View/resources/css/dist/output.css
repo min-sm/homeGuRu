@@ -1368,6 +1368,10 @@ html {
   gap: 0.25rem;
 }
 
+.gap-10{
+  gap: 2.5rem;
+}
+
 .gap-16{
   gap: 4rem;
 }
@@ -1386,6 +1390,14 @@ html {
 
 .gap-5{
   gap: 1.25rem;
+}
+
+.gap-14{
+  gap: 3.5rem;
+}
+
+.gap-12{
+  gap: 3rem;
 }
 
 .-space-x-px > :not([hidden]) ~ :not([hidden]){
@@ -1715,6 +1727,11 @@ html {
   background-color: rgb(255 255 255 / 0.3);
 }
 
+.bg-teal-700{
+  --tw-bg-opacity: 1;
+  background-color: rgb(15 118 110 / var(--tw-bg-opacity));
+}
+
 .bg-cover{
   background-size: cover;
 }
@@ -1860,12 +1877,12 @@ html {
   padding-top: 2.5rem;
 }
 
-.pt-16{
-  padding-top: 4rem;
-}
-
 .pt-2{
   padding-top: 0.5rem;
+}
+
+.pt-5{
+  padding-top: 1.25rem;
 }
 
 .text-center{
@@ -2037,6 +2054,11 @@ html {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-paleGray{
+  --tw-text-opacity: 1;
+  color: rgb(217 217 217 / var(--tw-text-opacity));
+}
+
 .opacity-50{
   opacity: 0.5;
 }
@@ -2115,6 +2137,11 @@ html {
 .hover\:bg-red-800:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(153 27 27 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-teal-800:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 94 89 / var(--tw-bg-opacity));
 }
 
 .hover\:p-2:hover{
@@ -2206,6 +2233,11 @@ html {
   --tw-ring-color: rgb(252 165 165 / var(--tw-ring-opacity));
 }
 
+.focus\:ring-teal-300:focus{
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(94 234 212 / var(--tw-ring-opacity));
+}
+
 .group:hover .group-hover\:bg-white\/50{
   background-color: rgb(255 255 255 / 0.5);
 }
@@ -2278,6 +2310,11 @@ html {
   .dark\:bg-red-600{
     --tw-bg-opacity: 1;
     background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+  }
+
+  .dark\:bg-teal-600{
+    --tw-bg-opacity: 1;
+    background-color: rgb(13 148 136 / var(--tw-bg-opacity));
   }
 
   .dark\:text-blue-500{
@@ -2359,6 +2396,11 @@ html {
     background-color: rgb(185 28 28 / var(--tw-bg-opacity));
   }
 
+  .dark\:hover\:bg-teal-700:hover{
+    --tw-bg-opacity: 1;
+    background-color: rgb(15 118 110 / var(--tw-bg-opacity));
+  }
+
   .dark\:hover\:text-white:hover{
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -2417,6 +2459,11 @@ html {
   .dark\:focus\:ring-red-900:focus{
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(127 29 29 / var(--tw-ring-opacity));
+  }
+
+  .dark\:focus\:ring-teal-800:focus{
+    --tw-ring-opacity: 1;
+    --tw-ring-color: rgb(17 94 89 / var(--tw-ring-opacity));
   }
 
   .group:hover .dark\:group-hover\:bg-gray-800\/60{
@@ -2554,6 +2601,10 @@ html {
     margin-top: 0px;
   }
 
+  .md\:block{
+    display: block;
+  }
+
   .md\:flex{
     display: flex;
   }
@@ -2592,6 +2643,14 @@ html {
 
   .md\:flex-row{
     flex-direction: row;
+  }
+
+  .md\:items-start{
+    align-items: flex-start;
+  }
+
+  .md\:gap-0{
+    gap: 0px;
   }
 
   .md\:gap-12{
@@ -2640,9 +2699,26 @@ html {
     padding: 0px;
   }
 
+  .md\:pt-16{
+    padding-top: 4rem;
+  }
+
+  .md\:pt-2{
+    padding-top: 0.5rem;
+  }
+
+  .md\:text-left{
+    text-align: left;
+  }
+
   .md\:text-sm{
     font-size: 0.875rem;
     line-height: 1.25rem;
+  }
+
+  .md\:text-3xl{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 
   .md\:text-blue-500{
@@ -2653,6 +2729,11 @@ html {
   .md\:text-blue-700{
     --tw-text-opacity: 1;
     color: rgb(29 78 216 / var(--tw-text-opacity));
+  }
+
+  .md\:text-teal-500{
+    --tw-text-opacity: 1;
+    color: rgb(20 184 166 / var(--tw-text-opacity));
   }
 
   .md\:hover\:bg-transparent:hover{
@@ -2667,6 +2748,11 @@ html {
   .md\:hover\:text-blue-700:hover{
     --tw-text-opacity: 1;
     color: rgb(29 78 216 / var(--tw-text-opacity));
+  }
+
+  .md\:hover\:text-teal-500:hover{
+    --tw-text-opacity: 1;
+    color: rgb(20 184 166 / var(--tw-text-opacity));
   }
 
   @media (prefers-color-scheme: dark){

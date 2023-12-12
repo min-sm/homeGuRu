@@ -29,12 +29,12 @@
 </head>
 
 <body class="bg-[#F7F7F7]">
-    <footer class="bg-secondary text-primary pt-16 pb-10" >
-        <div class="flex justify-around md:flex-row flex-col md:gap-0 gap-5 items-center">
+    <footer class="bg-secondary text-primary pt-10 md:pt-16 pb-10" >
+        <div class="flex justify-around md:flex-row flex-col md:gap-0 gap-12 items-center md:items-start">
         <!-- Address -->
         <div>
-            <h1 class="text-3xl text-center mb-7"><u>Address</u></h1>
-            <div class="space-y-6">
+            <h1 class="md:text-3xl text-xl text-center mb-7"><u>Address</u></h1>
+            <div class="space-y-6 text-paleGray">
             <div class="flex items-center gap-3">
                 <i class="fa-solid fa-map-location-dot"></i>
           <p>9/A, Nat Mauk Yeik Tha Street,<br/>
@@ -53,14 +53,14 @@
             <i class="fa-solid fa-envelope"></i>
             <p>homeguru@gmail.com</p>
         </div>
-        <p class="text- opacity-50 pt-2">Copyright &#169 2023. All Rights Reserved</p>
+        <p class="text- opacity-50 pt-2 hidden md:block">Copyright &#169 2023. All Rights Reserved</p>
     </div>
 
         </div>
         <!-- Help & Support -->
         <div>
-            <h1 class="text-3xl mb-7 "><u>Help & Support</u></h1>
-            <div class="flex flex-col gap-4">
+            <h1 class="md:text-3xl text-xl mb-7 md:text-left text-center "><u>Help & Support</u></h1>
+            <div class="flex flex-col gap-4 md:text-left text-center text-paleGray">
             <a href=""><u>Privacy and Ploicy</u></a>
             <a href=""><u>Our Service</u></a>
             <a href=""><u>FAQ</u></a>
@@ -71,15 +71,15 @@
         </div>
         <!-- Navigation -->
         <div>
-            <h1 class="text-3xl mb-7 "><u>Navigation</u></h1>
-            <div class="flex flex-col gap-4">
+            <h1 class="md:text-3xl text-xl mb-7 md:text-left text-center "><u>Navigation</u></h1>
+            <div class="flex flex-col gap-4 md:text-left text-center text-paleGray">
 
                 <a href=""><u>Home</u></a>
                 <a href=""><u>Buy</u></a>
                 <a href=""><u>Sell</u></a>
                 <a href=""><u>Rent</u></a>
                 <a href=""><u>Collaborator</u></a>
-                <div class="text-2xl flex space-x-6 pt-2 ">
+                <div class="text-2xl flex space-x-6 md:pt-2 pt-5 ">
                     <i class="fa-brands fa-facebook fa-beat" style="color: #1877f2;"></i>
                     <i class="fa-brands fa-viber fa-beat" style="color: #7360f2;"></i>
                     <i class="fa-brands fa-telegram fa-beat" style="color: #229ed9;"></i>
@@ -87,6 +87,7 @@
                 </div>
             </div>
         </div>
+        <p class="text- opacity-50 pt-2  md:hidden">Copyright &#169 2023. All Rights Reserved</p>
         </div>
        
     </footer>
