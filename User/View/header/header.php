@@ -30,10 +30,10 @@
 
 <body class="bg-[#F7F7F7]">
     <!-- Navigation -->
-    <nav class="bg-gray-800 border-gray-200">
+    <nav class="bg-gray-800 border-gray-200 ">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="../resources/img/common/logo-confirm.png" class="h-12" alt="HomeGuRu Logo" />
+                <img src="../resources/img/common/logo-confirm.png" class="md:h-12  h-11" alt="HomeGuRu Logo" />
             </a>
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                 <button type="button"

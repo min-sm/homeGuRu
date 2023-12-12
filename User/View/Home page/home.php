@@ -23,7 +23,7 @@
 <body class='bg-primary
   '>
 
-<!-- // include '../header/header.html' -->
+<?php include '../header/header.php' ?>
   <!-- start hero -->
   <div class="relative mb-20">
     <img src="../resources/img/home.jpg" width="100%" alt="" />

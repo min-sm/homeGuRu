@@ -28,8 +28,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="bg-[#F7F7F7]">
-    <footer class="bg-secondary text-primary pt-10 md:pt-16 pb-10" >
+<body >
+    <footer class="bg-secondary text-primary pt-10 md:pt-16 pb-10 w-full" >
         <div class="flex justify-around md:flex-row flex-col md:gap-0 gap-12 items-center md:items-start">
         <!-- Address -->
         <div>
