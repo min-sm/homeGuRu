@@ -150,11 +150,7 @@
 
         <div class="w-3/5 my-16">
             <input type="text" name="collaboratorName" placeholder="Company Name"
-<<<<<<< HEAD
                 class=" w-2/4 px-5 py-3 rounded-lg border border-2 mx-20">
-=======
-                class=" w-2/4 px-5 py-3 rounded-lg  border-2 mx-20">
->>>>>>> msm
             <button class="w-1/4 h-12 font-medium text-2xl text-white rounded-lg bg-green-600 
             hover:bg-white-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                 Search

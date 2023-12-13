@@ -5,6 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Property Post Form</title>
+    <!-- JS-->
+    <script src="../resources/js/property_post_add_owner.js" defer></script>
     <style>
         /* The Modal (background) */
         #myModal {
@@ -72,7 +74,13 @@
         <form class="w-3/5 mx-auto  my-10 ">
             <!-- Start Property Select photo -->
             <div class=" mb-5">
-
+              
+<div id="imgContainer" class="flex items-center justify-center w-full">
+<label for="photoUpload">
+<input type="file" class="hidden" id="photoInput" accept="image/png,image/png,image/jpeg">
+<i class="fa-solid fa-images fa-beat"></i>
+</label>
+</div> 
 
             </div>
             <!-- End Property Select photo -->
@@ -84,16 +92,16 @@
                     <div class="mb-5">
                         <label for="p_type" class="w-full block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                             Property Type</label>
-                        <select name="p_type" class="lg:w-72 w-28 px-5 py-2.5 rounded-lg  border-2 border-gray-300">
-                            <option value="" disabled selected>Select Property Type</option>
-                            <option value="">Apartment</option>
-                            <option value="">Commercial</option>
-                            <option value="">Condo</option>
-                            <option value="">House</option>
-                            <option value="">Other</option>
+                        <select id="p_type" name="p_type" class="lg:w-72 w-28 px-5 py-2.5 rounded-lg  border-2 border-gray-300">
+                            <option value="0" disabled selected>Select Property Type</option>
+                            <option value="1"  data-floor-level="true">Apartment</option>
+                            <option value="2">Commercial</option>
+                            <option value="3" data-floor-level="true">Condo</option>
+                            <option value="4">House</option>
+                            <option value="5">Other</option>
                         </select>
                     </div>
-                    <div class="mb-5">
+                    <div id="floor_level" class="hidden mb-5">
                         <label for="p_floor_level" class="w-full block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                             Floor Level</label>
                         <select name="p_floor_level" class="lg:w-72 w-28 px-5 py-2.5 rounded-lg border-2 border-gray-300">
@@ -117,15 +125,15 @@
                                 Offer Type</label>
                             <fieldset class="flex  my-4">
                                 <div class="flex ">
-                                    <input id="offer-option-1" type="radio" name="offer" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-green-300 dark:focus:ring-green-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
-                                    <label for="offer-option-1" class="block ms-2  text-sm font-medium text-gray-900 dark:text-gray-300">
+                                    <input id="rent" type="radio" name="offer" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-green-300 dark:focus:ring-green-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" >
+                                    <label for="offer-option-1" class="block ms-2  text-sm font-medium text-gray-500 dark:text-gray-300">
                                         Rent
                                     </label>
                                 </div>
 
                                 <div class="flex mx-10">
-                                    <input id="offer-option-2" type="radio" name="offer" value="Germany" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-green-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="country-option-2" class="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                    <input id="sale" type="radio" name="offer" value="Germany" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-green-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
+                                    <label for="country-option-2" class="block ms-2 text-sm font-medium text-gray-500 dark:text-gray-300">
                                         Sale
                                     </label>
                                 </div>
@@ -133,27 +141,27 @@
                             </fieldset>
 
                         </div>
-                        <div class=" mb-4">
+                        <div id="duration" class="hidden mb-4">
                             <label for="p_duration" class="w-full block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                                 Duration</label>
                             <fieldset class="flex my-4">
 
                                 <div class="flex mr-4">
                                     <input id="duration-option-1" type="radio" name="duration" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-green-300 dark:focus:ring-green-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
-                                    <label for="duration-option-1" class=" block ms-2  text-sm font-thin text-gray-900 dark:text-gray-300">
+                                    <label for="duration-option-1" class=" block ms-2  text-sm font-semibold text-gray-500 dark:text-gray-300">
                                         Per day
                                     </label>
                                 </div>
 
                                 <div class="flex mr-4">
                                     <input id="duration-option-2" type="radio" name="duration" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-green-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="duration-option-2" class="block ms-2 text-sm font-thin text-gray-900 dark:text-gray-300">
+                                    <label for="duration-option-2" class="block ms-2 text-sm font-semibold text-gray-500 dark:text-gray-300">
                                         Per month
                                     </label>
                                 </div>
                                 <div class="flex ">
-                                    <input id="duration-option-3" type="radio" name="duration" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-green-300 dark:focus:ring-green-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
-                                    <label for="duration-option-3" class="w-20 block ms-2  text-sm font-thin text-gray-900 dark:text-gray-300">
+                                    <input id="duration-option-3" type="radio" name="duration" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-green-300 dark:focus:ring-green-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" >
+                                    <label for="duration-option-3" class="w-20 block ms-2  text-sm font-semibold text-gray-500 dark:text-gray-300">
                                         Per year
                                     </label>
                                 </div>

@@ -16,25 +16,25 @@
   <!-- flowbite -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
   <!-- tailwind -->
-  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <title>home</title>
 </head>
 
 <body class='bg-primary
   '>
 
-<?php include '../header/header.php' ?>
+<!-- // include '../header/header.html' -->
   <!-- start hero -->
   <div class="relative mb-20">
     <img src="../resources/img/home.jpg" width="100%" alt="" />
     <!--start search bar -->
 
-    <div class="w-11/12 lg:w-3/4 h-8 sm:h-10 md:h-12 lg:h-14   bg-secondary rounded-md absolute -bottom-5 md:-bottom-8 left-4 md:left-10 lg:left-28 xl:left-44 2xl:left-72 py-2 px-2 flex text-xs lg:text-base">
+    <div class="w-11/12 lg:w-1/2 h-10 md:h-14 bg-secondary rounded-md absolute -bottom-5 md:-bottom-8 left-5 md:left-10 lg:left-1/4 py-2 px-2 flex text-xs lg:text-base">
       <!-- location -->
       <div class="flex w-1/4 items-center border-r">
-        <ion-icon name="location" class="text-alert mr-1 lg:mx-2"></ion-icon>
+        <ion-icon name="location" class="text-alert mr-1"></ion-icon>
         <div>
-          <select name="location" class="bg-secondary text-primary w-16 sm:w-20 md:w-28 lg:w-36 xl:w-48 2xl:w-52 border-none text-2xs sm:text-small lg:text-base">
+          <select name="location" class="bg-secondary text-primary w-20 lg:w-28 2xl:w-40 border-none text-2xs md:text-base">
             <option value="" disabled selected>Location</option>
             <option value="">Kamayut</option>
             <option value="">Thar Kay Tha</option>
@@ -45,9 +45,9 @@
       </div>
       <!-- type -->
       <div class="flex w-1/4 items-center border-r pr-1">
-        <ion-icon name="business" class="text-primary ml-1 sm:mx-2 lg:mx-3"></ion-icon>
+        <ion-icon name="business" class="text-primary mx-2"></ion-icon>
         <div>
-          <select name="type" class="bg-secondary text-primary w-16 sm:w-20 md:w-28 lg:w-36 xl:w-48 2xl:w-52 border-none text-2xs sm:text-small lg:text-base">
+          <select name="type" class="bg-secondary text-primary w-20 border-none lg:w-28 2xl:w-40 text-2xs md:text-base">
             <option value="" disabled selected>Type</option>
             <option value="">Apartment</option>
             <option value="">Commercial</option>
@@ -58,9 +58,9 @@
       </div>
       <!-- price -->
       <div class="flex w-1/4 items-center mr-1 border-r">
-        <ion-icon name="cash-outline" class="text-darkGreen mx-1 sm:mx-2 lg:mx-3"></ion-icon>
+        <ion-icon name="cash-outline" class="text-darkGreen mx-2"></ion-icon>
         <div>
-          <select name="price" class="bg-secondary text-primary w-16 sm:w-20 md:w-28 lg:w-36 xl:w-48 2xl:w-52 border-none text-2xs sm:text-small lg:text-base">
+          <select name="price" class="bg-secondary text-primary w-20 lg:w-28 2xl:w-40 border-none text-2xs md:text-base">
             <option value="" disabled selected>Price</option>
             <option value="">below 1000lakhs</option>
             <option value="">below 5000lakhs</option>
@@ -71,7 +71,7 @@
       </div>
       <!-- search btn -->
       <div class="flex justify-center items-center w-1/4">
-        <button class="text-primary bg-darkGreen h-5 md:h-8 rounded-md px-4 text-2xs md:text-sm">
+        <button class="text-primary bg-darkGreen h-6 md:h-8 rounded-md px-4 text-2xs md:text-sm">
           Search
         </button>
       </div>
@@ -90,42 +90,39 @@
       <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
         <!-- Item 1 -->
         <div class="hidden duration-700 ease-in-out m-auto bg-white" data-carousel-item>
-          <h1 class="font-bold text-sm  sm:hidden sm:text-xl text-center mt-5">3 Beds Condo in Kamayut</h1>
-          <div class="absolute flex  justify-between items-center gap-2 sm:gap-0  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 px-10 lg:px-14  ">
-         
-            <div class="relative w-1/2 sm:h-5/6 rounded-md overflow-hidden flex  items-center  sm:mb-0 ">
-           
+          <div class="absolute flex  justify-between items-center h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 px-10 lg:px-14 ">
+            <div class="w-1/2 h-5/6 rounded-md overflow-hidden flex  items-center relative">
+            <div class="bg-darkGreen text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+                                Rent</div>
               <img src="../resources/img/recommended-section-img.jpg" width="100%" height="100%" alt=""  />
-              <div class="bg-darkGreen text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg  w-10 h-4  sm:w-20 sm:h-8 text-2xs sm:text-base absolute right-0 top-2 sm:top-8">
-                Rent</div>
             </div>
-            <div class="space-y-0 sm:space-y-5  flex flex-col mt-1 ml-1  sm:mt-7 sm:ml-5 w-2/5 sm:w-auto">
+            <div class="space-y-5 flex flex-col  mt-7 ml-5">
               <!-- title  -->
-              <h1 class="font-bold text-sm hidden sm:block sm:text-xl">3 Beds Condo in Kamayut</h1>
+              <h1 class="font-bold text-xl">3 Beds Condo in Kamayut</h1>
               <!-- price -->
-              <div class="sm:block hidden">
-                <ion-icon name="cash-outline" class="text-darkGreen pl-0 sm:pl-2"></ion-icon>
-                <span class="text-darkGreen ml-1 font-bold text-xs sm:text-xl">2,000 Lakhs</span>
+              <div>
+                <ion-icon name="cash-outline" class="text-darkGreen pl-2"></ion-icon>
+                <span class="text-darkGreen ml-1 font-bold text-xl">2,000 Lakhs</span>
               </div>
               <!-- Description -->
-              <p class="tracking-wide text-2xs sm:text-base hidden sm:block">
+              <p class="tracking-wide">
                 This is a 3 bed Condo available for rent in Kamayut Township.
                 The asking price is 200000 Lakhs....
               </p>
               <!-- facts -->
-              <div class="space-y-1 sm:space-y-5  ">
-                <div class="flex justify-between sm:gap-0 gap-1 flex-col sm:flex-row">
+              <div class="space-y-5">
+                <div class="flex justify-between">
                   <div>
-                    <span class="font-semibold text-2xs sm:text-base">Property ID:</span>
-                    <span class="text-2xs sm:text-base">CD354#E</span>
+                    <span class="font-semibold">Property ID:</span>
+                    <span>CD354#E</span>
                   </div>
-                  <div class="text-2xs sm:text-base ">
+                  <div>
                     <span class="font-semibold">Property Type:</span>
                     <span>Condo</span>
                   </div>
                 </div>
-                <div class="flex justify-between text-2xs sm:gap-0 gap-1 sm:text-base flex-col sm:flex-row">
-                  <div >
+                <div class="flex justify-between">
+                  <div>
                     <span class="font-semibold">Size:</span>
                     <span>17000 ft<sup>2</sup> </span>
                   </div>
@@ -136,15 +133,9 @@
                 </div>
               </div>
               <!-- time -->
-              <div class="sm:hidden flex pt-1 ">
-                
-                  <ion-icon name="cash-outline" class="text-darkGreen"></ion-icon>
-                  <span class="text-darkGreen ml-1 font-bold text-2xs  sm:text-xl">2,000 Lakhs</span>
-                </div>
-              <p class="text-gray-400 text-2xs sm:text-base text-right hidden sm:block ">3 months ago</p>
-          <div class="sm:hidden h-2"></div>
-              <div class="w-full flex justify-end ">
-                <button class=" text-primary bg-darkGreen h-5 text-2xs px-2 sm:h-6 md:h-8 rounded-md sm:px-4 sm:text-sm  sm-static">
+              <p class="text-gray-400">3 months ago</p>
+              <div class="w-full flex justify-end">
+                <button class="text-primary bg-darkGreen h-6 md:h-8 rounded-md px-4 text-sm">
                   Details
                 </button>
               </div>
@@ -155,42 +146,37 @@
 
         <!-- item 5 -->
         <div class="hidden duration-700 ease-in-out m-auto bg-white" data-carousel-item>
-          <h1 class="font-bold text-sm  sm:hidden sm:text-xl text-center mt-5">3 Beds Condo in Kamayut</h1>
-          <div class="absolute flex  justify-between items-center gap-2 sm:gap-0  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 px-10 lg:px-14  ">
-         
-            <div class="relative w-1/2 sm:h-5/6 rounded-md overflow-hidden flex  items-center  sm:mb-0 ">
-           
-              <img src="../resources/img/recommended-section-img.jpg" width="100%" height="100%" alt=""  />
-              <div class="bg-darkGreen text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg  w-10 h-4  sm:w-20 sm:h-8 text-2xs sm:text-base absolute right-0 top-2 sm:top-8">
-                Rent</div>
+          <div class="absolute flex justify-between items-center h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 px-10 lg:px-14 ">
+            <div class="w-1/2 h-5/6 rounded-md overflow-hidden flex  items-center">
+              <img src="../resources/img/recommended-section-img.jpg" width="100%" height="100%" alt="" />
             </div>
-            <div class="space-y-0 sm:space-y-5  flex flex-col mt-1 ml-1  sm:mt-7 sm:ml-5 w-2/5 sm:w-auto">
+            <div class="space-y-5 flex flex-col  mt-7 ml-5">
               <!-- title  -->
-              <h1 class="font-bold text-sm hidden sm:block sm:text-xl">3 Beds Condo in Kamayut</h1>
+              <h1 class="font-bold text-xl">3 Beds Condo in Kamayut</h1>
               <!-- price -->
-              <div class="sm:block hidden">
-                <ion-icon name="cash-outline" class="text-darkGreen pl-0 sm:pl-2"></ion-icon>
-                <span class="text-darkGreen ml-1 font-bold text-xs sm:text-xl">2,000 Lakhs</span>
+              <div>
+                <ion-icon name="cash-outline" class="text-darkGreen pl-2"></ion-icon>
+                <span class="text-darkGreen ml-1 font-bold text-xl">2,000 Lakhs</span>
               </div>
               <!-- Description -->
-              <p class="tracking-wide text-2xs sm:text-base hidden sm:block">
+              <p class="tracking-wider whitespace-normal">
                 This is a 3 bed Condo available for rent in Kamayut Township.
                 The asking price is 200000 Lakhs....
               </p>
               <!-- facts -->
-              <div class="space-y-1 sm:space-y-5  ">
-                <div class="flex justify-between sm:gap-0 gap-1 flex-col sm:flex-row">
+              <div class="space-y-5">
+                <div class="flex justify-between">
                   <div>
-                    <span class="font-semibold text-2xs sm:text-base">Property ID:</span>
-                    <span class="text-2xs sm:text-base">CD354#E</span>
+                    <span class="font-semibold">Property ID:</span>
+                    <span>CD354#E</span>
                   </div>
-                  <div class="text-2xs sm:text-base ">
+                  <div>
                     <span class="font-semibold">Property Type:</span>
                     <span>Condo</span>
                   </div>
                 </div>
-                <div class="flex justify-between text-2xs sm:gap-0 gap-1 sm:text-base flex-col sm:flex-row">
-                  <div >
+                <div class="flex justify-between">
+                  <div>
                     <span class="font-semibold">Size:</span>
                     <span>17000 ft<sup>2</sup> </span>
                   </div>
@@ -201,22 +187,15 @@
                 </div>
               </div>
               <!-- time -->
-              <div class="sm:hidden flex pt-1 ">
-                
-                  <ion-icon name="cash-outline" class="text-darkGreen"></ion-icon>
-                  <span class="text-darkGreen ml-1 font-bold text-2xs  sm:text-xl">2,000 Lakhs</span>
-                </div>
-              <p class="text-gray-400 text-2xs sm:text-base text-right hidden sm:block ">3 months ago</p>
-          <div class="sm:hidden h-2"></div>
-              <div class="w-full flex justify-end ">
-                <button class=" text-primary bg-darkGreen h-5 text-2xs px-2 sm:h-6 md:h-8 rounded-md sm:px-4 sm:text-sm  sm-static">
+              <p class="text-gray-400">3 months ago</p>
+              <div class="w-full flex justify-end">
+                <button class="text-primary bg-darkGreen h-6 md:h-8 rounded-md px-4 text-sm">
                   Details
                 </button>
               </div>
             </div>
           </div>
         </div>
-
       </div>
       <!-- Slider indicators -->
       <div class="absolute -bottom-10 z-30 flex -translate-x-1/2 left-1/2 space-x-3 rtl:space-x-reverse px-3 py-2 rounded-lg bg-gray-100 ">
@@ -247,8 +226,8 @@
   </div>
   <!-- card container 1  -->
 
-  <h1 class="font-playFair text-2xl font-extrabold ml-12 mb-10 tracking-wider">
-    Lastest Rent Properties
+  <h1 class="font-playFair text-2xl font-extrabold ml-14 mb-10 tracking-wider">
+    Latest Rent Properties
   </h1>
   <div class=" px-2 flex w-full flex-col content-stretch  space-y-2 items-center lg:flex-row lg:justify-around mb-20">
 
@@ -439,8 +418,8 @@
 
 
   <!-- card container 2  -->
-  <h1 class="font-playFair text-2xl font-extrabold ml-12 mb-10 tracking-wider">
-    Lastest Sale Properties
+  <h1 class="font-playFair text-2xl font-extrabold ml-14 mb-10 tracking-wider">
+    Latest Sale Properties
   </h1>
   <div class="px-2 flex w-full flex-col content-stretch  space-y-2 items-center lg:flex-row lg:justify-around mb-28">
 

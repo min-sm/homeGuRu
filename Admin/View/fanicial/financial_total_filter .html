@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../resources/css/dist/output.css" rel="stylesheet" />
-    <link href="../resources/css/financial/financial_total_filter.css" rel="stylesheet" />
 
 
     <title>Dashboard</title>
+
+    <script src="../resources/js/financial_total_filter.js" defer></script>
 
     <!-- ionic icons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -286,8 +287,10 @@
         <!--End  Financial Total View -->
 
         <!--Start Financial Type Tag button -->
-        <div class="flex justify-center mt-8">
+        <div class="flex justify-center mt-8 mb-16">
             <div class="mx-4 ">
+                <input id="rent-radio" type="radio" value="" name="financial_type"
+                class="hidden  w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                 <label for="rent-radio"
                     class="relative px-14 py-3 text-2xl  text-white font-medium rounded-lg   bg-goldYellow hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300   dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 tracking-wider">
                     <ion-icon class="text-2xl mr-2" name="pricetag"></ion-icon>
@@ -295,6 +298,8 @@
                 </label>
             </div>
             <div class="mx-4 ">
+                <input id="sale-radio" type="radio" value="" name="financial_type"
+                class="hidden  w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                 <label for="sale-radio"
                     class="relative px-14 py-3 text-2xl  text-white font-medium rounded-lg   bg-alert hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300   dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 tracking-wider">
                     <ion-icon class="text-2xl mr-2" name="pricetag"></ion-icon>
@@ -302,6 +307,8 @@
                 </label>
             </div>
             <div class="mx-4 ">
+                <input id="collaborator-radio" type="radio" value="" name="financial_type"
+                class="hidden  w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                 <label for="collaborator-radio"
                     class="relative px-5 py-3 text-2xl text-center  text-white font-medium rounded-lg   bg-darkGreen hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300   dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 tracking-wider">
                     <ion-icon class="text-2xl mr-2" name="pricetag"></ion-icon>
@@ -310,20 +317,11 @@
             </div>
         </div>
         <!--Start Financial Type Tag button -->
-
-
-        <div class="w-full flex justify-center m-5">
-
-          
-           
-
-        </div>
+        
     </div>
 
- <!--Start  Financial Rent Section -->
- <input checked id="rent-radio" class="" type="radio" value="" name="default-radio"
- class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-    <div class="financialType px-10    sm:ml-64 flex flex-col items-center">
+    <!--Start  Financial Rent Section -->
+    <div id="rent" class=" hidden px-10    sm:ml-64 flex flex-col justify-center items-center">
         <!--Start  Financial All Total Section -->
         <div class=" py-4">
             <span class="mr-4 font-bold text-3xl text-secondary dark:text-white ">Rent Total :</span>
@@ -331,9 +329,9 @@
                     class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></span>
         </div>
         <!--End  Financial All Total Section -->
-        <!--Start  Financial Rent  List Table -->
 
-        <div class="  w-full overflow-x-auto shadow-md sm:rounded-lg">
+        <!--Start  Financial Rent  List Table -->
+        <div class=" lg:w-3/5 w-full overflow-x-auto shadow-md sm:rounded-lg">
             <table class="  w-full text-xl text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-base text-gray-700 uppercase bg-primary dark:bg-gray-800 dark:text-gray-400">
                     <tr>
@@ -346,7 +344,7 @@
                         <th scope="col" class="pr-20 py-3 text-center">
                             Total
                         </th>
-                       
+
                     </tr>
                 </thead>
                 <tbody class="font-medium tracking-wide">
@@ -360,9 +358,9 @@
                         </td>
                         <td class="pr-20 py-4">
                             <p class=" font-bold text-right text-2xl text-goldYellow">30,000,000,000,000000,000 <span
-                                class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
+                                    class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
                         </td>
-                       
+
                     </tr>
                     <tr
                         class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
@@ -374,8 +372,8 @@
                         </td>
                         <td class="pr-20 py-4">
                             <p class=" font-bold text-right text-2xl text-goldYellow">30,000,000 <span
-                                class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
-                        </td> 
+                                    class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
+                        </td>
                     </tr>
                     <tr
                         class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
@@ -387,9 +385,9 @@
                         </td>
                         <td class="pr-20 py-4">
                             <p class=" font-bold text-right text-2xl text-goldYellow">30,000,000 <span
-                                class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
+                                    class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
                         </td>
-                       
+
                     </tr>
                     <tr
                         class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
@@ -401,9 +399,9 @@
                         </td>
                         <td class="pr-20 py-4">
                             <p class=" font-bold text-right text-2xl text-goldYellow">30,000,000 <span
-                                class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
+                                    class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
                         </td>
-                        
+
                     </tr>
                 </tbody>
             </table>
@@ -411,14 +409,12 @@
         <!--End Financial Rent  List Table -->
 
     </div>
-<!--End  Financial Rent Section -->
+    <!--End  Financial Rent Section -->
 
 
 
- <!--Start  Financial Sale Section -->
- <input id="sale-radio" type="radio" value="" name="default-radio"
- class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-    <div class="financialType p-10  sm:ml-64 flex flex-col items-center ">
+    <!--Start  Financial Sale Section -->
+    <div id="sale" class=" hidden px-10  sm:ml-64 flex flex-col items-center ">
         <!--Start  Financial All Total Section -->
         <div class="py-4">
             <span class="mr-4 font-bold text-3xl text-secondary dark:text-white ">Sale Total :</span>
@@ -428,7 +424,7 @@
         <!--End  Financial All Total Section -->
 
         <!--Start  Financial Sale  List Table -->
-        <div class="relative  w-full overflow-x-auto shadow-md sm:rounded-lg">
+        <div class="lg:w-3/5  w-full overflow-x-auto shadow-md sm:rounded-lg">
             <table class="  w-full text-xl text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-base text-gray-700 uppercase bg-primary dark:bg-gray-800 dark:text-gray-400">
                     <tr>
@@ -441,7 +437,7 @@
                         <th scope="col" class="pr-20 py-3 text-center">
                             Total
                         </th>
-                       
+
                     </tr>
                 </thead>
                 <tbody class="font-medium tracking-wide">
@@ -455,9 +451,9 @@
                         </td>
                         <td class="pr-20 py-4">
                             <p class=" font-bold text-right text-2xl text-goldYellow">30,000,000,000,000000,000 <span
-                                class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
+                                    class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
                         </td>
-                       
+
                     </tr>
                     <tr
                         class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
@@ -469,8 +465,8 @@
                         </td>
                         <td class="pr-20 py-4">
                             <p class=" font-bold text-right text-2xl text-goldYellow">30,000,000 <span
-                                class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
-                        </td> 
+                                    class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
+                        </td>
                     </tr>
                     <tr
                         class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
@@ -482,9 +478,9 @@
                         </td>
                         <td class="pr-20 py-4">
                             <p class=" font-bold text-right text-2xl text-goldYellow">30,000,000 <span
-                                class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
+                                    class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
                         </td>
-                       
+
                     </tr>
                     <tr
                         class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
@@ -496,111 +492,110 @@
                         </td>
                         <td class="pr-20 py-4">
                             <p class=" font-bold text-right text-2xl text-goldYellow">30,000,000 <span
-                                class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
+                                    class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
                         </td>
-                        
+
                     </tr>
                 </tbody>
             </table>
         </div>
         <!--End Financial Sale  List Table -->
 
-       
+
     </div>
-<!--End  Financial Sale Section -->
+    <!--End  Financial Sale Section -->
 
-<!--Start  Financial Collaborator Section -->
-<input id="collaborator-radio" type="radio" value="" name="default-radio"
-class=" w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-   <div class="financialType  p-10 sm:ml-64 flex flex-col items-center ">
-       <!--Start  Financial All Total Section -->
-       <div class="py-4">
-           <span class="mr-4 font-bold text-3xl text-secondary dark:text-white text-right">Collaborator Total :</span>
-           <span class=" font-bold text-left text-4xl text-alert ">30,000,000,000 <span
-                   class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></span>
-       </div>
-       <!--End  Financial All Total Section -->
+    <!--Start  Financial Collaborator Section -->
+   
+    <div id="collaborator" class=" hidden px-10 sm:ml-64 flex flex-col items-center ">
+        <!--Start  Financial All Total Section -->
+        <div class="py-4">
+            <span class="mr-4 font-bold text-3xl text-secondary dark:text-white text-right">Collaborator Total :</span>
+            <span class=" font-bold text-left text-4xl text-alert ">30,000,000,000 <span
+                    class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></span>
+        </div>
+        <!--End  Financial All Total Section -->
 
-       <!--Start  Financial Collaborator  List Table -->
-       <div class="relative w-full overflow-x-auto   shadow-md sm:rounded-lg">
-           <table class=" w-full text-xl text-left rtl:text-right text-gray-500 dark:text-gray-400">
-               <thead class="text-base text-gray-700 uppercase bg-primary dark:bg-gray-800 dark:text-gray-400">
-                   <tr>
-                       <th scope="col" class="px-10 py-3">
-                           No
-                       </th>
-                       <th scope="col" class="px-10 py-3 ">
-                           Date
-                       </th>
-                       <th scope="col" class="pr-20 py-3 text-center">
-                           Total
-                       </th>
-                      
-                   </tr>
-               </thead>
-               <tbody class="font-medium tracking-wide">
-                   <tr
-                       class="font-xl odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                       <th scope="row" class="px-10 py-4  text-gray-900 whitespace-nowrap dark:text-white">
-                           01
-                       </th>
-                       <td class="px-10 py-4">
-                           2023/December/01
-                       </td>
-                       <td class="pr-20 py-4">
-                           <p class=" font-bold text-right text-2xl text-goldYellow">30,000,000,000,000000,000 <span
-                               class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
-                       </td>
-                      
-                   </tr>
-                   <tr
-                       class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                       <th scope="row" class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                           02
-                       </th>
-                       <td class="px-10 py-4">
-                           2023/December/02
-                       </td>
-                       <td class="pr-20 py-4">
-                           <p class=" font-bold text-right text-2xl text-goldYellow">30,000,000 <span
-                               class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
-                       </td> 
-                   </tr>
-                   <tr
-                       class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                       <th scope="row" class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                           03
-                       </th>
-                       <td class="px-10 py-4">
-                           2023/December/03
-                       </td>
-                       <td class="pr-20 py-4">
-                           <p class=" font-bold text-right text-2xl text-goldYellow">30,000,000 <span
-                               class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
-                       </td>
-                      
-                   </tr>
-                   <tr
-                       class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                       <th scope="row" class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                           04
-                       </th>
-                       <td class="px-10 py-4">
-                           2023/December/04
-                       </td>
-                       <td class="pr-20 py-4">
-                           <p class=" font-bold text-right text-2xl text-goldYellow">30,000,000 <span
-                               class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
-                       </td>
-                       
-                   </tr>
-               </tbody>
-           </table>
-       </div>
-       <!--End Financial Collaborator  List Table -->
+        <!--Start  Financial Collaborator  List Table -->
+        <div class="relative lg:w-3/5 w-full overflow-x-auto   shadow-md sm:rounded-lg">
+            <table class=" w-full text-xl text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-base text-gray-700 uppercase bg-primary dark:bg-gray-800 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-10 py-3">
+                            No
+                        </th>
+                        <th scope="col" class="px-10 py-3 ">
+                            Date
+                        </th>
+                        <th scope="col" class="pr-20 py-3 text-center">
+                            Total
+                        </th>
 
-   </div>
-<!--End  Financial Collaborator Section -->
+                    </tr>
+                </thead>
+                <tbody class="font-medium tracking-wide">
+                    <tr
+                        class="font-xl odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                        <th scope="row" class="px-10 py-4  text-gray-900 whitespace-nowrap dark:text-white">
+                            01
+                        </th>
+                        <td class="px-10 py-4">
+                            2023/December/01
+                        </td>
+                        <td class="pr-20 py-4">
+                            <p class=" font-bold text-right text-2xl text-goldYellow">30,000,000,000,000000,000 <span
+                                    class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
+                        </td>
+
+                    </tr>
+                    <tr
+                        class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                        <th scope="row" class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            02
+                        </th>
+                        <td class="px-10 py-4">
+                            2023/December/02
+                        </td>
+                        <td class="pr-20 py-4">
+                            <p class=" font-bold text-right text-2xl text-goldYellow">30,000,000 <span
+                                    class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
+                        </td>
+                    </tr>
+                    <tr
+                        class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                        <th scope="row" class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            03
+                        </th>
+                        <td class="px-10 py-4">
+                            2023/December/03
+                        </td>
+                        <td class="pr-20 py-4">
+                            <p class=" font-bold text-right text-2xl text-goldYellow">30,000,000 <span
+                                    class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
+                        </td>
+
+                    </tr>
+                    <tr
+                        class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                        <th scope="row" class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            04
+                        </th>
+                        <td class="px-10 py-4">
+                            2023/December/04
+                        </td>
+                        <td class="pr-20 py-4">
+                            <p class=" font-bold text-right text-2xl text-goldYellow">30,000,000 <span
+                                    class="font-semibold text-lg text-gray-500 tracking-wider">Kyats</span></p>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--End Financial Collaborator  List Table -->
+
+    </div>
+    <!--End  Financial Collaborator Section -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 
 </body>
