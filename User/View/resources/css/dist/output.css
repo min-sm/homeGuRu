@@ -668,14 +668,6 @@ html {
   left: 5rem;
 }
 
-.left-3{
-  left: 0.75rem;
-}
-
-.left-3\.5{
-  left: 0.875rem;
-}
-
 .left-5{
   left: 1.25rem;
 }
@@ -1125,10 +1117,6 @@ html {
   height: 2rem;
 }
 
-.h-80{
-  height: 20rem;
-}
-
 .h-9{
   height: 2.25rem;
 }
@@ -1456,11 +1444,6 @@ html {
 
 .rounded-md{
   border-radius: 0.375rem;
-}
-
-.rounded-b-lg{
-  border-bottom-right-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
 }
 
 .rounded-e-lg{
@@ -2585,10 +2568,6 @@ html {
     margin-left: 2.5rem;
   }
 
-  .lg\:ml-20{
-    margin-left: 5rem;
-  }
-
   .lg\:mr-10{
     margin-right: 2.5rem;
   }
@@ -2655,10 +2634,6 @@ html {
 
   .lg\:w-5\/12{
     width: 41.666667%;
-  }
-
-  .lg\:w-5\/6{
-    width: 83.333333%;
   }
 
   .lg\:w-52{
