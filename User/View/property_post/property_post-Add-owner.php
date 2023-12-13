@@ -72,13 +72,7 @@
         <form class="w-3/5 mx-auto  my-10 ">
             <!-- Start Property Select photo -->
             <div class=" mb-5">
-              
-<div id="imgContainer" class="flex items-center justify-center w-full">
-<label for="photoUpload">
-<input type="file" class="hidden" id="photoInput" accept="image/png,image/png,image/jpeg">
-<i class="fa-solid fa-images fa-beat"></i>
-</label>
-</div> 
+
 
             </div>
             <!-- End Property Select photo -->

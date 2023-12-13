@@ -2718,9 +2718,9 @@ html {
     color: rgb(29 78 216 / var(--tw-text-opacity));
   }
 
-  .md\:text-teal-500{
+  .md\:text-teal-700{
     --tw-text-opacity: 1;
-    color: rgb(20 184 166 / var(--tw-text-opacity));
+    color: rgb(15 118 110 / var(--tw-text-opacity));
   }
 
   .md\:hover\:bg-transparent:hover{
