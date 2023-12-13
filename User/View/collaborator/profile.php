@@ -8,8 +8,7 @@
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet" />
 
     <!-- flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
@@ -23,9 +22,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <!-- font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="bg-[#F7F7F7] tracking-wide">
@@ -36,45 +33,35 @@
                 <img src="../resources/img/common/logo-confirm.png" class="h-16" alt="HomeGuRu Logo" />
             </a>
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                <button type="button"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Login
                 </button>
-                <button data-collapse-toggle="navbar-cta" type="button"
-                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600">
+                <button data-collapse-toggle="navbar-cta" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600">
                     <span class="sr-only">Open main menu</span>
                     <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M1 1h15M1 7h15M1 13h15" />
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
                     </svg>
                 </button>
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
-                <ul
-                    class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-gray-800 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-gray-800">
+                <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-gray-800 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-gray-800">
                     <li>
-                        <a href="#"
-                            class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Home</a>
+                        <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Home</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Buy</a>
+                        <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Buy</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Rent</a>
+                        <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Rent</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Sell</a>
+                        <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Sell</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-500 ">Collaborator</a>
+                        <a href="#" class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-500 ">Collaborator</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Our
+                        <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Our
                             Services</a>
                     </li>
                 </ul>
@@ -125,15 +112,12 @@
         <div class="grid grid-rows-2 gap-16 my-20">
             <div class="flex justify-around">
                 <div class="grid lg:grid-cols-3 grid-cols-1 gap-16">
-                    <div
-                        class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">
                             <div class="relative">
-                                <div
-                                    class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+                                <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
                                     Sale</div>
-                                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg"
-                                    alt="product image" />
+                                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
                             </div>
                         </a>
                         <div class="px-5 pb-5">
@@ -180,20 +164,16 @@
 
                             <div class="flex items-center justify-end">
                                 <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-                                <a href="#"
-                                    class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+                                <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
                             </div>
                         </div>
                     </div>
-                    <div
-                        class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">
                             <div class="relative">
-                                <div
-                                    class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+                                <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
                                     Sale</div>
-                                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg"
-                                    alt="product image" />
+                                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
                             </div>
                         </a>
                         <div class="px-5 pb-5">
@@ -240,20 +220,16 @@
 
                             <div class="flex items-center justify-end">
                                 <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-                                <a href="#"
-                                    class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+                                <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
                             </div>
                         </div>
                     </div>
-                    <div
-                        class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">
                             <div class="relative">
-                                <div
-                                    class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+                                <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
                                     Sale</div>
-                                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg"
-                                    alt="product image" />
+                                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
                             </div>
                         </a>
                         <div class="px-5 pb-5">
@@ -300,8 +276,7 @@
 
                             <div class="flex items-center justify-end">
                                 <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-                                <a href="#"
-                                    class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+                                <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
                             </div>
                         </div>
                     </div>
@@ -309,15 +284,12 @@
             </div>
             <div class="flex justify-around">
                 <div class="grid lg:grid-cols-3 grid-cols-1 gap-16">
-                    <div
-                        class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">
                             <div class="relative">
-                                <div
-                                    class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+                                <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
                                     Sale</div>
-                                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg"
-                                    alt="product image" />
+                                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
                             </div>
                         </a>
                         <div class="px-5 pb-5">
@@ -364,20 +336,16 @@
 
                             <div class="flex items-center justify-end">
                                 <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-                                <a href="#"
-                                    class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+                                <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
                             </div>
                         </div>
                     </div>
-                    <div
-                        class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">
                             <div class="relative">
-                                <div
-                                    class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+                                <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
                                     Sale</div>
-                                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg"
-                                    alt="product image" />
+                                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
                             </div>
                         </a>
                         <div class="px-5 pb-5">
@@ -424,20 +392,16 @@
 
                             <div class="flex items-center justify-end">
                                 <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-                                <a href="#"
-                                    class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+                                <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
                             </div>
                         </div>
                     </div>
-                    <div
-                        class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">
                             <div class="relative">
-                                <div
-                                    class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+                                <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
                                     Sale</div>
-                                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg"
-                                    alt="product image" />
+                                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
                             </div>
                         </a>
                         <div class="px-5 pb-5">
@@ -484,8 +448,7 @@
 
                             <div class="flex items-center justify-end">
                                 <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-                                <a href="#"
-                                    class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+                                <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
                             </div>
                         </div>
                     </div>
@@ -527,8 +490,7 @@
         <!-- buy rent 2 cards -->
         <div class="flex mt-6 mb-10 flex-col lg:flex-row items-center w-auto justify-between">
             <!-- buy property card -->
-            <div class="w-3/4 lg:w-5/12 h-56 bg-cover flex items-center justify-center"
-                style="background-image: url('../resources/img/pic1.png')">
+            <div class="w-3/4 lg:w-5/12 h-56 bg-cover flex items-center justify-center" style="background-image: url('../resources/img/pic1.png')">
                 <ul class="list-disc text-white list-inside w-4/5 text-2xs lg:text-sm space-y-2.5">
                     <span class="text-xl" style="font-family: 'Playfair Display'">Buy Property</span>
                     <li>
@@ -548,8 +510,7 @@
             </div>
 
             <!-- rent property card -->
-            <div class="w-3/4 lg:w-5/12 h-56 mt-16 lg:mt-auto bg-cover flex items-center justify-center"
-                style="background-image: url('../resources/img/pic2.png')">
+            <div class="w-3/4 lg:w-5/12 h-56 mt-16 lg:mt-auto bg-cover flex items-center justify-center" style="background-image: url('../resources/img/pic2.png')">
                 <ul class="list-disc text-white list-inside w-4/5 lg:text-sm text-2xs space-y-2.5">
                     <span class="text-xl lg:text-xl" style="font-family: 'Playfair Display'">Rent Property</span>
                     <li>
@@ -569,6 +530,8 @@
             </div>
         </div>
     </div>
+    <!-- footer -->
+    <?php include '../footer/footer.php' ?>
 </body>
 
 </html>

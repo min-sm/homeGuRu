@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rent</title>
+  <title>Search Result</title>
   <!-- google font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,10 +25,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- JS -->
+  <script src="../resources/js/search_filter_btn.js" defer></script>
   <script src="../resources/js/sort_by_section.js" defer></script>
 </head>
 
-<body class="bg-[#F7F7F7]">
+<body class="bg-[#F7F7F7] tracking-wide">
   <!-- Navigation -->
   <nav class="bg-gray-800 border-gray-200">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -49,15 +50,14 @@
       <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
         <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-gray-800 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-gray-800">
           <li>
-            <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Home</a>
+            <a href="#" class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-500">Home</a>
           </li>
           <li>
             <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Buy</a>
           </li>
           <li>
-            <a href="#" class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-500">Rent</a>
+            <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Rent</a>
           </li>
-
           <li>
             <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Sell</a>
           </li>
@@ -73,50 +73,104 @@
   </nav>
 
   <!-- filter dropdown (select) boxes -->
-  <div class="flex items-center justify-evenly my-8">
-    <div>
-      <select name="p_type" class="lg:w-52 w-28 px-5 py-2.5 rounded-lg border-2">
-        <option value="" disabled selected>Property Type</option>
-        <option value="">Apartment</option>
-        <option value="">Commercial</option>
-        <option value="">Condo</option>
-        <option value="">House</option>
-      </select>
+  <div>
+    <!-- Search Property Title and filter btn -->
+    <div class="relative">
+      <div class="flex justify-center items-center my-8">
+        <h1 class="text-2xl">Search Property</h1>
+      </div>
+      <div class="absolute top-0 right-5 lg:right-20">
+        <button type="button" id="toggleFilterBtn" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-1.5 text-center dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">
+          Filter
+        </button>
+      </div>
     </div>
-    <div>
-      <select name="p_township" class="lg:w-52 w-28 px-5 py-2.5 rounded-lg border-2">
-        <option value="" disabled selected>Township</option>
-        <option value="">Bahan</option>
-        <option value="">Tamwe</option>
-      </select>
+
+    <!-- search boxes first row -->
+    <div class="flex items-center justify-evenly my-5">
+      <div>
+        <input type="text" class="bg-white border border-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block lg:w-52 w-28 p-2.5 dark:placeholder-gray-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Property ID" />
+      </div>
+
+      <div>
+        <select name="p_offer" class="lg:w-52 w-28 px-5 py-2.5 rounded-lg border-2">
+          <option value="" disabled selected>Offer Type</option>
+          <option value="">Rent</option>
+          <option value="">Sale</option>
+        </select>
+      </div>
+
+      <div>
+        <select name="p_type" class="lg:w-52 w-28 px-5 py-2.5 rounded-lg border-2">
+          <option value="" disabled selected>Property Type</option>
+          <option value="">Apartment</option>
+          <option value="">Commercial</option>
+          <option value="">Condo</option>
+          <option value="">House</option>
+        </select>
+      </div>
     </div>
-    <div>
-      <select name="price_min" class="lg:w-52 w-28 px-5 py-2.5 rounded-lg border-2">
-        <option value="" disabled selected>Minimum Price</option>
-        <option value="">100</option>
-        <option value="">200</option>
-      </select>
+
+    <!-- search boxes sec row -->
+    <div class="flex items-center justify-evenly my-5">
+      <div>
+        <select name="state" class="hidden lg:w-52 w-28 px-5 py-2.5 rounded-lg border-2" id="filterState">
+          <option value="" disabled selected>State</option>
+          <option value="">Yangon</option>
+          <option value="">Mandalay</option>
+        </select>
+      </div>
+      <div>
+        <select name="p_township" class="hidden lg:w-52 w-28 px-5 py-2.5 rounded-lg border-2" id="filterTownship">
+          <option value="" disabled selected>Township</option>
+          <option value="">Bahan</option>
+          <option value="">Tamwe</option>
+        </select>
+      </div>
     </div>
-    <div>
-      <select name="p_type" class="lg:w-52 w-28 px-5 py-2.5 rounded-lg border-2">
-        <option value="" disabled selected>Maximum Price</option>
-        <option value="">100</option>
-        <option value="">200</option>
-      </select>
+
+    <!-- search boxes third row -->
+    <div class="flex items-center justify-evenly my-5">
+      <div>
+        <select name="from_price" class="hidden lg:w-52 w-28 px-5 py-2.5 rounded-lg border-2" id="filterPriceFrom">
+          <option value="" disabled selected>Price (From)</option>
+          <option value="">100</option>
+          <option value="">200</option>
+        </select>
+      </div>
+
+      <div>
+        <select name="from_price" class="hidden lg:w-52 w-28 px-5 py-2.5 rounded-lg border-2" id="filterPriceTo">
+          <option value="" disabled selected>Price (To)</option>
+          <option value="">100</option>
+          <option value="">200</option>
+        </select>
+      </div>
     </div>
   </div>
 
   <!-- sort by -->
-  <div class="bg-gray-800 mb-8 text-white py-5 flex items-center">
+  <div class="bg-gray-800 mt-3 text-white py-5 flex items-center">
     <span class="flex-none ms-16">Sort by</span>
     <div class="flex items-center flex-1 lg:ms-32 ms-8">
-      <label for="newest" class="cursor-pointer label ms-3">Newest</label>
+      <label for="newest" class=" cursor-pointer label ms-3">Newest</label>
       <label for="price_l_t_h" class="text-gray-500 cursor-pointer label ms-8">Price (Low to High)</label>
       <label for="price_h_t_l" class="text-gray-500 cursor-pointer label ms-8">Price (High to Low)</label>
       <input type="radio" id="newest" name="sort_by" value="" class="hidden" checked />
       <input type="radio" id="price_l_t_h" name="sort_by" value="" class="hidden" />
       <input type="radio" id="price_h_t_l" name="sort_by" value="" class="hidden" />
     </div>
+  </div>
+
+  <!-- results found -->
+  <div class="py-8">
+    <span class="ms-16 me-8 text-2xl"><span>100</span> Found</span>
+    <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+      Condo <i class="fa-solid fa-xmark ms-3" style="color: #ff0000"></i>
+    </button>
+    <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+      Rent <i class="fa-solid fa-xmark ms-3" style="color: #ff0000"></i>
+    </button>
   </div>
 
   <!-- cards -->
@@ -319,8 +373,8 @@
         <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <a href="#">
             <div class="relative">
-              <div class="bg-[#00534F] text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
-                Rent
+              <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+                Sale
               </div>
               <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
             </div>
@@ -382,8 +436,8 @@
         <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <a href="#">
             <div class="relative">
-              <div class="bg-[#00534F] text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
-                Rent
+              <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+                Sale
               </div>
               <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
             </div>
@@ -445,8 +499,8 @@
         <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <a href="#">
             <div class="relative">
-              <div class="bg-[#00534F] text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
-                Rent
+              <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+                Sale
               </div>
               <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
             </div>
@@ -717,7 +771,6 @@
         <li>
           <a href="#" aria-current="page" class="z-10 flex items-center justify-center px-4 h-10 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">1</a>
         </li>
-
         <li>
           <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
         </li>
@@ -741,7 +794,6 @@
       </ul>
     </nav>
   </div>
-
   <!-- footer -->
   <?php include '../footer/footer.php' ?>
 </body>
