@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Property Details</title>
   <style>
+
     /* The Modal (background) */
     #myModal {
       display: none;
@@ -107,7 +108,7 @@
   <!-- uploader info -->
   <div class="flex flex-row items-center w-4/5 lg:w-1/2 my-6 ms-4 lg:ms-24">
     <!-- collaborator logo -->
-    <div class="basis-1/5">
+    <div class="basis-1/5 mr-2 sm:mr-0">
       <div class="rounded-full bg-[#D9D9D9] w-24">
         <img src="../resources/img/collaborator-tpj-logo.png" alt="test2" />
       </div>
@@ -126,10 +127,9 @@
     </div>
   </div>
 
-  <!-- property imgs & property info  -->
-  <div class="flex flex-col lg:flex-row justify-between w-full lg:w-11/12">
+  <div>
     <!-- imgs -->
-    <div class="w-full flex flex-col items-center justify-around">
+    <div class="lg:w-2/3 w-full flex flex-col items-center justify-around float-left">
       <div class="w-96 lg:w-[674.86px] lg:h-96 h-56 bg-cover bg-center rounded-lg property-img" style="background-image: url('../resources/img/entrance-hall.jpg')"></div>
       <div class="flex flex-row items-center w-3/4 justify-evenly mt-7">
         <div class="w-20 lg:w-40 h-12 lg:h-24 bg-cover bg-center rounded-lg property-img" style="background-image: url('../resources/img/study-room.jpg')"></div>
@@ -138,13 +138,12 @@
         <div class="w-20 lg:w-40 h-12 lg:h-24 bg-cover bg-center rounded-lg property-img" style="background-image: url('../resources/img/kitchen.jpg')"></div>
       </div>
     </div>
-
     <!-- property info -->
-    <div class="mt-5 lg:mt-0 space-y-4 text-center lg:text-left w-full lg:w-2/5">
+    <div class="mt-5 lg:mt-0 space-y-4 text-center lg:text-left w-full lg:w-1/3 lg:sticky top-0 h-fit float-left">
       <h5 class="text-xl font-semibold tracking-tight text-black">
         4 Bed House in Golden Valley
       </h5>
-      <div class="bg-gray-800 text-white text-center py-1.5 rounded-md text-xl font-semibold lg:mx-0 mx-5">
+      <div class="bg-gray-800 text-white text-center py-1.5 rounded-md text-xl font-semibold lg:mx-0 mx-5 lg:w-1/2 w-11/12">
         1500 lakhs / month
       </div>
       <div>
@@ -174,80 +173,77 @@
         Interest View Register
       </button>
     </div>
-  </div>
-
-  <!-- The Modal -->
-  <div id="myModal">
-    <!-- Modal content -->
-    <div id="modal-content" class="flex items-center justify-center">
-      <img id="display-full-img" class="w-4/5 h-auto lg:w-auto lg:h-[80vh]" src="" />
-      <span id="img-description" class="mt-4"></span>
-    </div>
-  </div>
-  <!-- complete property details -->
-  <div class="flex flex-col items-center lg:w-3/5 w-full lg:ml-10 ml-0">
-    <!-- map -->
-    <div class="mt-6 mx-4 relative ">
-      <div class="h-32 w-full lg:w-[896px] lg:h-72 top-3.5">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30549.300087395244!2d96.17693643476562!3d16.8430906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c193f51faa68ff%3A0x72868c60b69532c4!2sEx%3BbraiN%20Office!5e0!3m2!1sen!2smm!4v1702148429176!5m2!1sen!2smm" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="h-32 w-full lg:w-[896px] lg:h-72 border border-black rounded-lg shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]"></iframe>
+    <!-- The Modal -->
+    <div id="myModal">
+      <!-- Modal content -->
+      <div id="modal-content" class="flex items-center justify-center">
+        <img id="display-full-img" class="w-4/5 h-auto lg:w-auto lg:h-[80vh]" src="" />
+        <span id="img-description" class="mt-4"></span>
       </div>
     </div>
+    <!-- complete property details -->
+    <div class="flex flex-col items-center lg:w-3/5 w-full lg:ml-10 ml-0">
+      <!-- map -->
+      <div class="mt-6 mx-4 relative ">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30549.300087395244!2d96.17693643476562!3d16.8430906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c193f51faa68ff%3A0x72868c60b69532c4!2sEx%3BbraiN%20Office!5e0!3m2!1sen!2smm!4v1702148429176!5m2!1sen!2smm" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="lg:h-64 lg:w-[600px] w-full h-32  border border-black rounded-lg shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]"></iframe>
+      </div>
 
-    <!-- line break -->
-    <hr class="my-6 w-11/12 lg:w-1/2 h-1 bg-paleGray" />
+      <!-- line break -->
+      <hr class="my-6 w-11/12 lg:w-1/2 h-1 bg-paleGray" />
 
-    <!-- features -->
-    <div class="text-center w-full">
-      <h1 class="font-playFair text-2xl mb-3">Features</h1>
+      <!-- features -->
+      <div class="text-center w-full">
+        <h1 class="font-playFair text-2xl mb-3">Features</h1>
 
-      <div class="grid grid-cols-3 lg:text-base text-sm">
-        <div>
-          <ul class="list-disc list-inside text-start">
-            <li>24 hours security</li>
-            <li>Air con</li>
-            <li>Lift</li>
-          </ul>
-        </div>
-        <div>
-          <ul class="list-disc list-inside text-start">
-            <li>Washing Machine</li>
-            <li>Car parking</li>
-            <li>Generator</li>
-          </ul>
-        </div>
-        <div>
-          <ul class="list-disc list-inside text-start">
-            <li>Refrigerator</li>
-            <li>Swimming Pool</li>
-            <li>Shopping Center</li>
-          </ul>
+        <div class="grid grid-cols-3 lg:text-base text-sm px-2 sm:px-0">
+          <div>
+            <ul class="list-disc list-inside text-start">
+              <li>24 hours security</li>
+              <li>Air con</li>
+              <li>Lift</li>
+            </ul>
+          </div>
+          <div>
+            <ul class="list-disc list-inside text-start">
+              <li>Washing Machine</li>
+              <li>Car parking</li>
+              <li>Generator</li>
+            </ul>
+          </div>
+          <div>
+            <ul class="list-disc list-inside text-start">
+              <li>Refrigerator</li>
+              <li>Swimming Pool</li>
+              <li>Shopping Center</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- line break -->
-    <hr class="my-6 w-11/12 lg:w-1/2 h-1 bg-paleGray" />
+      <!-- line break -->
+      <hr class="my-6 w-11/12 lg:w-1/2 h-1 bg-paleGray" />
 
-    <!-- descriptions -->
-    <div class="w-full">
-      <h1 class="font-playFair text-2xl mb-3 text-center">Description</h1>
+      <!-- descriptions -->
+      <div class="w-full">
+        <h1 class="font-playFair text-2xl mb-3 text-center">Description</h1>
 
-      <p class="tracking-wider leading-8">
-        <?php
-        function addBRAfterFullStop($text)
-        {
-          return preg_replace('/\.\W/', '.<br>', $text);
-        }
+        <p class="tracking-wider leading-8 ml-2">
+          <?php
+          function addBRAfterFullStop($text)
+          {
+            return preg_replace('/\.\W/', '.<br>', $text);
+          }
 
-        // information comes from database will be given to $inputText variable
-        $inputText = "This is a 5 Bed House in Kamayut. The asking price is 4800 lakhs per month, and the square feet is 3200. Inside the property, there are three bedrooms with ensuites and two single bedrooms. The property will come unfurnished or furnished with all essentials for daily living. This includes items such as a TV, sofa set, coffee table, dining table, chairs, beds, mattresses, washing machine & a fridge freezer. This house comes with access car parking and a backup generator for 24-hour electricity. For more information about Myanmar Real Estate contact us; Phone, Viber & telegram : +959-980636388 Email : myanmarproperties3@gmail.com";
-        $processedText = addBRAfterFullStop($inputText);
-        echo $processedText;
-        ?>
-      </p>
+          // information comes from database will be given to $inputText variable
+          $inputText = "This is a 5 Bed House in Kamayut. The asking price is 4800 lakhs per month, and the square feet is 3200. Inside the property, there are three bedrooms with ensuites and two single bedrooms. The property will come unfurnished or furnished with all essentials for daily living. This includes items such as a TV, sofa set, coffee table, dining table, chairs, beds, mattresses, washing machine & a fridge freezer. This house comes with access car parking and a backup generator for 24-hour electricity. For more information about Myanmar Real Estate contact us; Phone, Viber & telegram : +959-980636388 Email : myanmarproperties3@gmail.com";
+          $processedText = addBRAfterFullStop($inputText);
+          echo $processedText;
+          ?>
+        </p>
+      </div>
     </div>
   </div>
-  <!-- line break -->
+
 
   <!-- related properties section -->
   <div class="flex flex-col items-center justify-center mt-10">
@@ -278,7 +274,7 @@
                   </h5>
                 </a>
                 <div class="rounded-full bg-gray-50 w-16">
-                  <img src="../resources/img/logo.png" alt="" />
+                  <img src="../resources/img/collaborator-tpj-logo.png" alt="" />
                 </div>
               </div>
 
@@ -334,7 +330,7 @@
                   </h5>
                 </a>
                 <div class="rounded-full bg-gray-50 w-16">
-                  <img src="../resources/img/logo.png" alt="" />
+                  <img src="../resources/img/collaborator-tpj-logo.png" alt="" />
                 </div>
               </div>
 
@@ -390,7 +386,7 @@
                   </h5>
                 </a>
                 <div class="rounded-full bg-gray-50 w-16">
-                  <img src="../resources/img/logo.png" alt="" />
+                  <img src="../resources/img/collaborator-tpj-logo.png" alt="" />
                 </div>
               </div>
 
@@ -450,7 +446,7 @@
                   </h5>
                 </a>
                 <div class="rounded-full bg-gray-50 w-16">
-                  <img src="../resources/img/logo.png" alt="" />
+                  <img src="../resources/img/collaborator-tpj-logo.png" alt="" />
                 </div>
               </div>
 
@@ -506,7 +502,7 @@
                   </h5>
                 </a>
                 <div class="rounded-full bg-gray-50 w-16">
-                  <img src="../resources/img/logo.png" alt="" />
+                  <img src="../resources/img/collaborator-tpj-logo.png" alt="" />
                 </div>
               </div>
 
@@ -562,7 +558,7 @@
                   </h5>
                 </a>
                 <div class="rounded-full bg-gray-50 w-16">
-                  <img src="../resources/img/logo.png" alt="" />
+                  <img src="../resources/img/collaborator-tpj-logo.png" alt="" />
                 </div>
               </div>
 

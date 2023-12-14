@@ -690,6 +690,21 @@ html {
   margin-bottom: 2rem;
 }
 
+.my-6{
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.my-3{
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.my-96{
+  margin-top: 24rem;
+  margin-bottom: 24rem;
+}
+
 .mb-10{
   margin-bottom: 2.5rem;
 }
@@ -720,6 +735,10 @@ html {
 
 .mb-8{
   margin-bottom: 2rem;
+}
+
+.mb-96{
+  margin-bottom: 24rem;
 }
 
 .me-3{
@@ -818,6 +837,10 @@ html {
   margin-top: 2rem;
 }
 
+.mt-6{
+  margin-top: 1.5rem;
+}
+
 .block{
   display: block;
 }
@@ -902,6 +925,10 @@ html {
   height: 1.5rem;
 }
 
+.h-72{
+  height: 18rem;
+}
+
 .h-8{
   height: 2rem;
 }
@@ -916,6 +943,10 @@ html {
 
 .h-screen{
   height: 100vh;
+}
+
+.h-1{
+  height: 0.25rem;
 }
 
 .w-14{
@@ -994,12 +1025,32 @@ html {
   width: 2rem;
 }
 
+.w-80{
+  width: 20rem;
+}
+
 .w-96{
   width: 24rem;
 }
 
 .w-full{
   width: 100%;
+}
+
+.w-11\/12{
+  width: 91.666667%;
+}
+
+.w-1\/2{
+  width: 50%;
+}
+
+.w-1\/4{
+  width: 25%;
+}
+
+.w-1\/12{
+  width: 8.333333%;
 }
 
 .max-w-sm{
@@ -1021,6 +1072,14 @@ html {
 
 .cursor-pointer{
   cursor: pointer;
+}
+
+.list-inside{
+  list-style-position: inside;
+}
+
+.list-disc{
+  list-style-type: disc;
 }
 
 .list-none{
@@ -1137,6 +1196,12 @@ html {
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}
+
+.space-y-8 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
 }
 
 .divide-y > :not([hidden]) ~ :not([hidden]){
@@ -1374,6 +1439,11 @@ html {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-paleGray{
+  --tw-bg-opacity: 1;
+  background-color: rgb(217 217 217 / var(--tw-bg-opacity));
+}
+
 .p-1{
   padding: 0.25rem;
 }
@@ -1526,6 +1596,10 @@ html {
   text-align: right;
 }
 
+.text-start{
+  text-align: start;
+}
+
 .text-2xl{
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1601,6 +1675,18 @@ html {
 
 .leading-tight{
   line-height: 1.25;
+}
+
+.leading-8{
+  line-height: 2rem;
+}
+
+.leading-4{
+  line-height: 1rem;
+}
+
+.leading-6{
+  line-height: 1.5rem;
 }
 
 .tracking-tight{
@@ -2085,9 +2171,19 @@ html {
     border-radius: 0.5rem;
   }
 
+  .sm\:px-0{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   .sm\:text-lg{
     font-size: 1.125rem;
     line-height: 1.75rem;
+  }
+
+  .sm\:text-base{
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 }
 
@@ -2128,6 +2224,10 @@ html {
 
   .lg\:w-28{
     width: 7rem;
+  }
+
+  .lg\:w-3\/4{
+    width: 75%;
   }
 
   .lg\:w-3\/5{
