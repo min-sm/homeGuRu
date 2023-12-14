@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Guru</title>
+    <title>Collaborator Profile</title>
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,7 +32,7 @@
     <!-- Navigation -->
     <nav class="bg-gray-800 border-gray-200 ">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="../Home_page/home.php" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="../resources/img/common/logo-confirm.png" class="md:h-12  h-11" alt="HomeGuRu Logo" />
             </a>
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -54,33 +54,34 @@
                     class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-gray-800 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-gray-800">
                     <li>
                         <a href="../Home_page/home.php"
-                            class="item block py-2 px-3 md:p-0 md:bg-transparent text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700">Home</a>
+                            class="home item block py-2 px-3 md:p-0 md:bg-transparent text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700">Home</a>
                     </li>
                     <li>
                         <a href="../property_post/buy_view.php"
-                            class="item block py-2 px-3 md:p-0 md:bg-transparent text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700">Buy</a>
+                            class="buy item block py-2 px-3 md:p-0 md:bg-transparent text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700">Buy</a>
                     </li>
                     <li>
                         <a href="../property_post/rent_view.php"
-                            class="item block py-2 px-3 md:p-0 md:bg-transparent text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700">Rent</a>
+                            class="rent item block py-2 px-3 md:p-0 md:bg-transparent text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700">Rent</a>
                     </li>
                     <li>
                         <a href="../property_post/property_post-Add-owner.php"
-                            class="item block py-2 px-3 md:p-0 md:bg-transparent text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700">Sell</a>
+                            class="sell item block py-2 px-3 md:p-0 md:bg-transparent text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700">Sell</a>
                     </li>
                     <li>
                         <a href="../collaborator/collaborator_list_user_view.php"
-                            class="item block py-2 px-3 md:text-teal-700 md:p-0 text-white rounded md:bg-transparent  hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700 ">Collaborator</a>
+                            class="item collaborator block py-2 px-3 md:p-0 text-white rounded md:bg-transparent  hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700 ">Collaborator</a>
                     </li>
                     <li>
-                        <a href=""
-                            class="item block py-2 px-3  md:p-0 md:bg-transparent text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700">Our
+                        <a href="#ourservices"
+                            class="item services block py-2 px-3  md:p-0 md:bg-transparent text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700">Our
                             Services</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    <!-- <script src="../resources/js/headerSelect.js"></script> -->
 </body>
 
 </html>

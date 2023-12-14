@@ -18,6 +18,14 @@ module.exports = {
         playFair: ['"Playfair Display"'],
         sans: ["Roboto", ...defaultTheme.fontFamily.sans],
       },
+      keyframes: {
+        slide: {
+        '100%': { transform: 'translate(-100%)' },
+        }
+      },
+      animation: {
+        slide: 'slide 5s linear infinite',
+      }
     },
   },
   plugins: [],
