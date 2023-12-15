@@ -39,7 +39,8 @@
   <?php include '../header/header.php' ?>
 
   <!-- filter dropdown (select) boxes -->
-  <div class="flex items-center justify-evenly my-8">
+  <div class="flex sm:flex-row flex-col justify-center  items-center gap-8 my-8 ">
+    <div class="flex gap-8">
     <div>
       <select name="p_type" class="lg:w-52 w-28 px-5 py-2.5 rounded-lg border-2">
         <option value="" disabled selected>Property Type</option>
@@ -56,6 +57,8 @@
         <option value="">Tamwe</option>
       </select>
     </div>
+    </div>
+    <div class="flex gap-8">
     <div>
       <select name="price_min" class="lg:w-52 w-28 px-5 py-2.5 rounded-lg border-2">
         <option value="" disabled selected>Minimum Price</option>
@@ -69,6 +72,7 @@
         <option value="">100</option>
         <option value="">200</option>
       </select>
+    </div>
     </div>
   </div>
 
@@ -86,7 +90,7 @@
   </div>
 
   <!-- cards -->
-  <div class="grid grid-rows-3 gap-16">
+  <div class="px-2 grid grid-rows-3 gap-16">
     <div class="flex justify-around">
       <div class="grid lg:grid-cols-3 grid-cols-1 gap-16">
         <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -144,7 +148,7 @@
 
             <div class="flex items-center justify-end">
               <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-              <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+              <a href="#" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
             </div>
           </div>
         </div>
@@ -207,7 +211,7 @@
 
             <div class="flex items-center justify-end">
               <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-              <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+              <a href="#" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
             </div>
           </div>
         </div>
@@ -270,200 +274,7 @@
 
             <div class="flex items-center justify-end">
               <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-              <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="flex justify-around">
-      <div class="grid lg:grid-cols-3 grid-cols-1 gap-16">
-        <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <a href="#">
-            <div class="relative">
-              <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
-                Sale
-              </div>
-              <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
-            </div>
-          </a>
-          <div class="px-5 pb-5">
-            <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
-              <span>November 11 at 12:30</span>
-              <span>13 people interests</span>
-            </div>
-            <div class="my-2.5 flex items-center justify-between">
-              <a href="#" class="mt-2.5 mb-5">
-                <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                  4 Bed House in Golden Valley
-                </h5>
-              </a>
-              <div class="rounded-full bg-gray-50 w-16">
-                <img src="../resources/img/logo.png" alt="" />
-              </div>
-            </div>
-
-            <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
-              <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
-              <span class="ml-3">7,000 Lakhs / Month</span>
-            </div>
-
-            <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
-              <div class="flex justify-between items-center">
-                <div>
-                  <span style="font-family: 'Playfair Display'">Property ID:
-                  </span>
-                  <span>1456</span>
-                </div>
-                <div>
-                  <span style="font-family: 'Playfair Display'">Property Type:
-                  </span>
-                  <span>House</span>
-                </div>
-              </div>
-              <div class="flex justify-between items-center mt-2">
-                <div>
-                  <span style="font-family: 'Playfair Display'">Township:
-                  </span>
-                  <span>Bahan</span>
-                </div>
-                <div>
-                  <span style="font-family: 'Playfair Display'">Property Size:
-                  </span>
-                  <span>5,000 ft<sup>2</sup></span>
-                </div>
-              </div>
-            </div>
-
-            <div class="flex items-center justify-end">
-              <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-              <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
-            </div>
-          </div>
-        </div>
-        <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <a href="#">
-            <div class="relative">
-              <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
-                Sale
-              </div>
-              <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
-            </div>
-          </a>
-          <div class="px-5 pb-5">
-            <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
-              <span>November 11 at 12:30</span>
-              <span>13 people interests</span>
-            </div>
-            <div class="my-2.5 flex items-center justify-between">
-              <a href="#" class="mt-2.5 mb-5">
-                <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                  4 Bed House in Golden Valley
-                </h5>
-              </a>
-              <div class="rounded-full bg-gray-50 w-16">
-                <img src="../resources/img/logo.png" alt="" />
-              </div>
-            </div>
-
-            <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
-              <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
-              <span class="ml-3">7,000 Lakhs / Month</span>
-            </div>
-
-            <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
-              <div class="flex justify-between items-center">
-                <div>
-                  <span style="font-family: 'Playfair Display'">Property ID:
-                  </span>
-                  <span>1456</span>
-                </div>
-                <div>
-                  <span style="font-family: 'Playfair Display'">Property Type:
-                  </span>
-                  <span>House</span>
-                </div>
-              </div>
-              <div class="flex justify-between items-center mt-2">
-                <div>
-                  <span style="font-family: 'Playfair Display'">Township:
-                  </span>
-                  <span>Bahan</span>
-                </div>
-                <div>
-                  <span style="font-family: 'Playfair Display'">Property Size:
-                  </span>
-                  <span>5,000 ft<sup>2</sup></span>
-                </div>
-              </div>
-            </div>
-
-            <div class="flex items-center justify-end">
-              <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-              <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
-            </div>
-          </div>
-        </div>
-        <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <a href="#">
-            <div class="relative">
-              <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
-                Sale
-              </div>
-              <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
-            </div>
-          </a>
-          <div class="px-5 pb-5">
-            <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
-              <span>November 11 at 12:30</span>
-              <span>13 people interests</span>
-            </div>
-            <div class="my-2.5 flex items-center justify-between">
-              <a href="#" class="mt-2.5 mb-5">
-                <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                  4 Bed House in Golden Valley
-                </h5>
-              </a>
-              <div class="rounded-full bg-gray-50 w-16">
-                <img src="../resources/img/logo.png" alt="" />
-              </div>
-            </div>
-
-            <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
-              <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
-              <span class="ml-3">7,000 Lakhs / Month</span>
-            </div>
-
-            <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
-              <div class="flex justify-between items-center">
-                <div>
-                  <span style="font-family: 'Playfair Display'">Property ID:
-                  </span>
-                  <span>1456</span>
-                </div>
-                <div>
-                  <span style="font-family: 'Playfair Display'">Property Type:
-                  </span>
-                  <span>House</span>
-                </div>
-              </div>
-              <div class="flex justify-between items-center mt-2">
-                <div>
-                  <span style="font-family: 'Playfair Display'">Township:
-                  </span>
-                  <span>Bahan</span>
-                </div>
-                <div>
-                  <span style="font-family: 'Playfair Display'">Property Size:
-                  </span>
-                  <span>5,000 ft<sup>2</sup></span>
-                </div>
-              </div>
-            </div>
-
-            <div class="flex items-center justify-end">
-              <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-              <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+              <a href="#" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
             </div>
           </div>
         </div>
@@ -530,7 +341,7 @@
 
             <div class="flex items-center justify-end">
               <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-              <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+              <a href="#" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
             </div>
           </div>
         </div>
@@ -593,7 +404,7 @@
 
             <div class="flex items-center justify-end">
               <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-              <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+              <a href="#" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
             </div>
           </div>
         </div>
@@ -656,7 +467,200 @@
 
             <div class="flex items-center justify-end">
               <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-              <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+              <a href="#" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-around">
+      <div class="grid lg:grid-cols-3 grid-cols-1 gap-16">
+        <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <div class="relative">
+              <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+                Sale
+              </div>
+              <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
+            </div>
+          </a>
+          <div class="px-5 pb-5">
+            <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
+              <span>November 11 at 12:30</span>
+              <span>13 people interests</span>
+            </div>
+            <div class="my-2.5 flex items-center justify-between">
+              <a href="#" class="mt-2.5 mb-5">
+                <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                  4 Bed House in Golden Valley
+                </h5>
+              </a>
+              <div class="rounded-full bg-gray-50 w-16">
+                <img src="../resources/img/logo.png" alt="" />
+              </div>
+            </div>
+
+            <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
+              <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
+              <span class="ml-3">7,000 Lakhs / Month</span>
+            </div>
+
+            <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
+              <div class="flex justify-between items-center">
+                <div>
+                  <span style="font-family: 'Playfair Display'">Property ID:
+                  </span>
+                  <span>1456</span>
+                </div>
+                <div>
+                  <span style="font-family: 'Playfair Display'">Property Type:
+                  </span>
+                  <span>House</span>
+                </div>
+              </div>
+              <div class="flex justify-between items-center mt-2">
+                <div>
+                  <span style="font-family: 'Playfair Display'">Township:
+                  </span>
+                  <span>Bahan</span>
+                </div>
+                <div>
+                  <span style="font-family: 'Playfair Display'">Property Size:
+                  </span>
+                  <span>5,000 ft<sup>2</sup></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-end">
+              <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
+              <a href="#" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <div class="relative">
+              <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+                Sale
+              </div>
+              <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
+            </div>
+          </a>
+          <div class="px-5 pb-5">
+            <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
+              <span>November 11 at 12:30</span>
+              <span>13 people interests</span>
+            </div>
+            <div class="my-2.5 flex items-center justify-between">
+              <a href="#" class="mt-2.5 mb-5">
+                <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                  4 Bed House in Golden Valley
+                </h5>
+              </a>
+              <div class="rounded-full bg-gray-50 w-16">
+                <img src="../resources/img/logo.png" alt="" />
+              </div>
+            </div>
+
+            <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
+              <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
+              <span class="ml-3">7,000 Lakhs / Month</span>
+            </div>
+
+            <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
+              <div class="flex justify-between items-center">
+                <div>
+                  <span style="font-family: 'Playfair Display'">Property ID:
+                  </span>
+                  <span>1456</span>
+                </div>
+                <div>
+                  <span style="font-family: 'Playfair Display'">Property Type:
+                  </span>
+                  <span>House</span>
+                </div>
+              </div>
+              <div class="flex justify-between items-center mt-2">
+                <div>
+                  <span style="font-family: 'Playfair Display'">Township:
+                  </span>
+                  <span>Bahan</span>
+                </div>
+                <div>
+                  <span style="font-family: 'Playfair Display'">Property Size:
+                  </span>
+                  <span>5,000 ft<sup>2</sup></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-end">
+              <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
+              <a href="#" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <div class="relative">
+              <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+                Sale
+              </div>
+              <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
+            </div>
+          </a>
+          <div class="px-5 pb-5">
+            <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
+              <span>November 11 at 12:30</span>
+              <span>13 people interests</span>
+            </div>
+            <div class="my-2.5 flex items-center justify-between">
+              <a href="#" class="mt-2.5 mb-5">
+                <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                  4 Bed House in Golden Valley
+                </h5>
+              </a>
+              <div class="rounded-full bg-gray-50 w-16">
+                <img src="../resources/img/logo.png" alt="" />
+              </div>
+            </div>
+
+            <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
+              <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
+              <span class="ml-3">7,000 Lakhs / Month</span>
+            </div>
+
+            <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
+              <div class="flex justify-between items-center">
+                <div>
+                  <span style="font-family: 'Playfair Display'">Property ID:
+                  </span>
+                  <span>1456</span>
+                </div>
+                <div>
+                  <span style="font-family: 'Playfair Display'">Property Type:
+                  </span>
+                  <span>House</span>
+                </div>
+              </div>
+              <div class="flex justify-between items-center mt-2">
+                <div>
+                  <span style="font-family: 'Playfair Display'">Township:
+                  </span>
+                  <span>Bahan</span>
+                </div>
+                <div>
+                  <span style="font-family: 'Playfair Display'">Property Size:
+                  </span>
+                  <span>5,000 ft<sup>2</sup></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-end">
+              <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
+              <a href="#" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
             </div>
           </div>
         </div>

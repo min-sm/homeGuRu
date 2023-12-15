@@ -81,8 +81,8 @@
                     <a href="../collaborator/collaborator_list_user_view.php"><u>Collaborator</u></a>
                     <div class="text-2xl flex space-x-6 md:pt-2 pt-5 ">
                         <a href="https://www.facebook.com/profile.php?id=61554265933750"><i class="fa-brands fa-facebook fa-beat" style="color: #1877f2;"></i></a>
-                        <a href="https://www.viber.com"> <i class="fa-brands fa-viber fa-beat" style="color: #7360f2;"></i></a>
-                        <a href="https://www.telegram.com/@kokozay77"><i class="fa-brands fa-telegram fa-beat" style="color: #229ed9;"></i></a>
+                        <a href="https://www.viber.com/"> <i class="fa-brands fa-viber fa-beat" style="color: #7360f2;"></i></a>
+                        <a href="https://t.me/+aFpg-gpaOvdhMzY1"><i class="fa-brands fa-telegram fa-beat" style="color: #229ed9;"></i></a>
 
                     </div>
                 </div>

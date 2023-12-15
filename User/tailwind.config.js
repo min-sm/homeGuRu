@@ -21,7 +21,8 @@ module.exports = {
       keyframes: {
         slide: {
         '100%': { transform: 'translate(-100%)' },
-        }
+        },
+       
       },
       animation: {
         slide: 'slide 5s linear infinite',

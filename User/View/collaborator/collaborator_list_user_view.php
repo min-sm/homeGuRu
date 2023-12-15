@@ -37,54 +37,49 @@
     <!-- Navigation -->
     <?php include '../header/header.php' ?>
     <!-- Start Collaborator Hero Section  -->
-    <div class="w-full relative">
-        <img class="w-full" src="../resources/img/collaboratorHero.png" alt="collaboratorHero.pngs" />
-        <h1 class="font-black text-5xl absolute top-32 left-1/3">Grow your New Network</h1>
-        <div class="w-full absolute bottom-0 ">
-            <div class="mx-auto font-black text-3xl  w-2/3 h-56  bg-white rounded-t-lg opacity-50">
-            </div>
-        </div>
-        <div class="w-full absolute bottom-0 ">
-            <div class="mx-auto font-black text-3xl  w-2/3 h-56   rounded-t-lg ">
-                <div class="absolute font-black text-3xl  rounded-t-lg ">
-                    <p class="mx-10 mt-16 tracking-wide ">Faster Work Flow</p>
-                    <p class="mx-28 my-5 tracking-wide ">Easy to connect with client</p>
-                    <p class="mx-[11rem] tracking-wide ">Easily to Control your list of property Data</p>
-                </div>
-            </div>
-        </div>
+    <div class="w-full relative mb-20">
+        <img class="w-full" src="../resources/img/139546482_16064444264841n 1 (2).png" alt="collaboratorHero.pngs" />
+      
     </div>
     <!-- End Collaborator Hero Section  -->
 
     <!-- Start Partanership List Section  -->
-    <div class="flex flex-col items-center justify-center my-20">
-        <h1 class="text-5xl font-bold" style="font-family: 'Playfair Display';">Our Partanership</h1>
-        <div class="grid lg:grid-cols-4 grid-cols-1 gap-16">
-           
-            <img class="w-50 h-50 hover:bg-gray-100 " src="../resources/img/common/company Logo/IME PROPERTY.png" alt="company Logo" />
-            <img class="w-50 h-50 hover:bg-gray-100 " src="../resources/img/common/company Logo/MAGAR GROUP.png" alt="company Logo" />
-            <img class="w-50 h-50 hover:bg-gray-100 " src="../resources/img/common/company Logo/SHWE TAUNG.png" alt="company Logo" />
-            <img class="w-50 h-50 hover:bg-gray-100 " src="../resources/img/common/company Logo/TPL Myanmar.png" alt="company Logo" />
+    <div class=" mb-28 overflow-hidden whitespace-nowrap ">
+        <h1 class="tracking-wider font-playFair text-3xl font-extrabold text-center mb-14">Our Partners</h1>
+    
+        <div class="inline-block space-x-10 animate-slide  px-0 ">
+          <img src="../resources/img/ImeLogo.png" class="inline h-20 lg:h-48 "   alt="logo">
+          <img src="../resources/img/maga Logo.png" class="inline h-20 lg:h-48"   alt="logo">
+          <img src="../resources/img/collaborator-tpj-logo.png" class="inline h-20 lg:h-48"   alt="logo">
+          <img src="../resources/img/ShweTaungLogo.png" class="hidden h-20 lg:h-48  lg:inline"   alt="logo">
+          <img src="../resources/img/maga Logo.png" class="hidden h-20 lg:h-48  xl:inline"   alt="logo">
         </div>
-    </div>
+        <div class="inline-block space-x-10 animate-slide  px-0 ">
+          <img src="../resources/img/ImeLogo.png" class="inline h-20 lg:h-48"   alt="logo">
+          <img src="../resources/img/maga Logo.png" class="inline h-20 lg:h-48"   alt="logo">
+          <img src="../resources/img/collaborator-tpj-logo.png" class="inline h-20 lg:h-48"   alt="logo">
+          <img src="../resources/img/ShweTaungLogo.png" class="hidden h-20 lg:h-48 lg:inline"   alt="logo">
+          <img src="../resources/img/maga Logo.png" class="hidden h-20 lg:h-48  xl:inline"   alt="logo">
+        </div>
+      </div>
     <!-- End Partanership List Section  -->
 
     <!-- Start Collaborator register Section  -->
     <div class="w-full relative">
         <img class="w-full" src="../resources/img/collaboratorRegister.png" alt="collaboratorHero.png" />
-        <div class="w-1/2 text-white   absolute top-14 left-20 tracking-wide ">
-            <h1 class="font-medium text-5xl  " style="font-family: 'Playfair Display';">Collaborator Requirement</h1>
-            <div class="absolute  text-2xl  my-14 tracking-wide">
-                <p class=" mb-4 ">. Real estate licensing (as required by local regulations).</p>
-                <p class=" mb-4 ">. Understanding of tax implications in real estate transactions.</p>
-                <p class=" mb-4 ">. Networking for property listings and client acquisition.</p>
-                <p class=" mb-4 ">. In-depth knowledge of the local real estate market.</p>
+        <div class="w-1/2 text-white top-1 left-2 xl:left-36 xl:top-20  absolute lg:top-10 lg:left-10 tracking-wide ">
+            <h1 class="font-medium font-playFair text-xs lg:text-3xl mb-2 lg:mb-5  " >Collaborator Requirement</h1>
+            <div class="lg:space-y-4 space-y-1 text-2xs lg:text-lg  tracking-wide font-light">
+                <p >. Real estate licensing </p>
+                <p >. Understanding of tax implications</p>
+                <p >. Networking for property listings </p>
+                <p >. In-depth knowledge of the local market.</p>
             </div>
         </div>
-        <div class=" text-white   absolute bottom-2/4 right-16 tracking-wide ">
-            <h1 class="font-bold text-5xl tracking-wide px-5 " style="font-family: 'Playfair Display';">To Be Our
+        <div class=" text-white bottom-10 right-5 xl:right-40  absolute lg:bottom-2/4 lg:right-16 tracking-wide ">
+            <h1 class="font-bold text-sm lg:text-3xl mb-2 tracking-wide lg:px-5 font-playFair">To Be Our
                 Partner</h1>
-            <button class="absolute w-full h-20 bg-blue-800  text-2xl  my-10 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+            <button class="absolute text-xs h-7 w-full lg:h-16 bg-darkGreen  lg:text-lg  lg:my-10 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                 Collaborator Register
             </button>
         </div>
@@ -95,23 +90,23 @@
     <!-- Start Search Company name Section  -->
 
     <div class="flex flex-col w-full items-center justify-evenly my-8">
-        <h1 class="font-bold text-5xl text-center " style="font-family: 'Playfair Display';">Property Contact</h1>
+        <h1 class="font-bold text-3xl text-center " style="font-family: 'Playfair Display';">Property Contact</h1>
 
-        <div class="w-3/5 my-16">
+        <div class="w-full my-16 flex gap-5 justify-center">
             <input type="text" name="collaboratorName" placeholder="Company Name"
-                class=" w-2/4 px-5 py-3 rounded-lg  border-2 mx-20">
-            <button class="w-1/4 h-12 font-medium text-2xl text-white rounded-lg bg-green-600 
+                class=" sm:w-1/4 px-5 py-3 rounded-lg  border-2 ">
+            <button class="sm:w-32 w-20 text-lg lg:h-12 font-medium sm:text-xl text-white rounded-lg bg-darkGreen 
             hover:bg-white-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                 Search
             </button>
         </div>
         <!-- Start  Company profile info Section  -->
-        <div class="w-3/4 h-64 bg-gray-800 border-gray-200 rounded my-5  hover:p-2">
-            <div class="absolute w-46 h-46  bg-[#F7F7F7] mx-16 my-12">
+        <div class="sm:w-3/4 w-11/12 sm:py-10 bg-gray-800 border-gray-200 rounded my-5 flex justify-around flex-col sm:flex-row items-center hover:p-2">
+            <div class="w-46 h-46  bg-[#F7F7F7] my-5">
                 <img class=" w-40 h-40" src="../resources/img/common/company Logo/TPL Myanmar.png" alt="company Logo" />
             </div>
-            <div class="absolute w-2/4 h-46 left-1/4 mx-40 my-12 text-white font-medium">
-                <div class="font-bold text-2xl mb-8">
+            <div class=" text-center  sm:text-left h-46  my-5 text-white ">
+                <div class="font-bold  sm:text-xl mb-8 ">
                     TPL Myanmar Real Estate & Service Co.,Ltd
                 </div>
                 <div class="mb-2">
@@ -122,7 +117,7 @@
                     <ion-icon class="mr-2" name="call-outline"></ion-icon>
                     <span>(+95) 95198105</span>
                 </div>
-                <div class="mb-2">
+                <div class="mb-2 whitespace-nowrap">
                     <ion-icon class="mr-2" name="mail-outline"></ion-icon>
                     <span>tplmyanmar@gmail.coms</span>
                 </div>
@@ -133,24 +128,25 @@
         <!-- Start  Company profile info Section  -->
 
         <!-- Start  Company profile info Section  -->
-        <div class="w-3/4 h-64 bg-gray-800 border-gray-200 rounded my-5 hover:p-2">
-            <div class="absolute w-46 h-46  bg-[#F7F7F7] mx-16 my-12">
-                <img class=" w-40 h-40" src="../resources/img/common/company Logo/SHWE TAUNG.png" alt="company Logo" />
+        <div class="sm:w-3/4 w-11/12 sm:py-10 bg-gray-800 border-gray-200 rounded my-5 flex justify-around flex-col sm:flex-row items-center hover:p-2">
+            <div class="w-46 h-46  bg-[#F7F7F7] my-5">
+                <img class=" w-40 h-40" src="../resources/img/common/company Logo/TPL Myanmar.png" alt="company Logo" />
             </div>
-            <div class="absolute w-2/4 h-46 left-1/4 mx-40 my-12 text-white font-medium">
-                <div class="font-bold text-2xl mb-8">
-                    SHWE TAUNG Real Estate Co.,Ltd </div>
+            <div class=" text-center  sm:text-left h-46  my-5 text-white ">
+                <div class="font-bold  sm:text-xl mb-8 ">
+                    TPL Myanmar Real Estate & Service Co.,Ltd
+                </div>
                 <div class="mb-2">
                     <ion-icon class="mr-2" name="person-outline"></ion-icon>
-                    <span>River View Garden HousingStrand Road, Ahlone TownshipYangon, Myanmar</span>
+                    <span>319, Rm 4, Yan Aung Lane (2), Ward (2), Yankin, Yangon , Myanmar</span>
                 </div>
                 <div class="mb-2">
                     <ion-icon class="mr-2" name="call-outline"></ion-icon>
-                    <span>(+95) 2314567</span>
+                    <span>(+95) 95198105</span>
                 </div>
-                <div class="mb-2">
+                <div class="mb-2 whitespace-nowrap">
                     <ion-icon class="mr-2" name="mail-outline"></ion-icon>
-                    <span>info@shwetaunggroup.com</span>
+                    <span>tplmyanmar@gmail.coms</span>
                 </div>
             </div>
 
@@ -159,26 +155,25 @@
         <!-- Start  Company profile info Section  -->
 
         <!-- Start  Company profile info Section  -->
-        <div class="w-3/4 h-64 bg-gray-800 border-gray-200 rounded my-5 hover:p-2">
-            <div class="absolute w-46 h-46  bg-[#F7F7F7] mx-16 my-12">
-                <img class=" w-40 h-40" src="../resources/img/common/company Logo/IME PROPERTY.png"
-                    alt="company Logo" />
+        <div class="sm:w-3/4 w-11/12 sm:py-10 bg-gray-800 border-gray-200 rounded my-5 flex justify-around flex-col sm:flex-row items-center hover:p-2">
+            <div class="w-46 h-46  bg-[#F7F7F7] my-5">
+                <img class=" w-40 h-40" src="../resources/img/common/company Logo/TPL Myanmar.png" alt="company Logo" />
             </div>
-            <div class="absolute w-2/4 h-46 left-1/4 mx-40 my-12 text-white font-medium">
-                <div class="font-bold text-2xl mb-8">
-                    IME PROPERTY Estate Co.,Ltd
+            <div class=" text-center  sm:text-left h-46  my-5 text-white ">
+                <div class="font-bold  sm:text-xl mb-8 ">
+                    TPL Myanmar Real Estate & Service Co.,Ltd
                 </div>
                 <div class="mb-2">
                     <ion-icon class="mr-2" name="person-outline"></ion-icon>
-                    <span>No.204, Dhamma Thukha Kyaung Street, Hlaing Tsp, 11051</span>
+                    <span>319, Rm 4, Yan Aung Lane (2), Ward (2), Yankin, Yangon , Myanmar</span>
                 </div>
                 <div class="mb-2">
                     <ion-icon class="mr-2" name="call-outline"></ion-icon>
-                    <span>(+95) 97770003</span>
+                    <span>(+95) 95198105</span>
                 </div>
-                <div class="mb-2">
+                <div class="mb-2 whitespace-nowrap">
                     <ion-icon class="mr-2" name="mail-outline"></ion-icon>
-                    <span></span>
+                    <span>tplmyanmar@gmail.coms</span>
                 </div>
             </div>
 
@@ -186,28 +181,25 @@
         </div>
         <!-- Start  Company profile info Section  -->
 
-        <div class="w-3/4 h-64 bg-gray-800 border-gray-200 rounded my-5">
-            <div class="absolute w-46 h-46  bg-[#F7F7F7] mx-16 my-12">
-                <img class=" w-40 h-40" src="../resources/img/common/company Logo/MAGAR GROUP.png" alt="company Logo" />
+        <div class="sm:w-3/4 w-11/12 sm:py-10 bg-gray-800 border-gray-200 rounded my-5 flex justify-around flex-col sm:flex-row items-center hover:p-2">
+            <div class="w-46 h-46  bg-[#F7F7F7] my-5">
+                <img class=" w-40 h-40" src="../resources/img/common/company Logo/TPL Myanmar.png" alt="company Logo" />
             </div>
-            <div class="absolute w-2/4 h-46 left-1/4 mx-40 my-12 text-white font-medium">
-                <div class="font-bold text-2xl mb-8">
-                    IME PROPERTY Estate Co.,Ltd
+            <div class=" text-center  sm:text-left h-46  my-5 text-white ">
+                <div class="font-bold  sm:text-xl mb-8 ">
+                    TPL Myanmar Real Estate & Service Co.,Ltd
                 </div>
                 <div class="mb-2">
                     <ion-icon class="mr-2" name="person-outline"></ion-icon>
-                    <span>Corner of Kabar Aye Pagoda Road and Kanbe Road, Shop 5, The Central Boulevard, Yankin
-                        Township, Yangon, Myanmar.</span>
+                    <span>319, Rm 4, Yan Aung Lane (2), Ward (2), Yankin, Yangon , Myanmar</span>
                 </div>
                 <div class="mb-2">
                     <ion-icon class="mr-2" name="call-outline"></ion-icon>
-                    <span>(+95) 1 4700 111</span>
+                    <span>(+95) 95198105</span>
                 </div>
-                <div class="mb-2">
+                <div class="mb-2 whitespace-nowrap">
                     <ion-icon class="mr-2" name="mail-outline"></ion-icon>
-                    <span>
-                        info@margaglobal.com
-                    </span>
+                    <span>tplmyanmar@gmail.coms</span>
                 </div>
             </div>
 
@@ -268,8 +260,8 @@
         </nav>
     </div>
 
+   
     <?php include '../footer/footer.php' ?>
-
 </body>
 
 </html>

@@ -5,10 +5,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-        .home{
-          color:rgb(20, 184, 166 ) !important;
-        }
-        </style>
+    .home {
+      color: rgb(20, 184, 166) !important;
+    }
+    .typing {
+ 
+  width: 343px;
+  border-right: 2px solid black;
+  overflow: hidden;
+  animation: type 3s steps(30) , blink 0.8s linear infinite;
+
+
+}
+
+@keyframes type {
+  from {
+    width: 0;
+  }
+}
+
+
+@keyframes blink {
+  from {
+    border-right-color: transparent;
+  }
+}
+
+  </style>
   <!-- Aos animation -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <!-- ionic icons -->
@@ -23,15 +46,14 @@
   <title>home</title>
 </head>
 
-<body class=' w-full bg-primary
-  '>
-<?php include '../header/header.php' ?>
-  
+<body class=' w-screen overflow-x-hidden bg-primary '>
+  <?php include '../header/header.php' ?>
+
   <!-- start hero -->
   <div class="relative mb-20">
     <img src="../resources/img/home.jpg" width="100%" alt="" />
     <!--start search bar -->
-
+<p class="text-white text-3xl font-playFair whitespace-nowrap font-bold overflow-hidden typing absolute top-10 left-10 sm:left-24">Guru knows every house</p>
     <div class="w-11/12 lg:w-3/4 h-8 sm:h-10 md:h-12 lg:h-14   bg-secondary rounded-md absolute -bottom-5 md:-bottom-8 left-4 md:left-10 lg:left-28 xl:left-44 2xl:left-72 py-2 px-2 flex text-xs lg:text-base">
       <!-- location -->
       <div class="flex w-1/4 items-center border-r">
@@ -74,9 +96,9 @@
       </div>
       <!-- search btn -->
       <div class="flex justify-center items-center w-1/4">
-        <button class="text-primary bg-darkGreen h-5 md:h-8 rounded-md px-4 text-2xs md:text-sm">
-          Search
-        </button>
+        <a href="../property_post/search.php"><button class="text-primary bg-darkGreen h-5 md:h-8 rounded-md px-4 text-2xs md:text-sm">
+            Search
+          </button></a>
       </div>
 
       <!-- end search bar -->
@@ -141,15 +163,15 @@
               <!-- time -->
               <div class="sm:hidden flex pt-1 ">
 
-              <i class="fa-sharp fa-solid fa-money-bill mt-1.5 text-darkGreen pl-0 sm:pl-2"></i>
+                <i class="fa-sharp fa-solid fa-money-bill mt-1.5 text-darkGreen pl-0 sm:pl-2"></i>
                 <span class="text-darkGreen ml-1 font-bold text-2xs  sm:text-xl">2,000 Lakhs</span>
               </div>
               <p class="text-gray-400 text-2xs sm:text-base text-right hidden sm:block ">3 months ago</p>
               <div class="sm:hidden h-2"></div>
               <div class="w-full flex justify-end ">
-                <button class=" text-primary bg-darkGreen h-5 text-2xs px-2 sm:h-6 md:h-8 rounded-md sm:px-4 sm:text-sm  sm-static">
-                  Details
-                </button>
+                <a href="../property_post/detail_post.php"><button class=" text-primary bg-darkGreen h-5 text-2xs px-2 sm:h-6 md:h-8 rounded-md sm:px-4 sm:text-sm  sm-static">
+                    Details
+                  </button></a>
               </div>
             </div>
           </div>
@@ -172,7 +194,7 @@
               <h1 class="font-bold text-sm hidden sm:block sm:text-xl">3 Beds Condo in Kamayut</h1>
               <!-- price -->
               <div class="sm:block hidden">
-              <i class="fa-sharp fa-solid fa-money-bill mt-1.5 text-darkGreen pl-0 sm:pl-2"></i>
+                <i class="fa-sharp fa-solid fa-money-bill mt-1.5 text-darkGreen pl-0 sm:pl-2"></i>
                 <span class="text-darkGreen ml-1 font-bold text-xs sm:text-xl">2,000 Lakhs</span>
               </div>
               <!-- Description -->
@@ -212,9 +234,9 @@
               <p class="text-gray-400 text-2xs sm:text-base text-right hidden sm:block ">3 months ago</p>
               <div class="sm:hidden h-2"></div>
               <div class="w-full flex justify-end ">
-                <button class=" text-primary bg-darkGreen h-5 text-2xs px-2 sm:h-6 md:h-8 rounded-md sm:px-4 sm:text-sm  sm-static">
-                  Details
-                </button>
+                <a href="../property_post/detail_post.php"><button class=" text-primary bg-darkGreen h-5 text-2xs px-2 sm:h-6 md:h-8 rounded-md sm:px-4 sm:text-sm  sm-static">
+                    Details
+                  </button></a>
               </div>
             </div>
           </div>
@@ -254,7 +276,7 @@
     Lastest Rent Properties
   </h1>
   <div class=" px-2 flex w-full flex-col content-stretch  space-y-2 items-center lg:flex-row lg:justify-around mb-20">
-  <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <a href="#">
         <div class="relative">
           <div class="bg-darkGreen text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
@@ -608,8 +630,8 @@
   </div>
 
   <!-- Testimonials -->
-
-  <div data-aos="fade-right" data-aos-duration="1000" class="mb-28 bg-white rounded-md pt-10 w-11/12 m-auto pb-14">
+<div class="h-screen w-screen flex flex-col justify-center">
+  <div data-aos="fade-right" data-aos-duration="700" class=" bg-white rounded-md pt-10 w-11/12 m-auto pb-14">
     <!-- title -->
     <h1 class="font-playFair text-2xl font-extrabold ml-20 mb-7 tracking-wider">Testimonials</h1>
     <!-- maincontainer -->
@@ -647,17 +669,26 @@
       </div>
     </div>
   </div>
+</div>
   <!-- our services -->
-
-  <div class=" mb-28 " id='ourservices'>
-    <h1 class="tracking-wider font-playFair text-2xl font-extrabold text-center mb-10">Our Services</h1>
-    <p class="whitespace-pre-warp text-center tracking-wider px-5">At Home GuRu, experience seamless property transactions. From listing to closing deals, our expert team ensures satisfaction, making your real estate journey effortless and rewarding. Trust the experts.</p>
-    <div class="flex justify-evenly mt-16">
-      <div class="w-32 "><img src="../resources/img/rentlogo.png" height="100%" width="100%" alt="">
-        <p class="text-center font-semibold">Rent service</p>
+ 
+  <div   class="h-screen w-screen flex  flex-col justify-center" id='ourservices'>
+    <h1 data-aos="zoom-in" data-aos-duration="700"  class="tracking-wider font-playFair text-2xl font-extrabold text-center mb-10">Our Services</h1>
+    <p data-aos="fade-right"  data-aos-duration="700"  class="whitespace-pre-warp text-center tracking-wider px-5">At Home GuRu, experience seamless property transactions. From listing to closing deals, our expert team ensures satisfaction, making your real estate journey effortless and rewarding. Trust the experts.</p>
+     <div class="flex justify-evenly mt-16">
+      <div>
+        <p class="text-center font-semibold mb-2">Rent service</p>
+        <div data-aos="zoom-in-up" data-aos-duration="700"  class="w-40 sm:w-96 overflow-hidden rounded-md ">
+          <img src="../resources/img/forrent.jpg" width="100%" alt="">
+        </div>
       </div>
-      <div class="w-32 relative"><img src="../resources/img/Sale logo.png" height="100%" width="100%" alt="">
-        <p class="text-center font-semibold absolute left-5 -bottom-1">Sale service</p>
+      <div>
+        <p class="text-center font-semibold mb-2 ">Sale service</p>
+        <div data-aos-duration="700"  data-aos="zoom-in-up" class="w-40 sm:w-96 overflow-hidden rounded-md">
+
+          <img src="../resources/img/forsale.jpg" width="100%" alt="">
+
+        </div>
       </div>
     </div>
   </div>
@@ -667,18 +698,18 @@
     <h1 class="tracking-wider font-playFair text-2xl font-extrabold text-center mb-14">Our Partners</h1>
 
     <div class="inline-block space-x-10 animate-slide  px-0 ">
-      <img src="../resources/img/ImeLogo.png" class="inline h-20 lg:h-48 "   alt="logo">
-      <img src="../resources/img/maga Logo.png" class="inline h-20 lg:h-48"   alt="logo">
-      <img src="../resources/img/collaborator-tpj-logo.png" class="inline h-20 lg:h-48"   alt="logo">
-      <img src="../resources/img/ShweTaungLogo.png" class="hidden h-20 lg:h-48  lg:inline"   alt="logo">
-      <img src="../resources/img/maga Logo.png" class="hidden h-20 lg:h-48  xl:inline"   alt="logo">
+      <img src="../resources/img/ImeLogo.png" class="inline h-20 lg:h-48 " alt="logo">
+      <img src="../resources/img/maga Logo.png" class="inline h-20 lg:h-48" alt="logo">
+      <img src="../resources/img/collaborator-tpj-logo.png" class="inline h-20 lg:h-48" alt="logo">
+      <img src="../resources/img/ShweTaungLogo.png" class="hidden h-20 lg:h-48  lg:inline" alt="logo">
+      <img src="../resources/img/maga Logo.png" class="hidden h-20 lg:h-48  xl:inline" alt="logo">
     </div>
     <div class="inline-block space-x-10 animate-slide  px-0 ">
-      <img src="../resources/img/ImeLogo.png" class="inline h-20 lg:h-48"   alt="logo">
-      <img src="../resources/img/maga Logo.png" class="inline h-20 lg:h-48"   alt="logo">
-      <img src="../resources/img/collaborator-tpj-logo.png" class="inline h-20 lg:h-48"   alt="logo">
-      <img src="../resources/img/ShweTaungLogo.png" class="hidden h-20 lg:h-48 lg:inline"   alt="logo">
-      <img src="../resources/img/maga Logo.png" class="hidden h-20 lg:h-48  xl:inline"   alt="logo">
+      <img src="../resources/img/ImeLogo.png" class="inline h-20 lg:h-48" alt="logo">
+      <img src="../resources/img/maga Logo.png" class="inline h-20 lg:h-48" alt="logo">
+      <img src="../resources/img/collaborator-tpj-logo.png" class="inline h-20 lg:h-48" alt="logo">
+      <img src="../resources/img/ShweTaungLogo.png" class="hidden h-20 lg:h-48 lg:inline" alt="logo">
+      <img src="../resources/img/maga Logo.png" class="hidden h-20 lg:h-48  xl:inline" alt="logo">
     </div>
   </div>
   <!-- buy rent 2 cards -->
@@ -686,7 +717,7 @@
     <!-- buy property card -->
     <div data-aos="fade-up-right" data-aos-duration="700" class="w-3/4 lg:w-5/12 h-56 bg-cover flex items-center justify-center" style="background-image: url('../resources/img/pic1.png')">
       <ul class="list-disc text-white list-inside w-4/5 text-2xs lg:text-sm space-y-2.5">
-        <span class="text-xl" style="font-family: 'Playfair Display'">Buy Property</span>
+        <span class="text-xl" style="font-family: 'Playfair Display'">Buy Property Requirements</span>
         <li>
           Valuable expertise in pricing, marketing, negotiating.
         </li>
@@ -706,7 +737,7 @@
     <!-- rent property card -->
     <div data-aos="fade-up-left" data-aos-duration="700" class="w-3/4 lg:w-5/12 h-56 mt-16 lg:mt-auto bg-cover flex items-center justify-center" style="background-image: url('../resources/img/pic2.png')">
       <ul class="list-disc text-white list-inside w-4/5 lg:text-sm text-2xs space-y-2.5">
-        <span class="text-xl lg:text-xl" style="font-family: 'Playfair Display'">Rent Property</span>
+        <span class="text-xl lg:text-xl" style="font-family: 'Playfair Display'">Rent Property Requirements</span>
         <li>
           Photography services to create high-quality images.
         </li>
@@ -729,9 +760,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-  AOS.init();
-</script>
-<?php include '../footer/footer.php' ?>
+    AOS.init();
+  </script>
+  <?php include '../footer/footer.php' ?>
 </body>
 
 </html>
