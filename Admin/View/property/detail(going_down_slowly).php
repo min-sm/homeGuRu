@@ -32,7 +32,7 @@
     <link href="../resources/css/dist/output.css" rel="stylesheet" />
 
     <!-- JS -->
-    <script src="../resources/js/property_detail.js" defer></script>
+    <script src="../resources/js/modal.js" defer></script>
     <script src="../resources/js/detail(going_down_slowly).js" defer></script>
 </head>
 

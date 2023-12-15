@@ -1,6 +1,2 @@
 /node_modules
 /View/resources/css/dist/output.css
-
-#property_post_add_form_copy.php has unfinished feature used in the user/detail_property file.
-/View/property/property_post_add_form copy.php
-/View/resources/js/modal.js

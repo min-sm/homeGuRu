@@ -1,13 +1,22 @@
+document.addEventListener('click', function(event) {
+  // 'event.target' will give you the element that was clicked
+  console.log('Clicked element:', event.target);
+});
+
+
 // Get the modal
 var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
 let imgs = document.getElementsByClassName("property-img");
+console.log(imgs);
+console.log(imgs[0]);
 
 let fullImg = document.getElementById("display-full-img");
 // When the user clicks the button, open the modal
 for (const img of imgs) {
   img.addEventListener("click", () => {
+    console.log('enter');
     // Input string
     const inputString = img.style.backgroundImage;
 

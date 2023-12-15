@@ -29,6 +29,7 @@
 
     <!-- JS -->
     <script src="../resources/js/show-img.js" defer></script>
+    <script src="../resources/js/modal (add).js" defer></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="../resources/css/property_post_add_form.css">
@@ -62,8 +63,8 @@
             <div class="flex w-3/4 justify-between ">
                 <!-- property type -->
                 <div class="flex flex-col ">
-                    <label for="property_type">Property Type</label>
-                    <select id="property_type" name="" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white">
+                    <label for="p_type">Property Type</label>
+                    <select id="p_type" name="" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white">
                         <option value="" disabled selected>Select Property Type</option>
                         <option value="">Apartment</option>
                         <option value="">Commercial</option>
@@ -276,6 +277,15 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+
+    <!-- The Modal -->
+    <div id="myModal">
+        <!-- Modal content -->
+        <div id="modal-content" class="flex items-center justify-center">
+            <img id="display-full-img" class="w-4/5 h-auto lg:w-auto lg:h-[80vh]" src="" />
+            <span id="img-description" class="mt-4"></span>
+        </div>
+    </div>
 </body>
 
 </html>
