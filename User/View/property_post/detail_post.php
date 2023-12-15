@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Property Details</title>
+  <!-- Style for modal -->
   <style>
-
     /* The Modal (background) */
     #myModal {
       display: none;
@@ -47,8 +47,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 
   <!-- tailwind -->
-  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-
   <link href="../resources/css/dist/output.css" rel="stylesheet" />
 
   <!-- ionic icon -->
