@@ -30,6 +30,7 @@
     <!-- JS -->
     <script src="../resources/js/show-img.js" defer></script>
     <script src="../resources/js/modal (add).js" defer></script>
+    <script src="../resources/js/selectBx.js" defer></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="../resources/css/property_post_add_form.css">
@@ -66,9 +67,9 @@
                     <label for="p_type">Property Type</label>
                     <select id="p_type" name="" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white">
                         <option value="" disabled selected>Select Property Type</option>
-                        <option value="">Apartment</option>
+                        <option value="" data-floor-level="true">Apartment</option>
                         <option value="">Commercial</option>
-                        <option value="">Condo</option>
+                        <option value="" data-floor-level="true">Condo</option>
                         <option value="">House</option>
                     </select>
                 </div>
@@ -80,7 +81,7 @@
             </div>
             <div class="flex w-3/4 justify-between">
                 <!-- floor level -->
-                <div class="flex flex-col">
+                <div class="flex flex-col hidden" id="floor_lvl_section_element">
                     <label for="floor_lvl">Floor Level</label>
                     <select id="floor_lvl" name="" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white">
                         <option value="" disabled selected>Select Floor Level</option>
@@ -117,7 +118,7 @@
             </div>
             <div class="flex w-3/4 justify-between">
                 <!-- Duration -->
-                <div class="flex flex-col">
+                <div class="flex flex-col hidden" id="duration">
                     <label>Duration</label>
                     <div class="flex flex-col">
                         <div>

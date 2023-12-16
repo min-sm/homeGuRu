@@ -276,7 +276,7 @@
                 </div>
               </div>
 
-              <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
+              <div class="mt-2.5 mb-5 text-darkGreen flex items-center text-xl">
                 <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
                 <span class="ml-3">7,000 Lakhs / Month</span>
               </div>
@@ -332,7 +332,7 @@
                 </div>
               </div>
 
-              <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
+              <div class="mt-2.5 mb-5 text-darkGreen flex items-center text-xl">
                 <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
                 <span class="ml-3">7,000 Lakhs / Month</span>
               </div>
@@ -388,7 +388,7 @@
                 </div>
               </div>
 
-              <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
+              <div class="mt-2.5 mb-5 text-darkGreen flex items-center text-xl">
                 <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
                 <span class="ml-3">7,000 Lakhs / Month</span>
               </div>
@@ -448,7 +448,7 @@
                 </div>
               </div>
 
-              <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
+              <div class="mt-2.5 mb-5 text-darkGreen flex items-center text-xl">
                 <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
                 <span class="ml-3">7,000 Lakhs / Month</span>
               </div>
@@ -504,7 +504,7 @@
                 </div>
               </div>
 
-              <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
+              <div class="mt-2.5 mb-5 text-darkGreen flex items-center text-xl">
                 <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
                 <span class="ml-3">7,000 Lakhs / Month</span>
               </div>
@@ -560,7 +560,7 @@
                 </div>
               </div>
 
-              <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
+              <div class="mt-2.5 mb-5 text-darkGreen flex items-center text-xl">
                 <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
                 <span class="ml-3">7,000 Lakhs / Month</span>
               </div>

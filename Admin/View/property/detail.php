@@ -50,23 +50,18 @@
             <!--  images -->
             <div class="image-label-container">
                 <div class="image-container property-img" style="background-image: url('../resources/img/house/entrance-hall.jpg');"></div>
-                <p>entrance-hall.jpg</p>
             </div>
             <div class="image-label-container">
                 <div class="image-container property-img" style="background-image: url('../resources/img/house/dining-room.jpg');"></div>
-                <p>dining-room.jpg</p>
             </div>
             <div class="image-label-container">
                 <div class="image-container property-img" style="background-image: url('../resources/img/house/kitchen.jpg');"></div>
-                <p>kitchen.jpg</p>
             </div>
             <div class="image-label-container">
                 <div class="image-container property-img" style="background-image: url('../resources/img/house/living-room.jpg');"></div>
-                <p>living-room.jpg</p>
             </div>
             <div class="image-label-container">
                 <div class="image-container property-img" style="background-image: url('../resources/img/house/study-room.jpg');"></div>
-                <p>study-room.jpg</p>
             </div>
         </div>
 
