@@ -271,8 +271,8 @@
             </div>
 
             <div class="w-3/4 flex justify-between">
-                <button class="bg-darkGreen py-2 px-6 rounded-lg border">Submit</button>
-                <button class="bg-goldYellow py-2 px-6 rounded-lg border">Test View</button>
+                <button class="bg-darkGreen py-2 px-6 rounded-lg border border-black dark:border-white text-white">Submit</button>
+                <button class="bg-goldYellow py-2 px-6 rounded-lg border border-black dark:border-white">Test View</button>
             </div>
         </div>
     </div>
