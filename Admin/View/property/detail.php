@@ -70,56 +70,56 @@
             <!-- property type -->
             <div class="flex w-80 lg:w-3/4 flex-col unimportant-detail ">
                 <div class="flex items-center justify-between text-black dark:text-white">
-                    <span class="bolder text-lg">Property Type</span>
+                    <span class="font-medium text-lg">Property Type</span>
                     <span>Condo</span>
                 </div>
             </div>
             <!-- Floor level -->
             <div class="flex w-80 lg:w-3/4 flex-col unimportant-detail ">
                 <div class="flex items-center justify-between text-black dark:text-white">
-                    <span class="bolder text-lg">Floor Level</span>
+                    <span class="font-medium text-lg">Floor Level</span>
                     <span>10</span>
                 </div>
             </div>
             <!-- Offer Type -->
             <div class="flex w-80 lg:w-3/4 flex-col unimportant-detail ">
                 <div class="flex items-center justify-between text-black dark:text-white">
-                    <span class="bolder text-lg">Offer Type</span>
+                    <span class="font-medium text-lg">Offer Type</span>
                     <span>Rent</span>
                 </div>
             </div>
             <!-- Duration -->
             <div class="flex w-80 lg:w-3/4 flex-col unimportant-detail ">
                 <div class="flex items-center justify-between text-black dark:text-white">
-                    <span class="bolder text-lg">Duration</span>
+                    <span class="font-medium text-lg">Duration</span>
                     <span>per Year</span>
                 </div>
             </div>
             <!-- Price -->
             <div class="flex w-80 lg:w-3/4 flex-col unimportant-detail ">
                 <div class="flex items-center justify-between text-black dark:text-white">
-                    <span class="bolder text-lg">Price</span>
+                    <span class="font-medium text-lg">Price</span>
                     <span>4</span>
                 </div>
             </div>
             <!-- Price Type -->
             <div class="flex w-80 lg:w-3/4 flex-col unimportant-detail ">
                 <div class="flex items-center justify-between text-black dark:text-white">
-                    <span class="bolder text-lg">Price Type</span>
+                    <span class="font-medium text-lg">Price Type</span>
                     <span>Dollar $</span>
                 </div>
             </div>
             <!-- Size Unit -->
             <div class="flex w-80 lg:w-3/4 flex-col unimportant-detail ">
                 <div class="flex items-center justify-between text-black dark:text-white">
-                    <span class="bolder text-lg">Size Unit</span>
+                    <span class="font-medium text-lg">Size Unit</span>
                     <span>foot (ft)</span>
                 </div>
             </div>
             <!-- Size -->
             <div class="flex w-80 lg:w-3/4 flex-col unimportant-detail ">
                 <div class="flex items-center justify-between text-black dark:text-white">
-                    <span class="bolder text-lg">Size</span>
+                    <span class="font-medium text-lg">Size</span>
                     <div class="flex items-center gap-4">
                         <div class="flex items-center flex-col">
                             <p class="text-sm font-thin">Width</p>
@@ -136,19 +136,19 @@
             <!-- Township -->
             <div class="flex w-80 lg:w-3/4 flex-col unimportant-detail ">
                 <div class="flex items-center justify-between text-black dark:text-white">
-                    <span class="bolder text-lg">Township</span>
+                    <span class="font-medium text-lg">Township</span>
                     <span>Bahan</span>
                 </div>
             </div>
             <!-- Location -->
             <div class="flex w-80 lg:w-3/4 text-black dark:text-white unimportant-detail ">
-                <span class="bolder text-lg">Location</span>
+                <span class="font-medium text-lg">Location</span>
             </div>
             <!-- map -->
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30549.300087395244!2d96.17693643476562!3d16.8430906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c193f51faa68ff%3A0x72868c60b69532c4!2sEx%3BbraiN%20Office!5e0!3m2!1sen!2smm!4v1702575912329!5m2!1sen!2smm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-3/4 h-72 unimportant-detail  block-unimportant"></iframe>
             <!-- features -->
             <div class="w-80 lg:w-3/4 text-black dark:text-white unimportant-detail  block-unimportant">
-                <p class="bolder text-lg mb-2">Additional Features</p>
+                <p class="font-medium text-lg mb-2">Additional Features</p>
 
                 <div class="grid grid-cols-3 lg:text-base text-sm px-2 sm:px-0">
                     <div>
@@ -177,7 +177,7 @@
 
             <!-- detailed description -->
             <div class=" w-80 lg:w-3/4 text-black dark:text-white space-y-2 unimportant-detail  block-unimportant">
-                <p class="bolder text-lg">Detailed Description</p>
+                <p class="font-medium text-lg">Detailed Description</p>
                 <p class="tracking-wider leading-6">This is a 5 Bed House in Kamayut. The asking price is 4800 lakhs per month, and the square feet is 3200. Inside the property, there are three bedrooms with ensuites and two single bedrooms. The property will come unfurnished or furnished with all essentials for daily living. This includes items such as a TV, sofa set, coffee table, dining table, chairs, beds, mattresses, washing machine & a fridge freezer. This house comes with access car parking and a backup generator for 24-hour electricity. For more information about Myanmar Real Estate contact us; Phone, Viber & telegram : +959-980636388 Email : myanmarproperties3@gmail.com</p>
             </div>
 
@@ -191,34 +191,34 @@
             <!-- Owner Name -->
             <div class="flex w-80 lg:w-3/4 flex-col">
                 <div class="flex items-center justify-between text-black dark:text-white">
-                    <span class="bolder text-lg">Owner Name</span>
+                    <span class="font-medium text-lg">Owner Name</span>
                     <span>Min Soe Moe</span>
                 </div>
             </div>
             <!-- National ID -->
             <div class="flex w-80 lg:w-3/4 flex-col">
                 <div class="flex items-center justify-between text-black dark:text-white">
-                    <span class="bolder text-lg">Naitonal ID</span>
+                    <span class="font-medium text-lg">Naitonal ID</span>
                     <span>12/ TaTaTa(N) 123456</span>
                 </div>
             </div>
             <!-- Phone Number -->
             <div class="flex w-80 lg:w-3/4 flex-col">
                 <div class="flex items-center justify-between text-black dark:text-white">
-                    <span class="bolder text-lg">Phone Number</span>
+                    <span class="font-medium text-lg">Phone Number</span>
                     <span>09123456678</span>
                 </div>
             </div>
             <!-- Email Address -->
             <div class="flex w-80 lg:w-3/4 flex-col">
                 <div class="flex items-center justify-between text-black dark:text-white">
-                    <span class="bolder text-lg">Email Address</span>
+                    <span class="font-medium text-lg">Email Address</span>
                     <span>minsoemoe999@gmail.com</span>
                 </div>
             </div>
             <!-- notes -->
             <div class=" w-80 lg:w-3/4 text-black dark:text-white space-y-2">
-                <p class="bolder text-lg">Note</p>
+                <p class="font-medium text-lg">Note</p>
                 <p class="tracking-wider leading-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dolores facilis quasi? Mollitia velit ut enim ratione doloribus doloremque dolorem.</p>
             </div>
 
