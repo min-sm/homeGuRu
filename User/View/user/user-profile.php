@@ -4,13 +4,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Interest View Register</title>
+    <title>user profile</title>
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap"
-        rel="stylesheet" />
-
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet" />
     <style>
         * {
             font-family: "Roboto";
@@ -19,126 +17,63 @@
     <!-- flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-
     <!-- tailwind -->
-
     <link href="../resources/css/dist/output.css" rel="stylesheet" />
-
     <!-- ionic icon -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
     <!-- font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="bg-primary">
     <!-- Start Navigation -->
-    <nav class="bg-gray-800 border-gray-200">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="../resources/img/common/logo-confirm.png" class="h-16" alt="HomeGuRu Logo" />
-            </a>
-            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                <button type="button"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    Login
-                </button>
-                <button data-collapse-toggle="navbar-cta" type="button"
-                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600">
-                    <span class="sr-only">Open main menu</span>
-                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M1 1h15M1 7h15M1 13h15" />
-                    </svg>
-                </button>
-            </div>
-            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
-                <ul
-                    class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-gray-800 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-gray-800">
-                    <li>
-                        <a href="#"
-                            class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Home</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Buy</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Rent</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Sell</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparen md:text-blue-500">Collaborator</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Our
-                            Services</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- End Navigation -->
+    <?php include '../Home_page/header.php'   ?>
+    <!-- component -->
 
     <!-- Start  User Info -->
 
-    <div class="bg-white  py-14 " >
+    <div class="bg-white  py-14 ">
+        <div class="grid grid-cols-2  gap-16 mx-20 border-2 border-blue-700">
+            <div class="flex flex-col items-center">
+                <div class="w-1/4 relative">
+                    <img class=" rounded-full" src="../resources/img/user profile.png" alt="">
+                    <div class="absolute  h-9 bg-primary  opacity-50 py-2 bottom-0 ">
+                    </div>
+                    <img class=" absolute bottom-3 right-8 text-black" src="../resources/img/user edit icon.png" alt="">
 
-       <div class="grid grid-cols-2  gap-16 mx-20 border-2 border-blue-700">
-        <div class="flex flex-col items-center">
-            <div class="w-1/4 relative">
-                <img class=" rounded-full" src="../resources/img/user profile.png" alt="">
-                <div class="absolute  h-9 bg-primary  opacity-50 py-2 bottom-0 ">
                 </div>
-                <img class=" absolute bottom-3 right-8 text-black" src="../resources/img/user edit icon.png" alt="">
+                <p class="font-semibold text-lg">Kim Hana</p>
+            </div>
+            <div class="flex flex-col">
+                <div class="flex items-center  mb-5">
+                    <label for="gu_name" class="font-semibold text-md tracking-wide pr-20">Name:</label>
+                    <input type="text" name="gu_name" id="" class="ml-20  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Name" value="Kim Hana">
+                </div>
+                <div class="flex items-center  mb-5">
+                    <label for="gu_email" class="font-semibold text-md tracking-wide pr-20">Email:</label>
+                    <input type="email" name="gu_email" id="" class="ml-20  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email" value="hanna7923@gmail.com">
+                </div>
+                <div class="flex items-center  mb-5">
+                    <label for="gu_phone" class="font-semibold text-md tracking-wide pr-20">Phone:</label>
+                    <input type="email" name="gu_phone" id="" class="ml-20  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email" value="+959980636388">
+                </div>
 
-            </div>
-            <p class="font-semibold text-lg">Kim Hana</p>
-        </div>
-        <div class="flex flex-col">
-            <div class="flex items-center  mb-5">
-                <label for="gu_name" class="font-semibold text-md tracking-wide pr-20">Name:</label>
-                <input type="text" name="gu_name" id=""
-                    class="ml-20  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Name" value="Kim Hana">
-            </div>
-            <div class="flex items-center  mb-5">
-                <label for="gu_email" class="font-semibold text-md tracking-wide pr-20">Email:</label>
-                <input type="email" name="gu_email" id=""
-                    class="ml-20  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Email" value="hanna7923@gmail.com">
-            </div>
-            <div class="flex items-center  mb-5">
-                <label for="gu_phone" class="font-semibold text-md tracking-wide pr-20">Phone:</label>
-                <input type="email" name="gu_phone" id=""
-                    class="ml-20  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Email" value="+959980636388">
-            </div>
+                <div class="mt-5">
 
-            <div class="mt-5">
-
-                <button type="submit" class="relative left-2/4  text-white border-2 bg-darkGreen  hover:bg-blue-800
+                    <button type="submit" class="relative left-2/4  text-white border-2 bg-darkGreen  hover:bg-blue-800
                 focus:ring-4 focus:outline-none font-semibold rounded-lg text-medium px-8 py-1 mr-8 text-center 
                 dark:bg-blue-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-                    Save</button>
-                <button type="" class="relative left-2/4  text-darkGreen border-2 border-darkGreen bg-transparent hover:bg-alert hover:text-white
+                        Save</button>
+                    <button type="" class="relative left-2/4  text-darkGreen border-2 border-darkGreen bg-transparent hover:bg-alert hover:text-white
                 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium  px-7 py-1 text-center 
                 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    Cancle</button>
+                        Cancel</button>
+
+                </div>
 
             </div>
-
         </div>
-       </div>
     </div>
     <!-- End  User Info -->
 
@@ -153,18 +88,14 @@
 
             <div class="flex justify-around">
                 <div class="grid lg:grid-cols-3 grid-cols-1 gap-16">
-                    <div
-                        class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">
                             <div class="relative">
-                                <div
-                                    class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+                                <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
                                     Sale</div>
-                                    <img class="flex items-center justify-center  rounded-bl-lg w-10  absolute right-3 bottom-7" src="../resources/img/fav red.png"
-                                    alt="product image" />
-                                
-                                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg"
-                                    alt="product image" />
+                                <img class="flex items-center justify-center  rounded-bl-lg w-10  absolute right-3 bottom-7" src="../resources/img/fav red.png" alt="product image" />
+
+                                <img class="pb-4 rounded-t-lg" src="../resources/img/recommended-section-img.jpg" alt="product image" />
                             </div>
                         </a>
                         <div class="px-5 pb-5">
@@ -211,23 +142,18 @@
 
                             <div class="flex items-center justify-end">
                                 <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-                                <a href="#"
-                                    class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+                                <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
                             </div>
                         </div>
                     </div>
-                    <div
-                        class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">
                             <div class="relative">
-                                <div
-                                    class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+                                <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
                                     Sale</div>
-                                    <img class="flex items-center justify-center  rounded-bl-lg w-10  absolute right-3 bottom-7" src="../resources/img/fav red.png"
-                                    alt="product image" />
-                                
-                                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg"
-                                    alt="product image" />
+                                <img class="flex items-center justify-center  rounded-bl-lg w-10  absolute right-3 bottom-7" src="../resources/img/fav red.png" alt="product image" />
+
+                                <img class="pb-4 rounded-t-lg" src="../resources/img/recommended-section-img.jpg" alt="product image" />
                             </div>
                         </a>
                         <div class="px-5 pb-5">
@@ -274,22 +200,18 @@
 
                             <div class="flex items-center justify-end">
                                 <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-                                <a href="#"
-                                    class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+                                <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
                             </div>
                         </div>
-                    </div> <div
-                        class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    </div>
+                    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">
                             <div class="relative">
-                                <div
-                                    class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+                                <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
                                     Sale</div>
-                                    <img class="flex items-center justify-center  rounded-bl-lg w-10  absolute right-3 bottom-7" src="../resources/img/fav red.png"
-                                    alt="product image" />
-                                
-                                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg"
-                                    alt="product image" />
+                                <img class="flex items-center justify-center  rounded-bl-lg w-10  absolute right-3 bottom-7" src="../resources/img/fav red.png" alt="product image" />
+
+                                <img class="pb-4 rounded-t-lg" src="../resources/img/recommended-section-img.jpg" alt="product image" />
                             </div>
                         </a>
                         <div class="px-5 pb-5">
@@ -336,8 +258,7 @@
 
                             <div class="flex items-center justify-end">
                                 <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-                                <a href="#"
-                                    class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+                                <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
                             </div>
                         </div>
                     </div>
@@ -345,15 +266,12 @@
             </div>
             <div class="flex justify-around">
                 <div class="grid lg:grid-cols-3 grid-cols-1 gap-16">
-                    <div
-                        class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">
                             <div class="relative">
-                                <div
-                                    class="bg-[#00534F] text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+                                <div class="bg-[#00534F] text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
                                     Rent</div>
-                                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg"
-                                    alt="product image" />
+                                <img class="pb-4 rounded-t-lg" src="../resources/img/recommended-section-img.jpg" alt="product image" />
                             </div>
                         </a>
                         <div class="px-5 pb-5">
@@ -400,20 +318,16 @@
 
                             <div class="flex items-center justify-end">
                                 <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-                                <a href="#"
-                                    class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+                                <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
                             </div>
                         </div>
                     </div>
-                    <div
-                        class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">
                             <div class="relative">
-                                <div
-                                    class="bg-[#00534F] text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+                                <div class="bg-[#00534F] text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
                                     Rent</div>
-                                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg"
-                                    alt="product image" />
+                                <img class="pb-4 rounded-t-lg" src="../resources/img/recommended-section-img.jpg" alt="product image" />
                             </div>
                         </a>
                         <div class="px-5 pb-5">
@@ -460,20 +374,16 @@
 
                             <div class="flex items-center justify-end">
                                 <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-                                <a href="#"
-                                    class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+                                <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
                             </div>
                         </div>
                     </div>
-                    <div
-                        class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">
                             <div class="relative">
-                                <div
-                                    class="bg-[#00534F] text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+                                <div class="bg-[#00534F] text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
                                     Rent</div>
-                                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg"
-                                    alt="product image" />
+                                <img class="pb-4 rounded-t-lg" src="../resources/img/recommended-section-img.jpg" alt="product image" />
                             </div>
                         </a>
                         <div class="px-5 pb-5">
@@ -520,8 +430,7 @@
 
                             <div class="flex items-center justify-end">
                                 <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-                                <a href="#"
-                                    class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+                                <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
                             </div>
                         </div>
                     </div>
@@ -535,55 +444,42 @@
             <nav aria-label="Page navigation example">
                 <ul class="flex items-center -space-x-px h-10 text-base">
                     <li>
-                        <a href="#"
-                            class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <a href="#" class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                             <span class="sr-only">Previous</span>
-                            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="M5 1 1 5l4 4" />
+                            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
                             </svg>
                         </a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                        <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                        <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
                     </li>
                     <li>
-                        <a href="#" aria-current="page"
-                            class="z-10 flex items-center justify-center px-4 h-10 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                        <a href="#" aria-current="page" class="z-10 flex items-center justify-center px-4 h-10 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                        <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                        <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                             <span class="sr-only">Next</span>
-                            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m1 9 4-4-4-4" />
+                            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                             </svg>
                         </a>
                     </li>
                 </ul>
             </nav>
         </div>
-
-
     </div>
     <!-- End  Favoutite Properties -->
-
+    <?php include '../Home_page/footer.php'   ?>
 </body>
 
 </html>

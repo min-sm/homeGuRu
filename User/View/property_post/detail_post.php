@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Property Details</title>
-  <!-- Style for modal -->
   <style>
     /* The Modal (background) */
     #myModal {
@@ -47,6 +46,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 
   <!-- tailwind -->
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
   <link href="../resources/css/dist/output.css" rel="stylesheet" />
 
   <!-- ionic icon -->
@@ -62,46 +63,7 @@
 
 <body class="bg-[#F7F7F7] tracking-wide">
   <!-- Navigation -->
-  <nav class="bg-gray-800 border-gray-200">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src="../resources/img/common/logo-confirm.png" class="h-16" alt="HomeGuRu Logo" />
-      </a>
-      <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-        <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-          Login
-        </button>
-        <button data-collapse-toggle="navbar-cta" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600">
-          <span class="sr-only">Open main menu</span>
-          <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
-          </svg>
-        </button>
-      </div>
-      <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
-        <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-gray-800 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-gray-800">
-          <li>
-            <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Home</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Buy</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-500">Rent</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Sell</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Collaborator</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Our Services</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <?php include '../header/header.php' ?>
 
   <!-- uploader info -->
   <div class="flex flex-row items-center w-4/5 lg:w-1/2 my-6 ms-4 lg:ms-24">
@@ -125,6 +87,7 @@
     </div>
   </div>
 
+  <!-- property imgs & property info  -->
   <div>
     <!-- imgs -->
     <div class="lg:w-2/3 w-full flex flex-col items-center justify-around float-left">
@@ -136,6 +99,7 @@
         <div class="w-20 lg:w-40 h-12 lg:h-24 bg-cover bg-center rounded-lg property-img" style="background-image: url('../resources/img/kitchen.jpg')"></div>
       </div>
     </div>
+
     <!-- property info -->
     <div class="mt-5 lg:mt-0 space-y-4 text-center lg:text-left w-full lg:w-1/3 lg:sticky top-0 h-fit float-left">
       <h5 class="text-xl font-semibold tracking-tight text-black">
@@ -231,7 +195,6 @@
           {
             return preg_replace('/\.\W/', '.<br>', $text);
           }
-
           // information comes from database will be given to $inputText variable
           $inputText = "This is a 5 Bed House in Kamayut. The asking price is 4800 lakhs per month, and the square feet is 3200. Inside the property, there are three bedrooms with ensuites and two single bedrooms. The property will come unfurnished or furnished with all essentials for daily living. This includes items such as a TV, sofa set, coffee table, dining table, chairs, beds, mattresses, washing machine & a fridge freezer. This house comes with access car parking and a backup generator for 24-hour electricity. For more information about Myanmar Real Estate contact us; Phone, Viber & telegram : +959-980636388 Email : myanmarproperties3@gmail.com";
           $processedText = addBRAfterFullStop($inputText);
@@ -241,7 +204,7 @@
       </div>
     </div>
   </div>
-
+  <!-- line break -->
 
   <!-- related properties section -->
   <div class="flex flex-col items-center justify-center mt-10">
@@ -272,11 +235,11 @@
                   </h5>
                 </a>
                 <div class="rounded-full bg-gray-50 w-16">
-                  <img src="../resources/img/collaborator-tpj-logo.png" alt="" />
+                  <img src="../resources/img/logo.png" alt="" />
                 </div>
               </div>
 
-              <div class="mt-2.5 mb-5 text-darkGreen flex items-center text-xl">
+              <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
                 <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
                 <span class="ml-3">7,000 Lakhs / Month</span>
               </div>
@@ -328,11 +291,11 @@
                   </h5>
                 </a>
                 <div class="rounded-full bg-gray-50 w-16">
-                  <img src="../resources/img/collaborator-tpj-logo.png" alt="" />
+                  <img src="../resources/img/logo.png" alt="" />
                 </div>
               </div>
 
-              <div class="mt-2.5 mb-5 text-darkGreen flex items-center text-xl">
+              <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
                 <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
                 <span class="ml-3">7,000 Lakhs / Month</span>
               </div>
@@ -384,11 +347,11 @@
                   </h5>
                 </a>
                 <div class="rounded-full bg-gray-50 w-16">
-                  <img src="../resources/img/collaborator-tpj-logo.png" alt="" />
+                  <img src="../resources/img/logo.png" alt="" />
                 </div>
               </div>
 
-              <div class="mt-2.5 mb-5 text-darkGreen flex items-center text-xl">
+              <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
                 <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
                 <span class="ml-3">7,000 Lakhs / Month</span>
               </div>
@@ -444,11 +407,11 @@
                   </h5>
                 </a>
                 <div class="rounded-full bg-gray-50 w-16">
-                  <img src="../resources/img/collaborator-tpj-logo.png" alt="" />
+                  <img src="../resources/img/logo.png" alt="" />
                 </div>
               </div>
 
-              <div class="mt-2.5 mb-5 text-darkGreen flex items-center text-xl">
+              <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
                 <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
                 <span class="ml-3">7,000 Lakhs / Month</span>
               </div>
@@ -500,11 +463,11 @@
                   </h5>
                 </a>
                 <div class="rounded-full bg-gray-50 w-16">
-                  <img src="../resources/img/collaborator-tpj-logo.png" alt="" />
+                  <img src="../resources/img/logo.png" alt="" />
                 </div>
               </div>
 
-              <div class="mt-2.5 mb-5 text-darkGreen flex items-center text-xl">
+              <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
                 <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
                 <span class="ml-3">7,000 Lakhs / Month</span>
               </div>
@@ -556,11 +519,11 @@
                   </h5>
                 </a>
                 <div class="rounded-full bg-gray-50 w-16">
-                  <img src="../resources/img/collaborator-tpj-logo.png" alt="" />
+                  <img src="../resources/img/logo.png" alt="" />
                 </div>
               </div>
 
-              <div class="mt-2.5 mb-5 text-darkGreen flex items-center text-xl">
+              <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
                 <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
                 <span class="ml-3">7,000 Lakhs / Month</span>
               </div>

@@ -6,34 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Property Post Form</title>
     <style>
-        /* The Modal (background) */
-        #myModal {
-            display: none;
-            /* Hidden by default */
-            text-align: center;
-            justify-content: center;
-            align-items: center;
-            position: fixed;
-            /* Stay in place */
-            z-index: 1;
-            /* Sit on top */
-            top: 0;
-            left: 0;
-            width: 100%;
-            /* Full width */
-            height: 100%;
-            overflow: auto;
-            /* Enable scroll if needed */
-            background-color: rgba(0, 0, 0, 0.8);
-            /* Black w/ opacity */
+      .sell{
+            color:rgb(20, 184, 166 ) !important;
         }
 
-        /* Modal Content */
-        #modal-content {
-            flex-direction: column;
-            background-color: rgba(255, 255, 255, 0.8);
-            width: fit-content;
-        }
+        .image-container {
+    width: 24rem;
+    height: 14rem;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 10px;
+    border-radius: 0.5rem;
+}
+
+.image-label-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+}
+
+/* The Modal (background) */
+#myModal {
+    display: none;
+    /* Hidden by default */
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+#modal-content {
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: fit-content;
+}
+        
     </style>
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -45,6 +66,7 @@
             font-family: "Roboto";
         }
     </style>
+        <link rel="stylesheet" href="../resources/css/photoList.css">
     <!-- flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
@@ -65,15 +87,20 @@
     <!-- Navigation -->
     <!-- Start Property Post Add Form -->
     <div class="flex flex-col w-full items-center justify-evenly my-10">
-        <h1 class="mb-16 font-semibold text-5xl text-center " style="font-family: 'Playfair Display';">
+        <h1 class="mb-16 font-semibold text-2xl text-center " style="font-family: 'Playfair Display';">
             Add Property Post
         </h1>
 
-        <form class="w-3/5 mx-auto  my-10 ">
+        <form class="w-10/12 sm:w-3/5 mx-auto  mb-10 ">
             <!-- Start Property Select photo -->
-            <div class=" mb-5">
-
-
+            <div class="flex flex-col lg:flex-row items-center sm:items-start gap-4 overflow-x-auto mb-5">
+                <!-- add photo button -->
+                <div>
+                    <label for="add_img" class="flex items-center justify-center w-96 h-56 bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg border dark:border-white border-black"><span>+ Add Photo</span></label>
+                    <input type="file" multiple class=" hidden" id="add_img" accept=".jpg, .jpeg" />
+                </div>
+            <!-- selected images -->
+                <div id="imageList" class="flex flex-col lg:flex-row items-center gap-4 text-black dark:text-white"></div>
             </div>
             <!-- End Property Select photo -->
 
@@ -117,14 +144,14 @@
                                 Offer Type</label>
                             <fieldset class="flex  my-4">
                                 <div class="flex ">
-                                    <input id="offer-option-1" type="radio" name="offer" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-green-300 dark:focus:ring-green-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
+                                    <input id="offer-option-1" type="radio" name="offer" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-darkGreen dark:focus:ring-darkGreen dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
                                     <label for="offer-option-1" class="block ms-2  text-sm font-medium text-gray-900 dark:text-gray-300">
                                         Rent
                                     </label>
                                 </div>
 
                                 <div class="flex mx-10">
-                                    <input id="offer-option-2" type="radio" name="offer" value="Germany" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-green-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
+                                    <input id="offer-option-2" type="radio" name="offer" value="Germany" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-darkGreen dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
                                     <label for="country-option-2" class="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                         Sale
                                     </label>
@@ -139,20 +166,20 @@
                             <fieldset class="flex my-4">
 
                                 <div class="flex mr-4">
-                                    <input id="duration-option-1" type="radio" name="duration" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-green-300 dark:focus:ring-green-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
+                                    <input id="duration-option-1" type="radio" name="duration" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-darkGreen dark:focus:ring-darkGreen dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
                                     <label for="duration-option-1" class=" block ms-2  text-sm font-thin text-gray-900 dark:text-gray-300">
                                         Per day
                                     </label>
                                 </div>
 
                                 <div class="flex mr-4">
-                                    <input id="duration-option-2" type="radio" name="duration" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-green-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
+                                    <input id="duration-option-2" type="radio" name="duration" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-darkGreen dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
                                     <label for="duration-option-2" class="block ms-2 text-sm font-thin text-gray-900 dark:text-gray-300">
                                         Per month
                                     </label>
                                 </div>
                                 <div class="flex ">
-                                    <input id="duration-option-3" type="radio" name="duration" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-green-300 dark:focus:ring-green-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
+                                    <input id="duration-option-3" type="radio" name="duration" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-darkGreen dark:focus:ring-darkGreen dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
                                     <label for="duration-option-3" class="w-20 block ms-2  text-sm font-thin text-gray-900 dark:text-gray-300">
                                         Per year
                                     </label>
@@ -286,9 +313,9 @@
                         Location Map</label>
                     <div class=" flex ">
                         <input type="text" name="p_map_location" id="" class="w-3/5 mr-16  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for NearBy Name ">
-                        <button type="submit" class="text-white bg-green-700 hover:bg-green-800 
+                        <button type="submit" class="text-white bg-darkGreen hover:bg-teal-800 
                             focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium px-8 py-2 text-center 
-                            dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                            dark:bg-darkGreen dark:hover:bg-darkGreen dark:focus:ring-teal-800">
                             Search</button>
                     </div>
                 </div>
@@ -367,24 +394,25 @@
                 </div>
 
                 <div class="w-5/6 relative my-5">
-                    <button type="submit" class="text-white bg-green-600 hover:bg-green-800 
+                    <button type="submit" class="text-white bg-darkGreen hover:bg-green-800 
                     focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium
-                    px-2 lg:px-8 py-2 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                    px-2 lg:px-8 py-2 text-center dark:bg-darkGreen dark:hover:bg-darkGreen dark:focus:ring-green-800">
                         Submit</button>
-                    <button type="" class="mx-16 text-green-700 border-2 border-green-700 bg-transparent hover:bg-green-800 hover:text-black
+                    <button type="" class="mx-16 text-teal-700 border-2 border-teal-700 bg-transparent hover:bg-teal-800 hover:text-black
                     focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium 
                     px-2 lg:px-7 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Cancle</button>
 
                     <button type="" class="absolute right-0 bg-red-600 hover:bg-red-800 
                     focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium text-white 
-                    px-2 lg:px-8 py-2 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                    px-2 lg:px-8 py-2 text-center dark:bg-darkGreen dark:hover:bg-darkGreen dark:focus:ring-green-800">
                         Test View</button>
                 </div>
             </div>
         </form>
-<?php include '../footer/footer.php' ?>
-<script src="../resources/js/photo_add.js"></script>
+         <!-- <?php include '../footer/footer.php' ?> -->
+        <script src="../resources/js/show-img.js" ></script>
+
 </body>
 
 </html>
