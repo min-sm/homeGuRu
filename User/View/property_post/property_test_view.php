@@ -92,10 +92,10 @@
             <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Rent</a>
           </li>
           <li>
-            <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Sell</a>
+            <a href="#" class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-500">Sell</a>
           </li>
           <li>
-            <a href="#" class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-500">Collaborator</a>
+            <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Collaborator</a>
           </li>
           <li>
             <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Our Services</a>
@@ -252,7 +252,10 @@
   <hr class="w-full my-6 h-1 bg-paleGray" />
 
   <!-- stop view btn -->
-  <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 block relative lg:left-3/4 left-12">Stop Test View</button>
+  <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-6 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 block relative lg:left-3/4 left-12">Stop Test View</button>
+
+    <!-- footer -->
+    <?php include '../footer/footer.php' ?>
 
 </body>
 

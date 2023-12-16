@@ -4,9 +4,6 @@ var modal = document.getElementById("myModal");
 // Get the button that opens the modal
 let imgs = document.getElementsByClassName("property-img");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
 let fullImg = document.getElementById("display-full-img");
 // When the user clicks the button, open the modal
 for (const img of imgs) {
@@ -44,5 +41,3 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
-
-// finished
