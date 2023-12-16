@@ -6,55 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Property Post Form</title>
     <style>
-      .sell{
-            color:rgb(20, 184, 166 ) !important;
+        .sell {
+            color: rgb(20, 184, 166) !important;
         }
 
         .image-container {
-    width: 24rem;
-    height: 14rem;
-    background-size: cover;
-    background-position: center;
-    margin-bottom: 10px;
-    border-radius: 0.5rem;
-}
+            width: 24rem;
+            height: 14rem;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 10px;
+            border-radius: 0.5rem;
+        }
 
-.image-label-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: fit-content;
-}
+        .image-label-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: fit-content;
+        }
 
-/* The Modal (background) */
-#myModal {
-    display: none;
-    /* Hidden by default */
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    /* Stay in place */
-    z-index: 1;
-    /* Sit on top */
-    top: 0;
-    left: 0;
-    width: 100%;
-    /* Full width */
-    height: 100%;
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.8);
-    /* Black w/ opacity */
-}
+        /* The Modal (background) */
+        #myModal {
+            display: none;
+            /* Hidden by default */
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            top: 0;
+            left: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.8);
+            /* Black w/ opacity */
+        }
 
-/* Modal Content */
-#modal-content {
-    flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.8);
-    width: fit-content;
-}
-        
+        /* Modal Content */
+        #modal-content {
+            flex-direction: column;
+            background-color: rgba(255, 255, 255, 0.8);
+            width: fit-content;
+        }
     </style>
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -66,7 +65,7 @@
             font-family: "Roboto";
         }
     </style>
-        <link rel="stylesheet" href="../resources/css/photoList.css">
+    <link rel="stylesheet" href="../resources/css/photoList.css">
     <!-- flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
@@ -99,7 +98,7 @@
                     <label for="add_img" class="flex items-center justify-center w-96 h-56 bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg border dark:border-white border-black"><span>+ Add Photo</span></label>
                     <input type="file" multiple class=" hidden" id="add_img" accept=".jpg, .jpeg" />
                 </div>
-            <!-- selected images -->
+                <!-- selected images -->
                 <div id="imageList" class="flex flex-col lg:flex-row items-center gap-4 text-black dark:text-white"></div>
             </div>
             <!-- End Property Select photo -->
@@ -198,8 +197,7 @@
                             <label for="p_price" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                                 Price</label>
                             <input type="text" name="p_price" class="w-full    bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 
-                            block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="30,000,000">
+                            block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="30,000,000">
                         </div>
                         <div class="lg:w-30 w-16">
                             <label for="p_price_unit" class=" block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
@@ -320,12 +318,11 @@
                     </div>
                 </div>
                 <div class="w-5/6 mb-5 items-center justify-center ">
-                   
+
                     <!-- map -->
                     <div class="h-32 w-full lg:w-[700px] lg:h-72 top-3.5">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30549.300087395244!2d96.17693643476562!3d16.8430906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c193f51faa68ff%3A0x72868c60b69532c4!2sEx%3BbraiN%20Office!5e0!3m2!1sen!2smm!4v1702148429176!5m2!1sen!2smm" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" 
-                                    class="h-32 w-full lg:w-[680px] lg:h-72 border border-black rounded-lg shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]"></iframe>
-                            </div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30549.300087395244!2d96.17693643476562!3d16.8430906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c193f51faa68ff%3A0x72868c60b69532c4!2sEx%3BbraiN%20Office!5e0!3m2!1sen!2smm!4v1702148429176!5m2!1sen!2smm" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="h-32 w-full lg:w-[680px] lg:h-72 border border-black rounded-lg shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]"></iframe>
+                    </div>
                 </div>
                 <!-- End Map Location  -->
 
@@ -410,8 +407,8 @@
                 </div>
             </div>
         </form>
-         <!-- <?php include '../footer/footer.php' ?> -->
-        <script src="../resources/js/show-img.js" ></script>
+        <!-- <?php include '../footer/footer.php' ?> -->
+        <script src="../resources/js/show-img.js"></script>
 
 </body>
 
