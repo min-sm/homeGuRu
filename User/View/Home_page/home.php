@@ -63,7 +63,7 @@ a {
       <div class="flex w-1/4 items-center border-r">
         <ion-icon name="location" class="text-alert mr-1 lg:mx-2"></ion-icon>
         <div>
-          <select name="location" class="bg-secondary text-primary w-16 sm:w-20 md:w-28 lg:w-36 xl:w-48 2xl:w-52 border-none text-2xs sm:text-small lg:text-base">
+          <select name="location" class="bg-secondary text-primary w-16 sm:w-20 md:w-28 lg:w-36 xl:w-48 2xl:w-52 border-none text-2xs sm:text-sm lg:text-base">
             <option value="" disabled selected>Location</option>
             <option value="">Kamayut</option>
             <option value="">Thar Kay Tha</option>
@@ -758,14 +758,14 @@ a {
     </div>
     </div>
   </div>
-  
+  <?php include '../footer/footer.php' ?>
   <!-- flow bite-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
-  <?php include '../footer/footer.php' ?>
+
 
 </body>
 

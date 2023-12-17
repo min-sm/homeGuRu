@@ -28,7 +28,7 @@
 
 <body class="bg-primary">
     <!-- Start Navigation -->
-    <?php include '../Home_page/header.php'   ?>
+    <?php include '../header/header.php'   ?>
     <!-- component -->
 
     <!-- Start  User Info -->
@@ -95,7 +95,7 @@
                                     Sale</div>
                                 <img class="flex items-center justify-center  rounded-bl-lg w-10  absolute right-3 bottom-7" src="../resources/img/fav red.png" alt="product image" />
 
-                                <img class="pb-4 rounded-t-lg" src="../resources/img/recommended-section-img.jpg" alt="product image" />
+                                <img class="pb-4 rounded-t-lg" src="../resources/img/dining-room.jpg" alt="product image" />
                             </div>
                         </a>
                         <div class="px-5 pb-5">
@@ -479,7 +479,7 @@
         </div>
     </div>
     <!-- End  Favoutite Properties -->
-    <?php include '../Home_page/footer.php'   ?>
+    <?php include '../footer/footer.php'   ?>
 </body>
 
 </html>

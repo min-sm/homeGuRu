@@ -90,20 +90,22 @@
             Add Property Post
         </h1>
 
-        <form class="w-10/12 sm:w-3/5 mx-auto  mb-10 ">
+        <form class="w-10/12 sm:w-3/5 mx-auto   ">
             <!-- Start Property Select photo -->
-            <div class="flex flex-col lg:flex-row items-center sm:items-start gap-4 overflow-x-auto mb-5">
-                <!-- add photo button -->
-                <div>
-                    <label for="add_img" class="flex items-center justify-center w-96 h-56 bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg border dark:border-white border-black"><span>+ Add Photo</span></label>
-                    <input type="file" multiple class=" hidden" id="add_img" accept=".jpg, .jpeg" />
-                </div>
-                <!-- selected images -->
-                <div id="imageList" class="flex flex-col lg:flex-row items-center gap-4 text-black dark:text-white"></div>
+            <div class="flex flex-col lg:flex-row items-center sm:items-start gap-4 overflow-x-auto">
+            <!-- add photo button -->
+            <div>
+                <label for="add_img" class="flex items-center justify-center w-96 h-56 bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg border dark:border-white border-black"><span>+ Add Photo</span></label>
+                <input type="file" multiple class=" hidden" id="add_img" accept=".jpg, .jpeg ,.png" />
             </div>
+
+
+            <!-- selected images -->
+            <div id="imageList" class="flex flex-col lg:flex-row items-center gap-4 text-black dark:text-white"></div>
+        </div>
             <!-- End Property Select photo -->
 
-            <div class="grid md:grid-cols-2 md:gap-12 ">
+            <div class="grid md:grid-cols-2 md:gap-12 mt-10">
                 <!-- Start Property Info form -->
                 <div class="flex flex-col   ">
                     <!-- Start Property Type-->
@@ -310,25 +312,13 @@
                     <label for="p_map_location" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                         Location Map</label>
                     <div class=" flex ">
-                        <input type="text" name="p_map_location" id="" class="w-3/5 mr-16  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for NearBy Name ">
-                        <button type="submit" class="text-white bg-darkGreen hover:bg-teal-800 
-                            focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium px-8 py-2 text-center 
-                            dark:bg-darkGreen dark:hover:bg-darkGreen dark:focus:ring-teal-800">
-                            Search</button>
+                        <input type="text" name="p_map_location" id="" class="w-3/5 mr-16  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Paste google map link of location ">
+                        
                     </div>
                 </div>
                 <div class="w-5/6 mb-5 items-center justify-center ">
 
-                    <!-- map -->
-                    <div class="h-32 w-full lg:w-[700px] lg:h-72 top-3.5">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30549.300087395244!2d96.17693643476562!3d16.8430906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c193f51faa68ff%3A0x72868c60b69532c4!2sEx%3BbraiN%20Office!5e0!3m2!1sen!2smm!4v1702148429176!5m2!1sen!2smm" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="h-32 w-full lg:w-[680px] lg:h-72 border border-black rounded-lg shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]"></iframe>
-                    </div>
-                </div>
-                <!-- End Map Location  -->
-
-
-
-                <!-- Start Facilities  -->
+                  <!-- Start Facilities  -->
                 <div class="w-5/6 relative mb-2">
                     <label for="p_map_location" class="block mb-5 text-sm font-semibold text-gray-900 dark:text-white">
                         Additional Facilities</label>
@@ -400,10 +390,11 @@
                     px-2 lg:px-7 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Cancle</button>
 
-                    <button type="" class="absolute right-0 bg-red-600 hover:bg-red-800 
+                    <a href="./property_test_view.php"><button type="" class="absolute right-0 bg-red-600 hover:bg-red-800 
                     focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium text-white 
                     px-2 lg:px-8 py-2 text-center dark:bg-darkGreen dark:hover:bg-darkGreen dark:focus:ring-green-800">
                         Test View</button>
+                        </a>
                 </div>
             </div>
         </form>
