@@ -72,7 +72,7 @@
 
    
     <!-- property imgs & property info  -->
-    <div class="flex flex-col lg:flex-row justify-between w-full lg:w-11/12">
+    <div class="flex flex-col lg:flex-row justify-between w-full lg:w-11/12 mt-5">
         <!-- imgs -->
         <div class="w-full flex flex-col items-center justify-around">
             <div class="w-96 lg:w-[674.86px] lg:h-96 h-56 bg-cover bg-center rounded-lg property-img"

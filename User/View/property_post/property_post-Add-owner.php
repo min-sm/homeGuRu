@@ -93,16 +93,16 @@
         <form class="w-10/12 sm:w-3/5 mx-auto   ">
             <!-- Start Property Select photo -->
             <div class="flex flex-col lg:flex-row items-center sm:items-start gap-4 overflow-x-auto">
-            <!-- add photo button -->
-            <div>
-                <label for="add_img" class="flex items-center justify-center w-96 h-56 bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg border dark:border-white border-black"><span>+ Add Photo</span></label>
-                <input type="file" multiple class=" hidden" id="add_img" accept=".jpg, .jpeg ,.png" />
+                <!-- add photo button -->
+                <div>
+                    <label for="add_img" class="flex items-center justify-center w-96 h-56 bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg border dark:border-white border-black"><span>+ Add Photo</span></label>
+                    <input type="file" multiple class=" hidden" id="add_img" accept=".jpg, .jpeg ,.png" />
+                </div>
+
+
+                <!-- selected images -->
+                <div id="imageList" class="flex flex-col lg:flex-row items-center gap-4 text-black dark:text-white"></div>
             </div>
-
-
-            <!-- selected images -->
-            <div id="imageList" class="flex flex-col lg:flex-row items-center gap-4 text-black dark:text-white"></div>
-        </div>
             <!-- End Property Select photo -->
 
             <div class="grid md:grid-cols-2 md:gap-12 mt-10">
@@ -313,94 +313,95 @@
                         Location Map</label>
                     <div class=" flex ">
                         <input type="text" name="p_map_location" id="" class="w-3/5 mr-16  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Paste google map link of location ">
-                        
+
                     </div>
                 </div>
                 <div class="w-5/6 mb-5 items-center justify-center ">
 
-                  <!-- Start Facilities  -->
-                <div class="w-5/6 relative mb-2">
-                    <label for="p_map_location" class="block mb-5 text-sm font-semibold text-gray-900 dark:text-white">
-                        Additional Facilities</label>
-                    <div class="grid md:grid-cols-3 md:gap-2 ">
-                        <div class="flex items-center mb-2">
-                            <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                Air-con</label>
-                        </div>
-                        <div class="flex items-center mb-2">
-                            <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                Washing Machine</label>
-                        </div>
-                        <div class="flex items-center mb-2">
-                            <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                Refrigerator</label>
-                        </div>
-                        <div class="flex items-center mb-2">
-                            <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                24-hours security</label>
-                        </div>
-                        <div class="flex items-center ">
-                            <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                Car Parking</label>
-                        </div>
-                        <div class="flex items-center ">
-                            <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                Swimming Pool</label>
-                        </div>
-                        <div class="flex items-center ">
-                            <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                Lift</label>
-                        </div>
-                        <div class="flex items-center ">
-                            <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                Generator</label>
-                        </div>
-                        <div class="flex items-center ">
-                            <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                Shopping Center</label>
+                    <!-- Start Facilities  -->
+                    <div class="w-5/6 relative mb-2">
+                        <label for="p_map_location" class="block mb-5 text-sm font-semibold text-gray-900 dark:text-white">
+                            Additional Facilities</label>
+                        <div class="grid md:grid-cols-3 md:gap-2 ">
+                            <div class="flex items-center mb-2">
+                                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                    Air-con</label>
+                            </div>
+                            <div class="flex items-center mb-2">
+                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                    Washing Machine</label>
+                            </div>
+                            <div class="flex items-center mb-2">
+                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                    Refrigerator</label>
+                            </div>
+                            <div class="flex items-center mb-2">
+                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                    24-hours security</label>
+                            </div>
+                            <div class="flex items-center ">
+                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                    Car Parking</label>
+                            </div>
+                            <div class="flex items-center ">
+                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                    Swimming Pool</label>
+                            </div>
+                            <div class="flex items-center ">
+                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                    Lift</label>
+                            </div>
+                            <div class="flex items-center ">
+                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                    Generator</label>
+                            </div>
+                            <div class="flex items-center ">
+                                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                    Shopping Center</label>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- End Facilities  -->
+                    <!-- End Facilities  -->
 
-                <div class="w-5/6 relative my-5">
-                    <div class="mb-5 lg:w-full w-40">
-                        <label for="p_detail" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
-                            Detail Description</label>
-                        <textarea name="p_detail" id="" rows="4" class="block p-2.5 lg:w-full  h-40 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write note Here....."></textarea>
+                    <div class="w-5/6 relative my-5">
+                        <div class="mb-5 lg:w-full w-40">
+                            <label for="p_detail" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
+                                Detail Description</label>
+                            <textarea name="p_detail" id="" rows="4" class="block p-2.5 lg:w-full  h-40 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write note Here....."></textarea>
+                        </div>
                     </div>
-                </div>
 
-                <div class="w-5/6 relative my-5">
-                    <button type="submit" class="text-white bg-darkGreen hover:bg-green-800 
+                    <div class="w-5/6 relative my-5">
+                        <button type="submit" class="text-white bg-darkGreen hover:bg-green-800 
                     focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium
                     px-2 lg:px-8 py-2 text-center dark:bg-darkGreen dark:hover:bg-darkGreen dark:focus:ring-green-800">
-                        Submit</button>
-                    <button type="" class="mx-16 text-teal-700 border-2 border-teal-700 bg-transparent hover:bg-teal-800 hover:text-black
+                            Submit</button>
+                        <button type="" class="mx-16 text-teal-700 border-2 border-teal-700 bg-transparent hover:bg-teal-800 hover:text-black
                     focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium 
                     px-2 lg:px-7 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        Cancle</button>
+                            Cancle</button>
 
-                    <a href="./property_test_view.php"><button type="" class="absolute right-0 bg-red-600 hover:bg-red-800 
+                        <a href="./property_test_view.php"><button type="" class="absolute right-0 bg-red-600 hover:bg-red-800 
                     focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium text-white 
                     px-2 lg:px-8 py-2 text-center dark:bg-darkGreen dark:hover:bg-darkGreen dark:focus:ring-green-800">
-                        Test View</button>
+                                Test View</button>
                         </a>
+                    </div>
                 </div>
-            </div>
-        </form>
-        <!-- <?php include '../footer/footer.php' ?> -->
-        <script src="../resources/js/show-img.js"></script>
 
+        </form>
+    </div>
+        <script src="../resources/js/show-img.js"></script>
+        <?php include '../footer/footer.php' ?>
 </body>
 
 </html>
