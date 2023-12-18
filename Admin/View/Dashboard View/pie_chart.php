@@ -55,6 +55,10 @@
 
       var options = {
         title: "Financial",
+        titleTextStyle: {
+          fontSize: 18, // Set your desired font size in pixels
+          fontName: 'Roboto' // Set your desired font family        
+        },
         curveType: "function",
         legend: {
           position: "bottom"
@@ -93,6 +97,17 @@
 
       var options = {
         title: "Categories",
+        titleTextStyle: {
+          fontSize: 18, // Set your desired font size in pixels
+          fontName: 'Roboto' // Set your desired font family        
+        },
+        legend: {
+          textStyle: {
+            fontSize: 14,
+            fontName: 'Arial, sans-serif',
+            color: '#555' // Legend text color
+          }
+        },
         is3D: true,
         backgroundColor: "transparent",
         chartArea: {
