@@ -6,6 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Property Post Form</title>
     <style>
+        .sell {
+            color: rgb(20, 184, 166) !important;
+        }
+
+        .image-container {
+            width: 24rem;
+            height: 14rem;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 10px;
+            border-radius: 0.5rem;
+        }
+
+        .image-label-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: fit-content;
+        }
+
         /* The Modal (background) */
         #myModal {
             display: none;
@@ -45,6 +65,7 @@
             font-family: "Roboto";
         }
     </style>
+    <link rel="stylesheet" href="../resources/css/photoList.css">
     <!-- flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
@@ -61,71 +82,35 @@
 
 <body class="bg-[#F7F7F7]">
     <!-- Navigation -->
-    <nav class="bg-gray-800 border-gray-200">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="../resources/img/common/logo-confirm.png" class="h-16" alt="HomeGuRu Logo" />
-            </a>
-            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    Login
-                </button>
-                <button data-collapse-toggle="navbar-cta" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600">
-                    <span class="sr-only">Open main menu</span>
-                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
-                    </svg>
-                </button>
-            </div>
-            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
-                <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-gray-800 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-gray-800">
-                    <li>
-                        <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Home</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Buy</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Rent</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Sell</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-500 md:text-blue-500">Collaborator</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-blue-500 hover:text-white border-gray-700">Our
-                            Services</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <?php include '../header/header.php' ?>
     <!-- Navigation -->
     <!-- Start Property Post Add Form -->
     <div class="flex flex-col w-full items-center justify-evenly my-10">
-        <h1 class="mb-16 font-semibold text-5xl text-center " style="font-family: 'Playfair Display';">
+        <h1 class="mb-16 font-semibold text-2xl text-center " style="font-family: 'Playfair Display';">
             Add Property Post
         </h1>
 
-        <form class="w-3/5 mx-auto  my-10 ">
+        <form class="w-10/12 sm:w-3/5 mx-auto  mb-10 ">
             <!-- Start Property Select photo -->
-            <div class=" mb-5">
-                <label for="pPhoto" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
-                </label>
-                <img class=" h-40 mb-2 " src="../resources/img/common/blank photo.png" alt="">
+            <div class="flex flex-col lg:flex-row items-center sm:items-start gap-4 overflow-x-auto mb-5">
+                <!-- add photo button -->
+                <div>
+                    <label for="add_img" class="flex items-center justify-center w-96 h-56 bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg border dark:border-white border-black"><span>+ Add Photo</span></label>
+                    <input type="file" multiple class=" hidden" id="add_img" accept=".jpg, .jpeg" />
+                </div>
+                <!-- selected images -->
+                <div id="imageList" class="flex flex-col lg:flex-row items-center gap-4 text-black dark:text-white"></div>
             </div>
             <!-- End Property Select photo -->
 
             <div class="grid md:grid-cols-2 md:gap-12 ">
                 <!-- Start Property Info form -->
-                <div class="flex flex-col items-center  ">
+                <div class="flex flex-col   ">
                     <!-- Start Property Type-->
                     <div class="mb-5">
                         <label for="p_type" class="w-full block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                             Property Type</label>
-                        <select name="p_type" class="lg:w-72 w-28 px-5 py-2.5 rounded-lg border border-2 border-gray-300">
+                        <select name="p_type" class="lg:w-72 w-28 px-5 py-2.5 rounded-lg  border-2 border-gray-300">
                             <option value="" disabled selected>Select Property Type</option>
                             <option value="">Apartment</option>
                             <option value="">Commercial</option>
@@ -137,7 +122,7 @@
                     <div class="mb-5">
                         <label for="p_floor_level" class="w-full block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                             Floor Level</label>
-                        <select name="p_floor_level" class="lg:w-72 w-28 px-5 py-2.5 rounded-lg border border-2 border-gray-300">
+                        <select name="p_floor_level" class="lg:w-72 w-28 px-5 py-2.5 rounded-lg border-2 border-gray-300">
                             <option value="" disabled selected>Select Floor Level</option>
                             <option value="">1st floor</option>
                             <option value="">2nd floor</option>
@@ -158,14 +143,14 @@
                                 Offer Type</label>
                             <fieldset class="flex  my-4">
                                 <div class="flex ">
-                                    <input id="offer-option-1" type="radio" name="offer" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-green-300 dark:focus:ring-green-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
+                                    <input id="offer-option-1" type="radio" name="offer" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-darkGreen dark:focus:ring-darkGreen dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
                                     <label for="offer-option-1" class="block ms-2  text-sm font-medium text-gray-900 dark:text-gray-300">
                                         Rent
                                     </label>
                                 </div>
 
                                 <div class="flex mx-10">
-                                    <input id="offer-option-2" type="radio" name="offer" value="Germany" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-green-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
+                                    <input id="offer-option-2" type="radio" name="offer" value="Germany" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-darkGreen dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
                                     <label for="country-option-2" class="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                         Sale
                                     </label>
@@ -180,20 +165,20 @@
                             <fieldset class="flex my-4">
 
                                 <div class="flex mr-4">
-                                    <input id="duration-option-1" type="radio" name="duration" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-green-300 dark:focus:ring-green-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
+                                    <input id="duration-option-1" type="radio" name="duration" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-darkGreen dark:focus:ring-darkGreen dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
                                     <label for="duration-option-1" class=" block ms-2  text-sm font-thin text-gray-900 dark:text-gray-300">
                                         Per day
                                     </label>
                                 </div>
 
                                 <div class="flex mr-4">
-                                    <input id="duration-option-2" type="radio" name="duration" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-green-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
+                                    <input id="duration-option-2" type="radio" name="duration" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-darkGreen dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
                                     <label for="duration-option-2" class="block ms-2 text-sm font-thin text-gray-900 dark:text-gray-300">
                                         Per month
                                     </label>
                                 </div>
                                 <div class="flex ">
-                                    <input id="duration-option-3" type="radio" name="duration" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-green-300 dark:focus:ring-green-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
+                                    <input id="duration-option-3" type="radio" name="duration" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-darkGreen dark:focus:ring-darkGreen dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
                                     <label for="duration-option-3" class="w-20 block ms-2  text-sm font-thin text-gray-900 dark:text-gray-300">
                                         Per year
                                     </label>
@@ -208,12 +193,11 @@
                     <!-- Start Price-->
                     <div class="flex lg:w-72 w-42  mb-5">
 
-                        <div class="lg:w-36 w-28 ">
+                        <div class="lg:w-40 w-28 lg:mr-10 mr-4">
                             <label for="p_price" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                                 Price</label>
-                            <input type="text" name="p_price" class="w-full  lg:mr-10 mr-4  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 
-                            block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="30,000,000">
+                            <input type="text" name="p_price" class="w-full    bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 
+                            block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="30,000,000">
                         </div>
                         <div class="lg:w-30 w-16">
                             <label for="p_price_unit" class=" block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
@@ -231,7 +215,7 @@
                     <div class="mb-5">
                         <label for="p_bedroom" class="w-full block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                             Bedroom</label>
-                        <select name="p_bedroom" class="lg:w-72 w-28 px-5 py-2.5 rounded-lg border border-2 border-gray-300">
+                        <select name="p_bedroom" class="lg:w-72 w-28 px-5 py-2.5 rounded-lg  border-2 border-gray-300">
                             <option value="" disabled selected>Select No. of Bedroom</option>
                             <option value="">1 Bedroom</option>
                             <option value="">2 Bedrooms</option>
@@ -286,7 +270,7 @@
 
                 </div>
                 <!-- Start Owner Info form -->
-                <div class="flex flex-col items-center ">
+                <div class="flex flex-col  ">
 
                     <div class="mb-5 lg:w-72 w-28">
                         <label for="p_owner_name" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
@@ -321,25 +305,24 @@
             </div>
 
 
-            <div class="mb-2 w-full flex flex-col items-center relative">
+            <div class="mb-2 w-full flex flex-col  relative">
                 <div class="w-5/6 relative mt-7 mb-2">
                     <label for="p_map_location" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                         Location Map</label>
                     <div class=" flex ">
-                        <input type="text" name="p_map_location" id="" class="w-3/5 mr-16  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for NearBy Name ">
-                        <button type="submit" class="text-white bg-green-700 hover:bg-green-800 
+                        <input type="text" name="p_map_location" id="" class="w-3/5 mr-16  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for NearBy Name ">
+                        <button type="submit" class="text-white bg-darkGreen hover:bg-teal-800 
                             focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium px-8 py-2 text-center 
-                            dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                            dark:bg-darkGreen dark:hover:bg-darkGreen dark:focus:ring-teal-800">
                             Search</button>
                     </div>
                 </div>
                 <div class="w-5/6 mb-5 items-center justify-center ">
-                   
+
                     <!-- map -->
                     <div class="h-32 w-full lg:w-[700px] lg:h-72 top-3.5">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30549.300087395244!2d96.17693643476562!3d16.8430906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c193f51faa68ff%3A0x72868c60b69532c4!2sEx%3BbraiN%20Office!5e0!3m2!1sen!2smm!4v1702148429176!5m2!1sen!2smm" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" 
-                                    class="h-32 w-full lg:w-[680px] lg:h-72 border border-black rounded-lg shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]"></iframe>
-                            </div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30549.300087395244!2d96.17693643476562!3d16.8430906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c193f51faa68ff%3A0x72868c60b69532c4!2sEx%3BbraiN%20Office!5e0!3m2!1sen!2smm!4v1702148429176!5m2!1sen!2smm" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="h-32 w-full lg:w-[680px] lg:h-72 border border-black rounded-lg shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]"></iframe>
+                    </div>
                 </div>
                 <!-- End Map Location  -->
 
@@ -400,30 +383,32 @@
                 <!-- End Facilities  -->
 
                 <div class="w-5/6 relative my-5">
-                    <div class="mb-5 lg:w-full w-28">
+                    <div class="mb-5 lg:w-full w-40">
                         <label for="p_detail" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                             Detail Description</label>
-                        <textarea name="p_detail" id="" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write note Here....."></textarea>
+                        <textarea name="p_detail" id="" rows="4" class="block p-2.5 lg:w-full  h-40 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write note Here....."></textarea>
                     </div>
                 </div>
 
                 <div class="w-5/6 relative my-5">
-                    <button type="submit" class="text-white bg-green-600 hover:bg-green-800 
+                    <button type="submit" class="text-white bg-darkGreen hover:bg-green-800 
                     focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium
-                    px-2 lg:px-8 py-2 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                    px-2 lg:px-8 py-2 text-center dark:bg-darkGreen dark:hover:bg-darkGreen dark:focus:ring-green-800">
                         Submit</button>
-                    <button type="" class="mx-16 text-green-700 border-2 border-green-700 bg-transparent hover:bg-green-800 hover:text-black
+                    <button type="" class="mx-16 text-teal-700 border-2 border-teal-700 bg-transparent hover:bg-teal-800 hover:text-black
                     focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium 
                     px-2 lg:px-7 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Cancle</button>
 
                     <button type="" class="absolute right-0 bg-red-600 hover:bg-red-800 
                     focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium text-white 
-                    px-2 lg:px-8 py-2 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                    px-2 lg:px-8 py-2 text-center dark:bg-darkGreen dark:hover:bg-darkGreen dark:focus:ring-green-800">
                         Test View</button>
                 </div>
             </div>
         </form>
+        <!-- <?php include '../footer/footer.php' ?> -->
+        <script src="../resources/js/show-img.js"></script>
 
 </body>
 
