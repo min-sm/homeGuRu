@@ -34,7 +34,7 @@
   <!-- Start Navigation -->
   <?php include '../header/header.php'   ?>
   <!-- component -->
-  <section class="pb-20">
+  <section class="pb-20" >
     <div class="container px-4 mx-auto">
       <h2 class="text-xl text-left md:text-3xl font-bold my-10 ml-10 sm:ml-20 md:ml-24 lg:ml-28">Register for faster contact</h2>
 
