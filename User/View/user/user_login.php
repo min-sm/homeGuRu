@@ -50,7 +50,7 @@
 
   <body class="bg-primary ">
     <!-- Start Navigation -->
-    <?php include '../Home_page/header.php'   ?>
+    <?php include '../header/header.php'   ?>
   <!-- component -->
 <section  class="pb-20" >
   <div class="container px-4 mx-auto">
@@ -92,6 +92,6 @@
          </div>
   </div>
 </section>
-<?php include '../Home_page/footer.php'   ?>
+<?php include '../footer/footer.php'   ?>
 </body>
 </html>
