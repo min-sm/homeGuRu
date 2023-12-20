@@ -38,7 +38,7 @@
     <div class="container px-4 mx-auto">
       <h2 class="text-xl text-left md:text-3xl font-bold my-10 ml-10 sm:ml-20 md:ml-24 lg:ml-28">Register for faster contact</h2>
 
-      <form action="" class="w-3/4 max-w-sm  m-auto text-center " action="../../Controller/RegisterController.php" method="post" >
+      <form  class="w-3/4 max-w-sm  m-auto text-center " action="../../Controller/RegisterController.php" method="post" >
         <div class="mb-6">
           <label class="block mb-2 font-medium text-left text-secondary" for="username" id="username">User Name</label>
           <input class="inline-block w-full  p-4 leading-6 text-sm placeholder-gray-400 bg-white shadow  border-gray-400 rounded h-12" type="name" placeholder="John Smith" />
@@ -56,7 +56,7 @@
           <input class="inline-block w-full p-4 leading-6 text-lg  placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="password" placeholder="•••••••••••••••••" />
         </div>
         <a href="" class="text-center">
-          <button class="inline-block tracking-wider m-auto  py-2 w-28 mb-6 text-center  leading-6 text-white font-medium bg-darkGreen hover:bg-darkGreen border-3 border-darkGreen shadow rounded transition duration-200">
+          <button  name="register" class="inline-block tracking-wider m-auto  py-2 w-28 mb-6 text-center  leading-6 text-white font-medium bg-darkGreen hover:bg-darkGreen border-3 border-darkGreen shadow rounded transition duration-200">
             Register
           </button>
         </a>
