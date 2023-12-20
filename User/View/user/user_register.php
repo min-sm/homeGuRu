@@ -38,21 +38,21 @@
     <div class="container px-4 mx-auto">
       <h2 class="text-xl text-left md:text-3xl font-bold my-10 ml-10 sm:ml-20 md:ml-24 lg:ml-28">Register for faster contact</h2>
 
-      <form  class="w-3/4 max-w-sm  m-auto text-center " action="../../Controller/RegisterController.php" method="post" >
+      <form  class="w-3/4 max-w-sm  m-auto text-center " action="../../Controller/RegisterController.php" method="Post" >
         <div class="mb-6">
-          <label class="block mb-2 font-medium text-left text-secondary" for="username" id="username">User Name</label>
+          <label class="block mb-2 font-medium text-left text-secondary" for="username" name="username">User Name</label>
           <input class="inline-block w-full  p-4 leading-6 text-sm placeholder-gray-400 bg-white shadow  border-gray-400 rounded h-12" type="name" placeholder="John Smith" />
         </div>
         <div class="mb-6">
-          <label class="block mb-2 font-medium text-left text-secondary" for="email"  id="email">Email</label>
+          <label class="block mb-2 font-medium text-left text-secondary" for="email" name="email">Email</label>
           <input class="inline-block w-full  p-4 leading-6 text-sm placeholder-gray-400 bg-white shadow  border-gray-400 rounded h-12" type="email" placeholder="example123@gmail.com" />
         </div>
         <div class="mb-10">
-          <label class="text-left block mb-2 font-medium text-secondary" for="password"  id="password">Password</label>
+          <label class="text-left block mb-2 font-medium text-secondary" for="password"  name="password">Password</label>
           <input class="inline-block w-full p-4 leading-6 text-lg  placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="password" placeholder="•••••••••••••••••" />
         </div>
         <div class="mb-10">
-          <label class="text-left block mb-2 font-medium text-secondary" for="confirmpassword"  id="confirmpassword">Confirm Password</label>
+          <label class="text-left block mb-2 font-medium text-secondary" for="confirmpassword" name="confirmpassword">Confirm Password</label>
           <input class="inline-block w-full p-4 leading-6 text-lg  placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="password" placeholder="•••••••••••••••••" />
         </div>
         <a href="" class="text-center">
