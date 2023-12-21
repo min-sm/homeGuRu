@@ -5,7 +5,6 @@ if (isset($_POST["register"])) {
     $email = $_POST["email"];
     $password = $_POST["word"];
     $confirmpassword = $_POST["confirmword"];
-
     $sql = $pdo->prepare(
         "INSERT INTO m_users
     (
@@ -18,14 +17,12 @@ if (isset($_POST["register"])) {
         :email,
         :password
     )"
-
-
     );
     $sql->bindValue("name", $username);
     $sql->bindValue("email", $email);
     $sql->bindValue("password", $password);
     $sql->execute();
-    //header("Location: ../../../View/user/user_login.php");
+    header("Location: ../../../View/user/user_login.php");
 } else {
     header("Location: ../../../View/errors/404.php");
 }
