@@ -14,8 +14,11 @@ function toggleFloorLevel() {
     ) === "true";
   if (isFloorLevelRelated) {
     floorLevelDiv.classList.remove("hidden");
+    // floorLevelDiv.setAttribute("required");
+    floorLevelDiv.querySelector("select").required = true;
   } else {
     floorLevelDiv.classList.add("hidden");
+    floorLevelDiv.querySelector("select").required = false;
   }
 }
 
@@ -27,11 +30,17 @@ document.querySelectorAll('input[name="p_offer"]').forEach((radio) => {
     console.log(event.target.id);
   });
 });
-
+let durationInputs = duration.querySelectorAll("input");
 function showRentInfo(id) {
   if (id == "rent") {
     duration.classList.remove("hidden");
+    durationInputs.forEach((element) => {
+      element.required = true;
+    });
   } else if (id == "sale") {
     duration.classList.add("hidden");
+    durationInputs.forEach((element) => {
+      element.required = false;
+    });
   }
 }
