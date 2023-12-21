@@ -9,7 +9,7 @@ if (isset($_POST["register"])) {
 
     // Compare the password and confirm password
     if ($password !== $confirmpassword) {
-        header("Location:  ../../../View/errors/404.php");
+        header("Location: ../../../View/errors/404.php");
         exit(); // Stop further execution
     }
 
@@ -30,11 +30,13 @@ if (isset($_POST["register"])) {
 
     $sql->bindValue("name", $username);
     $sql->bindValue("email", $email);
-    $sql->bindValue("password", $password);
+    $sql->bindValue("password", password_hash($password, PASSWORD_DEFAULT));
     $sql->execute();
 
+    // Redirect to the login page after successful registration
     header("Location: ../View/user/user_login.php");
-} else {
+} 
+else {
     header("Location: ../../../View/errors/404.php");
 }
 ?>

@@ -87,7 +87,7 @@
   <div class="text-center pl-1 mb-3">
   <a href="./Forgot_password.php"  class="text-blue-700 text-sm tracking-wide">Forgot password?</a>
 </div>
-<p class="text-sm tracking-wide">Don't have account ? <a href="./user_signup.php" class="text-blue-700 text-sm tracking-wide">Sign Up</a></p>
+<p class="text-sm tracking-wide mb-16">Don't have account ? <a href="./user_register.php" class="text-blue-700 text-sm tracking-wide">Register</a></p>
           </form>  
          </div>
   </div>
