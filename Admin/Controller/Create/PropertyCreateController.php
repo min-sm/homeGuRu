@@ -5,45 +5,6 @@ var_dump(isset($_POST["go_email"]));
 print_r($_POST);
 print_r($_FILES);
 echo "</pre>";
-/*
-if (isset($_POST["add_drug"])) {
-
-    $drug_name = $_POST["drug_name"];
-    $drug_amt = $_POST["drug_amt"];
-    $drug_amt_unit = $_POST["drug_amt_unit"];
-    $drug_stock = $_POST["drug_stock"];
-    $drug_price = $_POST["drug_price"];
-
-    include "../../Model/DBConnection.php";
-
-    $query = "INSERT INTO drug(
-        drug_name,
-        drug_amt,
-        drug_amt_unit,
-        drug_stock,
-        drug_price
-    )
-    VALUES(
-        :name,
-        :amount,
-        :drug_amt_unit,
-        :stock,
-        :price
-    )";
-    $sql = $pdo->prepare($query);
-    $sql->bindValue(":name", $drug_name);
-    $sql->bindValue(":amount", $drug_amt);
-    $sql->bindValue(":drug_amt_unit", $drug_amt_unit);
-    $sql->bindValue(":stock", $drug_stock);
-    $sql->bindValue(":price", $drug_price);
-
-    $sql->execute();
-
-    header("Location: ../../View/property/list.php"); 
-} else {
-    header("Location: ../../View/erors/404.php");
-}
-*/
 
 if (isset($_POST["submit"])) {
     $go_name = $_POST["go_name"];
@@ -72,11 +33,12 @@ if (isset($_POST["submit"])) {
     $sql->bindValue(":go_email", $go_email);
     $sql->execute();
 
+
     $p_title = $_POST["p_title"];
     $pt_id = $_POST["pt_id"];
-    $p_floor = $_POST["p_floor"];
     $p_offer = $_POST["p_offer"];
-    $p_duration = $_POST["p_duration"];
+    $p_floor = isset($_POST["p_floor"]) && $_POST["p_floor"] !== '' ? $_POST["p_floor"] : NULL;
+    $p_duration = isset($_POST["p_duration"]) && $_POST["p_duration"] !== '' ? $_POST["p_duration"] : NULL;
     $p_price = $_POST["p_price"];
     $p_price_unit = $_POST["p_price_unit"];
     $p_bed = $_POST["p_bed"];
@@ -92,8 +54,6 @@ if (isset($_POST["submit"])) {
     $lastInsertIdStmt = $pdo->prepare($lastInsertIdQuery);
     $lastInsertIdStmt->execute();
     $go_id = $lastInsertIdStmt->fetch(PDO::FETCH_ASSOC)['id'];
-
-
 
     // Image Related
     $p_photo_1 = '';
@@ -113,7 +73,7 @@ if (isset($_POST["submit"])) {
     $lastPropertyId = $lastInsertIdStmt->fetch(PDO::FETCH_ASSOC)['id'];
     $currentlyCreatingPropertyID = $lastPropertyId + 1;
 
-    $img_upload_path = '../../storage/house/' . $currentlyCreatingPropertyID;
+    $img_upload_path = '../../../Storage/house/' . $currentlyCreatingPropertyID;
 
     // creating img folder related to property id
     if (!file_exists($img_upload_path) || !is_dir($img_upload_path)) {
@@ -160,7 +120,7 @@ if (isset($_POST["submit"])) {
                 // $img_upload_path_dynamic = $img_upload_path;
             } else {
                 # error message
-                $em = "You can't upload files of this type";
+                $em = "You can't upload files of this type " . $i;
                 header("Location: ../../View/errors/404.php?error=$em");
             }
         } else {

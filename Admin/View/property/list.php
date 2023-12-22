@@ -1,3 +1,7 @@
+<?php
+include "../../Controller/Read/PropertyListController.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,7 +87,7 @@
                             No
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            ID
+                            Code
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Property
@@ -101,41 +105,58 @@
                             Township
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Actions
+                            Details
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Delete
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- 1st row -->
-                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            01
-                        </th>
-                        <td class="px-6 py-4">
-                            GR-1
-                        </td>
-                        <td class="px-6 py-4">
-                            Condo
-                        </td>
-                        <td class="px-6 py-4">
-                            Rent
-                        </td>
-                        <td class="px-6 py-4">
-                            100 sqft
-                        </td>
-                        <td class="px-6 py-4">
-                            300,000 Kyats / Per month
-                        </td>
-                        <td class="px-6 py-4">
-                            Bahan
-                        </td>
-                        <td class="px-6 py-4 space-x-4">
-                            <!-- <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> -->
-                            <ion-icon name="trash-bin" class="text-lg font-medium cursor-pointer text-alert"></ion-icon>
-                            <ion-icon name="document-text-outline" class="text-lg font-medium cursor-pointer text-blue-500"></ion-icon>
-                        </td>
-                    </tr>
+                    <?php
+                    $counter = 1;
+                    foreach ($properties as $property) {
+                    ?>
+                        <!-- 1st row -->
+                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <?= $counter ?>
+                            </th>
+                            <td class="px-6 py-4">
+                                <?= $property['p_code'] ?>
+                            </td>
+                            <td class="px-6 py-4">
+                                <?= $property['pt_name'] ?>
+                            </td>
+                            <td class="px-6 py-4">
+                                <?= $property['p_offer'] == '0' ? 'Rent' : 'Sale'; ?>
+                            </td>
+                            <td class="px-6 py-4">
+                                <?= number_format($property['p_width'] * $property['p_length']); ?> <?= $property['p_size_unit'] == '1' ? 'm' : 'ft'; ?><sup>2</sup>
+                            </td>
+                            <td class="px-6 py-4">
+                                <?= $property['p_price_unit'] == '1' ? '$' . number_format($property['p_price']) : number_format($property['p_price']) . ' Kyats';
+                                ?> / <?= $property['p_duration'] == '0' ? 'Per Month' : 'Per Year'; ?>
+                            </td>
+                            <td class="px-6 py-4">
+                                <?= $property["p_township"] ?>
+                            </td>
 
+                            <td class="px-6 py-4 text-center">
+                                <a href="detail.php?id=<?= $property['id'] ?>" >
+                                    <ion-icon name="document-text-outline" class="text-lg font-medium cursor-pointer text-blue-500"></ion-icon>
+                                </a>
+                            </td>
+                            <td class="px-6 py-4 text-center" >
+                                <a href="../../Controller/Delete/PropertyDeleteController.php?id=<?= $property['id'] ?>" >
+                                    <ion-icon name="trash-bin" class="text-lg font-medium cursor-pointer text-alert"></ion-icon>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php
+                        $counter++;
+                    }
+                    ?>
                 </tbody>
             </table>
         </div>

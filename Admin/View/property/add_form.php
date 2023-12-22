@@ -272,7 +272,7 @@ include "../../Controller/Read/FacilityListController.php";
                                 }
                                 echo '</div>';
                             }
-                        } else if ($last == 3) { // 16 // first 5
+                        } else if ($last == 3 || $last == 6) { // 16 // first 5
                             // for first column
                             echo "<div class='space-y-4'>";
                             for ($i = 0; $i < $first + 1; $i++) {
@@ -306,42 +306,6 @@ include "../../Controller/Read/FacilityListController.php";
                                         <label for='chbx-<?= $facilities[$i]["id"] ?>'><?= $facilities[$i]["facility_type"] ?></label><br>
                                     </div>
                                 <?php }
-                            }
-                            echo "</div>";
-                        } else if ($last == 6) {
-                            // for first column
-                            echo "<div class='space-y-4'>";
-                            for ($i = 0; $i < $first + 1; $i++) {
-                                if (isset($facilities[$i])) { ?>
-                                    <div>
-                                        <input type="checkbox" id='chbx-<?= $facilities[$i]["id"] ?>' name="p_facilities[]" value='<?= $facilities[$i]["facility_type"] ?>' >
-                                        <label for='chbx-<?= $facilities[$i]["id"] ?>'><?= $facilities[$i]["facility_type"] ?></label><br>
-                                    </div>
-                                <?php }
-                            }
-                            echo "</div>";
-
-                            // for sec column
-                            echo "<div class='space-y-4'>";
-                            for ($i = $first + 1; $i < count($facilities) - $first; $i++) {
-                                if (isset($facilities[$i])) { ?>
-                                    <div>
-                                        <input type="checkbox" id='chbx-<?= $facilities[$i]["id"] ?>' name="p_facilities[]" value='<?= $facilities[$i]["facility_type"] ?>' >
-                                        <label for='chbx-<?= $facilities[$i]["id"] ?>'><?= $facilities[$i]["facility_type"] ?></label><br>
-                                    </div>
-                                <?php }
-                            }
-                            echo "</div>";
-
-                            // for third column 
-                            echo "<div class='space-y-4'>";
-                            for ($i = count($facilities) - $first; $i < count($facilities); $i++) {
-                                if (isset($facilities[$i])) { ?>
-                                    <div>
-                                        <input type="checkbox" id='chbx-<?= $facilities[$i]["id"] ?>' name="p_facilities[]" value='<?= $facilities[$i]["facility_type"] ?>' >
-                                        <label for='chbx-<?= $facilities[$i]["id"] ?>'><?= $facilities[$i]["facility_type"] ?></label><br>
-                                    </div>
-                        <?php }
                             }
                             echo "</div>";
                         }
