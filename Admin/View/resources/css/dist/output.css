@@ -1252,6 +1252,10 @@ html {
   max-width: 24rem;
 }
 
+.max-w-screen-sm{
+  max-width: 640px;
+}
+
 .flex-1{
   flex: 1 1 0%;
 }
@@ -1848,6 +1852,11 @@ html {
   padding-bottom: 1.75rem;
 }
 
+.py-8{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .pb-1{
   padding-bottom: 0.25rem;
 }
@@ -1962,6 +1971,11 @@ html {
   line-height: 1;
 }
 
+.text-7xl{
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
 .font-bold{
   font-weight: 700;
 }
@@ -1984,6 +1998,10 @@ html {
 
 .font-thin{
   font-weight: 100;
+}
+
+.font-light{
+  font-weight: 300;
 }
 
 .uppercase{
@@ -2477,6 +2495,11 @@ html {
     background-color: rgb(22 163 74 / var(--tw-bg-opacity));
   }
 
+  .dark\:bg-gray-900{
+    --tw-bg-opacity: 1;
+    background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+  }
+
   .dark\:text-blue-300{
     --tw-text-opacity: 1;
     color: rgb(147 197 253 / var(--tw-text-opacity));
@@ -2729,6 +2752,11 @@ html {
     line-height: 2rem;
   }
 
+  .md\:text-4xl{
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
   .md\:text-blue-500{
     --tw-text-opacity: 1;
     color: rgb(59 130 246 / var(--tw-text-opacity));
@@ -2849,6 +2877,16 @@ html {
     padding-right: 1.25rem;
   }
 
+  .lg\:px-6{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .lg\:py-16{
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
   .lg\:pl-3{
     padding-left: 0.75rem;
   }
@@ -2866,5 +2904,10 @@ html {
   .lg\:text-base{
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+
+  .lg\:text-9xl{
+    font-size: 8rem;
+    line-height: 1;
   }
 }
