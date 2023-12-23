@@ -12,7 +12,7 @@
         <h1 class="text-6xl font-bold text-gray-800">404</h1>
         <p class="text-2xl text-gray-600 mt-4">Oops! Page not found.</p>
         <p class="text-gray-500 mt-2">The page you are looking for might be in another castle.</p>
-        <a href="/" class="text-blue-500 hover:underline mt-4 block">Go back home</a>
+        <a href="../Home_page/home.php" class="text-blue-500 hover:underline mt-4 block">Go back home</a>
     </div>
 
 </body>

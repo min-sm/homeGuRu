@@ -1,3 +1,9 @@
+<?php
+session_start();
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -56,25 +62,23 @@
   <div class="container px-4 mx-auto">
   <h2 class="text-xl text-left md:text-3xl font-bold my-10 ml-10 sm:ml-20 md:ml-24 lg:ml-28">Log in for faster contact</h2>
    
-          <form action="" class="w-3/4 max-w-sm  m-auto text-center ">
-            <div class="mb-6">
-              <label class="block mb-2 font-medium text-left text-secondary" for="">Email</label>
-              <input
-                class="inline-block w-full  p-4 leading-6 text-sm placeholder-gray-400 bg-white shadow  border-gray-400 rounded h-12"
-                type="email"
-                placeholder="example123@gmail.com"
-              />
-            </div>
-            <div class="mb-10">
-              <label class="text-left block mb-2 font-medium text-secondary" for="">Password</label>
-              <input
-                class="inline-block w-full p-4 leading-6 text-lg  placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12"
-                type="password"
-                placeholder="•••••••••••••••••"
-              />
-            </div>
+          <form action="../../Controller/UserLoginController.php" method="post" metacharset class="w-3/4 max-w-sm  m-auto text-center ">
+            
+          <div class="mb-6">
+    <label class="block mb-2 font-medium text-left text-secondary" for="">Email</label>
+  
+    <input name="email" class="inline-block w-full p-4 leading-6 text-sm placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="email" placeholder="example123@gmail.com" />
+
+</div>
+
+
+<div class="mb-10">
+    <label class="text-left block mb-2 font-medium text-secondary" for="">Password</label>
+    <input name="password" class="inline-block w-full p-4 leading-6 text-lg placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="password" placeholder="•••••••••••••••••" />
+    <div class="mt-3">   <small class="block mb-5  font-medium text-left text-red-500"><?= $_SESSION["loginerror"] ?></small> </div> 
+</div> 
 <a href="" class="text-center">
-            <button
+            <button name = "login" type="submit"
               class="inline-block tracking-wider m-auto  py-2 w-28 mb-6 text-center  leading-6 text-white font-medium bg-darkGreen hover:bg-darkGreen border-3 border-darkGreen shadow rounded transition duration-200"
             >
               Log in
@@ -95,3 +99,4 @@
 <?php include '../footer/footer.php'   ?>
 </body>
 </html>
+<?php $_SESSION["loginerror"] =""?>

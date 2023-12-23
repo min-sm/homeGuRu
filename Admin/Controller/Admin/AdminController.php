@@ -6,14 +6,13 @@ if (isset($_POST["login"])) {
     // Get user input
     $email = $_POST["email"];
     $password = $_POST["password"];
-    $adminEmail = "homeguru123@example.com";
-    $adminPassword = "admin123";
 
-    if ($email === $adminEmail && $password === $adminPassword) {
-        // Authentication successful, redirect to the login page
-        header("Location: ../../../../View/Dashboard View/dashboard.php");
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        // Invalid email format, redirect to error page
+        header("Location: ../../../../../Admin/View/errors/404.php");
         exit();
-    } 
+    }
+
     $sql = $pdo->prepare(
         "INSERT INTO m_admins
         (
@@ -22,7 +21,6 @@ if (isset($_POST["login"])) {
             ga_password
         )
         VALUES(
-
             :email,
             :password
         )"
@@ -30,9 +28,9 @@ if (isset($_POST["login"])) {
     $sql->bindValue("email", $email);
     $sql->bindValue("password", password_hash($password, PASSWORD_DEFAULT));
     $sql->execute();
-
-    // Redirect to the login page after successful registration
-    header("Location:  ../../.././../View/errors/404.php");
+    header("Location: ../View/Dashboard_View/dashboard.php");
+   
+    header("Location:  ../../View/errors/404.php");
 
 }
 ?>

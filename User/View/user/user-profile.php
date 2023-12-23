@@ -28,7 +28,7 @@
 
 <body class="bg-primary">
     <!-- Start Navigation -->
-    <?php include '../Home_page/header.php'   ?>
+    <?php include '../header/header.php'   ?>
     <!-- component -->
 
     <!-- Start  User Info -->
@@ -479,7 +479,7 @@
         </div>
     </div>
     <!-- End  Favoutite Properties -->
-    <?php include '../Home_page/footer.php'   ?>
+    <?php include '../footer/footer.php'   ?>
 </body>
 
 </html>

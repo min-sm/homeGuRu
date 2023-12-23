@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,20 +45,21 @@
       <form class="w-3/4 max-w-sm  m-auto text-center " action="../../Controller/UserRegisterController.php" method="Post" metacharset>
         <div class="mb-6">
           <label class="block mb-2 font-medium text-left text-secondary" for="username">User Name</label>
-          <input name="username" class="inline-block w-full  p-4 leading-6 text-sm placeholder-gray-400 bg-white shadow  border-gray-400 rounded h-12" type="name" placeholder="John Smith" />
+          <input name="username" class="inline-block w-full  p-4 leading-6 text-sm placeholder-gray-400 bg-white shadow  border-gray-400 rounded h-12" type="name" placeholder="John Smith" required />
         </div>
         <div class="mb-6">
           <label class="block mb-2 font-medium text-left text-secondary" for="email">Email</label>
-          <input name="email" class="inline-block w-full  p-4 leading-6 text-sm placeholder-gray-400 bg-white shadow  border-gray-400 rounded h-12" type="email" placeholder="example123@gmail.com" />
+          <input name="email" class="inline-block w-full  p-4 leading-6 text-sm placeholder-gray-400 bg-white shadow  border-gray-400 rounded h-12" type="email" placeholder="example123@gmail.com"required />
         </div>
         <div class="mb-10">
           <label class="text-left block mb-2 font-medium text-secondary" for="password">Password</label>
-          <input name="word" class="inline-block w-full p-4 leading-6 text-lg  placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="password" placeholder="•••••••••••••••••" />
+          <input name="word" class="inline-block w-full p-4 leading-6 text-lg  placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="password" placeholder="•••••••••••••••••" required/>
         </div>
         <div class="mb-10">
           <label class="text-left block mb-2 font-medium text-secondary" for="confirmpassword">Confirm Password</label>
-          <input name="confirmword" class="inline-block w-full p-4 leading-6 text-lg  placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="password" placeholder="•••••••••••••••••" />
+          <input name="confirmword" class="inline-block w-full p-4 leading-6 text-lg  placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="password" placeholder="•••••••••••••••••" required />
         </div>
+        <div class="mt-3">   <small class="block mb-5  font-medium text-left text-red-500"><?= $_SESSION["registererror"] ?></small> </div> 
         <a href="" class="text-center">
           <button type="submit" name="register" class="inline-block tracking-wider m-auto  py-2 w-28 mb-6 text-center  leading-6 text-white font-medium bg-darkGreen hover:bg-darkGreen border-3 border-darkGreen shadow rounded transition duration-200">
             Register
@@ -67,5 +72,5 @@
   </section>
   <?php include '../footer/footer.php' ?>
 </body>
-
 </html>
+<?php $_SESSION["registererror"]=""?>
