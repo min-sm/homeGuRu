@@ -60,7 +60,7 @@
             Register
           </button>
         </a>
-        <p type="submit" name="login" class="text-sm tracking-wide mb-16"  id="loginLink">Already have an account ? <a href="./user_login.php" class="text-blue-700 text-sm tracking-wide">Log in</a></p>
+        <p type="submit" name="login" class="text-sm tracking-wide mb-16" >Already have an account ? <a href="./user_login.php" class="text-blue-700 text-sm tracking-wide">Log in</a></p>
       </form>
     </div>
     </div>
