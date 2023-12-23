@@ -1,3 +1,6 @@
+<?php
+include "../../Controller/Read/SinglePropertyDetailController.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,76 +47,100 @@
     <div class="p-4 pt-20 sm:ml-64">
         <!-- add property post -->
         <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">Property Details</h1>
-
         <!-- image section -->
         <div class="flex flex-col lg:flex-row items-center sm:items-start gap-4 text-black dark:text-white overflow-x-auto">
             <!--  images -->
-            <div class="image-label-container">
-                <div class="image-container property-img" style="background-image: url('../resources/img/house/entrance-hall.jpg');"></div>
-            </div>
-            <div class="image-label-container">
-                <div class="image-container property-img" style="background-image: url('../resources/img/house/dining-room.jpg');"></div>
-            </div>
-            <div class="image-label-container">
-                <div class="image-container property-img" style="background-image: url('../resources/img/house/kitchen.jpg');"></div>
-            </div>
-            <div class="image-label-container">
-                <div class="image-container property-img" style="background-image: url('../resources/img/house/living-room.jpg');"></div>
-            </div>
-            <div class="image-label-container">
-                <div class="image-container property-img" style="background-image: url('../resources/img/house/study-room.jpg');"></div>
-            </div>
+            <?php
+            $photos = [];
+            for ($i = 1; $i <= 5; $i++) {
+                if (!empty($property["p_photo_$i"])) {
+                    $photos[] = $property["p_photo_$i"];
+                }
+            }
+            ?>
+            <?php foreach ($photos as $photo) : ?>
+                <div class="image-label-container">
+                    <div class="image-container property-img" style="background-image: url('../../../Storage/house/<?= $_GET["id"] ?>/<?= $photo ?>');"></div>
+                </div>
+            <?php endforeach; ?>
         </div>
 
         <!-- detailed information -->
         <div class="flex items-center justify-center mt-4 flex-col space-y-4">
+            <!-- property code -->
+            <div class="flex w-80 lg:w-3/4 flex-col unimportant-detail ">
+                <div class="flex items-center justify-between text-black dark:text-white">
+                    <span class="font-medium text-lg">Property Code</span>
+                    <!-- <span><?php echo "<pre>";
+                                var_dump($property); ?></span> -->
+                    <span><?= $property["p_code"] ?></span>
+                </div>
+            </div>
             <!-- property type -->
             <div class="flex w-80 lg:w-3/4 flex-col unimportant-detail ">
                 <div class="flex items-center justify-between text-black dark:text-white">
                     <span class="font-medium text-lg">Property Type</span>
-                    <span>Condo</span>
+                    <span><?= $property["pt_name"]; ?></span>
                 </div>
             </div>
             <!-- Floor level -->
             <div class="flex w-80 lg:w-3/4 flex-col unimportant-detail ">
                 <div class="flex items-center justify-between text-black dark:text-white">
                     <span class="font-medium text-lg">Floor Level</span>
-                    <span>10</span>
+                    <span>
+                        <?php
+                        if ($property["p_floor"] == '6') {
+                            echo "Over 6";
+                        } else if ($property["p_floor"] == 7) {
+                            echo "Over 8";
+                        } else if ($property["p_floor"] == 8) {
+                            echo "Over 10";
+                        } else {
+                            echo $property["p_floor"];
+                        }
+                        ?>
+                    </span>
                 </div>
             </div>
             <!-- Offer Type -->
             <div class="flex w-80 lg:w-3/4 flex-col unimportant-detail ">
                 <div class="flex items-center justify-between text-black dark:text-white">
                     <span class="font-medium text-lg">Offer Type</span>
-                    <span>Rent</span>
+                    <span><?= $property["p_offer"] == '0' ? 'Rent' : 'Sale'; ?></span>
                 </div>
             </div>
             <!-- Duration -->
             <div class="flex w-80 lg:w-3/4 flex-col unimportant-detail ">
                 <div class="flex items-center justify-between text-black dark:text-white">
                     <span class="font-medium text-lg">Duration</span>
-                    <span>per Year</span>
+                    <span><?php if ($property["p_duration"] == '0') {
+                                echo 'Per Month';
+                            } else if ($property["p_duration"] == '1') {
+                                echo 'Per Year';
+                            } else {
+                                echo $property['p_duration'];
+                            } ?></span>
                 </div>
             </div>
             <!-- Price -->
             <div class="flex w-80 lg:w-3/4 flex-col unimportant-detail ">
                 <div class="flex items-center justify-between text-black dark:text-white">
                     <span class="font-medium text-lg">Price</span>
-                    <span>4</span>
+                    <span><?= number_format($property['p_price']); ?></span>
                 </div>
             </div>
             <!-- Price Type -->
             <div class="flex w-80 lg:w-3/4 flex-col unimportant-detail ">
                 <div class="flex items-center justify-between text-black dark:text-white">
                     <span class="font-medium text-lg">Price Type</span>
-                    <span>Dollar $</span>
+                    <span><?= $property['p_price_unit'] == '1' ? 'Dollar' : 'Kyat'; ?></span>
                 </div>
             </div>
             <!-- Size Unit -->
             <div class="flex w-80 lg:w-3/4 flex-col unimportant-detail ">
                 <div class="flex items-center justify-between text-black dark:text-white">
                     <span class="font-medium text-lg">Size Unit</span>
-                    <span>foot (ft)</span>
+                    <span><?= $property['p_size_unit'] == '1' ? 'm (meter)' : 'ft (foot)'; ?></span>
                 </div>
             </div>
             <!-- Size -->
@@ -123,13 +150,13 @@
                     <div class="flex items-center gap-4">
                         <div class="flex items-center flex-col">
                             <p class="text-sm font-thin">Width</p>
-                            <p>60'</p>
+                            <p><?= number_format($property['p_width']); ?><?= $property['p_size_unit'] == '1' ? 'm' : "'"; ?></p>
                         </div>
                         <div class="flex items-center flex-col">
                             <p class="text-sm font-thin">Length</p>
-                            <p>220'</p>
+                            <p><?= number_format($property['p_length']); ?><?= $property['p_size_unit'] == '1' ? 'm' : "'"; ?></p>
                         </div>
-                        <p>13200 ft<sup>2</sup></p>
+                        <p><?= number_format($property['p_width'] * $property['p_length']); ?> <?= $property['p_size_unit'] == '1' ? 'm' : 'ft'; ?><sup>2</sup></p>
                     </div>
                 </div>
             </div>
@@ -137,7 +164,7 @@
             <div class="flex w-80 lg:w-3/4 flex-col unimportant-detail ">
                 <div class="flex items-center justify-between text-black dark:text-white">
                     <span class="font-medium text-lg">Township</span>
-                    <span>Bahan</span>
+                    <span><?= $property['p_township']; ?></span>
                 </div>
             </div>
             <!-- Location -->
@@ -145,40 +172,87 @@
                 <span class="font-medium text-lg">Location</span>
             </div>
             <!-- map -->
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30549.300087395244!2d96.17693643476562!3d16.8430906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c193f51faa68ff%3A0x72868c60b69532c4!2sEx%3BbraiN%20Office!5e0!3m2!1sen!2smm!4v1702575912329!5m2!1sen!2smm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-3/4 h-72 unimportant-detail  block-unimportant"></iframe>
+            <?= str_replace('<iframe', '<iframe class="w-3/4 h-72 unimportant-detail block-unimportant"', $property['p_location']); ?>
+
             <!-- features -->
             <div class="w-80 lg:w-3/4 text-black dark:text-white unimportant-detail  block-unimportant">
                 <p class="font-medium text-lg mb-2">Additional Features</p>
 
                 <div class="grid grid-cols-3 lg:text-base text-sm px-2 sm:px-0">
-                    <div>
-                        <ul class="list-disc list-inside text-start">
-                            <li>24 hours security</li>
-                            <li>Air con</li>
-                            <li>Lift</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul class="list-disc list-inside text-start">
-                            <li>Washing Machine</li>
-                            <li>Car parking</li>
-                            <li>Generator</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul class="list-disc list-inside text-start">
-                            <li>Refrigerator</li>
-                            <li>Swimming Pool</li>
-                            <li>Shopping Center</li>
-                        </ul>
-                    </div>
+
+                    <?php
+                    $facility = explode(", ", $property['p_facilities']);
+                    $facilitiesRatio = (count($facility) / 3);
+                    $first = (int)$facilitiesRatio;
+                    $last = (int)(($facilitiesRatio - $first) * 10);
+
+                    if ($facilitiesRatio <= 1) {
+                        for ($i = 0; $i < 3; $i++) {
+                            if (isset($facility[$i])) {
+                                echo "<div><ul class='list-disc list-inside text-start'>";
+                                echo "<li>" . $facility[$i] . "</li>";
+                                echo "</ul></div>";
+                            }
+                        }
+                    } else if ($last == 0) {
+                        // echo "<pre>";
+                        $chunks = array_chunk($facility, $first);
+                        foreach ($chunks as $chunk) {
+                            echo "<div>";
+                            for ($i = 0; $i < $first; $i++) {
+                                if (isset($chunk)) {
+                                // echo "<pre>";
+                                // print_r($chunk);
+                                echo "<ul class='list-disc list-inside text-start'>";
+                                echo "<li>" . $chunk[$i] . "</li>";
+                                echo "</ul>";
+                            }
+                            }
+                            
+                            echo "</div>";
+                        }
+                    } else if ($last == 3 || $last == 6) { // 16 // first 5
+                        // for first column
+                        echo "<div>";
+                        for ($i = 0; $i < $first + 1; $i++) {
+                            if (isset($facility[$i])) {
+                                echo "<ul class='list-disc list-inside text-start'>";
+                                echo "<li>" . $facility[$i] . "</li>";
+                                echo "</ul>";
+                            }
+                        }
+                        echo "</div>";
+
+                        // for sec column
+                        echo "<div>";
+                        for ($i = $first + 1; $i < count($facility) - $first; $i++) {
+                            if (isset($facility[$i])) {
+                                echo "<ul class='list-disc list-inside text-start'>";
+                                echo "<li>" . $facility[$i] . "</li>";
+                                echo "</ul>";
+                            }
+                        }
+                        echo "</div>";
+
+                        // for third column 
+                        echo "<div>";
+                        for ($i = count($facility) - $first; $i < count($facility); $i++) {
+                            if (isset($facility[$i])) {
+                                echo "<ul class='list-disc list-inside text-start'>";
+                                echo "<li>" . $facility[$i] . "</li>";
+                                echo "</ul>";
+                            }
+                        }
+                        echo "</div>";
+                    }
+                    ?>
                 </div>
             </div>
 
             <!-- detailed description -->
             <div class=" w-80 lg:w-3/4 text-black dark:text-white space-y-2 unimportant-detail  block-unimportant">
                 <p class="font-medium text-lg">Detailed Description</p>
-                <p class="tracking-wider leading-6">This is a 5 Bed House in Kamayut. The asking price is 4800 lakhs per month, and the square feet is 3200. Inside the property, there are three bedrooms with ensuites and two single bedrooms. The property will come unfurnished or furnished with all essentials for daily living. This includes items such as a TV, sofa set, coffee table, dining table, chairs, beds, mattresses, washing machine & a fridge freezer. This house comes with access car parking and a backup generator for 24-hour electricity. For more information about Myanmar Real Estate contact us; Phone, Viber & telegram : +959-980636388 Email : myanmarproperties3@gmail.com</p>
+                <p class="tracking-wider leading-6"><?= $property['p_description']; ?></p>
             </div>
 
             <!-- line break -->
@@ -192,41 +266,41 @@
             <div class="flex w-80 lg:w-3/4 flex-col">
                 <div class="flex items-center justify-between text-black dark:text-white">
                     <span class="font-medium text-lg">Owner Name</span>
-                    <span>Min Soe Moe</span>
+                    <span><?= $property['go_name']; ?></span>
                 </div>
             </div>
             <!-- National ID -->
             <div class="flex w-80 lg:w-3/4 flex-col">
                 <div class="flex items-center justify-between text-black dark:text-white">
                     <span class="font-medium text-lg">Naitonal ID</span>
-                    <span>12/ TaTaTa(N) 123456</span>
+                    <span><?= $property['go_nrc']; ?></span>
                 </div>
             </div>
             <!-- Phone Number -->
             <div class="flex w-80 lg:w-3/4 flex-col">
                 <div class="flex items-center justify-between text-black dark:text-white">
                     <span class="font-medium text-lg">Phone Number</span>
-                    <span>09123456678</span>
+                    <span><?= $property['go_phone_num']; ?></span>
                 </div>
             </div>
             <!-- Email Address -->
             <div class="flex w-80 lg:w-3/4 flex-col">
                 <div class="flex items-center justify-between text-black dark:text-white">
                     <span class="font-medium text-lg">Email Address</span>
-                    <span>minsoemoe999@gmail.com</span>
+                    <span><?= $property['go_email']; ?></span>
                 </div>
             </div>
             <!-- notes -->
             <div class=" w-80 lg:w-3/4 text-black dark:text-white space-y-2">
                 <p class="font-medium text-lg">Note</p>
-                <p class="tracking-wider leading-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dolores facilis quasi? Mollitia velit ut enim ratione doloribus doloremque dolorem.</p>
+                <p class="tracking-wider leading-6"><?= $property['p_note']; ?></p>
             </div>
 
             <!-- buttons -->
             <div class="w-3/4 flex gap-5">
-                <button class="bg-darkGreen py-2 px-6 rounded-lg border text-sm sm:text-base text-white">Make Appointment</button>
-                <button class="bg-alert py-2 px-6 rounded-lg border text-sm sm:text-base text-white ">Decline</button>
-                <button class="bg-goldYellow py-2 px-6 rounded-lg border text-sm sm:text-base text-white flex justify-between"><span class="inline-flex items-center justify-center mr-3 w-3 h-3 p-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">13</span>Interest</button>
+                <!-- <button class="bg-darkGreen py-2 px-6 rounded-lg border text-sm sm:text-base text-white">Make Appointment</button>-->
+                <button class="bg-alert py-2 px-6 rounded-lg border text-sm sm:text-base text-white ">Delete</button> 
+                <button class="bg-goldYellow py-2 px-6 rounded-lg border text-sm sm:text-base text-white flex justify-between"><span class="inline-flex items-center justify-center mr-3 w-3 h-3 p-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300"><?= $property['p_interest_count']; ?></span>Interest</button>
             </div>
         </div>
 

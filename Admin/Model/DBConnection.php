@@ -2,7 +2,7 @@
 
 $hostname = "localhost";
 $port = 3306;
-$dbname = "";
+$dbname = "guru_db";
 $username = "root";
 $password = "";
 
