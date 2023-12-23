@@ -1,6 +1,6 @@
 <?php
-include "../../Controller/Read/PropertyTypeListController.php";
-include "../../Controller/Read/FacilityListController.php";
+include "../../Controller/PropertyType/PropertyTypeListController.php";
+include "../../Controller/Facility/FacilityListController.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +50,7 @@ include "../../Controller/Read/FacilityListController.php";
         <!-- add property post -->
         <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">Add Property Post</h1>
 
-        <form action="../../Controller/Create/PropertyCreateController.php" method="POST" enctype="multipart/form-data">
+        <form action="../../Controller/Property/PropertyCreateController.php" method="POST" enctype="multipart/form-data">
             <!-- add image section -->
             <div class="flex flex-col lg:flex-row items-center sm:items-start gap-4 overflow-x-auto">
                 <!-- add photo button -->
@@ -98,7 +98,7 @@ include "../../Controller/Read/FacilityListController.php";
                 <!-- floor lvl & national ID -->
                 <div class="flex w-3/4 justify-between">
                     <!-- floor level -->
-                    <div class="flex flex-col hidden" id="floor_lvl_section_element">
+                    <div class=" flex-col hidden" id="floor_lvl_section_element">
                         <label for="floor_lvl" class="font-medium">Floor Level</label>
                         <select id="floor_lvl" name="p_floor" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white">
                             <option value="" disabled selected>Select Floor Level</option>
@@ -143,7 +143,7 @@ include "../../Controller/Read/FacilityListController.php";
                 <!-- duration & email -->
                 <div class="flex w-3/4 justify-between">
                     <!-- Duration -->
-                    <div class="flex flex-col hidden" id="duration">
+                    <div class=" flex-col hidden" id="duration">
                         <label class="font-medium">Duration</label>
                         <div class="flex flex-col">
                             <div>
@@ -173,7 +173,7 @@ include "../../Controller/Read/FacilityListController.php";
                             <label>Price</label>
                             <div class="flex justify-between">
                                 <!-- price -->
-                                <input type="number" placeholder="300,000" id="price" name="p_price" class="lg:w-48 w-28 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2" required>
+                                <input type="number" placeholder="300,000" id="price" name="p_price" class="lg:w-48 w-28 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2" min="0" required>
                                 <!-- price unit -->
                                 <select id="property_type" name="p_price_unit" class="lg:w-32 w-8 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
                                     <option value="" disabled selected>Unit</option>

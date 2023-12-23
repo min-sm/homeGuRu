@@ -1,5 +1,5 @@
 <?php
-include "../../Controller/Read/PropertyListController.php";
+include "../../Controller/Property/PropertyListController.php";
 
 ?>
 <!DOCTYPE html>
@@ -148,7 +148,7 @@ include "../../Controller/Read/PropertyListController.php";
                                 </a>
                             </td>
                             <td class="px-6 py-4 text-center" >
-                                <a href="../../Controller/Delete/PropertyDeleteController.php?id=<?= $property['id'] ?>" >
+                                <a href="../../Controller/Property/PropertyDeleteController.php?id=<?= $property['id'] ?>" >
                                     <ion-icon name="trash-bin" class="text-lg font-medium cursor-pointer text-alert"></ion-icon>
                                 </a>
                             </td>

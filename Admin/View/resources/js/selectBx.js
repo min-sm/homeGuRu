@@ -14,10 +14,11 @@ function toggleFloorLevel() {
     ) === "true";
   if (isFloorLevelRelated) {
     floorLevelDiv.classList.remove("hidden");
-    // floorLevelDiv.setAttribute("required");
+    floorLevelDiv.classList.add("flex");
     floorLevelDiv.querySelector("select").required = true;
   } else {
     floorLevelDiv.classList.add("hidden");
+    floorLevelDiv.classList.remove("flex");
     floorLevelDiv.querySelector("select").required = false;
   }
 }
@@ -34,13 +35,26 @@ let durationInputs = duration.querySelectorAll("input");
 function showRentInfo(id) {
   if (id == "rent") {
     duration.classList.remove("hidden");
+    duration.classList.add("flex");
     durationInputs.forEach((element) => {
       element.required = true;
     });
   } else if (id == "sale") {
     duration.classList.add("hidden");
+    duration.classList.remove("flex");
     durationInputs.forEach((element) => {
       element.required = false;
     });
   }
 }
+
+// JS Code to prevent negative numbers
+let numberInputs = document.querySelectorAll('input[type="number"]');
+
+numberInputs.forEach((input) => {
+  input.addEventListener("input", function () {
+    if (this.value < 0) {
+      this.value = 0;
+    }
+  });
+});

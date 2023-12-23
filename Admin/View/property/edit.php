@@ -1,6 +1,7 @@
 <?php
-include "../../Controller/Read/PropertyTypeListController.php";
-include "../../Controller/Read/FacilityListController.php";
+include "../../Controller/Property/PropertyEditController.php";
+include "../../Controller/PropertyType/PropertyTypeListController.php";
+include "../../Controller/Facility/FacilityListController.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,9 +49,8 @@ include "../../Controller/Read/FacilityListController.php";
     <!-- main body -->
     <div class="p-4 pt-20 sm:ml-64">
         <!-- add property post -->
-        <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">Add Property Post</h1>
-
-        <form action="../../Controller/Create/PropertyCreateController.php" method="POST" enctype="multipart/form-data">
+        <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">Edit Property Post</h1>
+        <form action="../../Controller/Property/PropertyCreateController.php" method="POST" enctype="multipart/form-data">
             <!-- add image section -->
             <div class="flex flex-col lg:flex-row items-center sm:items-start gap-4 overflow-x-auto">
                 <!-- add photo button -->
@@ -58,10 +58,23 @@ include "../../Controller/Read/FacilityListController.php";
                     <label for="add_img" class="flex items-center justify-center w-96 h-56 bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg border dark:border-white border-black"><span>+ Add Photo</span></label>
                     <input type="file" name="p_photos[]" multiple class=" hidden" id="add_img" accept=".jpg, .jpeg" />
                 </div>
-
-
                 <!-- selected images -->
-                <div id="imageList" class="flex flex-col lg:flex-row items-center gap-4 text-black dark:text-white"></div>
+                <div id="imageList" class="flex flex-col lg:flex-row items-center gap-4 text-black dark:text-white">
+                    <!--  images -->
+                    <?php
+                    $photos = [];
+                    for ($i = 1; $i <= 5; $i++) {
+                        if (!empty($property["p_photo_$i"])) {
+                            $photos[] = $property["p_photo_$i"];
+                        }
+                    }
+                    ?>
+                    <?php foreach ($photos as $photo) : ?>
+                        <div class="image-label-container">
+                            <div class="image-container property-img" style="background-image: url('../../../Storage/house/<?= $_GET["id"] ?>/<?= $photo ?>');"></div><p><?= $photo; ?></p>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
             </div>
 
             <!-- form text boxes -->
@@ -72,7 +85,7 @@ include "../../Controller/Read/FacilityListController.php";
                     <!-- property title -->
                     <div class="flex flex-col w-full">
                         <label for="property_title" class="font-medium">Property Title</label>
-                        <input type="text" placeholder="3 Beds Condo In Bahan" id="property_title" name="p_title" class="w-full  px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
+                        <input type="text" value='<?= $property['p_title'] ?>' placeholder="3 Beds Condo In Bahan" value="" id="property_title" name="p_title" class="w-full  px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
                     </div>
                 </div>
                 <!-- property type and owner name -->
@@ -81,41 +94,44 @@ include "../../Controller/Read/FacilityListController.php";
                     <div class="flex flex-col ">
                         <label for="p_type" class="font-medium">Property Type</label>
                         <select id="p_type" name="pt_id" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
-                            <option value='' disabled selected>Select Property Type</option>
                             <?php
                             foreach ($property_types as $p_type) {
                             ?>
-                                <option value="<?= $p_type["id"] ?>" <?= ($p_type["pt_status"] == 1) ? 'data-floor-level="true"' : '' ?>><?= $p_type["pt_name"] ?></option>
+                                <option value="<?= $p_type["id"] ?>" <?= ($p_type["pt_status"] == 1) ? 'data-floor-level="true"' : '' ?> <?= $p_type["id"] == $property['pt_id'] ? 'selected' : ''; ?>><?= $p_type["pt_name"] ?></option>
                             <?php } ?>
                         </select>
                     </div>
                     <!-- owner name -->
                     <div class="flex flex-col">
                         <label for="owner_name" class="font-medium">Owner Name</label>
-                        <input type="text" placeholder="Min Soe Moe" id="owner_name" name="go_name" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
+                        <input type="text" placeholder="Min Soe Moe" id="owner_name" name="go_name" value="<?= $property['go_name']; ?>" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
                     </div>
                 </div>
                 <!-- floor lvl & national ID -->
                 <div class="flex w-3/4 justify-between">
                     <!-- floor level -->
-                    <div class="flex flex-col hidden" id="floor_lvl_section_element">
+                    <div class="<?= $property['pt_status'] == '0' ? 'hidden' : 'flex'; ?>  flex-col" id="floor_lvl_section_element">
                         <label for="floor_lvl" class="font-medium">Floor Level</label>
                         <select id="floor_lvl" name="p_floor" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white">
-                            <option value="" disabled selected>Select Floor Level</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">Over 6</option>
-                            <option value="7">Over 8</option>
-                            <option value="8">Over 10</option>
+                            <?php
+                            for ($i = 1; $i < 9; $i++) { ?>
+                                <option <?= $property['p_floor'] == $i ? 'selected' : '' ?> value="<?= $i ?>">
+                                    <?php
+                                    if ($i >= 6) {
+                                        echo 'Over ' . (6 + (($i - 6) * 2));
+                                    } else {
+                                        echo $i;
+                                    }
+                                    ?>
+                                </option>
+                            <?php }
+                            ?>
                         </select>
                     </div>
                     <!-- national_ID -->
                     <div class="flex flex-col">
                         <label for="national_ID" class="font-medium">National ID</label>
-                        <input type="text" placeholder="12/TaTaTa(N)123456" id="national_ID" name="go_nrc" class="lg:w-96 w-28 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2" required>
+                        <input type="text" placeholder="12/TaTaTa(N)123456" id="national_ID" name="go_nrc" value="<?= $property['go_nrc']; ?>" class="lg:w-96 w-28 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2" required>
                     </div>
                 </div>
                 <!-- offer type & ph num -->
@@ -125,11 +141,11 @@ include "../../Controller/Read/FacilityListController.php";
                         <label class="font-medium">Offer Type</label>
                         <div class="flex flex-col">
                             <div>
-                                <input type="radio" id="rent" name="p_offer" value="0" required />
+                                <input type="radio" id="rent" name="p_offer" value="0" <?= $property['p_offer'] == '0' ? 'checked' : ''; ?> required />
                                 <label for="rent">Rent</label>
                             </div>
                             <div>
-                                <input type="radio" id="sale" name="p_offer" value="1" required />
+                                <input type="radio" id="sale" name="p_offer" value="1" <?= $property['p_offer'] == '1' ? 'checked' : ''; ?> required />
                                 <label for="sale">Sale</label>
                             </div>
                         </div>
@@ -137,21 +153,21 @@ include "../../Controller/Read/FacilityListController.php";
                     <!-- phone number -->
                     <div class="flex flex-col">
                         <label for="ph_num" class="font-medium">Phone number</label>
-                        <input type="text" placeholder="09757346631" id="ph_num" name="go_phone_num" class="lg:w-96 w-28 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2" required>
+                        <input type="text" placeholder="09757346631" id="ph_num" name="go_phone_num" value="<?= $property['go_phone_num']; ?>" class="lg:w-96 w-28 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2" required>
                     </div>
                 </div>
                 <!-- duration & email -->
                 <div class="flex w-3/4 justify-between">
                     <!-- Duration -->
-                    <div class="flex flex-col hidden" id="duration">
+                    <div class="flex-col <?= $property['p_offer'] == '1' ? 'hidden' : 'flex'; ?>" id="duration">
                         <label class="font-medium">Duration</label>
                         <div class="flex flex-col">
                             <div>
-                                <input type="radio" id="per_mth" name="p_duration" value="0" />
+                                <input type="radio" id="per_mth" name="p_duration" <?= $property['p_duration'] == '0' ? 'checked' : ''; ?> value="0" />
                                 <label for="per_mth">Per month</label>
                             </div>
                             <div>
-                                <input type="radio" id="per_yr" name="p_duration" value="1" />
+                                <input type="radio" id="per_yr" name="p_duration" <?= $property['p_duration'] == '1' ? 'checked' : ''; ?> value="1" />
                                 <label for="per_yr">Per Year</label>
                             </div>
                         </div>
@@ -159,7 +175,7 @@ include "../../Controller/Read/FacilityListController.php";
                     <!-- email -->
                     <div class="flex flex-col">
                         <label for="email" class="font-medium">Email</label>
-                        <input type="text" placeholder="blahblah@gmail.com" id="email" name="go_email" class="lg:w-96 w-28 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2">
+                        <input type="text" placeholder="blahblah@gmail.com" id="email" name="go_email" value="<?= $property['go_email']; ?>" class="lg:w-96 w-28 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2">
                     </div>
                 </div>
 
@@ -173,12 +189,12 @@ include "../../Controller/Read/FacilityListController.php";
                             <label>Price</label>
                             <div class="flex justify-between">
                                 <!-- price -->
-                                <input type="number" placeholder="300,000" id="price" name="p_price" class="lg:w-48 w-28 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2" required>
+                                <input type="number" placeholder="300,000" id="price" name="p_price" value="<?= ($property['p_price']); ?>" class="lg:w-48 w-28 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2" min="0" required>
                                 <!-- price unit -->
                                 <select id="property_type" name="p_price_unit" class="lg:w-32 w-8 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
                                     <option value="" disabled selected>Unit</option>
-                                    <option value="1">Dollar</option>
-                                    <option value="2">Kyat</option>
+                                    <option <?= $property['p_price_unit'] == '1' ? 'selected' : ''; ?> value="1">Dollar</option>
+                                    <option <?= $property['p_price_unit'] == '2' ? 'selected' : ''; ?> value="2">Kyat</option>
                                 </select>
 
                             </div>
@@ -188,15 +204,19 @@ include "../../Controller/Read/FacilityListController.php";
                         <div class="flex flex-col ">
                             <label for="bedroom" class="font-medium">Bedroom</label>
                             <select id="bedroom" name="p_bed" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
-                                <option value="" disabled selected>Select Number</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">Over 6</option>
-                                <option value="7">Over 8</option>
-                                <option value="8">Over 10</option>
+                                <?php
+                                for ($i = 1; $i < 9; $i++) { ?>
+                                    <option <?= $property['p_bed'] == $i ? 'selected' : '' ?> value="<?= $i ?>">
+                                        <?php
+                                        if ($i >= 6) {
+                                            echo 'Over ' . (6 + (($i - 6) * 2));
+                                        } else {
+                                            echo $i;
+                                        }
+                                        ?>
+                                    </option>
+                                <?php }
+                                ?>
                             </select>
                         </div>
                     </div>
@@ -204,7 +224,7 @@ include "../../Controller/Read/FacilityListController.php";
                     <!-- note -->
                     <div class="flex flex-col ">
                         <label for="note" class="font-medium">Note</label>
-                        <textarea id="email" name="p_note" class="lg:w-96 w-28 h-full px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2 overflow-x-hidden"></textarea>
+                        <textarea id="email" name="p_note" class="lg:w-96 w-28 h-full px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2 overflow-x-hidden"><?= $property['p_note']; ?></textarea>
                     </div>
                 </div>
 
@@ -218,9 +238,9 @@ include "../../Controller/Read/FacilityListController.php";
                             <div class="flex flex-col ">
                                 <div class="flex justify-between">
                                     <!-- width -->
-                                    <input type="number" placeholder="Width" id="price" name="p_width" class="w-28 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2" required>
+                                    <input type="number" placeholder="Width" id="price" name="p_width" value="<?= $property['p_width']; ?>" class="w-28 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2" min="0" required>
                                     <!-- length -->
-                                    <input type="number" placeholder="Length" id="price" name="p_length" class="w-28 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2 " required>
+                                    <input type="number" placeholder="Length" id="price" name="p_length" value="<?= $property['p_length']; ?>" class="w-28 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2 " min="0" required>
                                 </div>
                             </div>
                         </div>
@@ -228,9 +248,8 @@ include "../../Controller/Read/FacilityListController.php";
                         <!-- unit -->
                         <div class="flex flex-col ">
                             <select name="p_size_unit" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
-                                <option value="" disabled selected>Unit</option>
-                                <option value="1">meter</option>
-                                <option value="2">feet</option>
+                                <option <?= $property['p_size_unit'] == '1' ? 'selected' : ''; ?> value="1">meter</option>
+                                <option <?= $property['p_size_unit'] == '2' ? 'selected' : ''; ?> value="2">feet</option>
                             </select>
                         </div>
                     </div>
@@ -248,8 +267,11 @@ include "../../Controller/Read/FacilityListController.php";
                 <!-- location -->
                 <div class="w-3/4">
                     <label for="location_map" class="font-medium">Location Map</label>
-                    <input type="text" placeholder="Enter google map's embed share link" id="location_map" name="p_location" class="w-full px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2">
+                    <input type="text" placeholder="Enter google map's embed share link" id="location_map" name="p_location" value="<?= htmlspecialchars($property['p_location']); ?>" class="w-full px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2">
                 </div>
+
+                <!-- map -->
+                <?= str_replace('<iframe', '<iframe class="w-3/4 h-72 unimportant-detail block-unimportant"', $property['p_location']); ?>
 
                 <!-- additional_features -->
                 <div class="w-3/4">
@@ -265,7 +287,9 @@ include "../../Controller/Read/FacilityListController.php";
                                 echo '<div class="space-y-4">';
                                 for ($i = 0; $i < $first; $i++) {
                                     if (isset($chunk[$i])) { ?>
-                                        <div><input type="checkbox" id='chbx-<?= $chunk[$i]["id"] ?>' name="p_facilities[]" value='<?= $chunk[$i]["facility_type"] ?>' >
+                                        <div>
+                                            <!-- <span>this work</span> -->
+                                            <input type="checkbox" id='chbx-<?= $chunk[$i]["id"] ?>' name="p_facilities[]" value='<?= $chunk[$i]["facility_type"] ?>' <?= (strpos($property['p_facilities'], $chunk[$i]["facility_type"]) !== false) ? 'checked' : ''; ?>>
                                             <label for='chbx-<?= $chunk[$i]["id"] ?>'><?= $chunk[$i]["facility_type"] ?></label><br>
                                         </div>
                                     <?php }
@@ -278,7 +302,7 @@ include "../../Controller/Read/FacilityListController.php";
                             for ($i = 0; $i < $first + 1; $i++) {
                                 if (isset($facilities[$i])) { ?>
                                     <div>
-                                        <input type="checkbox" id='chbx-<?= $facilities[$i]["id"] ?>' name="p_facilities[]" value='<?= $facilities[$i]["facility_type"] ?>' >
+                                        <input type="checkbox" id='chbx-<?= $facilities[$i]["id"] ?>' name="p_facilities[]" value='<?= $facilities[$i]["facility_type"] ?>'>
                                         <label for='chbx-<?= $facilities[$i]["id"] ?>'><?= $facilities[$i]["facility_type"] ?></label><br>
                                     </div>
                                 <?php }
@@ -290,7 +314,7 @@ include "../../Controller/Read/FacilityListController.php";
                             for ($i = $first + 1; $i < count($facilities) - $first; $i++) {
                                 if (isset($facilities[$i])) { ?>
                                     <div>
-                                        <input type="checkbox" id='chbx-<?= $facilities[$i]["id"] ?>' name="p_facilities[]" value='<?= $facilities[$i]["facility_type"] ?>' >
+                                        <input type="checkbox" id='chbx-<?= $facilities[$i]["id"] ?>' name="p_facilities[]" value='<?= $facilities[$i]["facility_type"] ?>'>
                                         <label for='chbx-<?= $facilities[$i]["id"] ?>'><?= $facilities[$i]["facility_type"] ?></label><br>
                                     </div>
                                 <?php }
@@ -302,10 +326,10 @@ include "../../Controller/Read/FacilityListController.php";
                             for ($i = count($facilities) - $first; $i < count($facilities); $i++) {
                                 if (isset($facilities[$i])) { ?>
                                     <div>
-                                        <input type="checkbox" id='chbx-<?= $facilities[$i]["id"] ?>' name="p_facilities[]" value='<?= $facilities[$i]["facility_type"] ?>' >
+                                        <input type="checkbox" id='chbx-<?= $facilities[$i]["id"] ?>' name="p_facilities[]" value='<?= $facilities[$i]["facility_type"] ?>'>
                                         <label for='chbx-<?= $facilities[$i]["id"] ?>'><?= $facilities[$i]["facility_type"] ?></label><br>
                                     </div>
-                                <?php }
+                        <?php }
                             }
                             echo "</div>";
                         }
@@ -316,7 +340,7 @@ include "../../Controller/Read/FacilityListController.php";
                 <!-- detailed description -->
                 <div class="w-3/4">
                     <label for="description" class="font-medium">Detailed Description</label>
-                    <textarea name="p_description" id="description" class="w-full h-96 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2 overflow-x-hidden" required></textarea>
+                    <textarea name="p_description" id="description" class="w-full h-96 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2 overflow-x-hidden" required><?= $property['p_description']; ?></textarea>
                 </div>
 
 
