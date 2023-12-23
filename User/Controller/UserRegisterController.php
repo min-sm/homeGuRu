@@ -39,7 +39,7 @@ if (isset($_POST["register"])) {
     $sql->execute();
     header("Location: ../View/user/user_login.php");
     } else{
-$_SESSION["registererror"] = "Register error";
+$_SESSION["registererror"] = "Registeration error";
 header("Location: ../View/user/user_register.php");
     }
 } 
