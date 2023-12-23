@@ -1,9 +1,9 @@
 <?php
-include "../../Controller/Read/CategoryListController.php";
-include "../../Controller/Read/NumOfPropertyController.php";
-include "../../Controller/Read/NumOfUserController.php";
-include "../../Controller/Read/NumOfOwnerController.php";
-include "../../Controller/Read/NumOfCollaboratorController.php";
+include "../../Controller/Property/CategoryListController.php";
+include "../../Controller/Property/NumOfPropertyController.php";
+include "../../Controller/User/NumOfUserController.php";
+include "../../Controller/Owner/NumOfOwnerController.php";
+include "../../Controller/Collaborator/NumOfCollaboratorController.php";
 ?>
 
 <!DOCTYPE html>

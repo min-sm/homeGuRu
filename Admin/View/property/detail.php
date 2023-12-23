@@ -1,5 +1,5 @@
 <?php
-include "../../Controller/Read/SinglePropertyDetailController.php";
+include "../../Controller/Property/SinglePropertyDetailController.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -298,8 +298,8 @@ include "../../Controller/Read/SinglePropertyDetailController.php";
 
             <!-- buttons -->
             <div class="w-3/4 flex gap-5">
-                <!-- <button class="bg-darkGreen py-2 px-6 rounded-lg border text-sm sm:text-base text-white">Make Appointment</button>-->
-                <button class="bg-alert py-2 px-6 rounded-lg border text-sm sm:text-base text-white ">Delete</button> 
+                <a href="edit.php?id=<?= $_GET['id']; ?>" class="bg-darkGreen py-2 px-6 rounded-lg border text-sm sm:text-base text-white">Edit</a>
+                <a href="../../Controller/Property/PropertyDeleteController.php?id=<?= $_GET['id']; ?>"; class="bg-alert py-2 px-6 rounded-lg border text-sm sm:text-base text-white ">Delete</a> 
                 <button class="bg-goldYellow py-2 px-6 rounded-lg border text-sm sm:text-base text-white flex justify-between"><span class="inline-flex items-center justify-center mr-3 w-3 h-3 p-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300"><?= $property['p_interest_count']; ?></span>Interest</button>
             </div>
         </div>
