@@ -28,10 +28,10 @@
   <!-- Start Navigation -->
   <!-- component -->
   <div class="text-center mb-7">
-    <div class="inline-block w-40 bg-secondary rounded-lg">
+    <div class="inline-block w-23 bg-secondary rounded-full">
       <img src="./logo.png" width="100%" alt="" />
     </div>
-    <h2 class="text-xl font-bold mt-6 mb-2">Home GuRu</h2>
+    <h2 class="text-2xl font-bold mt-6 mb-2">Home GuRu</h2>
   </div>
   <form action="../../Controller/Admin/AdminController.php" method="post" class="w-3/4 max-w-sm flex flex-col justify-center text-center">
     <div class="mb-6">

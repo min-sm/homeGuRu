@@ -33,9 +33,6 @@ if (isset($_POST["register"])) {
             :password
         )"
     );
-
-
-
     $sql->bindValue("name", $username);
     $sql->bindValue("email", $email);
     $sql->bindValue("password", password_hash($password, PASSWORD_DEFAULT));
@@ -43,17 +40,8 @@ if (isset($_POST["register"])) {
     header("Location: ../View/user/user_login.php");
     } else{
 $_SESSION["registererror"] = "Register error";
-
 header("Location: ../View/user/user_register.php");
-
     }
-
-   
-
-
-
-   
-
 } 
 else {
     header("Location: ../View/errors/404.php");

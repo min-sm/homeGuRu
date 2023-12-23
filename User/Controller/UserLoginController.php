@@ -19,9 +19,10 @@ if(count($result) ==0){
     $_SESSION["loginerror"] = "Email not found in our system!";
     header("Location: ../View/user/user_login.php");
 } else {
-    // check password is correct or not
+   // check  for retrieve password and user input password
     if(password_verify($u_password,$result[0]["gu_password"])){
         // correct
+        $_SESSION["userId"] = $result[0]["id"] ;
         header("Location: ../View/user/user-profile.php");
     }  else{
         // not correct
@@ -35,7 +36,6 @@ if(count($result) ==0){
 
 }
 
-    // step 2 , check for retrieve password and user input password
  
 }else {
     header("Location: ../View/errors/404.php");
