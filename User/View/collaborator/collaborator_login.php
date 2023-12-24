@@ -1,9 +1,13 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Login</title>
+  <title>Collaborator Login</title>
   <!-- google font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -41,6 +45,7 @@
     <div class="mb-10">
       <label class="text-left ml-8 block mb-2 font-medium text-secondary" for="password">Password</label>
       <input name="password" class="inline-block w-80 p-4 leading-6 text-lg placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="password" placeholder="•••••••••••••••••" />
+      <div class="mt-3">   <small class="block mb-5  font-medium text-left text-red-500"><?= $_SESSION["loginerror"] ?></small> </div> 
     </div>
     <button  name="login" class="inline-block tracking-wider mx-auto  py-2 w-28 mb-6 text-center  leading-6 text-white font-medium bg-darkGreen hover:bg-darkGreen border-3 border-darkGreen shadow rounded transition duration-200">
       Log in
@@ -48,3 +53,4 @@
   </form>
 </body>
 </html>
+<?php $_SESSION["loginerror"] =""?>

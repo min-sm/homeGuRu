@@ -56,7 +56,7 @@ session_start();
 
   <body class="bg-primary ">
     <!-- Start Navigation -->
-    <?php include '../header/header.php'   ?>
+ 
   <!-- component -->
 <section  class="pb-20" >
   <div class="container px-4 mx-auto">
@@ -96,7 +96,7 @@ session_start();
          </div>
   </div>
 </section>
-<?php include '../footer/footer.php'   ?>
+
 </body>
 </html>
 <?php $_SESSION["loginerror"] =""?>
