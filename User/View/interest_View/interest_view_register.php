@@ -1,3 +1,4 @@
+<?php include '../../Controller/common/colorsController.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,7 +65,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="bg-primary">
+<body class="bg-primary" style=" background-color: <?= $colors[0]['background'] ?>;color:<?= $colors[0]['bd_text_color']?>">
     <!-- Start Navigation -->
     <?php include '../header/header.php'?>
     <!-- End Navigation -->

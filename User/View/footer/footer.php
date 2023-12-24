@@ -1,3 +1,5 @@
+<?php include '../../Controller/common/colorsController.php' ?>
+<?php include '../../Controller/common/companyDataController.php'?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,32 +33,30 @@
 </head>
 
 <body class="w-full">
-    <footer class="bg-secondary text-primary pt-10 md:pt-16 pb-10 w-full">
+    <footer class="bg-secondary text-primary pt-10 md:pt-16 pb-10 w-full" style=" background-color: <?= $colors[0]['footer'] ?>; color: <?= $colors[0]['hf_text_color']  ?>">
         <div class="flex justify-around md:flex-row flex-col md:gap-0 gap-12 items-center md:items-start">
             <!-- Address -->
             <div>
                 <h1 class="md:text-2xl text-xl text-center mb-7"><u>Address</u></h1>
                 <div class="space-y-6 text-paleGray ">
-                <a href="https://maps.app.goo.gl/jcyAx6baQ7YKPs2m8"> <div class="flex items-center gap-3">
+                <a href="<?= $guru_data[0]['gd_maplink']  ?>"> <div class="flex items-center gap-3">
                         <i class="fa-solid fa-map-location-dot"></i>
-                        <p>9/A, Nat Mauk Yeik Tha Street,<br />
-                            Nat Mauk St,Yangon
+                        <p><?= $guru_data[0]['gd_address']  ?>
                         </p>
                     </div>
                 </a>
-                    <a href="tel:+959980636388">
+                    <a href="tel:<?= $guru_data[0]['gd_phone_num']  ?>">
                         <div class="flex items-center gap-3">
                         <i class="fa-solid fa-phone"></i>
                         <div class="pt-5">
-                            <p>01-554369</p>
-                            <p>09-980636388</p>
+                        <?= $guru_data[0]['gd_phone_num']  ?>
                         </div>
                     </div>
                 </a>
 
                     <div class="flex items-center gap-3">
                         <i class="fa-solid fa-envelope"></i>
-                        <p>homeguru999@gmail.com</p>
+                        <p>   <?= $guru_data[0]['gd_email']  ?></p>
                     </div>
                     <p class="text- opacity-50 pt-2 hidden md:block">Copyright &#169 2023. All Rights Reserved</p>
                 </div>
@@ -85,9 +85,9 @@
                     <a href="../property_post/property_post-Add-owner.php"><u>Sell</u></a>
                     <a href="../collaborator/collaborator_list_user_view.php"><u>Collaborator</u></a>
                     <div class="text-2xl flex space-x-6 md:pt-2 pt-5 ">
-                        <a href="https://www.facebook.com/profile.php?id=61554265933750"><i class="fa-brands fa-facebook fa-beat" style="color: #1877f2;"></i></a>
-                        <a href="https://www.viber.com/"> <i class="fa-brands fa-viber fa-beat" style="color: #7360f2;"></i></a>
-                        <a href="https://t.me/+aFpg-gpaOvdhMzY1"><i class="fa-brands fa-telegram fa-beat" style="color: #229ed9;"></i></a>
+                        <a href=<?= $guru_data[0]['gd_facebook']  ?>><i class="fa-brands fa-facebook fa-beat" style="color: #1877f2;"></i></a>
+                        <a href="<?= $guru_data[0]['gd_viber']  ?>"> <i class="fa-brands fa-viber fa-beat" style="color: #7360f2;"></i></a>
+                        <a href="<?= $guru_data[0]['gd_telegram']  ?>"><i class="fa-brands fa-telegram fa-beat" style="color: #229ed9;"></i></a>
 
                     </div>
                 </div>

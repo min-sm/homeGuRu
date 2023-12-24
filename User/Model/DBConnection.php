@@ -1,8 +1,8 @@
 <?php
 
 $hostname = "localhost";
-$port = 3307;
-$dbname = "";
+$port = 3306;
+$dbname = "guru_db";
 $username = "root";
 $password = "";
 

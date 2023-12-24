@@ -1,3 +1,4 @@
+<?php include '../../Controller/common/colorsController.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,7 +62,7 @@
   <script src="../resources/js/property_detail.js" defer></script>
 </head>
 
-<body class="bg-[#F7F7F7] tracking-wide">
+<body class="bg-[#F7F7F7] tracking-wide" style=" background-color: <?= $colors[0]['background'] ?>;color:<?= $colors[0]['bd_text_color']?>">
   <!-- Navigation -->
   <?php include '../header/header.php' ?>
 

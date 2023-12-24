@@ -1004,10 +1004,6 @@ html {
   margin-top: 0.625rem;
 }
 
-.mt-20{
-  margin-top: 5rem;
-}
-
 .mt-3{
   margin-top: 0.75rem;
 }
@@ -1652,6 +1648,11 @@ html {
 .bg-\[\#00534F\]{
   --tw-bg-opacity: 1;
   background-color: rgb(0 83 79 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#1F2937\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
 
 .bg-\[\#3b5998\]{
