@@ -21,9 +21,15 @@ if(count($result) ==0){
 } else {
    // check  for retrieve password and user input password
     if(password_verify($u_password,$result[0]["gu_password"])){
-        // correct
+        if($result[0]["gu_verify"] == 1){
+             // correct
         $_SESSION["userId"] = $result[0]["id"] ;
         header("Location: ../View/user/user-profile.php");
+        } else{
+            $_SESSION["loginerror"] = "You need to activate your account.Please check your email!";
+            header("Location: ../View/user/user_login.php");
+        }
+
     }  else{
         // not correct
         $_SESSION["loginerror"] = "Your password is wrong!";
