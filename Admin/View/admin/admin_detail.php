@@ -19,7 +19,7 @@
     <div class="p-4 pt-20 sm:ml-64 flex flex-col items-center">
         <h1 class=" text-center font-bold text-2xl m-7 tracking-wide ">Admin Detail</h1>
         <div class=" lg:w-1/2 w-full grid grid-row-13 gap-4">
-            <img class="w-30" src="../resources/img/common/admin profile.png" alt="">
+            <img class="w-30" src="../resources/img/common/profile.png" alt="">
             <div class="grid grid-cols-2 gap-7 ">
                 <p class="font-medium text-lg">ID</p>
                 <p name="ga_id">GA-1</p>

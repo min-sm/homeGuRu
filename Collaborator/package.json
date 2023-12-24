@@ -4,5 +4,5 @@
   },
   "scripts": {
     "build": "npx tailwind -i ./View/resources/css/input.css -o ./View/resources/css/dist/output.css --watch"
-   }
+  }
 }

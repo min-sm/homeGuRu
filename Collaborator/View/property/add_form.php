@@ -64,7 +64,7 @@
             <div class="flex w-3/4 justify-between ">
                 <!-- property type -->
                 <div class="flex flex-col ">
-                    <label for="p_type">Property Type</label>
+                    <label for="p_type" class="font-medium">Property Type</label>
                     <select id="p_type" name="" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white">
                         <option value="" disabled selected>Select Property Type</option>
                         <option value="" data-floor-level="true">Apartment</option>
@@ -75,14 +75,14 @@
                 </div>
                 <!-- owner name -->
                 <div class="flex flex-col">
-                    <label for="owner_name">Owner Name</label>
+                    <label for="owner_name" class="font-medium">Owner Name</label>
                     <input type="text" placeholder="Min Soe Moe" id="owner_name" name="" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white">
                 </div>
             </div>
             <div class="flex w-3/4 justify-between">
                 <!-- floor level -->
                 <div class="flex flex-col hidden" id="floor_lvl_section_element">
-                    <label for="floor_lvl">Floor Level</label>
+                    <label for="floor_lvl" class="font-medium">Floor Level</label>
                     <select id="floor_lvl" name="" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white">
                         <option value="" disabled selected>Select Floor Level</option>
                         <option value="">1</option>
@@ -91,14 +91,14 @@
                 </div>
                 <!-- national_ID -->
                 <div class="flex flex-col">
-                    <label for="national_ID">National ID</label>
+                    <label for="national_ID" class="font-medium">National ID</label>
                     <input type="text" placeholder="12/TaTaTa(N)123456" id="national_ID" name="" class="lg:w-96 w-28 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2">
                 </div>
             </div>
             <div class="flex w-3/4 justify-between">
                 <!-- Offer type -->
                 <div class="flex flex-col">
-                    <label>Offer Type</label>
+                    <label class="font-medium">Offer Type</label>
                     <div class="flex flex-col">
                         <div>
                             <input type="radio" id="rent" name="p_offer" value="" />
@@ -112,14 +112,14 @@
                 </div>
                 <!-- phone number -->
                 <div class="flex flex-col">
-                    <label for="ph_num">Phone number</label>
+                    <label for="ph_num" class="font-medium">Phone number</label>
                     <input type="text" placeholder="09757346631" id="ph_num" name="" class="lg:w-96 w-28 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2">
                 </div>
             </div>
             <div class="flex w-3/4 justify-between">
                 <!-- Duration -->
                 <div class="flex flex-col hidden" id="duration">
-                    <label>Duration</label>
+                    <label class="font-medium">Duration</label>
                     <div class="flex flex-col">
                         <div>
                             <input type="radio" id="per_mth" name="p_duration" value="" />
@@ -133,7 +133,7 @@
                 </div>
                 <!-- email -->
                 <div class="flex flex-col">
-                    <label for="email">Email</label>
+                    <label for="email" class="font-medium">Email</label>
                     <input type="text" placeholder="blahblah@gmail.com" id="email" name="" class="lg:w-96 w-28 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2">
                 </div>
             </div>
@@ -159,7 +159,7 @@
 
                     <!-- bedroom -->
                     <div class="flex flex-col ">
-                        <label for="bedroom">Bedroom</label>
+                        <label for="bedroom" class="font-medium">Bedroom</label>
                         <select id="bedroom" name="" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white">
                             <option value="" disabled selected>Select Number</option>
                             <option value="">1</option>
@@ -170,7 +170,7 @@
 
                 <!-- note -->
                 <div class="flex flex-col ">
-                    <label for="note">Note</label>
+                    <label for="note" class="font-medium">Note</label>
                     <textarea id="email" name="" class="lg:w-96 w-28 h-full px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2 overflow-x-hidden"></textarea>
                 </div>
             </div>
@@ -202,7 +202,7 @@
                 </div>
                 <!-- Township -->
                 <div class="flex flex-col">
-                    <label for="township">Township</label>
+                    <label for="township" class="font-medium">Township</label>
                     <select id="township" name="" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white">
                         <option value="" disabled selected>Select Township</option>
                         <option value="">Bahan</option>
@@ -212,12 +212,12 @@
             </div>
 
             <div class="w-3/4">
-                <label for="location_map">Location Map</label>
+                <label for="location_map" class="font-medium">Location Map</label>
                 <input type="text" placeholder="Enter google map's embed share link" id="location_map" name="" class="w-full px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2">
             </div>
 
             <div class="w-3/4">
-                <label class="mb-4" for="additional_features">Additional Features</label>
+                <label class="mb-4 font-medium" for="additional_features">Additional Features</label>
                 <div class="w-full grid grid-cols-3 lg:text-base text-sm">
                     <div class=" space-y-4">
                         <div>
@@ -266,7 +266,7 @@
             </div>
 
             <div class="w-3/4">
-                <label for="description">Detailed Description</label>
+                <label for="description" class="font-medium">Detailed Description</label>
                 <textarea name="" id="description" class="w-full h-96 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2 overflow-x-hidden"></textarea>
             </div>
 
