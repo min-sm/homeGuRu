@@ -47,7 +47,7 @@ if (isset($_POST["register"])) {
         $sql->execute();
         header("Location: ../View/user/user_login.php");
     } else {
-        $_SESSION["registererror"] = "Your email is already exists in our system";
+        $_SESSION["registererror"] = "Error";
         header("Location: ../View/user/user_register.php");
     }
 } else {
