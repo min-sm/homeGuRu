@@ -26,9 +26,9 @@
 </head>
 
 <body class="bg-primary dark:bg-gray-700 ">
-  <?php include '../commonView/menu.php' ?>
-
-  <!-- Generals Setting -->
+<?php include '../commonView/menu.php' ?>
+   
+<!-- Generals Setting -->
 
   <div class="p-4  mt-36 sm:ml-64">
     <h1 class="text-2xl ml-32 font-bold dark:text-white mb-16 ">General setting</h1>

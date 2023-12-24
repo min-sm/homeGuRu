@@ -1,3 +1,4 @@
+<?php include '../../Controller/common/colorsController.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,12 +57,12 @@
 
   <!-- font awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- JS -->
+  <!-- share api -->
+  <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=657dfb21954d790019bcd913&product=inline-share-buttons&source=platform" async="async"></script>
   <script src="../resources/js/property_detail.js" defer></script>
 </head>
 
-<body class="bg-[#F7F7F7] tracking-wide">
+<body class="bg-[#F7F7F7] tracking-wide" style=" background-color: <?= $colors[0]['background'] ?>;color:<?= $colors[0]['bd_text_color']?>">
   <!-- Navigation -->
   <?php include '../header/header.php' ?>
 
@@ -123,17 +124,19 @@
       <div>
         <span class="font-playFair font-semibold">Township: </span>CD354#E
       </div>
-
-      <button type="button" class="text-white bg-[#3b5998] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 me-2 mb-2">
-        <ion-icon name="logo-facebook" class="text-lg mr-2"></ion-icon> Share
-      </button>
-      <button type="button" class="text-white bg-green-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 mb-2">
+      <div class="sharethis-inline-share-buttons pl-0"></div>
+     <div class="flex h-10 items-start justify-start"> 
+      <a href="tel:+959980636388"><button type="button" class="text-white bg-green-600   rounded-lg text-sm px-5 py-2 text-center inline-flex items-center me-2 mb-2">
         <ion-icon name="call" class="text-lg mr-2"></ion-icon> Contact
-      </button>
-      <button type="button" class="text-white bg-goldYellow font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 mb-2">
+      </button></a>
+      <a href="../interest_View/interest_view_register.php">
+      <button type="button" class="text-white bg-goldYellow  rounded-lg text-sm px-5 py-2 text-center inline-flex items-center me-2 mb-2">
         <i class="fa-solid fa-file-lines text-lg mr-2"></i>
         Interest View Register
       </button>
+      </a>
+      </div>
+     
     </div>
     <!-- The Modal -->
     <div id="myModal">

@@ -1,3 +1,5 @@
+<?php include '../../Controller/sliderController.php' ?>
+<?php include '../../Controller/common/colorsController.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,12 +35,12 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<div class="bg-[#F7F7F7]">
+<div class="bg-[#F7F7F7]" style=" background-color: <?= $colors[0]['background'] ?>;color:<?= $colors[0]['bd_text_color']?>">
     <!-- Navigation -->
     <?php include '../header/header.php' ?>
     <!-- Start Collaborator Hero Section  -->
     <div class="w-full relative mb-20">
-        <img class="w-full" src="../resources/img/139546482_16064444264841n 1 (2).png" alt="collaboratorHero.pngs" />
+        <img class="w-full" src="../resources/img/<?= $resultSlider[0]['collaborator_slider']?>" alt="collaboratorHero.pngs" />
       
     </div>
     <!-- End Collaborator Hero Section  -->

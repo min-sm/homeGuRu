@@ -1,3 +1,4 @@
+<?php include '../../Controller/common/colorsController.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +35,7 @@
   <script src="../resources/js/sort_by_section.js" defer></script>
 </head>
 
-<body class="bg-[#F7F7F7]">
+<body class="bg-[#F7F7F7]" style=" background-color: <?= $colors[0]['background'] ?>;color:<?= $colors[0]['bd_text_color']?>">
   <!-- Navigation -->
   <?php include '../header/header.php' ?>
 

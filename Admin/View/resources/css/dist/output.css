@@ -1096,6 +1096,14 @@ html {
   height: 100vh;
 }
 
+.h-24{
+  height: 6rem;
+}
+
+.h-3\.5{
+  height: 0.875rem;
+}
+
 .w-1\/2{
   width: 50%;
 }
@@ -1214,6 +1222,10 @@ html {
 
 .w-full{
   width: 100%;
+}
+
+.w-3\.5{
+  width: 0.875rem;
 }
 
 .max-w-lg{
@@ -1520,6 +1532,10 @@ html {
 
 .border-t{
   border-top-width: 1px;
+}
+
+.border-dashed{
+  border-style: dashed;
 }
 
 .border-black{
@@ -2472,6 +2488,11 @@ html {
   .dark\:text-white{
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
+  }
+
+  .dark\:text-gray-500{
+    --tw-text-opacity: 1;
+    color: rgb(107 114 128 / var(--tw-text-opacity));
   }
 
   .dark\:placeholder-gray-400::-moz-placeholder{
