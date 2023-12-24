@@ -1,6 +1,9 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,7 +35,7 @@
     <div class="flex flex-col items-center pt-20 sm:ml-64">
         <h1 class=" text-center font-bold text-2xl m-7 tracking-wide ">Add Admin </h1>
         <!--Start Add  Admin Form  -->
-        <form class="">
+        <form class=""  action="../../Controller/Admin/Add_admin_controller.php" method="Post" metacharset>
             <div class="grid grid-cols-2 gap-20 ">
                 <div class="grid grid-rows-5 gap-5">
                     <div class="lg:w-72 w-28">
@@ -61,11 +64,12 @@
                             Gender</label>
                         <select name="ga_phone" class="lg:w-72 w-28 px-5 py-2.5 rounded-lg  border-2 border-gray-300">
                             <option value="" disabled selected>Select Gender</option>
-                            <option value="">Male</option>
-                            <option value="">Female</option>
-                            <option value="">Other</option>
+                            <option  name ="gender" value="">Male</option>
+                            <option name ="gender" value="">Female</option>
+                            <option name ="gender" value="">Other</option>
                         </select>
                     </div>
+                    <div class="mb-2 "><small class="block  font-medium text-left text-red-600"><?= $_SESSION["createadminerror"] ?></small> </div>
                 </div>
 
                 <div class="grid grid-rows-5 gap-5">
@@ -89,15 +93,16 @@
                     <div class=" lg:w-72 w-28">
                         <label for="ga_password" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
                             Password</label>
-                        <input type="text" name="ga_password" id="ga_password" class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="realestate777@gmail.com">
+                        <input type="text" name="ga_password" id="ga_password" class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="•••••••••••••••••">
+                    
                     </div>
                 </div>
 
             </div>
             <div class="relative float-right   my-20">
                 <a href="./admin_detail.php" type="submit" class="text-white bg-darkGreen hover:bg-blue-800 
-                focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium px-8 py-2 text-center 
-                dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                focus:ring-4 focus:outline-none focus:ring-blue-300 f0 ont-semibold rounded-lg text-medium px-8 py-2 text-center 
+                dark:bg-green-600 dark:hover:bg-green-70dark:focus:ring-green-800">
                     Create Admin</a>
                 <button type="" class="ml-5 text-darkGreen border-2 border-green-700 bg-transparent hover:bg-alert hover:text-white
                 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium  px-7 py-2 text-center 
@@ -113,3 +118,4 @@
 </body>
 
 </html>
+<?php $_SESSION["createadminerror"]=""?>
