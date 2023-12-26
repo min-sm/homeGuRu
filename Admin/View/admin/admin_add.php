@@ -1,7 +1,7 @@
 <?php
 session_start();
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -117,3 +117,4 @@ session_start();
 
 </html>
 <?php $_SESSION["createadminerror"]=""?>
+
