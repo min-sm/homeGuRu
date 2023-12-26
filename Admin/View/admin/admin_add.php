@@ -62,11 +62,11 @@ session_start();
                     <div class=" lg:w-72 w-28">
                         <label for="ga_phone" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
                             Gender</label>
-                        <select name="ga_phone" class="lg:w-72 w-28 px-5 py-2.5 rounded-lg  border-2 border-gray-300">
+                        <select name="ga_gender" class="lg:w-72 w-28 px-5 py-2.5 rounded-lg  border-2 border-gray-300">
                             <option value="" disabled selected>Select Gender</option>
-                            <option  name ="gender" value="">Male</option>
-                            <option name ="gender" value="">Female</option>
-                            <option name ="gender" value="">Other</option>
+                            <option   value="Male" >Male</option>
+                            <option  value="Female" >Female</option>
+                            <option  value="Other" >Other</option>
                         </select>
                     </div>
                     <div class="mb-2 "><small class="block  font-medium text-left text-red-600"><?= $_SESSION["createadminerror"] ?></small> </div>
@@ -100,11 +100,11 @@ session_start();
 
             </div>
             <div class="relative float-right   my-20">
-                <a href="./admin_detail.php" type="submit" class="text-white bg-darkGreen hover:bg-blue-800 
+                <a href="./admin_detail.php" type="submit" name ="addadmin" class="text-white bg-darkGreen hover:bg-blue-800 
                 focus:ring-4 focus:outline-none focus:ring-blue-300 f0 ont-semibold rounded-lg text-medium px-8 py-2 text-center 
                 dark:bg-green-600 dark:hover:bg-green-70dark:focus:ring-green-800">
                     Create Admin</a>
-                <button type="" class="ml-5 text-darkGreen border-2 border-green-700 bg-transparent hover:bg-alert hover:text-white
+                <button type=""  name = "cancel" class="ml-5  text-darkGreen border-2 border-green-700 bg-transparent hover:bg-alert hover:text-white
                 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium  px-7 py-2 text-center 
                 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Cancel</button>
