@@ -111,8 +111,6 @@ session_start();
             </div>
 
         </form>
-        <!--End Add  Admin Form  -->
-
     </div>
 
 </body>
