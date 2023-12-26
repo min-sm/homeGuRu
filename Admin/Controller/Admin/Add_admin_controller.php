@@ -87,7 +87,7 @@ if (isset($_POST["addadmin"])) {
             $sql->bindValue("name", $ga_name);
             $sql->bindValue("email", $ga_email);
             $sql->bindValue("password", password_hash($cpassword, PASSWORD_DEFAULT));
-            $sql->bindValue("dob", $ga_dob("Y/m/d"));
+            $sql->bindValue("dob", $ga_dob);
             $sql->bindValue("nrc", $ga_nrc);
             $sql->bindValue("gender", $ga_gender);
             $sql->bindValue("phone", $ga_phone_num);

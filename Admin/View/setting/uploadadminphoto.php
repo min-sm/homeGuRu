@@ -1,7 +1,7 @@
 photo upload
 
 <?php
-$targetDirectory = "../Storage/collaborator_img"; // Directory where the image will be stored
+$targetDirectory = "../../../Storage/admin_img"; // Directory where the image will be stored
 $targetFile = $targetDirectory . basename($_FILES["image"]["name"]); // Path to store the image
 
 $uploadOk = 1; // Flag to check if the upload is successful
