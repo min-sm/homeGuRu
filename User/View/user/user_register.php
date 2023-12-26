@@ -42,7 +42,7 @@ session_start();
   <section class="pb-20">
     <div class="container px-4 mx-auto">
       <h2 class="text-xl text-left md:text-3xl font-bold my-10 ml-10 sm:ml-20 md:ml-24 lg:ml-28">Register for faster contact</h2>
-      <form class="w-3/4 max-w-sm  m-auto text-center " action="../../Controller/UserRegisterController.php" method="Post" metacharset>
+      <form class="w-3/4 max-w-sm  m-auto text-center " action="../../Controller/UserRegisterController.php" method="Post"  enctype="multipart/form-data">
         <div class="mb-6">
           <label class="block mb-2 font-medium text-left text-secondary" for="username">User Name</label>
           <input name="username" class="inline-block w-full  p-4 leading-6 text-sm placeholder-gray-400 bg-white shadow  border-gray-400 rounded h-12" type="name" placeholder="John Smith" required />

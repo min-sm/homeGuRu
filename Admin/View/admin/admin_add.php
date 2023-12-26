@@ -35,7 +35,7 @@ session_start();
     <div class="flex flex-col items-center pt-20 sm:ml-64">
         <h1 class=" text-center font-bold text-2xl m-7 tracking-wide ">Add Admin </h1>
         <!--Start Add  Admin Form  -->
-        <form class=""  action="../../Controller/Admin/Add_admin_controller.php" method="Post" metacharset>
+        <form class=""  action="../../Controller/Admin/Add_admin_controller.php" method="Post" enctype="multipart/form-data">
             <div class="grid grid-cols-2 gap-20 ">
                 <div class="grid grid-rows-5 gap-5">
                     <div class="lg:w-72 w-28">
