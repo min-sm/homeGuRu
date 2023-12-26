@@ -1,12 +1,14 @@
+photo upload
+
 <?php
-$targetDirectory = "../../../Storage/admin_img"; // Directory where the image will be stored
-$targetFile = $targetDirectory . basename($_FILES["admin_img"]); // Path to store the image
+$targetDirectory = "../Storage/collaborator_img"; // Directory where the image will be stored
+$targetFile = $targetDirectory . basename($_FILES["image"]["name"]); // Path to store the image
 
 $uploadOk = 1; // Flag to check if the upload is successful
 $imageFileType = strtolower(pathinfo($targetFile,PATHINFO_EXTENSION)); // Get the file extension
 
 // Check if image file is a actual image or fake image
-$check = getimagesize($_FILES["admin_img"]["tmp_name"]);
+$check = getimagesize($_FILES["image"]["tmp_name"]);
 if($check !== false) {
     echo "File is an image - " . $check["mime"] . ".";
     $uploadOk = 1;
@@ -22,7 +24,7 @@ if (file_exists($targetFile)) {
 }
 
 // Check file size (optional)
-if ($_FILES["admin_img"]["size"] > 5000000) { // Adjust as per your requirements
+if ($_FILES["image"]["size"] > 5000000) { // Adjust as per your requirements
     echo "Sorry, your file is too large.";
     $uploadOk = 0;
 }
@@ -38,8 +40,8 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
 } else {
-    if (move_uploaded_file($_FILES["admin_img"]["tmp_name"], $targetFile)) {
-        echo "The file ". basename( $_FILES["admin_img"]["name"]). " has been uploaded.";
+    if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+        echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
 
         // Save the image path to the database (you can use mysqli or PDO)
         $servername = "your_servername";

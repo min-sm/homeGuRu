@@ -2,10 +2,9 @@
 session_start();
 // Call DB connection
 include "../../Model/DBConnection.php";
-
 // check wrong access
 if (isset($_POST["addadmin"])) {
-    $ga_photo =  $_FILES["ga_photo"];
+    $ga_photo =  $_FILES["ga_photo"]['name'];
     $ga_name = $_POST["ga_name"];
     $ga_nrc = $_POST["ga_nrc"];
     $ga_dob = $_POST["ga_dob"];
@@ -17,7 +16,7 @@ if (isset($_POST["addadmin"])) {
 
     // check the image is exist or not
     $targetDirectory = "../../../Storage/admin_img"; // Directory where the image will be stored
-    $targetFile = $targetDirectory . basename($_FILES["ga_photo"]); // Path to store the image
+    $targetFile = $targetDirectory . basename($_FILES["ga_photo"]["name"]); // Path to store the image
     $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION)); // Get the file extension
     $imageCorrect = 0;
     // Check file size (optional)
@@ -99,9 +98,9 @@ if (isset($_POST["addadmin"])) {
             $sql->execute();
         }
         // redirect to login
-        header("Location: ../../View/admin/admin_list.php");
+        header("Location: ../");
     } else {
-        $_SESSION["email"] = "Your email is ready in our system";
+        $_SESSION["createadminerror"] = "Your email is ready in our system";
         header("Location: ../../View/admin/admin_add.php");
     }
 } else {
