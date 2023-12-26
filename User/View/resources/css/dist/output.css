@@ -1149,10 +1149,13 @@ html {
   height: 100vh;
 }
 
+<<<<<<< HEAD
 .h-80{
   height: 20rem;
 }
 
+=======
+>>>>>>> d61c01d833fc99ab215a56a8bae0554d84fa221d
 .w-1\/2{
   width: 50%;
 }
@@ -1243,6 +1246,10 @@ html {
 
 .w-64{
   width: 16rem;
+}
+
+.w-80{
+  width: 20rem;
 }
 
 .w-96{

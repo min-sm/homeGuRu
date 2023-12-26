@@ -66,7 +66,7 @@
             <div>
                 <h1 class="md:text-2xl text-xl mb-7 md:text-left text-center "><u>Help & Support</u></h1>
                 <div class="flex flex-col gap-4 md:text-left text-center text-paleGray">
-                    <a href=""><u>Privacy and Ploicy</u></a>
+                    <a href=""><u>Privacy and Policy</u></a>
                     <a href="#ourservices"><u>Our Services</u></a>
                     <a href=""><u>FAQ</u></a>
                     <a href=""><u>Guide</u></a>

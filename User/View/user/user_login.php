@@ -68,10 +68,7 @@ session_start();
     <label class="block mb-2 font-medium text-left text-secondary" for="">Email</label>
   
     <input name="email" class="inline-block w-full p-4 leading-6 text-sm placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="email" placeholder="example123@gmail.com" />
-
 </div>
-
-
 <div class="mb-10">
     <label class="text-left block mb-2 font-medium text-secondary" for="">Password</label>
     <input name="password" class="inline-block w-full p-4 leading-6 text-lg placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="password" placeholder="•••••••••••••••••" />
