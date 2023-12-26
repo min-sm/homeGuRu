@@ -1,4 +1,5 @@
 <?php include '../../Controller/common/colorsController.php' ?>
+<?php include '../../Controller/propertyDetailController.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 

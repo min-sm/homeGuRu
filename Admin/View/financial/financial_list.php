@@ -13,7 +13,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 
-<body>
+<body class="bg-primary dark:bg-gray-600">
     <!-- heading navigation -->
     <?php include '../commonView/menu.php' ?>
     <div class="p-4 pt-20 sm:ml-64">
