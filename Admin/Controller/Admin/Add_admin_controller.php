@@ -3,7 +3,6 @@
 include "../../Model/DBConnection.php";
 // Check if form is submitted
 if (isset($_POST["addadmin"])) {
-    
     $email = $_POST["ga_email"];
     $password = $_POST["ga_password"];
     $name = $_POST["ga_name"];
@@ -13,8 +12,7 @@ if (isset($_POST["addadmin"])) {
     $gender = $_POST["ga_gender"];
     $phone = $_POST["ga_phone"];
     $address = $_POST["ga_address"];
-    $status = 1;
-   
+    $status = 1; 
 
     $sql = $pdo->prepare(
         "INSERT INTO m_admins
@@ -53,7 +51,6 @@ if (isset($_POST["addadmin"])) {
     $sql->bindValue("address", $address);
     $sql->bindValue("status", $status);
     $sql->bindValue("date", date("Y/m/d"));
-    
     $sql->execute();
 
     // Redirect to the login page after successful registration
