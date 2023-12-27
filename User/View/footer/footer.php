@@ -1,5 +1,5 @@
 <?php include '../../Controller/common/colorsController.php' ?>
-<?php include '../../Controller/common/companyDataController.php'?>
+<?php include '../../Controller/common/CompanyDataController.php'?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,9 +46,9 @@
                     </div>
                 </a>
                     <a href="tel:<?= $guru_data[0]['gd_phone_num']  ?>">
-                        <div class="flex items-center gap-3">
+                        <div class="flex items-center gap-3 mt-5">
                         <i class="fa-solid fa-phone"></i>
-                        <div class="pt-5">
+                        <div >
                         <?= $guru_data[0]['gd_phone_num']  ?>
                         </div>
                     </div>

@@ -1,5 +1,6 @@
 <?php include '../../Controller/common/colorsController.php' ?>
-<?php include '../../Controller/propertyDetailController.php' ?>
+<?php include '../../Controller/PropertyDetailController.php' ?>
+<?php include '../../Controller/RelatedPropertiesController.php'?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,18 +73,43 @@
     <!-- collaborator logo -->
     <div class="basis-1/5 mr-2 sm:mr-0">
       <div class="rounded-full bg-[#D9D9D9] w-24">
-        <img src="../resources/img/collaborator-tpj-logo.png" alt="test2" />
+      <img  src='<?php 
+      if ($property_datas[0]['uploader_id']==0){
+        echo "../../../Storage/admin_img/guru_logo.png";
+      }else{
+      echo "../../../Storage/collaborator_img/gc" . $property_datas[0]['uploader_id'] . "/" . $property_datas[0]['gc_logo'];} ?>' alt="">
       </div>
     </div>
 
     <div class="lg:basis-4/5 w-fit">
       <div class="flex flex-col">
         <h1 class="font-semibold text-xl w-fit">
-          Real Estate & Service Co., Ltd
+        <?php
+          if ($property_datas[0]['uploader_id']==0)
+          {
+       echo 'Home Guru';
+          }else{
+       echo $property_datas[0]['gc_company_name'];}?>
         </h1>
         <div class="flex flex-row items-center mt-3 justify-between w-1/2 text-xs">
-          <p>Feb 23 2023/ 5:00 PM</p>
-          <p>13 people interest</p>
+          <p><?php
+        $dateTime = new DateTime( $property_datas[0]['created_date']);
+
+        $formattedDateTime = $dateTime->format('F j \a\t g:i A');
+        
+        echo $formattedDateTime;
+           ?></p>
+         <?php
+$interestCount = $property_datas[0]['p_interest_count'];
+
+if ($interestCount == 0) {
+    // Don't show anything if the count is zero
+} elseif ($interestCount == 1) {
+    echo '<p>1 person interest</p>';
+} else {
+    echo "<p>$interestCount people interests</p>";
+}
+?>
         </div>
       </div>
     </div>
@@ -95,32 +121,67 @@
     <div class="lg:w-2/3 w-full flex flex-col items-center justify-around float-left">
       <div class="w-96 lg:w-[674.86px] lg:h-96 h-56 bg-cover bg-center rounded-lg property-img" style="background-image: url('../resources/img/entrance-hall.jpg')"></div>
       <div class="flex flex-row items-center w-3/4 justify-evenly mt-7">
-        <div class="w-20 lg:w-40 h-12 lg:h-24 bg-cover bg-center rounded-lg property-img" style="background-image: url('../resources/img/study-room.jpg')"></div>
-        <div class="w-20 lg:w-40 h-12 lg:h-24 bg-cover bg-center rounded-lg property-img" style="background-image: url('../resources/img/living-room.jpg')"></div>
-        <div class="w-20 lg:w-40 h-12 lg:h-24 bg-cover bg-center rounded-lg property-img" style="background-image: url('../resources/img/dining-room.jpg')"></div>
-        <div class="w-20 lg:w-40 h-12 lg:h-24 bg-cover bg-center rounded-lg property-img" style="background-image: url('../resources/img/kitchen.jpg')"></div>
+       <!--  images -->
+       <?php
+            $photos = [];
+            for ($i = 1; $i <= 5; $i++) {
+                if (!empty($property_datas[0]["p_photo_$i"])) {
+                    $photos[] = $property_datas[0]["p_photo_$i"];
+                }
+            }
+            ?>
+            <?php foreach ($photos as $photo) : ?>
+                <div class="image-label-container">
+                    <div class="image-container property-img" style="background-image: url('../../../Storage/house/<?= $_GET["id"] ?>/<?= $photo ?>');"></div>
+                </div>
+            <?php endforeach; ?>
       </div>
     </div>
 
     <!-- property info -->
     <div class="mt-5 lg:mt-0 space-y-4 text-center lg:text-left w-full lg:w-1/3 lg:sticky top-0 h-fit float-left">
       <h5 class="text-xl font-semibold tracking-tight text-black">
-        4 Bed House in Golden Valley
+      <?= $property_datas[0]['p_title'] ?>
       </h5>
       <div class="bg-gray-800 text-white text-center py-1.5 rounded-md text-xl font-semibold lg:mx-0 mx-5 lg:w-1/2 w-11/12">
-        1500 lakhs / month
+      <?php 
+        if ($property_datas[0]['p_price_unit'] == 1) {
+            echo '$' . $property_datas[0]['p_price'];
+        } elseif ($property_datas[0]['p_price_unit'] == 2) {
+            echo $property_datas[0]['p_price'] . ' Kyat';
+        }
+    ?> /  <?php 
+    if ($property_datas[0]['p_duration'] == 0) {
+        echo 'Month';
+    } elseif ($property_datas[0]['p_duration'] == 1) {
+        echo 'Year';
+    }
+?>
       </div>
       <div>
-        <span class="font-playFair font-semibold">Property ID: </span>CD354#E
+        <span class="font-playFair font-semibold">Property ID: </span><?= $property_datas[0]['p_code'] ?>
       </div>
       <div>
-        <span class="font-playFair font-semibold">Offer Type: </span>CD354#E
+        <span class="font-playFair font-semibold">Offer Type: </span>   <?php if($property_datas[0]['p_offer']==0){
+              echo 'Rent'  ;
+            };
+            if($property_datas[0]['p_offer']==1){
+              echo 'Sale'  ;
+            }
+            ?>
       </div>
       <div>
-        <span class="font-playFair font-semibold">Property Type: </span>CD354#E
+        <span class="font-playFair font-semibold">Property Type: </span><?= $property_datas[0]['pt_name'] ?>
       </div>
       <div>
-        <span class="font-playFair font-semibold">Size: </span>CD354#E
+        <span class="font-playFair font-semibold">Size: </span><?= $property_datas[0]['p_width'] ?>x<?= $property_datas[0]['p_length'] ?>
+              <?php 
+        if ($property_datas[0]['p_size_unit'] == 1) {
+            echo 'm';
+        } elseif ($property_datas[0]['p_size_unit'] == 2) {
+            echo 'ft';
+        }
+    ?><sup>2</sup>
       </div>
       <div>
         <span class="font-playFair font-semibold">Township: </span>CD354#E
@@ -151,43 +212,90 @@
     <div class="flex flex-col items-center lg:w-3/5 w-full lg:ml-10 ml-0">
       <!-- map -->
       <div class="mt-6 mx-4 relative ">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30549.300087395244!2d96.17693643476562!3d16.8430906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c193f51faa68ff%3A0x72868c60b69532c4!2sEx%3BbraiN%20Office!5e0!3m2!1sen!2smm!4v1702148429176!5m2!1sen!2smm" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="lg:h-64 lg:w-[600px] w-full h-32  border border-black rounded-lg shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]"></iframe>
+      <?= str_replace('<iframe', '<iframe class="lg:h-64 lg:w-[600px] w-full h-32  border border-black rounded-lg shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]"', $property_datas[0]['p_location']); ?>
+       
       </div>
 
       <!-- line break -->
-      <hr class="my-6 w-11/12 lg:w-1/2 h-1 bg-paleGray" />
+      <hr class="my-8 w-11/12 lg:w-1/2 h-1 bg-paleGray" />
 
       <!-- features -->
-      <div class="text-center w-full">
-        <h1 class="font-playFair text-2xl mb-3">Features</h1>
+      <div class="w-full">
+                <p class="font-medium text-lg mb-2">Additional Features</p>
 
-        <div class="grid grid-cols-3 lg:text-base text-sm px-2 sm:px-0">
-          <div>
-            <ul class="list-disc list-inside text-start">
-              <li>24 hours security</li>
-              <li>Air con</li>
-              <li>Lift</li>
-            </ul>
-          </div>
-          <div>
-            <ul class="list-disc list-inside text-start">
-              <li>Washing Machine</li>
-              <li>Car parking</li>
-              <li>Generator</li>
-            </ul>
-          </div>
-          <div>
-            <ul class="list-disc list-inside text-start">
-              <li>Refrigerator</li>
-              <li>Swimming Pool</li>
-              <li>Shopping Center</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+                <div class="grid grid-cols-3 lg:text-base text-sm px-2 sm:px-0">
+
+                    <?php
+                    $facility = explode(", ", $property_datas[0]['p_facilities']);
+                    $facilitiesRatio = (count($facility) / 3);
+                    $first = (int)$facilitiesRatio;
+                    $last = (int)(($facilitiesRatio - $first) * 10);
+
+                    if ($facilitiesRatio <= 1) {
+                        for ($i = 0; $i < 3; $i++) {
+                            if (isset($facility[$i])) {
+                                echo "<div><ul class='list-disc list-inside text-start'>";
+                                echo "<li>" . $facility[$i] . "</li>";
+                                echo "</ul></div>";
+                            }
+                        }
+                    } else if ($last == 0) {
+                        // echo "<pre>";
+                        $chunks = array_chunk($facility, $first);
+                        foreach ($chunks as $chunk) {
+                            echo "<div>";
+                            for ($i = 0; $i < $first; $i++) {
+                                if (isset($chunk)) {
+                                // echo "<pre>";
+                                // print_r($chunk);
+                                echo "<ul class='list-disc list-inside text-start'>";
+                                echo "<li>" . $chunk[$i] . "</li>";
+                                echo "</ul>";
+                            }
+                            }
+                            
+                            echo "</div>";
+                        }
+                    } else if ($last == 3 || $last == 6) { // 16 // first 5
+                        // for first column
+                        echo "<div>";
+                        for ($i = 0; $i < $first + 1; $i++) {
+                            if (isset($facility[$i])) {
+                                echo "<ul class='list-disc list-inside text-start'>";
+                                echo "<li>" . $facility[$i] . "</li>";
+                                echo "</ul>";
+                            }
+                        }
+                        echo "</div>";
+
+                        // for sec column
+                        echo "<div>";
+                        for ($i = $first + 1; $i < count($facility) - $first; $i++) {
+                            if (isset($facility[$i])) {
+                                echo "<ul class='list-disc list-inside text-start'>";
+                                echo "<li>" . $facility[$i] . "</li>";
+                                echo "</ul>";
+                            }
+                        }
+                        echo "</div>";
+
+                        // for third column 
+                        echo "<div>";
+                        for ($i = count($facility) - $first; $i < count($facility); $i++) {
+                            if (isset($facility[$i])) {
+                                echo "<ul class='list-disc list-inside text-start'>";
+                                echo "<li>" . $facility[$i] . "</li>";
+                                echo "</ul>";
+                            }
+                        }
+                        echo "</div>";
+                    }
+                    ?>
+                </div>
+            </div>
 
       <!-- line break -->
-      <hr class="my-6 w-11/12 lg:w-1/2 h-1 bg-paleGray" />
+      <hr class="my-8 w-11/12 lg:w-1/2 h-1 bg-paleGray" />
 
       <!-- descriptions -->
       <div class="w-full">
@@ -200,7 +308,7 @@
             return preg_replace('/\.\W/', '.<br>', $text);
           }
           // information comes from database will be given to $inputText variable
-          $inputText = "This is a 5 Bed House in Kamayut. The asking price is 4800 lakhs per month, and the square feet is 3200. Inside the property, there are three bedrooms with ensuites and two single bedrooms. The property will come unfurnished or furnished with all essentials for daily living. This includes items such as a TV, sofa set, coffee table, dining table, chairs, beds, mattresses, washing machine & a fridge freezer. This house comes with access car parking and a backup generator for 24-hour electricity. For more information about Myanmar Real Estate contact us; Phone, Viber & telegram : +959-980636388 Email : myanmarproperties3@gmail.com";
+          $inputText = $property_datas[0]['p_description'];
           $processedText = addBRAfterFullStop($inputText);
           echo $processedText;
           ?>
@@ -209,360 +317,139 @@
     </div>
   </div>
   <!-- line break -->
-
+  
+  <hr class="my-6 w-11/12 lg:w-1/2 h-1 m-auto bg-paleGray" />
   <!-- related properties section -->
-  <div class="flex flex-col items-center justify-center mt-10">
-    <h1 class="text-3xl font-bold" style="font-family: 'Playfair Display';">Related Properties</h1>
 
+    <h1 class="text-3xl font-bold mb-20 text-center" style="font-family: 'Playfair Display';">Related Properties</h1>
 
-    <!-- cards -->
-    <div class="grid grid-rows-2 gap-16 my-20">
-      <div class="flex justify-around">
-        <div class="grid lg:grid-cols-3 grid-cols-1 gap-16">
-          <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-              <div class="relative">
-                <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
-                  Sale</div>
-                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
-              </div>
-            </a>
-            <div class="px-5 pb-5">
-              <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
-                <span>November 11 at 12:30</span>
-                <span>13 people interests</span>
-              </div>
-              <div class="my-2.5 flex items-center justify-between">
-                <a href="#" class="mt-2.5 mb-5">
-                  <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                    4 Bed House in Golden Valley
-                  </h5>
-                </a>
-                <div class="rounded-full bg-gray-50 w-16">
-                  <img src="../resources/img/logo.png" alt="" />
-                </div>
-              </div>
+    <?php
+  $maxLimit = 3;
+  $count = 0;
 
-              <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
-                <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
-                <span class="ml-3">7,000 Lakhs / Month</span>
-              </div>
+  foreach ($related_properties as $property) {
+    if ($count % $maxLimit === 0) {
+      // Start a new row for every $maxLimit items
+      if ($count !== 0) {
+        echo '</div></div>'; // Close the previous grid and flex containers
+      }
+      echo '<div class="flex justify-around mb-10"><div class="grid lg:grid-cols-3 grid-cols-1 gap-16">';
+    }
 
-              <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
-                <div class="flex justify-between items-center">
-                  <div><span style="font-family: 'Playfair Display';">Property ID: </span>
-                    <span>1456</span>
-                  </div>
-                  <div><span style="font-family: 'Playfair Display';">Property Type: </span>
-                    <span>House</span>
-                  </div>
-                </div>
-                <div class="flex justify-between items-center mt-2">
-                  <div><span style="font-family: 'Playfair Display';">Township: </span>
-                    <span>Bahan</span>
-                  </div>
-                  <div>
-                    <span style="font-family: 'Playfair Display';">Property Size: </span>
-                    <span>5,000
-                      ft<sup>2</sup></span>
-                  </div>
-                </div>
-              </div>
+    // Increment the counter
+    $count++; ?>
 
-              <div class="flex items-center justify-end">
-                <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-                <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
-              </div>
+    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
+        <div class="relative h-56">
+          <div class="bg-darkGreen text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+            <?php if ($property['p_offer'] == 0) {
+              echo 'Rent';
+            };
+            if ($property['p_offer'] == 1) {
+              echo 'Sale';
+            }
+            ?></div>
+          <img class="pb-4 rounded-t-lg h-full w-full" src="../../../Storage/house/<?= $property["id"] ?>/<?= $property["p_photo_1"] ?>" alt="product image" />
+        </div>
+      </a>
+      <div class="px-5 pb-5">
+        <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
+          <span><?php
+                $dateTime = new DateTime($property['created_date']);
+
+                $formattedDateTime = $dateTime->format('F j \a\t g:i A');
+
+                echo $formattedDateTime;
+                ?></span>
+          <span>        <?php
+$interestCount = $property_datas[0]['p_interest_count'];
+
+if ($interestCount == 0) {
+    // Don't show anything if the count is zero
+} elseif ($interestCount == 1) {
+    echo '1 person interest';
+} else {
+    echo "$interestCount people interests";
+}
+?></span>
+        </div>
+        <div class="my-2.5 flex items-center justify-between">
+          <a href="#" class="mt-2.5 mb-5">
+            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              <?= $property['p_title'] ?>
+            </h5>
+          </a>
+          <div class="rounded-full bg-gray-50 w-16">
+            <img src="../resources/img/" alt="" />
+          </div>
+        </div>
+
+        <div class="mt-2.5 mb-5 text-darkGreen flex items-center text-xl">
+          <i class="fa-sharp fa-solid fa-money-bill pt-1"></i>
+          <span class="ml-3 mt-2">
+            <?php
+            if ($property['p_price_unit'] == 1) {
+              echo '$' . $property['p_price'];
+            } elseif ($property['p_price_unit'] == 2) {
+              echo $property['p_price'] . ' Kyat';
+            }
+            ?>
+            /
+            <?php
+            if ($property['p_duration'] == 0) {
+              echo 'Month';
+            } elseif ($property['p_duration'] == 1) {
+              echo 'Year';
+            }
+            ?>
+          </span>
+        </div>
+
+        <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
+          <div class="flex justify-between items-center">
+            <div><span class="font-playFair">Property Code: </span>
+              <span><?= $property['p_code'] ?></span>
+            </div>
+            <div><span class="font-playFair">Property Type: </span>
+              <span><?= $property['pt_name'] ?></span>
             </div>
           </div>
-          <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-              <div class="relative">
-                <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
-                  Sale</div>
-                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
-              </div>
-            </a>
-            <div class="px-5 pb-5">
-              <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
-                <span>November 11 at 12:30</span>
-                <span>13 people interests</span>
-              </div>
-              <div class="my-2.5 flex items-center justify-between">
-                <a href="#" class="mt-2.5 mb-5">
-                  <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                    4 Bed House in Golden Valley
-                  </h5>
-                </a>
-                <div class="rounded-full bg-gray-50 w-16">
-                  <img src="../resources/img/logo.png" alt="" />
-                </div>
-              </div>
-
-              <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
-                <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
-                <span class="ml-3">7,000 Lakhs / Month</span>
-              </div>
-
-              <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
-                <div class="flex justify-between items-center">
-                  <div><span style="font-family: 'Playfair Display';">Property ID: </span>
-                    <span>1456</span>
-                  </div>
-                  <div><span style="font-family: 'Playfair Display';">Property Type: </span>
-                    <span>House</span>
-                  </div>
-                </div>
-                <div class="flex justify-between items-center mt-2">
-                  <div><span style="font-family: 'Playfair Display';">Township: </span>
-                    <span>Bahan</span>
-                  </div>
-                  <div>
-                    <span style="font-family: 'Playfair Display';">Property Size: </span>
-                    <span>5,000
-                      ft<sup>2</sup></span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="flex items-center justify-end">
-                <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-                <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
-              </div>
+          <div class="flex justify-between items-center mt-2">
+            <div><span class="font-playFair">Township: </span>
+              <span><?= $property['name'] ?></span>
             </div>
-          </div>
-          <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-              <div class="relative">
-                <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
-                  Sale</div>
-                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
-              </div>
-            </a>
-            <div class="px-5 pb-5">
-              <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
-                <span>November 11 at 12:30</span>
-                <span>13 people interests</span>
-              </div>
-              <div class="my-2.5 flex items-center justify-between">
-                <a href="#" class="mt-2.5 mb-5">
-                  <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                    4 Bed House in Golden Valley
-                  </h5>
-                </a>
-                <div class="rounded-full bg-gray-50 w-16">
-                  <img src="../resources/img/logo.png" alt="" />
-                </div>
-              </div>
-
-              <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
-                <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
-                <span class="ml-3">7,000 Lakhs / Month</span>
-              </div>
-
-              <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
-                <div class="flex justify-between items-center">
-                  <div><span style="font-family: 'Playfair Display';">Property ID: </span>
-                    <span>1456</span>
-                  </div>
-                  <div><span style="font-family: 'Playfair Display';">Property Type: </span>
-                    <span>House</span>
-                  </div>
-                </div>
-                <div class="flex justify-between items-center mt-2">
-                  <div><span style="font-family: 'Playfair Display';">Township: </span>
-                    <span>Bahan</span>
-                  </div>
-                  <div>
-                    <span style="font-family: 'Playfair Display';">Property Size: </span>
-                    <span>5,000
-                      ft<sup>2</sup></span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="flex items-center justify-end">
-                <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-                <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
-              </div>
+            <div>
+              <span class="font-playFair">Property Size: </span>
+              <span><?= $property['p_width'] ?>x<?= $property['p_length'] ?>
+                <?php
+                if ($property['p_size_unit'] == 1) {
+                  echo 'm';
+                } elseif ($property['p_size_unit'] == 2) {
+                  echo 'ft';
+                }
+                ?><sup>2</sup></span>
             </div>
           </div>
         </div>
-      </div>
-      <div class="flex justify-around">
-        <div class="grid lg:grid-cols-3 grid-cols-1 gap-16">
-          <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-              <div class="relative">
-                <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
-                  Sale</div>
-                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
-              </div>
-            </a>
-            <div class="px-5 pb-5">
-              <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
-                <span>November 11 at 12:30</span>
-                <span>13 people interests</span>
-              </div>
-              <div class="my-2.5 flex items-center justify-between">
-                <a href="#" class="mt-2.5 mb-5">
-                  <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                    4 Bed House in Golden Valley
-                  </h5>
-                </a>
-                <div class="rounded-full bg-gray-50 w-16">
-                  <img src="../resources/img/logo.png" alt="" />
-                </div>
-              </div>
 
-              <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
-                <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
-                <span class="ml-3">7,000 Lakhs / Month</span>
-              </div>
-
-              <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
-                <div class="flex justify-between items-center">
-                  <div><span style="font-family: 'Playfair Display';">Property ID: </span>
-                    <span>1456</span>
-                  </div>
-                  <div><span style="font-family: 'Playfair Display';">Property Type: </span>
-                    <span>House</span>
-                  </div>
-                </div>
-                <div class="flex justify-between items-center mt-2">
-                  <div><span style="font-family: 'Playfair Display';">Township: </span>
-                    <span>Bahan</span>
-                  </div>
-                  <div>
-                    <span style="font-family: 'Playfair Display';">Property Size: </span>
-                    <span>5,000
-                      ft<sup>2</sup></span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="flex items-center justify-end">
-                <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-                <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-              <div class="relative">
-                <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
-                  Sale</div>
-                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
-              </div>
-            </a>
-            <div class="px-5 pb-5">
-              <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
-                <span>November 11 at 12:30</span>
-                <span>13 people interests</span>
-              </div>
-              <div class="my-2.5 flex items-center justify-between">
-                <a href="#" class="mt-2.5 mb-5">
-                  <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                    4 Bed House in Golden Valley
-                  </h5>
-                </a>
-                <div class="rounded-full bg-gray-50 w-16">
-                  <img src="../resources/img/logo.png" alt="" />
-                </div>
-              </div>
-
-              <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
-                <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
-                <span class="ml-3">7,000 Lakhs / Month</span>
-              </div>
-
-              <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
-                <div class="flex justify-between items-center">
-                  <div><span style="font-family: 'Playfair Display';">Property ID: </span>
-                    <span>1456</span>
-                  </div>
-                  <div><span style="font-family: 'Playfair Display';">Property Type: </span>
-                    <span>House</span>
-                  </div>
-                </div>
-                <div class="flex justify-between items-center mt-2">
-                  <div><span style="font-family: 'Playfair Display';">Township: </span>
-                    <span>Bahan</span>
-                  </div>
-                  <div>
-                    <span style="font-family: 'Playfair Display';">Property Size: </span>
-                    <span>5,000
-                      ft<sup>2</sup></span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="flex items-center justify-end">
-                <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-                <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-              <div class="relative">
-                <div class="bg-[#FBAA45] text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
-                  Sale</div>
-                <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
-              </div>
-            </a>
-            <div class="px-5 pb-5">
-              <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
-                <span>November 11 at 12:30</span>
-                <span>13 people interests</span>
-              </div>
-              <div class="my-2.5 flex items-center justify-between">
-                <a href="#" class="mt-2.5 mb-5">
-                  <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                    4 Bed House in Golden Valley
-                  </h5>
-                </a>
-                <div class="rounded-full bg-gray-50 w-16">
-                  <img src="../resources/img/logo.png" alt="" />
-                </div>
-              </div>
-
-              <div class="mt-2.5 mb-5 text-green-700 flex items-center text-xl">
-                <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
-                <span class="ml-3">7,000 Lakhs / Month</span>
-              </div>
-
-              <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
-                <div class="flex justify-between items-center">
-                  <div><span style="font-family: 'Playfair Display';">Property ID: </span>
-                    <span>1456</span>
-                  </div>
-                  <div><span style="font-family: 'Playfair Display';">Property Type: </span>
-                    <span>House</span>
-                  </div>
-                </div>
-                <div class="flex justify-between items-center mt-2">
-                  <div><span style="font-family: 'Playfair Display';">Township: </span>
-                    <span>Bahan</span>
-                  </div>
-                  <div>
-                    <span style="font-family: 'Playfair Display';">Property Size: </span>
-                    <span>5,000
-                      ft<sup>2</sup></span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="flex items-center justify-end">
-                <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-                <a href="#" class="text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
-              </div>
-            </div>
-          </div>
+        <div class="flex items-center justify-end">
+          <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
+          <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
         </div>
       </div>
     </div>
-  </div>
+
+
+  <?php }
+
+  // Close the last grid and flex containers if needed
+  if ($count % $maxLimit !== 0) {
+    echo '</div></div>';
+  }
+  ?>
+
+
 
   <!-- footer -->
   <?php include '../footer/footer.php' ?>
