@@ -14,6 +14,7 @@
     width: fit-content;
 }
 
+
 /* The Modal (background) */
 #myModal {
     display: none;
@@ -23,7 +24,7 @@
     align-items: center;
     position: fixed;
     /* Stay in place */
-    z-index: 1;
+    z-index: 99;
     /* Sit on top */
     top: 0;
     left: 0;

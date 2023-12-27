@@ -201,14 +201,14 @@ include "../../Controller/Property/SinglePropertyDetailController.php";
                             echo "<div>";
                             for ($i = 0; $i < $first; $i++) {
                                 if (isset($chunk)) {
-                                // echo "<pre>";
-                                // print_r($chunk);
-                                echo "<ul class='list-disc list-inside text-start'>";
-                                echo "<li>" . $chunk[$i] . "</li>";
-                                echo "</ul>";
+                                    // echo "<pre>";
+                                    // print_r($chunk);
+                                    echo "<ul class='list-disc list-inside text-start'>";
+                                    echo "<li>" . $chunk[$i] . "</li>";
+                                    echo "</ul>";
+                                }
                             }
-                            }
-                            
+
                             echo "</div>";
                         }
                     } else if ($last == 3 || $last == 6) { // 16 // first 5
@@ -299,7 +299,7 @@ include "../../Controller/Property/SinglePropertyDetailController.php";
             <!-- buttons -->
             <div class="w-3/4 flex gap-5">
                 <a href="edit.php?id=<?= $_GET['id']; ?>" class="bg-darkGreen py-2 px-6 rounded-lg border text-sm sm:text-base text-white">Edit</a>
-                <a href="../../Controller/Property/PropertyDeleteController.php?id=<?= $_GET['id']; ?>"; class="bg-alert py-2 px-6 rounded-lg border text-sm sm:text-base text-white ">Delete</a> 
+                <button id="deleteBtn" class="bg-alert py-2 px-6 rounded-lg border text-sm sm:text-base text-white" onclick="deleteBxShow()">Delete</button>
                 <button class="bg-goldYellow py-2 px-6 rounded-lg border text-sm sm:text-base text-white flex justify-between"><span class="inline-flex items-center justify-center mr-3 w-3 h-3 p-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300"><?= $property['p_interest_count']; ?></span>Interest</button>
             </div>
         </div>
@@ -501,6 +501,18 @@ include "../../Controller/Property/SinglePropertyDetailController.php";
             <div id="modal-content" class="flex items-center justify-center">
                 <img id="display-full-img" class="w-4/5 h-auto lg:w-auto lg:h-[80vh]" src="" />
                 <span id="img-description" class="mt-4"></span>
+            </div>
+        </div>
+
+        <!-- Delete Box Modal -->
+        <div id="delConfirmBx" class="hidden fixed top-0 left-0 z-50 w-full h-full overflow-auto bg-black bg-opacity-75 justify-center items-center">
+            <!-- Modal content -->
+            <div id="delBxContent" class="bg-paleGray p-10 border border-black border-solid w-3/4 flex gap-8 flex-col items-center rounded-lg">
+                <p class="text-xl">Are you sure you want to delete?</p>
+                <div class="flex gap-4">
+                    <a href="detail.php?id=<?= $_GET['id'] ?>" class="py-2 px-8 bg-darkGreen text-white rounded-xl cursor-pointer">No</a>
+                    <a href="../../Controller/Property/PropertyDeleteController.php?id=<?= $property['id'] ?>" class="py-2 px-8 bg-alert text-white rounded-xl cursor-pointer">Delete</a>
+                </div>
             </div>
         </div>
 </body>
