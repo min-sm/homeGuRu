@@ -69,7 +69,7 @@ session_start();
                             <option  value="Other" >Other</option>
                         </select>
                     </div>
-                    <div class="mb-2 "><small class="block  font-medium text-left text-red-600"><?= $_SESSION["createadminerror"] ?></small> </div>
+            
                 </div>
 
                 <div class="grid grid-rows-5 gap-5">
@@ -77,12 +77,19 @@ session_start();
                         <label for="imageInput" id="imageLabel">
                             <img name="ga_photo" class="w-24 mr-10" id="preview" src="../resources/img/common/profile.png" alt="Image Preview" style="max-width: 300px; max-height: 300px; cursor: pointer;">
                         </label>
-                        <span class="text-sm font-semibold text-gray-500 dark:text-white">Profile</span>
+                        <span class="text-sm font-semibold text-gray-500 dark:text-white">Profile
+                      <div class="mb-2 "><small class="block  font-medium text-left text-red-600"><?= $_SESSION["createadminerror"] ?></small> </div>
+                        </span>
                         <input type="file" id="imageInput" class="hidden" accept="image/*" onchange="previewImage(event)">
+                       
                     </div>
+                  
                     <div class=" lg:w-72 w-28">
                         <label for="ga_phone" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
-                            Phone Number</label>
+
+                            Phone Number
+                            
+                        </label>
                         <input type="text" name="ga_phone" id="ga_phone" class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="01-554369">
                     </div>
                     <div class=" lg:w-72 w-28">

@@ -28,6 +28,8 @@ if (isset($_POST["addadmin"])) {
             ga_status,
             created_date
         ) VALUES (
+
+          
             :name,
             :email,
             :password,
@@ -40,7 +42,7 @@ if (isset($_POST["addadmin"])) {
             :date
         )"
     );
-   
+    
     $sql->bindValue("name", $name);
     $sql->bindValue("email", $email);
     $sql->bindValue("password", password_hash($password, PASSWORD_DEFAULT));
