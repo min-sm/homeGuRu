@@ -14,23 +14,17 @@ session_start();
     <!-- flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-
     <!-- tailwind -->
     <link href="../resources/css/dist/output.css" rel="stylesheet">
-
     <!-- ionic icon -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <!-- JS -->
     <script src="../resources/js/profile.js"></script>
-
     <title>Home Guru</title>
 </head>
-
 <body>
     <?php include '../commonView/menu.php' ?>
     <div class="flex flex-col items-center pt-20 sm:ml-64">
@@ -44,7 +38,6 @@ session_start();
                             Full Name</label>
                         <input type="text" name="ga_name" id="ga_name" class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" Aung Aung">
                     </div>
-
                     <div class="lg:w-72 w-28">
                         <label for="ga_address" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
                             Address</label>
@@ -69,11 +62,8 @@ session_start();
                             <option value="Female">Female</option>
                             <option value="Other">Other</option>
                         </select>
-
                     </div>
-
                 </div>
-
                 <div class="grid grid-rows-5 gap-5">
                     <div class="flex items-center   lg:w-72 w-28">
                         <label  for="imageInput" id="imageLabel">
@@ -83,7 +73,6 @@ session_start();
                             <div class="mb-2 "><small class="block  font-medium text-left text-red-600"><?= $_SESSION["createadminerror"] ?></small> </div>
                         </span>
                         <input type="file" name="ga_photo" id="imageInput" class="hidden" accept="image/*" onchange="previewImage(event)">
-
                     </div>
                     <div class=" lg:w-72 w-28">
                         <label for="ga_phone" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
@@ -99,10 +88,8 @@ session_start();
                         <label for="ga_password" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
                             Password</label>
                         <input type="text" name="ga_password" id="ga_password" class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="•••••••••••••••••">
-
                     </div>
                 </div>
-
             </div>
             <div class="relative float-right   my-20">
                 <button type="submit" name="addadmin" class="text-white bg-darkGreen hover:bg-blue-800 
@@ -114,11 +101,8 @@ session_start();
                 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Cancel</button>
             </div>
-
         </form>
     </div>
-
 </body>
-
 </html>
 <?php $_SESSION["createadminerror"] = "" ?>
