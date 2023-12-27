@@ -69,11 +69,11 @@
   <?php include '../header/header.php' ?>
 
   <!-- uploader info -->
-  <div class="flex flex-row items-center w-4/5 lg:w-1/2 my-6 ms-4 lg:ms-24">
+  <div class="flex flex-row items-center gap-3 w-4/5 lg:w-1/2 my-6  ms-4 lg:ms-24">
     <!-- collaborator logo -->
-    <div class="basis-1/5 mr-2 sm:mr-0">
-      <div class="rounded-full bg-[#D9D9D9] w-24">
-      <img  src='<?php 
+    <div class=" mr-2 sm:mr-0">
+      <div class="rounded-full bg-[#D9D9D9] w-20 h-20 overflow-hidden">
+      <img class="w-full h-full"  src='<?php 
       if ($property_datas[0]['uploader_id']==0){
         echo "../../../Storage/admin_img/guru_logo.png";
       }else{
@@ -81,7 +81,7 @@
       </div>
     </div>
 
-    <div class="lg:basis-4/5 w-fit">
+    <div class=" w-fit">
       <div class="flex flex-col">
         <h1 class="font-semibold text-xl w-fit">
         <?php
@@ -150,7 +150,7 @@ if ($interestCount == 0) {
         } elseif ($property_datas[0]['p_price_unit'] == 2) {
             echo $property_datas[0]['p_price'] . ' Kyat';
         }
-    ?> /  <?php 
+    ?> / <?php 
     if ($property_datas[0]['p_duration'] == 0) {
         echo 'Month';
     } elseif ($property_datas[0]['p_duration'] == 1) {
