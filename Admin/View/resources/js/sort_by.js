@@ -6,9 +6,11 @@ function handleRadioChange(radioGroupName, labelClass) {
     .forEach((radio) => {
       radio.addEventListener("change", (event) => {
         const labels = document.querySelectorAll(`.${labelClass}`);
+        console.log(labels);
         labels.forEach((label) => {
-          label.classList.remove("text-white");
+          label.classList.remove("text-goldYellow");
           label.classList.add("text-gray-500");
+          console.log('this is worked.');
         });
 
         if (event.target.checked) {
@@ -16,7 +18,7 @@ function handleRadioChange(radioGroupName, labelClass) {
             `[for="${event.target.id}"]`
           );
           selectedLabel.classList.remove("text-gray-500");
-          selectedLabel.classList.add("text-white");
+          selectedLabel.classList.add("text-goldYellow");
         }
         console.log(event.target.id);
         card_table_view_change(event.target.id);

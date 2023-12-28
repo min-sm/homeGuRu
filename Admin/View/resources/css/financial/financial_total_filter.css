@@ -1,0 +1,13 @@
+.financialType{
+    display: none;
+}
+#sale-radio:checked+div.financialType{
+    display: block;
+}
+#rent-radio:checked+div.financialType{
+    display: block;
+}
+#collaborator-radio:checked+div.financialType{
+    display: block;
+   
+}
