@@ -1,6 +1,5 @@
 <?php include '../../Controller/common/colorsController.php' ?>
-<?php include '../../Controller/common/rentPropertiesController.php' ?>
-<?php include '../../Controller/common/salePropertiesController.php' ?>
+<?php include '../../Controller/common/SalePropertiesController.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -91,162 +90,166 @@
       <input type="radio" id="price_h_t_l" name="sort_by" value="" class="hidden" />
     </div>
   </div>
-  <?php
-  $maxLimit = 3;
-  $count = 0;
-
-  foreach ($sale_properties as $property) {
-    if ($count % $maxLimit === 0) {
-      // Start a new row for every $maxLimit items
-      if ($count !== 0) {
-        echo '</div></div>'; // Close the previous grid and flex containers
-      }
-      echo '<div class="flex justify-around mb-10"><div class="grid lg:grid-cols-3 grid-cols-1 gap-16">';
-    }
-
-    // Increment the counter
-    $count++; ?>
-
-    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <a href="../property_post/detail_post.php">
-        <div class="relative">
-          <div class="bg-darkGreen text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
-            <?php if ($property['p_offer'] == 0) {
-              echo 'Rent';
-            };
-            if ($property['p_offer'] == 1) {
-              echo 'Sale';
-            }
-            ?></div>
-          <img class="pb-4 rounded-t-lg" src="../resources/img/<?= $property['p_photo_1'] ?>" alt="product image" />
-        </div>
-      </a>
-      <div class="px-5 pb-5">
-        <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
-          <span><?php
-                $dateTime = new DateTime($property['created_date']);
-
-                $formattedDateTime = $dateTime->format('F j \a\t g:i A');
-
-                echo $formattedDateTime;
-                ?></span>
-          <span><?= $property['p_interest_count'] ?> people interests</span>
-        </div>
-        <div class="my-2.5 flex items-center justify-between">
-          <a href="#" class="mt-2.5 mb-5">
-            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-              <?= $property['p_title'] ?>
-            </h5>
-          </a>
-          <div class="rounded-full bg-gray-50 w-16">
-            <img src="../resources/img/" alt="" />
+  
+     
+  <div class="flex space-x-10 justify-around space-y-5  flex-wrap  mb-10 ">
+    <?php
+    foreach ($sale_properties as $property) {
+    ?>
+      <div class="w-full mx-10 flex-shrink-0 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
+          <div class="relative h-56">
+            <div class="bg-darkGreen text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+              <?php if ($property['p_offer'] == 0) {
+                echo 'Rent';
+              };
+              if ($property['p_offer'] == 1) {
+                echo 'Sale';
+              }
+              ?></div>
+            <img class="pb-4 rounded-t-lg h-full w-full" src="../../../Storage/house/<?= $property["id"] ?>/<?= $property["p_photo_1"] ?>" alt="product image" />
           </div>
-        </div>
+        </a>
+        <div class="px-5 pb-5">
+          <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
+            <span><?php
+                  $dateTime = new DateTime($property['created_date']);
 
-        <div class="mt-2.5 mb-5 text-darkGreen flex items-center text-xl">
-          <i class="fa-sharp fa-solid fa-money-bill pt-1"></i>
-          <span class="ml-3 mt-2">
-            <?php
-            if ($property['p_price_unit'] == 1) {
-              echo '$' . $property['p_price'];
-            } elseif ($property['p_price_unit'] == 2) {
-              echo $property['p_price'] . ' Kyat';
-            }
-            ?>
-            /
-            <?php
-            if ($property['p_duration'] == 0) {
-              echo 'Month';
-            } elseif ($property['p_duration'] == 1) {
-              echo 'Year';
-            }
-            ?>
-          </span>
-        </div>
+                  $formattedDateTime = $dateTime->format('F j \a\t g:i A');
 
-        <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
-          <div class="flex justify-between items-center">
-            <div><span class="font-playFair">Property Code: </span>
-              <span><?= $property['p_code'] ?></span>
-            </div>
-            <div><span class="font-playFair">Property Type: </span>
-              <span><?= $property['pt_name'] ?></span>
+                  echo $formattedDateTime;
+                  ?></span>
+            <span> <?php
+                    $interestCount = $property['p_interest_count'];
+
+                    if ($interestCount == 0) {
+                      // Don't show anything if the count is zero
+                    } elseif ($interestCount == 1) {
+                      echo '1 person interest';
+                    } else {
+                      echo "$interestCount people interests";
+                    }
+                    ?></span>
+          </div>
+          <div class="my-2.5 flex items-center justify-between">
+            <a href="#" class="mt-2.5 mb-5">
+              <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                <?= $property['p_title'] ?>
+              </h5>
+            </a>
+            <div class="rounded-full bg-gray-50 w-16">
+              <img src="../resources/img/" alt="" />
             </div>
           </div>
-          <div class="flex justify-between items-center mt-2">
-            <div><span class="font-playFair">Township: </span>
-              <span><?= $property['p_township'] ?></span>
+
+          <div class="mt-2.5 mb-5 text-darkGreen flex items-center text-xl">
+            <i class="fa-sharp fa-solid fa-money-bill pt-1"></i>
+            <span class="ml-3 mt-2">
+              <?php
+              if ($property['p_price_unit'] == 1) {
+                echo '$' . $property['p_price'];
+              } elseif ($property['p_price_unit'] == 2) {
+                echo $property['p_price'] . ' Kyat';
+              }
+              ?>
+              /
+              <?php
+              if ($property['p_duration'] == 0) {
+                echo 'Month';
+              } elseif ($property['p_duration'] == 1) {
+                echo 'Year';
+              }
+              ?>
+            </span>
+          </div>
+
+          <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
+            <div class="flex justify-between items-center">
+              <div><span class="font-playFair">Property Code: </span>
+                <span><?= $property['p_code'] ?></span>
+              </div>
+              <div><span class="font-playFair">Property Type: </span>
+                <span><?= $property['pt_name'] ?></span>
+              </div>
             </div>
-            <div>
-              <span class="font-playFair">Property Size: </span>
-              <span><?= $property['p_width'] ?>x<?= $property['p_length'] ?>
-                <?php
-                if ($property['p_size_unit'] == 1) {
-                  echo 'm';
-                } elseif ($property['p_size_unit'] == 2) {
-                  echo 'ft';
-                }
-                ?><sup>2</sup></span>
+            <div class="flex justify-between items-center mt-2">
+              <div><span class="font-playFair">Township: </span>
+                <span><?= $property['name'] ?></span>
+              </div>
+              <div>
+                <span class="font-playFair">Property Size: </span>
+                <span><?= $property['p_width'] ?>x<?= $property['p_length'] ?>
+                  <?php
+                  if ($property['p_size_unit'] == 1) {
+                    echo 'm';
+                  } elseif ($property['p_size_unit'] == 2) {
+                    echo 'ft';
+                  }
+                  ?><sup>2</sup></span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="flex items-center justify-end">
-          <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-          <a href="#" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+          <div class="flex items-center justify-end">
+            <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
+            <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+          </div>
         </div>
       </div>
-    </div>
 
 
-  <?php }
+    <?php }
 
-  // Close the last grid and flex containers if needed
-  if ($count % $maxLimit !== 0) {
-    echo '</div></div>';
-  }
-  ?>
+
+    ?>
+  </div>
+
+ 
   <!-- cards -->
 
 
   <!-- pagination -->
   <div class="flex justify-center my-16">
-    <nav aria-label="Page navigation example">
-      <ul class="flex items-center -space-x-px h-10 text-base">
-        <li>
-          <a href="#" class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-            <span class="sr-only">Previous</span>
-            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
-            </svg>
-          </a>
-        </li>
-        <li>
-          <a href="#" aria-current="page" class="z-10 flex items-center justify-center px-4 h-10 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">1</a>
-        </li>
-        <li>
-          <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
-        </li>
-        <li>
-          <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">3</a>
-        </li>
-        <li>
-          <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
-        </li>
-        <li>
-          <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
-        </li>
-        <li>
-          <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-            <span class="sr-only">Next</span>
-            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
+            <nav aria-label="Page navigation example">
+                <ul class="flex items-center -space-x-px h-10 text-base">
+                    <li>
+                        <a href="?page=<?= $page == $page > 1 ? $page - 1 : 1 ?>" class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                            <span class="sr-only">Previous</span>
+                            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+                            </svg>
+                        </a>
+                    </li>
+                    <?php
+                    for ($i = 1; $i <= $totalPages; $i++) {
+                        if ($page == $i) {
+                    ?>
+                            <li>
+                                <a href="?page=<?= $i ?>" aria-current="page" class="z-10 flex items-center justify-center px-4 h-10 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">
+                                    <?= $i ?>
+                                </a>
+                            </li>
+                        <?php } else {
+                        ?>
+                            <li>
+                                <a href="?page=<?= $i ?>" class="  flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                    <?= $i ?>
+                                </a>
+                            </li>
+                    <?php }
+                    }
+                    ?>
+                    <li>
+                        <a href="?page=<?= $page == $page < $totalPages ? $page + 1 : $totalPages ?>" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                            <span class="sr-only">Next</span>
+                            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
 
   <!-- footer -->
   <?php include '../footer/footer.php' ?>
