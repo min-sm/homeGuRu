@@ -102,7 +102,7 @@
 
                 <button type="" class="tracking-wider ml-10 text-white  bg-alert opacity-80 hover:opacity-100
                 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium  px-7 py-2 text-center ">
-                    Cancle</button>
+                    Cancel</button>
             </div>
 
         </form>

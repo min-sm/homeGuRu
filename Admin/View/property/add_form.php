@@ -56,7 +56,7 @@ include "../../Controller/Facility/FacilityListController.php";
                 <!-- add photo button -->
                 <div>
                     <label for="add_img" class="flex items-center justify-center w-96 h-56 bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg border dark:border-white border-black"><span>+ Add Photo</span></label>
-                    <input type="file" name="p_photos[]" multiple class=" hidden" id="add_img" accept=".jpg, .jpeg" />
+                    <input type="file" name="p_photos[]" multiple class=" hidden" id="add_img" accept=".jpg, .jpeg, .png" />
                 </div>
 
 
@@ -194,14 +194,18 @@ include "../../Controller/Facility/FacilityListController.php";
                             <label for="bedroom" class="font-medium">Bedroom</label>
                             <select id="bedroom" name="p_bed" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
                                 <option value="" disabled selected>Select Number</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">Over 6</option>
-                                <option value="7">Over 8</option>
-                                <option value="8">Over 10</option>
+                                <?php
+                                for ($i = 1; $i < 9; $i++) { ?>
+                                    <option value="<?= $i ?>">
+                                        <?php
+                                        if ($i >= 6) {
+                                            echo 'Over ' . (6 + (($i - 6) * 2));
+                                        } else {
+                                            echo $i;
+                                        }
+                                        ?>
+                                    </option>
+                                <?php } ?>
                             </select>
                         </div>
                     </div>
@@ -209,7 +213,7 @@ include "../../Controller/Facility/FacilityListController.php";
                     <!-- note -->
                     <div class="flex flex-col ">
                         <label for="note" class="font-medium">Note</label>
-                        <textarea id="email" name="p_note" class="lg:w-96 w-28 h-full px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2 overflow-x-hidden"></textarea>
+                        <textarea id="note" name="p_note" class="lg:w-96 w-28 h-full px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2 overflow-x-hidden"></textarea>
                     </div>
                 </div>
 

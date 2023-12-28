@@ -83,7 +83,7 @@
                 <button type="" class=" text-darkGreen border-2 border-green-700 bg-transparent hover:bg-alert hover:text-white
                 focus:ring-4 focus:outline-none focus:ring-blue-300 font-xl rounded-lg text-medium  px-7 py-2 text-center 
                 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 tracking-wide">
-                    Cancle</button>
+                    Cancel</button>
             </div>
          
         </form>
