@@ -57,7 +57,7 @@
             <a href="./financial_rent_list.php" type=""
                 class="tracking-wider mx-10 text-white border-2 border-green-700 bg-alert opacity-80 hover:opacity-100
             focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium  px-7 py-2 text-center ">
-                Cancle</a>
+                Cancel</a>
         </div>
     </div>
  <!--End  Rent Service Cash In Detail  -->
