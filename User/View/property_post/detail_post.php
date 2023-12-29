@@ -91,7 +91,7 @@
           }else{
        echo $property_datas[0]['gc_company_name'];}?>
         </h1>
-        <div class="flex flex-row items-center mt-3 justify-between w-1/2 text-xs">
+        <div class="flex flex-row items-center mt-3 justify-between w-1/2 text-xs whitespace-nowrap ">
           <p><?php
         $dateTime = new DateTime( $property_datas[0]['created_date']);
 
@@ -132,7 +132,7 @@ if ($interestCount == 0) {
             ?>
             <?php foreach ($photos as $photo) : ?>
                 <div class="image-label-container">
-                    <div class="image-container property-img" style="background-image: url('../../../Storage/house/<?= $_GET["id"] ?>/<?= $photo ?>');"></div>
+                    <div class="image-container property-img" style="background-image: url('../../../Storage/house/<?= $property_datas[0]["id"] ?>/<?= $photo ?>');"></div>
                 </div>
             <?php endforeach; ?>
       </div>
@@ -184,17 +184,19 @@ if ($interestCount == 0) {
     ?><sup>2</sup>
       </div>
       <div>
-        <span class="font-playFair font-semibold">Township: </span>CD354#E
+        <span class="font-playFair font-semibold">Township: </span><?=$property_datas[0]['name']?>
       </div>
-      <div class="sharethis-inline-share-buttons pl-0"></div>
-     <div class="flex h-10 items-start justify-start"> 
+      <div class="flex pl-20 sm:pl-0 ">
+      <div class="sharethis-inline-share-buttons "></div>
+      </div>
+     <div class="flex h-10 items-start  justify-start pl-9 sm:pl-0 "> 
       <a href="tel:+959980636388"><button type="button" class="text-white bg-green-600   rounded-lg text-sm px-5 py-2 text-center inline-flex items-center me-2 mb-2">
         <ion-icon name="call" class="text-lg mr-2"></ion-icon> Contact
       </button></a>
       <a href="../interest_View/interest_view_register.php">
       <button type="button" class="text-white bg-goldYellow  rounded-lg text-sm px-5 py-2 text-center inline-flex items-center me-2 mb-2">
         <i class="fa-solid fa-file-lines text-lg mr-2"></i>
-        Interest View Register
+        Interest Register
       </button>
       </a>
       </div>
@@ -217,11 +219,15 @@ if ($interestCount == 0) {
       </div>
 
       <!-- line break -->
-      <hr class="my-8 w-11/12 lg:w-1/2 h-1 bg-paleGray" />
+      <hr class="my-8 w-11/12 lg:w-1/2 h-1 bg-paleGray <?php if($property_datas[0]['p_description']==null){
+        echo 'hidden';
+      };?>" />
 
       <!-- features -->
-      <div class="w-full">
-                <p class="font-medium text-lg mb-2">Additional Features</p>
+      <div class="w-full <?php if($property_datas[0]['p_description']==null){
+        echo 'hidden';
+      };?>">
+                <p class="font-medium text-lg mb-5 text-center">Additional Facilities</p>
 
                 <div class="grid grid-cols-3 lg:text-base text-sm px-2 sm:px-0">
 
@@ -295,11 +301,15 @@ if ($interestCount == 0) {
             </div>
 
       <!-- line break -->
-      <hr class="my-8 w-11/12 lg:w-1/2 h-1 bg-paleGray" />
+      <hr class="my-8 w-11/12 lg:w-1/2 h-1 bg-paleGray <?php if($property_datas[0]['p_description']==null){
+        echo 'hidden';
+      };?>" />
 
       <!-- descriptions -->
-      <div class="w-full">
-        <h1 class="font-playFair text-2xl mb-3 text-center">Description</h1>
+      <div class="w-full <?php if($property_datas[0]['p_description']==null){
+        echo 'hidden';
+      };?>">
+        <h1 class="font-playFair text-2xl mb-5 text-center">Description</h1>
 
         <p class="tracking-wider leading-8 ml-2">
           <?php
@@ -321,136 +331,193 @@ if ($interestCount == 0) {
   <hr class="my-6 w-11/12 lg:w-1/2 h-1 m-auto bg-paleGray" />
   <!-- related properties section -->
 
-    <h1 class="text-3xl font-bold mb-20 text-center" style="font-family: 'Playfair Display';">Related Properties</h1>
-
+    <h1 class="text-2xl font-bold mb-16 text-center" style="font-family: 'Playfair Display';">Related Properties</h1>
+    <div class="flex  justify-around   flex-wrap w-full  gap-5 mb-10 ">
     <?php
-  $maxLimit = 3;
-  $count = 0;
+    foreach ($related_properties as $property) {
+    ?>
+       <div class="w-full    max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
+          <div class="relative h-56">
+            <div class="<?php
+                        if ($property['p_after'] == 1) {
+                          echo 'bg-alert';
+                        } else if ($property['p_offer'] == 0) {
+                          echo 'bg-darkGreen';
+                        } else {
+                          echo 'bg-secondary';
+                        };
 
-  foreach ($related_properties as $property) {
-    if ($count % $maxLimit === 0) {
-      // Start a new row for every $maxLimit items
-      if ($count !== 0) {
-        echo '</div></div>'; // Close the previous grid and flex containers
-      }
-      echo '<div class="flex justify-around mb-10"><div class="grid lg:grid-cols-3 grid-cols-1 gap-16">';
-    }
+                        ?> text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+              <?php
+              if ($property['p_after'] == 1 && $property['p_offer'] == 0) {
+                echo 'Rent Out';
+              } else if ($property['p_after'] == 1 && $property['p_offer'] == 1) {
+                echo 'Sold Out';
+              } else if ($property['p_offer'] == 0) {
+                echo 'Rent';
+              } else {
+                echo 'Sale';
+              };
 
-    // Increment the counter
-    $count++; ?>
-
-    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
-        <div class="relative h-56">
-          <div class="bg-darkGreen text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
-            <?php if ($property['p_offer'] == 0) {
-              echo 'Rent';
-            };
-            if ($property['p_offer'] == 1) {
-              echo 'Sale';
-            }
-            ?></div>
-          <img class="pb-4 rounded-t-lg h-full w-full" src="../../../Storage/house/<?= $property["id"] ?>/<?= $property["p_photo_1"] ?>" alt="product image" />
-        </div>
-      </a>
-      <div class="px-5 pb-5">
-        <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
-          <span><?php
-                $dateTime = new DateTime($property['created_date']);
-
-                $formattedDateTime = $dateTime->format('F j \a\t g:i A');
-
-                echo $formattedDateTime;
-                ?></span>
-          <span>        <?php
-$interestCount = $property_datas[0]['p_interest_count'];
-
-if ($interestCount == 0) {
-    // Don't show anything if the count is zero
-} elseif ($interestCount == 1) {
-    echo '1 person interest';
-} else {
-    echo "$interestCount people interests";
-}
-?></span>
-        </div>
-        <div class="my-2.5 flex items-center justify-between">
-          <a href="#" class="mt-2.5 mb-5">
-            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-              <?= $property['p_title'] ?>
-            </h5>
-          </a>
-          <div class="rounded-full bg-gray-50 w-16">
-            <img src="../resources/img/" alt="" />
+              ?>
+              </div>
+            <img class="pb-4 rounded-t-lg w-full h-full" src="../../../Storage/house/<?= $property["id"] ?>/<?= $property['p_photo_1'] ?>" alt=" product image" />
           </div>
-        </div>
+        </a>
+        <div class="px-5 pb-5">
+          <div class="flex items-center text-black dark:text-white text-xs justify-between mb-2.5">
+            <span><?php
+                  $dateTime = new DateTime($property['created_date']);
 
-        <div class="mt-2.5 mb-5 text-darkGreen flex items-center text-xl">
-          <i class="fa-sharp fa-solid fa-money-bill pt-1"></i>
-          <span class="ml-3 mt-2">
-            <?php
-            if ($property['p_price_unit'] == 1) {
-              echo '$' . $property['p_price'];
-            } elseif ($property['p_price_unit'] == 2) {
-              echo $property['p_price'] . ' Kyat';
-            }
-            ?>
-            /
-            <?php
-            if ($property['p_duration'] == 0) {
-              echo 'Month';
-            } elseif ($property['p_duration'] == 1) {
-              echo 'Year';
-            }
-            ?>
-          </span>
-        </div>
+                  $formattedDateTime = $dateTime->format('F j \a\t g:i A');
 
-        <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
-          <div class="flex justify-between items-center">
-            <div><span class="font-playFair">Property Code: </span>
-              <span><?= $property['p_code'] ?></span>
-            </div>
-            <div><span class="font-playFair">Property Type: </span>
-              <span><?= $property['pt_name'] ?></span>
-            </div>
+                  echo $formattedDateTime;
+                  ?></span>
+            <span> <?php
+                    $interestCount = $property['p_interest_count'];
+
+                    if ($interestCount == 0) {
+                      // Don't show anything if the count is zero
+                    } elseif ($interestCount == 1) {
+                      echo '1 person interest';
+                    } else {
+                      echo "$interestCount people interests";
+                    }
+                    ?></span>
           </div>
-          <div class="flex justify-between items-center mt-2">
-            <div><span class="font-playFair">Township: </span>
-              <span><?= $property['name'] ?></span>
-            </div>
-            <div>
-              <span class="font-playFair">Property Size: </span>
-              <span><?= $property['p_width'] ?>x<?= $property['p_length'] ?>
-                <?php
-                if ($property['p_size_unit'] == 1) {
-                  echo 'm';
-                } elseif ($property['p_size_unit'] == 2) {
-                  echo 'ft';
+          <div class="mt-2 flex items-center justify-between">
+                                <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
+                                    <h5 class="text-xl font-medium  text-gray-900 dark:text-white">
+                                        <?php
+                                        $maxLen = 25;
+                                        $property['p_title'] = ucwords(strtolower($property['p_title']));
+                                        if (strlen($property['p_title']) > $maxLen) {
+                                            $property['p_title'] = substr($property['p_title'], 0, $maxLen - 4) . '...';
+                                        }
+                                        echo $property['p_title'];
+
+                                        ?>
+                                    </h5>
+                                </a>
+                                <div class="rounded-full bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
+                                    <?php if ($property['uploader_id'] == 0) : ?>
+                                        <img src="../../../Storage/homeGuru_logo/dark/logo.png" class="w-16 h-16" alt="HomeGuRu" />
+                                    <?php else : ?>
+                                          <img class="w-14 h-14"  src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $property['gc_company_name']; ?>" />
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+
+          <div class=" mb-5 text-darkGreen flex items-center text-lg">
+            <i class="fa-sharp fa-solid fa-money-bill pt-1"></i>
+            <span class="ml-3 mt-2 font-meduim">
+              <?php if ($property['p_price_unit'] == 1) {
+                echo '$' . $property['p_price'];
+              } elseif ($property['p_price_unit'] == 2) {
+                if ($property['p_price'] > 999999) {
+
+                  $formatted_price = substr_replace($property['p_price'], 'lakh', -5);
+                  echo $formatted_price;
+                } else {
+
+                  echo 'Ks' . $property['p_price'];
                 }
-                ?><sup>2</sup></span>
+              } ?>
+              /
+              <?php
+              if ($property['p_duration'] == 0) {
+                echo 'Month';
+              } elseif ($property['p_duration'] == 1) {
+                echo 'Year';
+              }
+              ?>
+            </span>
+          </div>
+
+          <div class="mt-2.5 mb-7 text-black dark:text-white tracking-wide space-y-5  text-sm">
+            <div class="flex justify-between items-center">
+              <div><span class="font-playFair">Property Code: </span>
+                <span ><?= $property['p_code'] ?></span>
+              </div>
+              <div><span class="font-playFair">Property Type: </span>
+                <span><?= $property['pt_name'] ?></span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center mt-2">
+              <div><span class="font-playFair">Township: </span>
+                <span><?= $property['name'] ?></span>
+              </div>
+              <div>
+                <span class="font-playFair">Property Size: </span>
+                <span><?= $property['p_width'] ?>x<?= $property['p_length'] ?>
+                  <?php
+                  if ($property['p_size_unit'] == 1) {
+                    echo 'm';
+                  } elseif ($property['p_size_unit'] == 2) {
+                    echo 'ft';
+                  }
+                  ?><sup>2</sup></span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="flex items-center justify-end">
-          <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-          <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+          <div class="flex items-center justify-end">
+            <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
+            <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
+          </div>
         </div>
       </div>
-    </div>
 
 
-  <?php }
-
-  // Close the last grid and flex containers if needed
-  if ($count % $maxLimit !== 0) {
-    echo '</div></div>';
-  }
-  ?>
+    <?php }
 
 
+    ?>
+  </div>
 
+   <!-- pagination -->
+   <div class="flex justify-center my-16">
+    <nav aria-label="Page navigation example">
+      <ul class="flex items-center -space-x-px h-10 text-base">
+        <li>
+          <a href="?page=<?= $page == $page > 1 ? $page - 1 : 1 ?>&id=<?=$property_datas[0]['id'] ?>&id=<?=$property_datas[0]['id'] ?>&pt_id=<?=$property_datas[0]['pt_id'] ?>&p_offer=<?=$property_datas[0]['p_offer'] ?>&p_township=<?=$property_datas[0]['p_township'] ?>" class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+            <span class="sr-only">Previous</span>
+            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+            </svg>
+          </a>
+        </li>
+        <?php
+        for ($i = 1; $i <= $totalPages; $i++) {
+          if ($page == $i) {
+        ?>
+            <li>
+              <a href="?page=<?= $i ?>&id=<?=$property_datas[0]['id'] ?>&pt_id=<?=$property_datas[0]['pt_id'] ?>&p_offer=<?=$property_datas[0]['p_offer'] ?>&p_township=<?=$property_datas[0]['p_township'] ?>" aria-current="page" class="z-10 flex items-center justify-center px-4 h-10 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">
+                <?= $i ?>
+              </a>
+            </li>
+          <?php } else {
+          ?>
+            <li>
+              <a href="?page=<?= $i ?>&id=<?=$property_datas[0]['id'] ?>&pt_id=<?=$property_datas[0]['pt_id'] ?>&p_offer=<?=$property_datas[0]['p_offer'] ?>&p_township=<?=$property_datas[0]['p_township'] ?>" class="  flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                <?= $i ?>
+              </a>
+            </li>
+        <?php }
+        }
+        ?>
+        <li>
+          <a href="?page=<?= $page == $page < $totalPages ? $page + 1 : $totalPages ?>&id=<?=$property_datas[0]['id'] ?>&pt_id=<?=$property_datas[0]['pt_id'] ?>&p_offer=<?=$property_datas[0]['p_offer'] ?>&p_township=<?=$property_datas[0]['p_township'] ?>" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+            <span class="sr-only">Next</span>
+            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
   <!-- footer -->
   <?php include '../footer/footer.php' ?>
 </body>

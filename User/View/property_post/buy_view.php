@@ -20,7 +20,7 @@
 
   <!-- flowbite -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js" defer></script>
 
   <!-- tailwind -->
   <link href="../resources/css/dist/output.css" rel="stylesheet" />
@@ -92,26 +92,41 @@
   </div>
   
      
-  <div class="flex space-x-10 justify-around space-y-5  flex-wrap  mb-10 ">
+  <div class="flex s justify-around gap-5  flex-wrap w-full  mb-10 ">
     <?php
     foreach ($sale_properties as $property) {
     ?>
-      <div class="w-full mx-10 flex-shrink-0 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+       <div class="w-full  max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
           <div class="relative h-56">
-            <div class="bg-darkGreen text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
-              <?php if ($property['p_offer'] == 0) {
+            <div class="<?php
+                        if ($property['p_after'] == 1) {
+                          echo 'bg-alert';
+                        } else if ($property['p_offer'] == 0) {
+                          echo 'bg-darkGreen';
+                        } else {
+                          echo 'bg-secondary';
+                        };
+
+                        ?> text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+              <?php
+              if ($property['p_after'] == 1 && $property['p_offer'] == 0) {
+                echo 'Rent Out';
+              } else if ($property['p_after'] == 1 && $property['p_offer'] == 1) {
+                echo 'Sold Out';
+              } else if ($property['p_offer'] == 0) {
                 echo 'Rent';
-              };
-              if ($property['p_offer'] == 1) {
+              } else {
                 echo 'Sale';
-              }
-              ?></div>
-            <img class="pb-4 rounded-t-lg h-full w-full" src="../../../Storage/house/<?= $property["id"] ?>/<?= $property["p_photo_1"] ?>" alt="product image" />
+              };
+
+              ?>
+              </div>
+            <img class="pb-4 rounded-t-lg w-full h-full" src="../../../Storage/house/<?= $property["id"] ?>/<?= $property['p_photo_1'] ?>" alt=" product image" />
           </div>
         </a>
         <div class="px-5 pb-5">
-          <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
+          <div class="flex items-center text-black dark:text-white text-xs justify-between mb-2.5">
             <span><?php
                   $dateTime = new DateTime($property['created_date']);
 
@@ -131,27 +146,44 @@
                     }
                     ?></span>
           </div>
-          <div class="my-2.5 flex items-center justify-between">
-            <a href="#" class="mt-2.5 mb-5">
-              <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                <?= $property['p_title'] ?>
-              </h5>
-            </a>
-            <div class="rounded-full bg-gray-50 w-16">
-              <img src="../resources/img/" alt="" />
-            </div>
-          </div>
+          <div class="mt-2 flex items-center justify-between">
+                                <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
+                                    <h5 class="text-xl font-medium  text-gray-900 dark:text-white">
+                                        <?php
+                                        $maxLen = 25;
+                                        $property['p_title'] = ucwords(strtolower($property['p_title']));
+                                        if (strlen($property['p_title']) > $maxLen) {
+                                            $property['p_title'] = substr($property['p_title'], 0, $maxLen - 4) . '...';
+                                        }
+                                        echo $property['p_title'];
 
-          <div class="mt-2.5 mb-5 text-darkGreen flex items-center text-xl">
+                                        ?>
+                                    </h5>
+                                </a>
+                                <div class="rounded-full bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
+                                    <?php if ($property['uploader_id'] == 0) : ?>
+                                        <img src="../../../Storage/homeGuru_logo/dark/logo.png" class="w-16 h-16" alt="HomeGuRu" />
+                                    <?php else : ?>
+                                          <img class="w-14 h-14"  src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $property['gc_company_name']; ?>" />
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+
+          <div class=" mb-5 text-darkGreen flex items-center text-lg">
             <i class="fa-sharp fa-solid fa-money-bill pt-1"></i>
-            <span class="ml-3 mt-2">
-              <?php
-              if ($property['p_price_unit'] == 1) {
+            <span class="ml-3 mt-2 font-meduim">
+              <?php if ($property['p_price_unit'] == 1) {
                 echo '$' . $property['p_price'];
               } elseif ($property['p_price_unit'] == 2) {
-                echo $property['p_price'] . ' Kyat';
-              }
-              ?>
+                if ($property['p_price'] > 999999) {
+
+                  $formatted_price = substr_replace($property['p_price'], 'lakh', -5);
+                  echo $formatted_price;
+                } else {
+
+                  echo 'Ks' . $property['p_price'];
+                }
+              } ?>
               /
               <?php
               if ($property['p_duration'] == 0) {
@@ -163,10 +195,10 @@
             </span>
           </div>
 
-          <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
+          <div class="mt-2.5 mb-7 text-black dark:text-white tracking-wide space-y-5  text-sm">
             <div class="flex justify-between items-center">
               <div><span class="font-playFair">Property Code: </span>
-                <span><?= $property['p_code'] ?></span>
+                <span ><?= $property['p_code'] ?></span>
               </div>
               <div><span class="font-playFair">Property Type: </span>
                 <span><?= $property['pt_name'] ?></span>
@@ -192,7 +224,7 @@
 
           <div class="flex items-center justify-end">
             <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-            <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+            <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
           </div>
         </div>
       </div>
