@@ -1,6 +1,7 @@
 <?php
 include "../../Controller/PropertyType/PropertyTypeListController.php";
 include "../../Controller/Facility/FacilityListController.php";
+include "../../Controller/Township/TownshipListController.php"
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +16,7 @@ include "../../Controller/Facility/FacilityListController.php";
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <!-- fontawsome -->
     <script src="https://kit.fontawesome.com/b9864528d4.js" crossorigin="anonymous"></script>
+    <!-- light dark -->
     <script>
         if (
             localStorage.getItem("color-theme") === "dark" ||
@@ -243,15 +245,28 @@ include "../../Controller/Facility/FacilityListController.php";
                             </select>
                         </div>
                     </div>
-                    <!-- Township -->
-                    <div class="flex flex-col">
-                        <label for="township" class="font-medium">Township</label>
-                        <select id="township" name="p_township" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white">
-                            <option value="" disabled selected>Select Township</option>
-                            <option value="">Bahan</option>
-                            <option value="">Tamwe</option>
-                        </select>
+                    <div class="flex flex-col gap-4">
+                        <!-- Region -->
+                        <div class="flex flex-col">
+                            <label for="region" class="font-medium">Region</label>
+                            <select name="region" id="region" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white">
+                                <option value="" disabled selected>Select Region</option>
+                                <?php foreach ($regions_result as $row) : ?>
+                                    <option value="<?php echo $row['id']; ?>">
+                                        <?php echo $row['name']; ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <!-- Township -->
+                        <div class="flex flex-col">
+                            <label for="township" class="font-medium">Township</label>
+                            <select id="township" name="p_township" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white">
+                                <option value="" disabled selected>Select Township</option>
+                            </select>
+                        </div>
                     </div>
+
                 </div>
 
                 <!-- location -->
@@ -347,6 +362,39 @@ include "../../Controller/Facility/FacilityListController.php";
             <span id="img-description" class="mt-4"></span>
         </div>
     </div>
+
+    <!-- for region & township -->
+    <!-- JavaScript to populate township dropdown on change of region -->
+    <script>
+        var regionDropdown = document.getElementById("region");
+        var townshipDropdown = document.getElementById("township");
+
+        regionDropdown.addEventListener("change", function() {
+            var regionId = this.value;
+
+            // AJAX call to get townships of selected region
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        // On success, parse the response and populate the township dropdown
+                        var townships = JSON.parse(xhr.responseText);
+                        townshipDropdown.innerHTML = "<option value='' disabled selected>Select Township</option>";
+                        townships.forEach(function(township) {
+                            townshipDropdown.innerHTML += `<option value="${township.id}">${township.name}</option>`;
+                        });
+                    } else {
+                        // Handle error
+                        console.error('Error occurred: ' + xhr.status);
+                    }
+                }
+            };
+
+            xhr.open("GET", `getTownships.php?region_id=${regionId}`, true);
+            xhr.send();
+        });
+    </script>
+
 </body>
 
 </html>

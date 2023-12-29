@@ -195,7 +195,7 @@ include_once "../../Controller/Property/PropertyListController.php";
                                 ?> / <?= $property['p_duration'] == '0' ? 'Per Month' : 'Per Year'; ?>
                             </td>
                             <td class="px-6 py-4">
-                                <?= $property["p_township"] ?>
+                                <?= $property["township_name"] ?>
                             </td>
 
                             <td class="px-6 py-4 text-center">
@@ -253,7 +253,7 @@ include_once "../../Controller/Property/PropertyListController.php";
                                 <div class="<?= $property['p_offer'] == '0' ? 'bg-darkGreen text-white' : 'bg-goldYellow text-black'; ?> flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
                                     <?= $property['p_offer'] == '0' ? 'Rent' : 'Sale'; ?>
                                 </div>
-                                <img class="pb-4 rounded-t-lg" src="../../../Storage/house/<?= $property['id'] . '/' . $property['p_photo_1'] ?>" alt="<?= $property['p_photo_1']; ?>" />
+                                <img class="pb-4 rounded-t-lg h-60 w-full object-cover" src="../../../Storage/house/<?= $property['id'] . '/' . $property['p_photo_1'] ?>" alt="<?= $property['p_photo_1']; ?>" />
                             </div>
                         </a>
                         <div class="px-5 pb-5">
@@ -286,7 +286,6 @@ include_once "../../Controller/Property/PropertyListController.php";
                                     <?php if ($property['uploader_id'] == 0) : ?>
                                         <img src="../../../Storage/homeGuru_logo/dark/logo.png" alt="HomeGuRu" />
                                     <?php else : include_once "../../Controller/Property/CollaboratorInPropertyController.php?id=" . $property['uploader_id']; ?>
-
                                         <img src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $guruCollaborator['gc_logo'] ?>" alt="<?= $guruCollaborator['gc_logo']; ?>" />
                                     <?php endif; ?>
                                 </div>
@@ -310,19 +309,27 @@ include_once "../../Controller/Property/PropertyListController.php";
                                     <div>
                                         <span class="font-playFair">Property Type:
                                         </span>
-                                        <span><?= $property['pt_name']; ?></span>
+                                        <span><?= strlen($property['pt_name']) >= 9 ? substr($property['pt_name'], 0, 5) . "..." : $property['pt_name'] ; ?></span>
                                     </div>
                                 </div>
                                 <div class="flex justify-between items-center mt-2">
                                     <div>
                                         <span class="font-playFair">Township:
                                         </span>
-                                        <span><?= $property['p_township']; ?></span>
+                                        <span><?= strlen($property['township_name']) >= 8 ? substr($property['township_name'], 0, 5) . "..." : $property['township_name'] ; ?></span>
                                     </div>
                                     <div>
                                         <span class="font-playFair">Property Size:
                                         </span>
-                                        <span><?= number_format($property['p_width'] * $property['p_length']); ?> <?= $property['p_size_unit'] == '1' ? 'm' : 'ft'; ?><sup>2</sup></span>
+                                        <span>
+                                            <?php
+                                            if (strlen((string)$property['p_width'] * $property['p_length']) > 6) {
+                                                echo '...';
+                                            } else {
+                                                echo number_format($property['p_width'] * $property['p_length']); ?> <?= ($property['p_size_unit'] == '1' ? 'm' : 'ft') . '<sup>2</sup>';
+                                            }
+                                            
+                                                                                                            ?></span>
                                     </div>
                                 </div>
                             </div>

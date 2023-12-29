@@ -200,7 +200,7 @@ include_once "../../Controller/Property/ListOutOfStockController.php";
                                 ?> / <?= $property['p_duration'] == '0' ? 'Per Month' : 'Per Year'; ?>
                             </td>
                             <td class="px-6 py-4">
-                                <?= $property["p_township"] ?>
+                                <?= $property["township_name"] ?>
                             </td>
 
                             <td class="px-6 py-4 text-center">
@@ -322,7 +322,7 @@ include_once "../../Controller/Property/ListOutOfStockController.php";
                                     <div>
                                         <span class="font-playFair">Township:
                                         </span>
-                                        <span><?= $property['p_township']; ?></span>
+                                        <span><?= $property['township_name']; ?></span>
                                     </div>
                                     <div>
                                         <span class="font-playFair">Property Size:
