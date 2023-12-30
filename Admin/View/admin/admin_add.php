@@ -70,7 +70,7 @@ session_start();
                             <img name="ga_photo" class="w-24 mr-10" id="preview" src="../resources/img/common/profile.png" alt="Image Preview" style="max-width: 300px; max-height: 300px; cursor: pointer;">
                         </label>
                         <span class="text-sm font-semibold text-gray-500 dark:text-white">Profile
-                            <div class="mb-2 "><small class="block  font-medium text-left text-red-600"><?= $_SESSION["createadminerror"] ?></small> </div>
+                            <div class="mb-2 "><small class="block  font-medium text-left text-red-600">  <?= $_SESSION["createadminerror"] ?></small> </div>
                         </span>
                         <input type="file" name="ga_photo" id="imageInput" class="hidden" accept="image/*" onchange="previewImage(event)">
                     </div>
