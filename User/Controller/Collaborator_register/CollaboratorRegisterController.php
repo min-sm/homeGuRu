@@ -1,11 +1,9 @@
 <?php
 session_start();
-
 include "../../Model/DBConnection.php";
 
 // Check if form is submitted
 if (isset($_POST["submit"])) {
-
     $photo        = $_FILES["clogo"];
     $name         = $_POST["cname"];
     $email        = $_POST["cemail"];
@@ -15,7 +13,6 @@ if (isset($_POST["submit"])) {
     $address      = $_POST["caddress"];
     $message      = $_POST["cmessage"];
     $status       = 0;
-    $activity_ban = 0;
 
     // Check if a file is selected
     if ($photo["error"] == UPLOAD_ERR_OK) {
@@ -39,7 +36,6 @@ if (isset($_POST["submit"])) {
                         gc_company_name,
                         gc_company_id,
                         gc_owner_name,
-                        gc_owner_nrc,
                         gc_phone_num,
                         gc_email,
                         gc_address,
@@ -47,19 +43,19 @@ if (isset($_POST["submit"])) {
                         gc_status,
                         created_date
                     ) VALUES (
-
-                        :logo,
-                        :name,
-                        :email,
-                        :phone,
+                        :logo,         
                         :company_name,
                         :company_id,
+                        :name,
+                        :phone,
+                        :email,
                         :address,
                         :message,
                         :status,
                         :date
                     )"
                 );
+
                 // Bind values
                 $sql->bindValue(":logo", $photo["name"]);
                 $sql->bindValue(":name", $name);
@@ -69,23 +65,29 @@ if (isset($_POST["submit"])) {
                 $sql->bindValue(":company_id", $companyid);
                 $sql->bindValue(":address", $address);
                 $sql->bindValue(":message", $message);
-                $sql->bindValue("date", date("Y/m/d"));
+                $sql->bindValue(":status", $status);
+                $sql->bindValue(":date", date("Y/m/d"));
+
                 $sql->execute();
 
                 // Get the last inserted ID
                 $collaboratorId = $pdo->lastInsertId();
                 $collaboratorFolder = "../../../User/storage/collaborator_img/gc{$collaboratorId}";
+
                 if (!file_exists($collaboratorFolder)) {
                     mkdir($collaboratorFolder, 0777, true);
                 }
+
                 // Upload photo to the admin's folder
                 $uploadDir = $collaboratorFolder . '/';
                 $uploadFile = $uploadDir . basename($photo["name"]);
+
                 if (move_uploaded_file($photo["tmp_name"], $uploadFile)) {
                     echo "Photo has been uploaded successfully.";
                 } else {
                     echo "Failed to upload photo.";
                 }
+
                 // Redirect to the login page after successful registration
                 header("Location: ../../.././../View/errors/404.php");
                 exit();
@@ -105,3 +107,4 @@ if (isset($_POST["submit"])) {
         exit();
     }
 }
+?>
