@@ -7,34 +7,105 @@ print_r($_FILES);
 echo "</pre>";
 
 if (isset($_POST["submit"])) {
+
+    # firstly, check if p_location link is valid
+    if (
+        strpos($_POST['p_location'], '<iframe') !== false &&
+        strpos($_POST['p_location'], 'src="https://www.google.com/maps/embed') !== false &&
+        strpos($_POST['p_location'], '/maps/embed') !== false
+    ) {
+        $p_location = $_POST["p_location"];
+    } else {
+        $em = "Google map embed link is incorrect.";
+        header("Location: ../../View/errors/404.php?error=$em");
+        exit; // Stop execution after encountering an error
+    }
+
+    # Owner Related
     $go_name = $_POST["go_name"];
     $go_nrc = $_POST["go_nrc"];
     $go_phone_num = $_POST["go_phone_num"];
     $go_email = $_POST["go_email"];
 
+    // to check if owner already exists 
     include "../../Model/DBConnection.php";
 
-    $query = "INSERT INTO owners(
-        go_name,
-        go_nrc, 
-        go_phone_num,
-        go_email
-        )
-        VALUES(
-        :go_name,
-        :go_nrc,
-        :go_phone_num,
-        :go_email)";
+    $ownerAlreadyCheckQuery = "SELECT * FROM owners WHERE del_flg = 0";
+    $ownerAlreadyCheckStmt = $pdo->prepare($ownerAlreadyCheckQuery);
+    $ownerAlreadyCheckStmt->execute();
+    $owners = $ownerAlreadyCheckStmt->fetchAll(PDO::FETCH_ASSOC);
+    $ownerAlready = false;
+    $ownerAlreadyID = null;
+    // checking owner's nrc one by one
+    foreach ($owners as $owner) {
+        echo "1 " . str_replace(' ', '', strtolower($go_nrc));
+        echo "<br>";
+        echo "2 ".strtolower($owner['go_nrc']);
+        echo "<br>";
+        if (str_replace(' ', '', strtolower($go_nrc)) == strtolower($owner['go_nrc'])) {
 
-    $sql = $pdo->prepare($query);
-    $sql->bindValue(":go_name", $go_name);
-    $sql->bindValue(":go_nrc", $go_nrc);
-    $sql->bindValue(":go_phone_num", $go_phone_num);
-    $sql->bindValue(":go_email", $go_email);
-    $sql->execute();
+            $ownerAlready = true;
+            $ownerAlreadyID = $owner['id'];
+            break;
+        }
+    }
+    $go_id = null;
 
+    // if owner is new 
+    if (!$ownerAlready) {
+        $query = "INSERT INTO owners(
+            go_name,
+            go_nrc, 
+            go_phone_num,
+            go_email
+            )
+            VALUES(
+            :go_name,
+            :go_nrc,
+            :go_phone_num,
+            :go_email)";
 
-    $p_title = $_POST["p_title"];
+        $sql = $pdo->prepare($query);
+        $sql->bindValue(":go_name", $go_name);
+
+        // inputted owner's nrc 
+        $pattern = "/([A-Za-z]+)/";
+        $result = '';
+        $go_nrc = str_replace(' ', '', $go_nrc);
+        // first check if it's in Burmese ID format
+        if (!preg_match("/^[0-9]{1,2}\/[a-zA-Z]+\([a-zA-Z]\)[0-9]{6}$/", $go_nrc)) {
+            $em = "NRC Pattern Invalid 1";
+            header("Location: ../../View/errors/404.php?error=$em");
+            exit; // Stop execution after encountering an error
+        } else if (preg_match($pattern, $go_nrc, $matches)) { // second checking is to take township code in nrc
+            $result = $matches[1]; // Extracting the matched substring
+            echo $result; // Output: TaMaNa
+        } else { // if inputted owner's nrc pattern is invalid
+            $em = "NRC Pattern Invalid";
+            header("Location: ../../View/errors/404.php?error=$em");
+            exit; // Stop execution after encountering an error
+        }
+
+        // Convert to uppercase
+        $go_nrc = strtoupper($go_nrc);
+        $pattern = "/[A-Za-z]{2,}/";
+
+        $go_nrc = preg_replace($pattern, $result, $go_nrc);
+        $sql->bindValue(":go_nrc", $go_nrc);
+        $sql->bindValue(":go_phone_num", $go_phone_num);
+        $sql->bindValue(":go_email", $go_email);
+        $sql->execute();
+
+        // After inserting owner details, retrieve the last inserted ID
+        $lastInsertIdQuery = "SELECT id FROM owners WHERE del_flg = 0 ORDER BY id DESC LIMIT 1";
+        $lastInsertIdStmt = $pdo->prepare($lastInsertIdQuery);
+        $lastInsertIdStmt->execute();
+        $go_id = $lastInsertIdStmt->fetch(PDO::FETCH_ASSOC)['id'];
+    } else {
+        $go_id = $ownerAlreadyID;
+    }
+
+    $p_title = ucwords(strtolower($_POST["p_title"]));
     $pt_id = $_POST["pt_id"];
     $p_offer = $_POST["p_offer"];
     $p_floor = isset($_POST["p_floor"]) && $_POST["p_floor"] !== '' ? $_POST["p_floor"] : NULL;
@@ -45,22 +116,17 @@ if (isset($_POST["submit"])) {
     $p_width = $_POST["p_width"];
     $p_length = $_POST["p_length"];
     $p_size_unit = $_POST["p_size_unit"];
-    $p_location = $_POST["p_location"];
     $p_township = isset($_POST["p_township"]) ? $_POST['p_township']  : '';
     $p_note = $_POST["p_note"];
     $p_description = $_POST["p_description"];
-    // After inserting owner details, retrieve the last inserted ID
-    $lastInsertIdQuery = "SELECT id FROM owners WHERE del_flg = 0 ORDER BY id DESC LIMIT 1";
-    $lastInsertIdStmt = $pdo->prepare($lastInsertIdQuery);
-    $lastInsertIdStmt->execute();
-    $go_id = $lastInsertIdStmt->fetch(PDO::FETCH_ASSOC)['id'];
+
 
     // Image Related
     $p_photo_1 = '';
-    $p_photo_2 = '';
-    $p_photo_3 = '';
-    $p_photo_4 = '';
-    $p_photo_5 = '';
+    $p_photo_2 = NULL;
+    $p_photo_3 = NULL;
+    $p_photo_4 = NULL;
+    $p_photo_5 = NULL;
 
     $images = $_FILES['p_photos'];
     # Number of images
@@ -159,7 +225,8 @@ if (isset($_POST["submit"])) {
         p_note,
         p_description,
         p_facilities,
-        go_id
+        go_id,
+        uploader_id
         )
         VALUES(
             :p_code,
@@ -184,7 +251,8 @@ if (isset($_POST["submit"])) {
         :p_note,
         :p_description,
         :p_facilities,
-        :go_id)";
+        :go_id,
+        0)"; // default 0 for admin 
 
     $propertyInsertStmt = $pdo->prepare($queryForProperty);
     $propertyInsertStmt->bindValue("p_code", $p_code);
@@ -213,7 +281,7 @@ if (isset($_POST["submit"])) {
     $propertyInsertStmt->execute();
 
 
-    header("Location: ../../View/Dashboard View/dashboard.php");
+    header("Location: ../../View/Property/detail.php?id=$currentlyCreatingPropertyID");
 }
 
 // used in add_form.php

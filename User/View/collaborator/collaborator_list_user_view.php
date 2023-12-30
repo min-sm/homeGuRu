@@ -17,6 +17,30 @@
         .collaborator{
             color:rgb(20, 184, 166 ) !important;
         }
+
+    
+        .typing {
+
+
+border-right: 2px solid gray;
+overflow: hidden;
+animation: type 3s steps(30), blink 0.8s linear infinite;
+
+
+}
+
+@keyframes type {
+from {
+  width: 0;
+}
+}
+
+@keyframes blink {
+from {
+  border-right-color: transparent;
+}
+}
+
         </style>
     <!-- flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />

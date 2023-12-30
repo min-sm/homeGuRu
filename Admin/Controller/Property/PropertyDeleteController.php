@@ -9,5 +9,5 @@ $sql->bindValue(":id", $sent_id);
 $sql->execute();
 
 
-header("Location: ../../View/Dashboard View/dashboard.php");
+header("Location: ../../View/DashboardView/dashboard.php");
 // used in detail.php & list.php

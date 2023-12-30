@@ -18,6 +18,7 @@
     } else {
       document.documentElement.classList.remove("dark");
     }
+    console.log(document.getElementById('guru_logo'));
   </script>
   <!-- tailwind -->
   <link href="../resources/css/dist/output.css" rel="stylesheet" />
@@ -35,8 +36,9 @@
               <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
             </svg>
           </button>
-          <a href="https://HomeGuRu.com" class="flex ms-2 md:me-24">
-            <img src="../resources/img/common/logo-confirm.png" class="h-10 me-3" alt="Guru Logo" />
+          <a href="../DashboardView/dashboard.php" class="flex ms-2 md:me-24">
+            <img src="../resources/img/common/logo-light.png" class="hidden h-10 me-3" id="guru_logo_light" alt="" />
+            <img src="../resources/img/common/logo-dark.png" class="hidden h-10 me-3" id="guru_logo_dark" alt="" />
             <span class="self-center text-lg font-semibold sm:text-lg whitespace-nowrap dark:text-white">Home Guru</span>
           </a>
         </div>
@@ -68,7 +70,7 @@
               </div>
               <ul class="py-1" role="none">
                 <li>
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Dashboard</a>
+                  <a href="../DashboardView/dashboard.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Dashboard</a>
                 </li>
 
                 <li>
@@ -86,7 +88,7 @@
     <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
       <ul class="space-y-2 font-medium">
         <li class="items rounded-md">
-          <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+          <a href="../DashboardView/dashboard.php" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
             <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
               <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
               <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
@@ -131,7 +133,7 @@
           </a>
         </li>
         <li class="items rounded-md">
-          <a href="../property/admin_property_list.php" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+          <a href="../Property/list.php" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
             <i class="fa-solid fa-building flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></i>
 
             <span class="flex-1 pb-1 ms-3 whitespace-nowrap">Properties</span>
@@ -209,6 +211,35 @@
   <script src="../resources/js/naviSelect.js"></script>
   <script src="../resources/js/darkmode.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+  <script>
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.getElementById('guru_logo_dark').classList.remove('hidden');
+        document.getElementById('guru_logo_light').classList.add('hidden');
+      } else {
+        document.getElementById('guru_logo_dark').classList.add('hidden');
+        document.getElementById('guru_logo_light').classList.remove('hidden');
+      }
+    });
+
+    if (
+      localStorage.getItem("color-theme") === "dark" ||
+      (!("color-theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.getElementById('guru_logo_dark').classList.remove('hidden');
+      document.getElementById('guru_logo_light').classList.add('hidden');
+    } else {
+      document.getElementById('guru_logo_dark').classList.add('hidden');
+      document.getElementById('guru_logo_light').classList.remove('hidden');
+    }
+
+    console.log(document.getElementById('guru_logo'));
+  </script>
 </body>
 
 </html>

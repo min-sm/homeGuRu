@@ -50,7 +50,7 @@ include "../../Controller/Facility/FacilityListController.php";
     <div class="p-4 pt-20 sm:ml-64">
         <!-- add property post -->
         <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">Edit Property Post</h1>
-        <form action="../../Controller/Property/PropertyCreateController.php" method="POST" enctype="multipart/form-data">
+        <form action="../../Controller/Property/PropertyUpdateController.php?id=<?= $_GET['id']; ?>" method="POST" enctype="multipart/form-data">
             <!-- add image section -->
             <div class="flex flex-col lg:flex-row items-center sm:items-start gap-4 overflow-x-auto">
                 <!-- add photo button -->
@@ -71,7 +71,8 @@ include "../../Controller/Facility/FacilityListController.php";
                     ?>
                     <?php foreach ($photos as $photo) : ?>
                         <div class="image-label-container">
-                            <div class="image-container property-img" style="background-image: url('../../../Storage/house/<?= $_GET["id"] ?>/<?= $photo ?>');"></div><p><?= $photo; ?></p>
+                            <div class="image-container property-img" style="background-image: url('../../../Storage/house/<?= $_GET["id"] ?>/<?= $photo ?>');"></div>
+                            <p><?= $photo; ?></p>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -113,6 +114,7 @@ include "../../Controller/Facility/FacilityListController.php";
                     <div class="<?= $property['pt_status'] == '0' ? 'hidden' : 'flex'; ?>  flex-col" id="floor_lvl_section_element">
                         <label for="floor_lvl" class="font-medium">Floor Level</label>
                         <select id="floor_lvl" name="p_floor" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white">
+                            <option value="" disabled selected>Select Floor Level</option>
                             <?php
                             for ($i = 1; $i < 9; $i++) { ?>
                                 <option <?= $property['p_floor'] == $i ? 'selected' : '' ?> value="<?= $i ?>">
@@ -288,8 +290,7 @@ include "../../Controller/Facility/FacilityListController.php";
                                 for ($i = 0; $i < $first; $i++) {
                                     if (isset($chunk[$i])) { ?>
                                         <div>
-                                            <!-- <span>this work</span> -->
-                                            <input type="checkbox" id='chbx-<?= $chunk[$i]["id"] ?>' name="p_facilities[]" value='<?= $chunk[$i]["facility_type"] ?>' <?= (strpos($property['p_facilities'], $chunk[$i]["facility_type"]) !== false) ? 'checked' : ''; ?>>
+                                            <input type="checkbox" id='chbx-<?= $chunk[$i]["id"] ?>' name="p_facilities[]" value='<?= $chunk[$i]["facility_type"] ?>' <?= (strpos($property['p_facilities'], $chunk[$i]["facility_type"]) !== false) ? 'checked' : '' ?>>
                                             <label for='chbx-<?= $chunk[$i]["id"] ?>'><?= $chunk[$i]["facility_type"] ?></label><br>
                                         </div>
                                     <?php }
@@ -302,7 +303,7 @@ include "../../Controller/Facility/FacilityListController.php";
                             for ($i = 0; $i < $first + 1; $i++) {
                                 if (isset($facilities[$i])) { ?>
                                     <div>
-                                        <input type="checkbox" id='chbx-<?= $facilities[$i]["id"] ?>' name="p_facilities[]" value='<?= $facilities[$i]["facility_type"] ?>'>
+                                        <input type="checkbox" id='chbx-<?= $facilities[$i]["id"] ?>' name="p_facilities[]" value='<?= $facilities[$i]["facility_type"] ?>' <?= (strpos($property['p_facilities'], $facilities[$i]["facility_type"]) !== false) ? 'checked' : '' ?>>
                                         <label for='chbx-<?= $facilities[$i]["id"] ?>'><?= $facilities[$i]["facility_type"] ?></label><br>
                                     </div>
                                 <?php }
@@ -314,7 +315,7 @@ include "../../Controller/Facility/FacilityListController.php";
                             for ($i = $first + 1; $i < count($facilities) - $first; $i++) {
                                 if (isset($facilities[$i])) { ?>
                                     <div>
-                                        <input type="checkbox" id='chbx-<?= $facilities[$i]["id"] ?>' name="p_facilities[]" value='<?= $facilities[$i]["facility_type"] ?>'>
+                                        <input type="checkbox" id='chbx-<?= $facilities[$i]["id"] ?>' name="p_facilities[]" value='<?= $facilities[$i]["facility_type"] ?>' <?= (strpos($property['p_facilities'], $facilities[$i]["facility_type"]) !== false) ? 'checked' : '' ?>>
                                         <label for='chbx-<?= $facilities[$i]["id"] ?>'><?= $facilities[$i]["facility_type"] ?></label><br>
                                     </div>
                                 <?php }
@@ -345,7 +346,7 @@ include "../../Controller/Facility/FacilityListController.php";
 
 
                 <div class="w-3/4 flex justify-between">
-                    <button type="submit" name="submit" class="bg-darkGreen py-2 px-6 rounded-lg border border-black dark:border-white text-white">Submit</button>
+                    <button type="submit" name="submit" class="bg-darkGreen py-2 px-6 rounded-lg border border-black dark:border-white text-white">Update</button>
                     <button class="bg-goldYellow py-2 px-6 rounded-lg border border-black dark:border-white">Test View</button>
                 </div>
             </div>

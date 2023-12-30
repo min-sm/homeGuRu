@@ -98,7 +98,7 @@
 
                 <a type="" class="tracking-wide-r ml10 text-white  bg-alert opacity-80 hover:opacity-100
                 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium  px-7 py-2 text-center ">
-                    Cancle</a>
+                    Cancel</a>
             </div>
 
         </form>

@@ -78,7 +78,7 @@
 
             <button type="submit" class="tracking-wider text-white bg-alert opacity-75 hover:opacity-100
                 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium px-8 py-2 text-center ">
-                Cancle</button>
+                Cancel</button>
         </a>
         <hr class="text-gray-500 border-2 w-[35rem]">
 
