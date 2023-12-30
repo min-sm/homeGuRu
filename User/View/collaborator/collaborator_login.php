@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,14 +33,14 @@ session_start();
     </div>
     <h2 class="text-2xl font-bold mt-6 mb-2">Home GuRu</h2>
   </div>
-  <form action="../../Controller/Admin/AdminController.php" method="post" class="w-3/4 max-w-sm flex flex-col justify-center text-center">
+  <form class="w-3/4 max-w-sm flex flex-col justify-center text-center">
     <div class="mb-6">
       <label class="block mb-2 ml-8 font-medium text-left text-secondary" for="email">Email</label>
-      <input name="email" class="inline-block w-80 p-4 leading-6 text-sm placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="email" placeholder="example123@gmail.com" />
+      <input name="email" class="inline-block w-80 p-4 leading-6 text-sm placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="email" placeholder="example123@gmail.com"  required/>
     </div>
     <div class="mb-10">
       <label class="text-left ml-8 block mb-2 font-medium text-secondary" for="password">Password</label>
-      <input name="password" class="inline-block w-80 p-4 leading-6 text-lg placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="password" placeholder="•••••••••••••••••" />
+      <input name="password" class="inline-block w-80 p-4 leading-6 text-lg placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="password" placeholder="•••••••••••••••••"  required/>
       <div class="mt-3">   <small class="block mb-5  font-medium text-left text-red-500"><?= $_SESSION["loginerror"] ?></small> </div> 
     </div>
     <button  name="login" class="inline-block tracking-wider mx-auto  py-2 w-28 mb-6 text-center  leading-6 text-white font-medium bg-darkGreen hover:bg-darkGreen border-3 border-darkGreen shadow rounded transition duration-200">
@@ -53,4 +49,3 @@ session_start();
   </form>
 </body>
 </html>
-<?php $_SESSION["loginerror"] =""?>
