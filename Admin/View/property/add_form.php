@@ -352,7 +352,6 @@ include "../../Controller/Township/TownshipListController.php"
         </form>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 
     <!-- The Modal -->
     <div id="myModal">
@@ -362,6 +361,7 @@ include "../../Controller/Township/TownshipListController.php"
             <span id="img-description" class="mt-4"></span>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 
     <!-- for region & township -->
     <!-- JavaScript to populate township dropdown on change of region -->

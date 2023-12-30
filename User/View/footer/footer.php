@@ -80,9 +80,9 @@
                 <div class="flex flex-col gap-4 md:text-left text-center text-paleGray">
 
                     <a href="../Home_page/home.php"><u>Home</u></a>
-                    <a href="../property_post/buy_view.php"><u>Buy</u></a>
-                    <a href="../property_post/rent_view.php"><u>Rent</u></a>
-                    <a href="../property_post/property_post-Add-owner.php"><u>Sell</u></a>
+                    <a href="../PropertyPost/buy_view.php"><u>Buy</u></a>
+                    <a href="../PropertyPost/rent_view.php"><u>Rent</u></a>
+                    <a href="../PropertyPost/PropertyPost-Add-owner.php"><u>Sell</u></a>
                     <a href="../collaborator/collaborator_list_user_view.php"><u>Collaborator</u></a>
                     <div class="text-2xl flex space-x-6 md:pt-2 pt-5 ">
                         <a href=<?= $guru_data[0]['gd_facebook']  ?>><i class="fa-brands fa-facebook fa-beat" style="color: #1877f2;"></i></a>

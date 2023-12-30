@@ -250,14 +250,17 @@ include_once "../../Controller/Property/PropertyListController.php";
                     <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="detail.php?id=<?= $property['id']; ?>">
                             <div class="relative">
+                                <!-- RENT OR SALE LABEL IN IMAGE -->
                                 <div class="<?= $property['p_offer'] == '0' ? 'bg-darkGreen text-white' : 'bg-goldYellow text-black'; ?> flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
                                     <?= $property['p_offer'] == '0' ? 'Rent' : 'Sale'; ?>
                                 </div>
+                                <!-- PROPERTY PHOTO -->
                                 <img class="pb-4 rounded-t-lg h-60 w-full object-cover" src="../../../Storage/house/<?= $property['id'] . '/' . $property['p_photo_1'] ?>" alt="<?= $property['p_photo_1']; ?>" />
                             </div>
                         </a>
                         <div class="px-5 pb-5">
                             <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
+                                <!-- CREATED DATE -->
                                 <span>
                                     <?php
                                     $timestamp = $property['created_date'];
@@ -265,11 +268,13 @@ include_once "../../Controller/Property/PropertyListController.php";
                                     echo $formattedTimestamp;
                                     ?>
                                 </span>
+                                <!-- INTEREST COUNT -->
                                 <span><?= $property['p_interest_count'] ?> <?= $property['p_interest_count'] == '1' ? 'person interests' : 'people interest'; ?></span>
                             </div>
                             <!-- p_title & logo -->
                             <div class="my-2.5 flex items-center justify-between">
                                 <a href="detail.php?id=<?= $property['id']; ?>" class="mt-2.5 mb-5">
+                                <!-- PROPERTY TITLE -->
                                     <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                                         <?php
                                         $maxLen = 25;
@@ -283,6 +288,7 @@ include_once "../../Controller/Property/PropertyListController.php";
                                     </h5>
                                 </a>
                                 <div class="rounded-full bg-gray-50 w-16">
+                                    <!-- UPLOADER PHOTO -->
                                     <?php if ($property['uploader_id'] == 0) : ?>
                                         <img src="../../../Storage/homeGuru_logo/dark/logo.png" alt="HomeGuRu" />
                                     <?php else : include_once "../../Controller/Property/CollaboratorInPropertyController.php?id=" . $property['uploader_id']; ?>
@@ -297,26 +303,27 @@ include_once "../../Controller/Property/PropertyListController.php";
                                 <span class="ml-3"><?= $property['p_price_unit'] == '1' ? '$' . number_format($property['p_price']) : number_format($property['p_price']) . ' Kyats';
                                                     ?> / <?= $property['p_duration'] == '0' ? 'Month' : 'Year'; ?></span>
                             </div>
-
                             <!-- p_code & details -->
                             <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
                                 <div class="flex justify-between items-center">
+                                    <!-- P_CODE -->
                                     <div>
                                         <span class="font-playFair">Property ID:
                                         </span>
                                         <span><?= $property['p_code'] ?></span>
                                     </div>
+                                    <!-- PROPERTY TYPE -->
                                     <div>
                                         <span class="font-playFair">Property Type:
                                         </span>
-                                        <span><?= strlen($property['pt_name']) >= 9 ? substr($property['pt_name'], 0, 5) . "..." : $property['pt_name'] ; ?></span>
+                                        <span><?= strlen($property['pt_name']) >= 9 ? substr($property['pt_name'], 0, 5) . "..." : $property['pt_name']; ?></span>
                                     </div>
                                 </div>
                                 <div class="flex justify-between items-center mt-2">
                                     <div>
                                         <span class="font-playFair">Township:
                                         </span>
-                                        <span><?= strlen($property['township_name']) >= 8 ? substr($property['township_name'], 0, 5) . "..." : $property['township_name'] ; ?></span>
+                                        <span><?= strlen($property['township_name']) >= 8 ? substr($property['township_name'], 0, 5) . "..." : $property['township_name']; ?></span>
                                     </div>
                                     <div>
                                         <span class="font-playFair">Property Size:
@@ -327,9 +334,9 @@ include_once "../../Controller/Property/PropertyListController.php";
                                                 echo '...';
                                             } else {
                                                 echo number_format($property['p_width'] * $property['p_length']); ?> <?= ($property['p_size_unit'] == '1' ? 'm' : 'ft') . '<sup>2</sup>';
-                                            }
-                                            
-                                                                                                            ?></span>
+                                                                                                                    }
+
+                                                                                                                        ?></span>
                                     </div>
                                 </div>
                             </div>
