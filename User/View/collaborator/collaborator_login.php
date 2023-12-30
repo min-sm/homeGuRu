@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +38,7 @@
     </div>
     <h2 class="text-2xl font-bold mt-6 mb-2">Home GuRu</h2>
   </div>
-  <form class="w-3/4 max-w-sm flex flex-col justify-center text-center">
+  <form class="w-3/4 max-w-sm flex flex-col justify-center text-center"  action="../../Controller/Collaborator_login/collaboratorlogincontroller.php" method="Post"  enctype="multipart/form-data">
     <div class="mb-6">
       <label class="block mb-2 ml-8 font-medium text-left text-secondary" for="email">Email</label>
       <input name="email" class="inline-block w-80 p-4 leading-6 text-sm placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="email" placeholder="example123@gmail.com"  required/>
@@ -49,3 +54,4 @@
   </form>
 </body>
 </html>
+<?php $_SESSION["loginerror"] =""?>

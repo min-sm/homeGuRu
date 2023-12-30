@@ -1,48 +1,35 @@
 <?php
+
 session_start();
 
-// Check if the form is submitted
-if (isset($_POST['login'])) {
-    // Retrieve email and password from the form
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+include "../../Model/DBConnection.php";
 
-    // Validate the email and password (you should implement your validation)
+if (isset($_POST["login"])) {
+    $c_email = $_POST["email"];
+    $c_password = $_POST["password"];
 
-    // Authenticate the user (you should implement your authentication logic)
+    // Step 1: Check email, password, and status
+    $sql = $pdo->prepare("SELECT * FROM m_collaborators WHERE gc_email = :email");
+    $sql->bindValue(":email", $c_email);
+    $sql->execute();
+    $result = $sql->fetch(PDO::FETCH_ASSOC);
 
-    // Assuming you have a database connection
-    $dbHost = "your_database_host";
-    $dbUser = "your_database_user";
-    $dbPassword = "your_database_password";
-    $dbName = "your_database_name";
-
-    $conn = mysqli_connect($dbHost, $dbUser, $dbPassword, $dbName);
-
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
-
-    // Sanitize input to prevent SQL injection
-    $email = mysqli_real_escape_string($conn, $email);
-    $password = mysqli_real_escape_string($conn, $password);
-
-    // Check if the collaborator exists with the given email and gc_status = 2
-    $query = "SELECT * FROM m_collaborators WHERE email = '$email' AND gc_status = 2";
-    $result = mysqli_query($conn, $query);
-
-    if ($result && mysqli_num_rows($result) > 0) {
-        // Collaborator with approved status found, perform login
-        $_SESSION['collaborator_email'] = $email;
-        // Redirect to the collaborator's dashboard or any other page
-        header("Location: collaborator_dashboard.php");
-        exit();
+    if (!$result) {
+        $_SESSION["loginerror"] = "Invalid email or password!";
+        header("Location: ../../View/collaborator/collaborator_login.php");
     } else {
-        // Collaborator not found or not approved
-        $_SESSION['loginerror'] = "Invalid login credentials or pending approval.";
+        // Check password and status
+        if (password_verify($c_password, $result["gc_password"]) && $result["gc_status"] == 2) {
+            // Correct
+            $_SESSION["collaboratorId"] = $result["id"];
+            header("Location: ../../collaborator/collaborator_register_success.php");
+        } else {
+            // Incorrect password or status
+            $_SESSION["loginerror"] = "Invalid email or password or pending approval!";
+            header("Location: ../View/collaborator/collaborator_login.php");
+        }
     }
-
-    // Close the database connection
-    mysqli_close($conn);
+} else {
+    header("Location: ../View/errors/404.php");
 }
 ?>
