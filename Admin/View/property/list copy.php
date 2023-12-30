@@ -105,7 +105,7 @@ include_once "../../Controller/Property/PropertyListController.php";
             <span class="lg:ms-16 sm:ms-8 me-8 lg:text-2xl text-base text-black dark:text-white"><span><?= $resultCount['total_result'] ?></span> Found</span>
             <!-- in stock / out of stock -->
             <div class="lg:space-x-8 space-x-4 lg:text-base text-xs">
-                <label for="allStock" class="text-goldYellow cursor-pointer label "><a href="list.php">All Stocks</a></label>
+                <label for="allStock" class="text-goldYellow cursor-pointer label "><a href="listAllStock.php">All Stocks</a></label>
                 <label for="outStock" class="text-gray-500 cursor-pointer label "><a href="listOutOfStock.php">Out of Stock</a>
                 </label>
                 <label for="inStock" class="text-gray-500 cursor-pointer label "><a href="listInStock.php">In Stock</a></label>
@@ -374,7 +374,7 @@ include_once "../../Controller/Property/PropertyListController.php";
 
                     <!-- previous -->
                     <li>
-                        <a href="list.php?page=<?= ($page == 1) ? 1 : $page - 1; ?>" class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <a href="listAllStock.php?page=<?= ($page == 1) ? 1 : $page - 1; ?>" class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                             <span class="sr-only">Previous</span>
                             <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
@@ -392,7 +392,7 @@ include_once "../../Controller/Property/PropertyListController.php";
                     <?php endfor ?>
                     <!-- Next -->
                     <li>
-                        <a href="list.php?page=<?php if ($page < $totalPages) {
+                        <a href="listAllStock.php?page=<?php if ($page < $totalPages) {
                                                     echo $page + 1;
                                                 } else if ($page == $totalPages) {
                                                     echo $totalPages;
@@ -415,7 +415,7 @@ include_once "../../Controller/Property/PropertyListController.php";
         <div class="bg-paleGray p-10 border border-black border-solid w-3/4 flex gap-8 flex-col items-center rounded-lg">
             <p class="text-xl">Are you sure you want to delete?</p>
             <div class="flex gap-4">
-                <a href="list.php?id=<?= $page ?>" class="py-2 px-8 bg-darkGreen text-white rounded-xl cursor-pointer">No</a>
+                <a href="listAllStock.php?id=<?= $page ?>" class="py-2 px-8 bg-darkGreen text-white rounded-xl cursor-pointer">No</a>
                 <a href="../../Controller/Property/PropertyDeleteController.php?id=<?= $property['id'] ?>" class="py-2 px-8 bg-alert text-white rounded-xl cursor-pointer">Delete</a>
             </div>
         </div>

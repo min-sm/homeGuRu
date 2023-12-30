@@ -252,7 +252,7 @@ include "../../Controller/Township/TownshipListController.php"
                     <!-- note -->
                     <div class="flex flex-col ">
                         <label for="note" class="font-medium">Note</label>
-                        <textarea id="note" name="p_note" class="lg:w-96 w-28 h-full px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2 overflow-x-hidden"></textarea>
+                        <textarea id="note" name="p_note" class="lg:w-96 w-28 h-full px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2 overflow-x-hidden" placeholder="Write notes you want to say to admins. for example: title for this property"></textarea>
                     </div>
                 </div>
 

@@ -88,7 +88,7 @@ include_once "../../Controller/Property/ListOutOfStockController.php";
 
     <!-- JS -->
     <script src="../resources/js/sort_by.js" defer></script>
-    <title>Property List</title>
+    <title>Out of Stock Property List</title>
 </head>
 
 <body class="bg-primary dark:bg-gray-700">
@@ -97,7 +97,7 @@ include_once "../../Controller/Property/ListOutOfStockController.php";
 
     <!-- main body -->
     <div class="p-4 pt-20 sm:ml-64">
-        <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">Property List</h1>
+        <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">Out of Stock Property List</h1>
 
         <!-- results found -->
         <div class="pt-4 pb-8 flex items-center">
@@ -105,7 +105,7 @@ include_once "../../Controller/Property/ListOutOfStockController.php";
             <span class="lg:ms-16 sm:ms-8 me-8 lg:text-2xl text-base text-black dark:text-white"><span><?= $resultCount['total_result'] ?></span> Found</span>
             <!-- in stock / out of stock -->
             <div class="lg:space-x-8 space-x-4 lg:text-base text-xs">
-                <label for="allStock" class="text-gray-500 cursor-pointer label "><a href="list.php">All Stocks</a></label>
+                <label for="allStock" class="text-gray-500 cursor-pointer label "><a href="listAllStock.php">All Stocks</a></label>
                 <label for="outStock" class="text-goldYellow cursor-pointer label "><a href="listOutOfStock.php">Out of Stock</a>
                 </label>
                 <label for="inStock" class="text-gray-500 cursor-pointer label "><a href="listInStock.php">In Stock</a></label>
@@ -400,7 +400,7 @@ include_once "../../Controller/Property/ListOutOfStockController.php";
         <div class="bg-paleGray p-10 border border-black border-solid w-3/4 flex gap-8 flex-col items-center rounded-lg">
             <p class="text-xl">Are you sure you want to delete?</p>
             <div class="flex gap-4">
-                <a href="list.php?id=<?= $page ?>" class="py-2 px-8 bg-darkGreen text-white rounded-xl cursor-pointer">No</a>
+                <a href="listOutOfStock.php?id=<?= $page ?>" class="py-2 px-8 bg-darkGreen text-white rounded-xl cursor-pointer">No</a>
                 <a href="../../Controller/Property/PropertyDeleteController.php?id=<?= $property['id'] ?>" class="py-2 px-8 bg-alert text-white rounded-xl cursor-pointer">Delete</a>
             </div>
         </div>
