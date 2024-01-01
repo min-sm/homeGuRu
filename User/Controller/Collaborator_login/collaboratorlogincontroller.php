@@ -1,7 +1,5 @@
 <?php
-
 session_start();
-
 include "../../Model/DBConnection.php";
 
 if (isset($_POST["login"])) {
@@ -13,23 +11,22 @@ if (isset($_POST["login"])) {
     $sql->bindValue(":email", $c_email);
     $sql->execute();
     $result = $sql->fetch(PDO::FETCH_ASSOC);
-
-    if (!$result) {
-        $_SESSION["loginerror"] = "Invalid email or password!";
-        header("Location: ../../View/collaborator/collaborator_login.php");
-    } else {
-        // Check password and status
+    if ($result) {
         if (password_verify($c_password, $result["gc_password"]) && $result["gc_status"] == 2) {
-            // Correct
+            // Correct credentials and approved status
             $_SESSION["collaboratorId"] = $result["id"];
-            header("Location: ../../collaborator/collaborator_register_success.php");
+            header("Location: ../../View/collaborator/profile.php");
         } else {
-            // Incorrect password or status
-            $_SESSION["loginerror"] = "Invalid email or password or pending approval!";
-            header("Location: ../View/collaborator/collaborator_login.php");
+            // Incorrect password
+            $_SESSION["loginerror"] = "Check your password!";
+            header("Location: ../../View/collaborator/collaborator_login.php");
         }
+    } else {
+        // Invalid email and password
+        $_SESSION["loginerror"] = "Invalid email and password!";
+        header("Location: ../../View/collaborator/collaborator_login.php");
     }
 } else {
-    header("Location: ../View/errors/404.php");
+    header("Location: ../../View/errors/404.php");
 }
 ?>
