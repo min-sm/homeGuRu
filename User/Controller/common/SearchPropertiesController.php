@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
     $search_properties = $sql->fetchAll(PDO::FETCH_ASSOC);
     echo'<pre/>';
     
-    header('Location: ' . '../../View/property_post/search.php');
+    header('Location: ' . '../../View/PropertyPost/search.php');
    
  
 }

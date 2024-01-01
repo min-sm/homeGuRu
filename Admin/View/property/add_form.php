@@ -261,7 +261,7 @@ include "../../Controller/Township/TownshipListController.php"
                         <!-- Township -->
                         <div class="flex flex-col">
                             <label for="township" class="font-medium">Township</label>
-                            <select id="township" name="p_township" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white">
+                            <select id="township" name="p_township" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
                                 <option value="" disabled selected>Select Township</option>
                             </select>
                         </div>
@@ -352,7 +352,6 @@ include "../../Controller/Township/TownshipListController.php"
         </form>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 
     <!-- The Modal -->
     <div id="myModal">
@@ -362,6 +361,7 @@ include "../../Controller/Township/TownshipListController.php"
             <span id="img-description" class="mt-4"></span>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 
     <!-- for region & township -->
     <!-- JavaScript to populate township dropdown on change of region -->

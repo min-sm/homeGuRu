@@ -88,7 +88,7 @@ include_once "../../Controller/Property/ListOutOfStockController.php";
 
     <!-- JS -->
     <script src="../resources/js/sort_by.js" defer></script>
-    <title>Property List</title>
+    <title>Out of Stock Property List</title>
 </head>
 
 <body class="bg-primary dark:bg-gray-700">
@@ -97,7 +97,7 @@ include_once "../../Controller/Property/ListOutOfStockController.php";
 
     <!-- main body -->
     <div class="p-4 pt-20 sm:ml-64">
-        <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">Property List</h1>
+        <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">Out of Stock Property List</h1>
 
         <!-- results found -->
         <div class="pt-4 pb-8 flex items-center">
@@ -105,7 +105,7 @@ include_once "../../Controller/Property/ListOutOfStockController.php";
             <span class="lg:ms-16 sm:ms-8 me-8 lg:text-2xl text-base text-black dark:text-white"><span><?= $resultCount['total_result'] ?></span> Found</span>
             <!-- in stock / out of stock -->
             <div class="lg:space-x-8 space-x-4 lg:text-base text-xs">
-                <label for="allStock" class="text-gray-500 cursor-pointer label "><a href="list.php">All Stocks</a></label>
+                <label for="allStock" class="text-gray-500 cursor-pointer label "><a href="listAllStock.php">All Stocks</a></label>
                 <label for="outStock" class="text-goldYellow cursor-pointer label "><a href="listOutOfStock.php">Out of Stock</a>
                 </label>
                 <label for="inStock" class="text-gray-500 cursor-pointer label "><a href="listInStock.php">In Stock</a></label>
@@ -255,14 +255,17 @@ include_once "../../Controller/Property/ListOutOfStockController.php";
                     <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="detail.php?id=<?= $property['id']; ?>">
                             <div class="relative">
+                                <!-- RENT OR SALE LABEL IN IMAGE -->
                                 <div class="<?= $property['p_offer'] == '0' ? 'bg-darkGreen text-white' : 'bg-goldYellow text-black'; ?> flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
                                     <?= $property['p_offer'] == '0' ? 'Rent' : 'Sale'; ?>
                                 </div>
-                                <img class="pb-4 rounded-t-lg" src="../../../Storage/house/<?= $property['id'] . '/' . $property['p_photo_1'] ?>" alt="<?= $property['p_photo_1']; ?>" />
+                                <!-- PROPERTY PHOTO -->
+                                <img class="pb-4 rounded-t-lg h-60 w-full object-cover" src="../../../Storage/house/<?= $property['id'] . '/' . $property['p_photo_1'] ?>" alt="<?= $property['p_photo_1']; ?>" />
                             </div>
                         </a>
                         <div class="px-5 pb-5">
                             <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
+                                <!-- CREATED DATE -->
                                 <span>
                                     <?php
                                     $timestamp = $property['created_date'];
@@ -270,11 +273,13 @@ include_once "../../Controller/Property/ListOutOfStockController.php";
                                     echo $formattedTimestamp;
                                     ?>
                                 </span>
+                                <!-- INTEREST COUNT -->
                                 <span><?= $property['p_interest_count'] ?> <?= $property['p_interest_count'] == '1' ? 'person interests' : 'people interest'; ?></span>
                             </div>
                             <!-- p_title & logo -->
                             <div class="my-2.5 flex items-center justify-between">
                                 <a href="detail.php?id=<?= $property['id']; ?>" class="mt-2.5 mb-5">
+                                <!-- PROPERTY TITLE -->
                                     <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                                         <?php
                                         $maxLen = 25;
@@ -288,10 +293,10 @@ include_once "../../Controller/Property/ListOutOfStockController.php";
                                     </h5>
                                 </a>
                                 <div class="rounded-full bg-gray-50 w-16">
+                                    <!-- UPLOADER PHOTO -->
                                     <?php if ($property['uploader_id'] == 0) : ?>
                                         <img src="../../../Storage/homeGuru_logo/dark/logo.png" alt="HomeGuRu" />
                                     <?php else : include_once "../../Controller/Property/CollaboratorInPropertyController.php?id=" . $property['uploader_id']; ?>
-
                                         <img src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $guruCollaborator['gc_logo'] ?>" alt="<?= $guruCollaborator['gc_logo']; ?>" />
                                     <?php endif; ?>
                                 </div>
@@ -303,19 +308,20 @@ include_once "../../Controller/Property/ListOutOfStockController.php";
                                 <span class="ml-3"><?= $property['p_price_unit'] == '1' ? '$' . number_format($property['p_price']) : number_format($property['p_price']) . ' Kyats';
                                                     ?> / <?= $property['p_duration'] == '0' ? 'Month' : 'Year'; ?></span>
                             </div>
-
                             <!-- p_code & details -->
                             <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
                                 <div class="flex justify-between items-center">
+                                    <!-- P_CODE -->
                                     <div>
                                         <span class="font-playFair">Property ID:
                                         </span>
                                         <span><?= $property['p_code'] ?></span>
                                     </div>
+                                    <!-- PROPERTY TYPE -->
                                     <div>
                                         <span class="font-playFair">Property Type:
                                         </span>
-                                        <span><?= $property['pt_name']; ?></span>
+                                        <span><?= strlen($property['pt_name']) >= 9 ? substr($property['pt_name'], 0, 5) . "..." : $property['pt_name'] ; ?></span>
                                     </div>
                                 </div>
                                 <div class="flex justify-between items-center mt-2">
@@ -394,7 +400,7 @@ include_once "../../Controller/Property/ListOutOfStockController.php";
         <div class="bg-paleGray p-10 border border-black border-solid w-3/4 flex gap-8 flex-col items-center rounded-lg">
             <p class="text-xl">Are you sure you want to delete?</p>
             <div class="flex gap-4">
-                <a href="list.php?id=<?= $page ?>" class="py-2 px-8 bg-darkGreen text-white rounded-xl cursor-pointer">No</a>
+                <a href="listOutOfStock.php?id=<?= $page ?>" class="py-2 px-8 bg-darkGreen text-white rounded-xl cursor-pointer">No</a>
                 <a href="../../Controller/Property/PropertyDeleteController.php?id=<?= $property['id'] ?>" class="py-2 px-8 bg-alert text-white rounded-xl cursor-pointer">Delete</a>
             </div>
         </div>

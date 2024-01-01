@@ -5,7 +5,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $recordsPerPage = 6;
 $offset = ($page - 1) * $recordsPerPage;
 
-$query = "SELECT p.*, pt.pt_name AS pt_name FROM properties p, property_type pt WHERE p.del_flg = 0 AND p.pt_id = pt.id AND p.p_after = 1 ORDER BY p.id LIMIT $recordsPerPage OFFSET $offset";
+$query = "SELECT p.*, pt.pt_name AS pt_name, township.name AS township_name FROM properties p, property_type pt, m_townships township WHERE p.del_flg = 0 AND p.pt_id = pt.id AND p.p_after = 1 AND township.id = p.p_township ORDER BY p.id LIMIT $recordsPerPage OFFSET $offset";
 
 $sql = $pdo->prepare($query);
 $sql->execute();

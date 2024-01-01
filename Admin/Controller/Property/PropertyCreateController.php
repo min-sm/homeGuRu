@@ -120,7 +120,6 @@ if (isset($_POST["submit"])) {
     $p_note = $_POST["p_note"];
     $p_description = $_POST["p_description"];
 
-
     // Image Related
     $p_photo_1 = '';
     $p_photo_2 = NULL;

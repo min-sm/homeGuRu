@@ -164,7 +164,7 @@ include "../../Controller/Property/SinglePropertyDetailController.php";
             <div class="flex w-80 lg:w-3/4 flex-col unimportant-detail ">
                 <div class="flex items-center justify-between text-black dark:text-white">
                     <span class="font-medium text-lg">Township</span>
-                    <span><?= $property['p_township']; ?></span>
+                    <span><?= $property['township_name']; ?></span>
                 </div>
             </div>
             <!-- Location -->
