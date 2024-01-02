@@ -88,7 +88,6 @@ from {
     <!-- Start Partanership List Section  -->
     <div class=" mb-28 overflow-hidden whitespace-nowrap ">
         <h1 class="tracking-wider font-playFair text-3xl font-extrabold text-center mb-14">Our Partners</h1>
-<<<<<<< HEAD
         <div class="inline-block space-x-10 animate-slide   px-0 ">
    <?php 
 
@@ -103,24 +102,6 @@ from {
 
    <?php }?>
    </div>
-=======
-    
-        <div class="inline-block space-x-10 animate-slide  px-0 ">
-          <img src="../resources/img/ImeLogo.png" class="inline h-20 lg:h-48 "   alt="logo">
-          <img src="../resources/img/maga Logo.png" class="inline h-20 lg:h-48"   alt="logo">
-          <img src="../resources/img/collaborator-tpj-logo.png" class="inline h-20 lg:h-48"   alt="logo">
-          <img src="../resources/img/ShweTaungLogo.png" class="hidden h-20 lg:h-48  lg:inline"   alt="logo">
-          <img src="../resources/img/maga Logo.png" class="hidden h-20 lg:h-48  xl:inline"   alt="logo">
-        </div>
-        <div class="inline-block space-x-10 animate-slide  px-0 ">
-          <img src="../resources/img/ImeLogo.png" class="inline h-20 lg:h-48"   alt="logo">
-          <img src="../resources/img/maga Logo.png" class="inline h-20 lg:h-48"   alt="logo">
-          <img src="../resources/img/collaborator-tpj-logo.png" class="inline h-20 lg:h-48"   alt="logo">
-          <img src="../resources/img/ShweTaungLogo.png" class="hidden h-20 lg:h-48 lg:inline"   alt="logo">
-          <img src="../resources/img/maga Logo.png" class="hidden h-20 lg:h-48  xl:inline"   alt="logo">
-        </div>
-      </div>
->>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
     <!-- End Partanership List Section  -->
 
     <!-- Start Collaborator register Section  -->

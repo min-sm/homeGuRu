@@ -10,7 +10,6 @@ include "../../Controller/PropertyType/PropertyTypeListController.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Property Post Form</title>
     <style>
-<<<<<<< HEAD
         .sell {
             color: rgb(20, 184, 166) !important;
         }
@@ -51,10 +50,6 @@ include "../../Controller/PropertyType/PropertyTypeListController.php";
             /* Enable scroll if needed */
             background-color: rgba(0, 0, 0, 0.8);
             /* Black w/ opacity */
-=======
-      .sell{
-            color:rgb(20, 184, 166 ) !important;
->>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
         }
 
         .image-container {
@@ -113,11 +108,7 @@ include "../../Controller/PropertyType/PropertyTypeListController.php";
             font-family: "Roboto";
         }
     </style>
-<<<<<<< HEAD
     <link rel="stylesheet" href="../resources/css/photoList.css">
-=======
-        <link rel="stylesheet" href="../resources/css/photoList.css">
->>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
     <!-- flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
@@ -142,7 +133,6 @@ include "../../Controller/PropertyType/PropertyTypeListController.php";
             Add Property Post
         </h1>
 
-<<<<<<< HEAD
         <form class="w-10/12 sm:w-3/5 mx-auto   ">
             <!-- Start Property Select photo -->
             <div class="flex flex-col lg:flex-row items-center sm:items-start gap-4 overflow-x-auto">
@@ -153,17 +143,6 @@ include "../../Controller/PropertyType/PropertyTypeListController.php";
                 </div>
 
                 <!-- selected images -->
-=======
-        <form class="w-10/12 sm:w-3/5 mx-auto  mb-10 ">
-            <!-- Start Property Select photo -->
-            <div class="flex flex-col lg:flex-row items-center sm:items-start gap-4 overflow-x-auto mb-5">
-                <!-- add photo button -->
-                <div>
-                    <label for="add_img" class="flex items-center justify-center w-96 h-56 bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg border dark:border-white border-black"><span>+ Add Photo</span></label>
-                    <input type="file" multiple class=" hidden" id="add_img" accept=".jpg, .jpeg" />
-                </div>
-            <!-- selected images -->
->>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
                 <div id="imageList" class="flex flex-col lg:flex-row items-center gap-4 text-black dark:text-white"></div>
             </div>
             <!-- End Property Select photo -->
@@ -216,25 +195,15 @@ include "../../Controller/PropertyType/PropertyTypeListController.php";
                                 Offer Type</label>
                             <fieldset class="flex  my-4">
                                 <div class="flex ">
-<<<<<<< HEAD
                                     <input id="rent" type="radio" name="p_offer" value="0" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-darkGreen dark:focus:ring-darkGreen dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required>
                                     <label for="rent" class="block ms-2  text-sm font-medium text-gray-900 dark:text-gray-300">
-=======
-                                    <input id="offer-option-1" type="radio" name="offer" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-darkGreen dark:focus:ring-darkGreen dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
-                                    <label for="offer-option-1" class="block ms-2  text-sm font-medium text-gray-900 dark:text-gray-300">
->>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
                                         Rent
                                     </label>
                                 </div>
 
                                 <div class="flex mx-10">
-<<<<<<< HEAD
                                     <input id="sale" type="radio" name="p_offer" value="1" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-darkGreen dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required>
                                     <label for="sale" class="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-=======
-                                    <input id="offer-option-2" type="radio" name="offer" value="Germany" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-darkGreen dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="country-option-2" class="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
->>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
                                         Sale
                                     </label>
                                 </div>
@@ -248,7 +217,6 @@ include "../../Controller/PropertyType/PropertyTypeListController.php";
                                 Duration</label>
                             <fieldset class="flex my-4">
                                 <div class="flex mr-4">
-<<<<<<< HEAD
                                     <input id="per_mth" type="radio" name="p_duration" value="0" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-darkGreen dark:focus:ring-darkGreen dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
                                     <label for="per_mth" class=" block ms-2  text-sm  text-gray-900 dark:text-gray-300 font-medium">Per month</label>
                                 </div>
@@ -257,27 +225,6 @@ include "../../Controller/PropertyType/PropertyTypeListController.php";
                                     <input id="per_yr" type="radio" name="p_duration" value="1" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-darkGreen dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
                                     <label for="per_yr" class="block ms-2 text-sm  text-gray-900 dark:text-gray-300 font-medium">Per Year</label>
                                 </div>
-=======
-                                    <input id="duration-option-1" type="radio" name="duration" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-darkGreen dark:focus:ring-darkGreen dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
-                                    <label for="duration-option-1" class=" block ms-2  text-sm font-thin text-gray-900 dark:text-gray-300">
-                                        Per day
-                                    </label>
-                                </div>
-
-                                <div class="flex mr-4">
-                                    <input id="duration-option-2" type="radio" name="duration" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-darkGreen dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="duration-option-2" class="block ms-2 text-sm font-thin text-gray-900 dark:text-gray-300">
-                                        Per month
-                                    </label>
-                                </div>
-                                <div class="flex ">
-                                    <input id="duration-option-3" type="radio" name="duration" value="" class="w-3 h-3 border-gray-300 focus:ring-2 focus:ring-darkGreen dark:focus:ring-darkGreen dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" checked>
-                                    <label for="duration-option-3" class="w-20 block ms-2  text-sm font-thin text-gray-900 dark:text-gray-300">
-                                        Per year
-                                    </label>
-                                </div>
-
->>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
                             </fieldset>
 
                         </div>

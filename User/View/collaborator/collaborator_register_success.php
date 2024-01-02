@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 <?php include '../../Controller/common/colorsController.php' ?>
-=======
->>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
 <!DOCTYPE html>
 <html lang="en">
 

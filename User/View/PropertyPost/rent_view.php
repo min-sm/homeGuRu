@@ -53,7 +53,6 @@
   <!-- filter dropdown (select) boxes -->
   <div class="flex sm:flex-row flex-col justify-center  items-center gap-8 my-8 ">
     <div class="flex gap-8">
-<<<<<<< HEAD
       <div>
         <select name="p_type" class="lg:w-52 w-28 px-5 py-2.5 rounded-lg border-2">
           <option value="" disabled selected>Property Type</option>
@@ -86,39 +85,6 @@
           <option value="">200</option>
         </select>
       </div>
-=======
-    <div>
-      <select name="p_type" class="lg:w-52 w-28 px-5 py-2.5 rounded-lg border-2">
-        <option value="" disabled selected>Property Type</option>
-        <option value="">Apartment</option>
-        <option value="">Commercial</option>
-        <option value="">Condo</option>
-        <option value="">House</option>
-      </select>
-    </div>
-    <div>
-      <select name="p_township" class="lg:w-52 w-28 px-5 py-2.5 rounded-lg border-2">
-        <option value="" disabled selected>Township</option>
-        <option value="">Bahan</option>
-        <option value="">Tamwe</option>
-      </select>
-    </div>
-    </div>
-    <div class="flex gap-8">
-    <div>
-      <select name="price_min" class="lg:w-52 w-28 px-5 py-2.5 rounded-lg border-2">
-        <option value="" disabled selected>Minimum Price</option>
-        <option value="">100</option>
-        <option value="">200</option>
-      </select>
-    </div>
-    <div>
-      <select name="p_type" class="lg:w-52 w-28 px-5 py-2.5 rounded-lg border-2">
-        <option value="" disabled selected>Maximum Price</option>
-        <option value="">100</option>
-        <option value="">200</option>
-      </select>
->>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
     </div>
     </div>
   </div>
