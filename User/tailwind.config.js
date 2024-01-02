@@ -19,13 +19,21 @@ module.exports = {
         sans: ["Roboto", ...defaultTheme.fontFamily.sans],
       },
       keyframes: {
+<<<<<<< HEAD
         slider: {
+=======
+        slide: {
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
         '100%': { transform: 'translate(-100%)' },
         },
        
       },
       animation: {
+<<<<<<< HEAD
         slide: 'slider 5s linear infinite',
+=======
+        slide: 'slide 5s linear infinite',
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
       }
     },
   },

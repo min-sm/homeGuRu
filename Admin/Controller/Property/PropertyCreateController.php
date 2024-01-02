@@ -74,7 +74,7 @@ if (isset($_POST["submit"])) {
         $go_nrc = str_replace(' ', '', $go_nrc);
         // first check if it's in Burmese ID format
         if (!preg_match("/^[0-9]{1,2}\/[a-zA-Z]+\([a-zA-Z]\)[0-9]{6}$/", $go_nrc)) {
-            $em = "NRC Pattern Invalid";
+            $em = "NRC Pattern Invalid 1";
             header("Location: ../../View/errors/404.php?error=$em");
             exit; // Stop execution after encountering an error
         } else if (preg_match($pattern, $go_nrc, $matches)) { // second checking is to take township code in nrc
@@ -119,7 +119,6 @@ if (isset($_POST["submit"])) {
     $p_township = isset($_POST["p_township"]) ? $_POST['p_township']  : '';
     $p_note = $_POST["p_note"];
     $p_description = $_POST["p_description"];
-
 
     // Image Related
     $p_photo_1 = '';
@@ -225,7 +224,8 @@ if (isset($_POST["submit"])) {
         p_note,
         p_description,
         p_facilities,
-        go_id
+        go_id,
+        uploader_id
         )
         VALUES(
             :p_code,
@@ -250,7 +250,8 @@ if (isset($_POST["submit"])) {
         :p_note,
         :p_description,
         :p_facilities,
-        :go_id)";
+        :go_id,
+        0)"; // default 0 for admin 
 
     $propertyInsertStmt = $pdo->prepare($queryForProperty);
     $propertyInsertStmt->bindValue("p_code", $p_code);

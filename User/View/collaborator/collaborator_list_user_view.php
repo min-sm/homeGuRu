@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 <?php include '../../Controller/sliderController.php' ?>
 <?php include '../../Controller/common/colorsController.php' ?>
 <?php include '../../Controller/collaboratorListController.php'?>
+=======
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +21,7 @@
         .collaborator{
             color:rgb(20, 184, 166 ) !important;
         }
+<<<<<<< HEAD
 
     
         .typing {
@@ -42,6 +46,8 @@ from {
 }
 }
 
+=======
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
         </style>
     <!-- flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
@@ -60,19 +66,29 @@ from {
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
+<<<<<<< HEAD
 <div class="bg-[#F7F7F7]" style=" background-color: <?= $colors[0]['background'] ?>;color:<?= $colors[0]['bd_text_color']?>">
+=======
+<div class="bg-[#F7F7F7]">
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
     <!-- Navigation -->
     <?php include '../header/header.php' ?>
     <!-- Start Collaborator Hero Section  -->
     <div class="w-full relative mb-20">
+<<<<<<< HEAD
         <img class="w-full" src="../resources/img/<?= $resultSlider[0]['collaborator_slider']?>" alt="collaboratorHero.pngs" />
         <p class="text-white  w-96 lg:w-[600px] text-sm sm:text-xl lg:text-3xl font-playFair whitespace-nowrap font-bold overflow-hidden typing absolute top-14 sm:top-16 left-5 lg:top-52 lg:left-24 xl:left-20">Unlock Potential; Build The Future</p>
+=======
+        <img class="w-full" src="../resources/img/139546482_16064444264841n 1 (2).png" alt="collaboratorHero.pngs" />
+      
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
     </div>
     <!-- End Collaborator Hero Section  -->
 
     <!-- Start Partanership List Section  -->
     <div class=" mb-28 overflow-hidden whitespace-nowrap ">
         <h1 class="tracking-wider font-playFair text-3xl font-extrabold text-center mb-14">Our Partners</h1>
+<<<<<<< HEAD
         <div class="inline-block space-x-10 animate-slide   px-0 ">
    <?php 
 
@@ -87,6 +103,24 @@ from {
 
    <?php }?>
    </div>
+=======
+    
+        <div class="inline-block space-x-10 animate-slide  px-0 ">
+          <img src="../resources/img/ImeLogo.png" class="inline h-20 lg:h-48 "   alt="logo">
+          <img src="../resources/img/maga Logo.png" class="inline h-20 lg:h-48"   alt="logo">
+          <img src="../resources/img/collaborator-tpj-logo.png" class="inline h-20 lg:h-48"   alt="logo">
+          <img src="../resources/img/ShweTaungLogo.png" class="hidden h-20 lg:h-48  lg:inline"   alt="logo">
+          <img src="../resources/img/maga Logo.png" class="hidden h-20 lg:h-48  xl:inline"   alt="logo">
+        </div>
+        <div class="inline-block space-x-10 animate-slide  px-0 ">
+          <img src="../resources/img/ImeLogo.png" class="inline h-20 lg:h-48"   alt="logo">
+          <img src="../resources/img/maga Logo.png" class="inline h-20 lg:h-48"   alt="logo">
+          <img src="../resources/img/collaborator-tpj-logo.png" class="inline h-20 lg:h-48"   alt="logo">
+          <img src="../resources/img/ShweTaungLogo.png" class="hidden h-20 lg:h-48 lg:inline"   alt="logo">
+          <img src="../resources/img/maga Logo.png" class="hidden h-20 lg:h-48  xl:inline"   alt="logo">
+        </div>
+      </div>
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
     <!-- End Partanership List Section  -->
 
     <!-- Start Collaborator register Section  -->

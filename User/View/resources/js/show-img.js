@@ -23,6 +23,7 @@ fileInput.addEventListener("change", (event) => {
     const imageLabelContainer = document.createElement("div");
     imageLabelContainer.classList.add("image-label-container");
     imageContainer.classList.add("image-container");
+    imageContainer.classList.add("property-img");
 
     // Set background image for the div
     imageContainer.style.backgroundImage = `url('${URL.createObjectURL(

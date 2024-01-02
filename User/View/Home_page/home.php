@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php include '../../Controller/common/RentPropertiesController.php' ?>
 <?php include '../../Controller/common/SalePropertiesController.php' ?>
 <?php include '../../Controller/common/RecommendController.php' ?>
@@ -5,6 +6,8 @@
 <?php include '../../Controller/common/colorsController.php' ?>
 <?php include '../../Controller/common/LocationListController.php' ?>
 <?php include '../../Controller/PropertyTypeController.php' ?>
+=======
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
 <!DOCTYPE html>
 <html>
 
@@ -15,6 +18,7 @@
     .home {
       color: rgb(20, 184, 166) !important;
     }
+<<<<<<< HEAD
 
     .typing {
 
@@ -42,6 +46,31 @@
       cursor: pointer;
 
     }
+=======
+    .typing {
+ 
+  width: 343px;
+  border-right: 2px solid black;
+  overflow: hidden;
+  animation: type 3s steps(30) , blink 0.8s linear infinite;
+
+
+}
+
+@keyframes type {
+  from {
+    width: 0;
+  }
+}
+
+
+@keyframes blink {
+  from {
+    border-right-color: transparent;
+  }
+}
+
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
   </style>
   <!-- Aos animation -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -57,11 +86,16 @@
   <title>home</title>
 </head>
 
+<<<<<<< HEAD
 <body class=' w-screen overflow-x-hidden bg-primary' style=" background-color: <?= $colors[0]['background'] ?>;color:<?= $colors[0]['bd_text_color'] ?>">
+=======
+<body class=' w-screen overflow-x-hidden bg-primary '>
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
   <?php include '../header/header.php' ?>
 
   <!-- start hero -->
   <div class="relative mb-20">
+<<<<<<< HEAD
     <img src="../../../Storage/slider/<?= $resultSlider[0]['hero_slider'] ?>" width="100%" alt="" />
 
     <!--Decription-->
@@ -122,6 +156,60 @@
     </form>
     <!-- end search bar -->
 
+=======
+    <img src="../resources/img/home.jpg" width="100%" alt="" />
+    <!--start search bar -->
+<p class="text-white text-3xl font-playFair whitespace-nowrap font-bold overflow-hidden typing absolute top-10 left-10 sm:left-24">Guru knows every house</p>
+    <div class="w-11/12 lg:w-3/4 h-8 sm:h-10 md:h-12 lg:h-14   bg-secondary rounded-md absolute -bottom-5 md:-bottom-8 left-4 md:left-10 lg:left-28 xl:left-44 2xl:left-72 py-2 px-2 flex text-xs lg:text-base">
+      <!-- location -->
+      <div class="flex w-1/4 items-center border-r">
+        <ion-icon name="location" class="text-alert mr-1 lg:mx-2"></ion-icon>
+        <div>
+          <select name="location" class="bg-secondary text-primary w-16 sm:w-20 md:w-28 lg:w-36 xl:w-48 2xl:w-52 border-none text-2xs sm:text-small lg:text-base">
+            <option value="" disabled selected>Location</option>
+            <option value="">Kamayut</option>
+            <option value="">Thar Kay Tha</option>
+            <option value="">Mayangone</option>
+            <option value="">Golden Valley</option>
+          </select>
+        </div>
+      </div>
+      <!-- type -->
+      <div class="flex w-1/4 items-center border-r pr-1">
+        <ion-icon name="business" class="text-primary ml-1 sm:mx-2 lg:mx-3"></ion-icon>
+        <div>
+          <select name="type" class="bg-secondary text-primary w-16 sm:w-20 md:w-28 lg:w-36 xl:w-48 2xl:w-52 border-none text-2xs sm:text-small lg:text-base">
+            <option value="" disabled selected>Type</option>
+            <option value="">Apartment</option>
+            <option value="">Commercial</option>
+            <option value="">Condo</option>
+            <option value="">House</option>
+          </select>
+        </div>
+      </div>
+      <!-- price -->
+      <div class="flex w-1/4 items-center mr-1 border-r">
+        <ion-icon name="cash-outline" class="text-darkGreen mx-1 sm:mx-2 lg:mx-3"></ion-icon>
+        <div>
+          <select name="price" class="bg-secondary text-primary w-16 sm:w-20 md:w-28 lg:w-36 xl:w-48 2xl:w-52 border-none text-2xs sm:text-small lg:text-base">
+            <option value="" disabled selected>Price</option>
+            <option value="">below 1000lakhs</option>
+            <option value="">below 5000lakhs</option>
+            <option value="">below 10000lakhs</option>
+            <option value="">over 10000lakhs</option>
+          </select>
+        </div>
+      </div>
+      <!-- search btn -->
+      <div class="flex justify-center items-center w-1/4">
+        <a href="../property_post/search.php"><button class="text-primary bg-darkGreen h-5 md:h-8 rounded-md px-4 text-2xs md:text-sm">
+            Search
+          </button></a>
+      </div>
+
+      <!-- end search bar -->
+    </div>
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
   </div>
   <!-- end hero -->
   <!-- Recommended Properties -->
@@ -133,6 +221,7 @@
       <!-- Carousel wrapper -->
       <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
         <!-- Item 1 -->
+<<<<<<< HEAD
         <?php foreach ($recommend_properties as $property) {
 
         ?>
@@ -258,7 +347,7 @@
                                                                                           ?></p>
                 <div class="sm:hidden h-2"></div>
                 <div class="w-full flex justify-end ">
-                  <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
+                  <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
                     <button class="cursor-pointer focus:outline-none hover:bg-teal-400 focus:ring-2 focus:ring-teal-300 text-primary bg-darkGreen h-5 text-2xs px-2 sm:h-6 md:h-8 rounded-md sm:px-4 sm:text-sm sm-static">
                       Details
                     </button>
@@ -270,6 +359,136 @@
           </div>
 
         <?php } ?>
+=======
+        <div class="hidden duration-700 ease-in-out m-auto bg-white" data-carousel-item>
+          <h1 class="font-bold text-sm  sm:hidden sm:text-xl text-center mt-5">3 Beds Condo in Kamayut</h1>
+          <div class="absolute flex  justify-between items-center gap-2 sm:gap-0  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 px-10 lg:px-14  ">
+
+            <div class="relative w-1/2 sm:h-5/6 rounded-md overflow-hidden flex  items-center  sm:mb-0 ">
+
+              <img src="../resources/img/living-room.jpg" width="100%" height="100%" alt="" />
+              <div class="bg-darkGreen text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg  w-10 h-4  sm:w-20 sm:h-8 text-2xs sm:text-base absolute right-0 top-2 sm:top-8 md:top-28 lg:top-20 xl:top-10">
+                Rent</div>
+            </div>
+            <div class="space-y-0 sm:space-y-5  flex flex-col mt-1 ml-1  sm:mt-7 sm:ml-5 w-2/5 sm:w-auto">
+              <!-- title  -->
+              <h1 class="font-bold text-sm hidden sm:block sm:text-xl">3 Beds Condo in Kamayut</h1>
+              <!-- price -->
+              <div class="sm:block hidden">
+                <ion-icon name="cash-outline" class="text-darkGreen pl-0 sm:pl-2"></ion-icon>
+                <span class="text-darkGreen ml-1 font-bold text-xs sm:text-xl">2,000 Lakhs</span>
+              </div>
+              <!-- Description -->
+              <p class="tracking-wide text-2xs sm:text-base hidden sm:block">
+                This is a 3 bed Condo available for rent in Kamayut Township.
+                The asking price is 200000 Lakhs....
+              </p>
+              <!-- facts -->
+              <div class="space-y-1 sm:space-y-5  ">
+                <div class="flex justify-between sm:gap-0 gap-1 flex-col sm:flex-row">
+                  <div>
+                    <span class="font-semibold text-2xs sm:text-base">Property ID:</span>
+                    <span class="text-2xs sm:text-base">CD354#E</span>
+                  </div>
+                  <div class="text-2xs sm:text-base ">
+                    <span class="font-semibold">Property Type:</span>
+                    <span>Condo</span>
+                  </div>
+                </div>
+                <div class="flex justify-between text-2xs sm:gap-0 gap-1 sm:text-base flex-col sm:flex-row">
+                  <div>
+                    <span class="font-semibold">Size:</span>
+                    <span>17000 ft<sup>2</sup> </span>
+                  </div>
+                  <div>
+                    <span class="font-semibold">Offer Type:</span>
+                    <span>Rent</span>
+                  </div>
+                </div>
+              </div>
+              <!-- time -->
+              <div class="sm:hidden flex pt-1 ">
+
+                <i class="fa-sharp fa-solid fa-money-bill mt-1.5 text-darkGreen pl-0 sm:pl-2"></i>
+                <span class="text-darkGreen ml-1 font-bold text-2xs  sm:text-xl">2,000 Lakhs</span>
+              </div>
+              <p class="text-gray-400 text-2xs sm:text-base text-right hidden sm:block ">3 months ago</p>
+              <div class="sm:hidden h-2"></div>
+              <div class="w-full flex justify-end ">
+                <a href="../property_post/detail_post.php"><button class=" text-primary bg-darkGreen h-5 text-2xs px-2 sm:h-6 md:h-8 rounded-md sm:px-4 sm:text-sm  sm-static">
+                    Details
+                  </button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- item 5 -->
+        <div class="hidden duration-700 ease-in-out m-auto bg-white" data-carousel-item>
+          <h1 class="font-bold text-sm  sm:hidden sm:text-xl text-center mt-5">3 Beds Condo in Kamayut</h1>
+          <div class="absolute flex  justify-between items-center gap-2 sm:gap-0  h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 px-10 lg:px-14  ">
+
+            <div class="relative w-1/2 sm:h-5/6 rounded-md overflow-hidden flex  items-center  sm:mb-0 ">
+
+              <img src="../resources/img/living-room.jpg" width="100%" height="100%" alt="" />
+              <div class="bg-darkGreen text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg  w-10 h-4  sm:w-20 sm:h-8 text-2xs sm:text-base absolute right-0 top-2 sm:top-8 md:top-28 lg:top-20 xl:top-10">
+                Rent</div>
+            </div>
+            <div class="space-y-0 sm:space-y-5  flex flex-col mt-1 ml-1  sm:mt-7 sm:ml-5 w-2/5 sm:w-auto">
+              <!-- title  -->
+              <h1 class="font-bold text-sm hidden sm:block sm:text-xl">3 Beds Condo in Kamayut</h1>
+              <!-- price -->
+              <div class="sm:block hidden">
+                <i class="fa-sharp fa-solid fa-money-bill mt-1.5 text-darkGreen pl-0 sm:pl-2"></i>
+                <span class="text-darkGreen ml-1 font-bold text-xs sm:text-xl">2,000 Lakhs</span>
+              </div>
+              <!-- Description -->
+              <p class="tracking-wide text-2xs sm:text-base hidden sm:block">
+                This is a 3 bed Condo available for rent in Kamayut Township.
+                The asking price is 200000 Lakhs....
+              </p>
+              <!-- facts -->
+              <div class="space-y-1 sm:space-y-5  ">
+                <div class="flex justify-between sm:gap-0 gap-1 flex-col sm:flex-row">
+                  <div>
+                    <span class="font-semibold text-2xs sm:text-base">Property ID:</span>
+                    <span class="text-2xs sm:text-base">CD354#E</span>
+                  </div>
+                  <div class="text-2xs sm:text-base ">
+                    <span class="font-semibold">Property Type:</span>
+                    <span>Condo</span>
+                  </div>
+                </div>
+                <div class="flex justify-between text-2xs sm:gap-0 gap-1 sm:text-base flex-col sm:flex-row">
+                  <div>
+                    <span class="font-semibold">Size:</span>
+                    <span>17000 ft<sup>2</sup> </span>
+                  </div>
+                  <div>
+                    <span class="font-semibold">Offer Type:</span>
+                    <span>Rent</span>
+                  </div>
+                </div>
+              </div>
+              <!-- time -->
+              <div class="sm:hidden flex pt-1 ">
+
+                <ion-icon name="cash-outline" class="text-darkGreen"></ion-icon>
+                <span class="text-darkGreen ml-1 font-bold text-2xs  sm:text-xl">2,000 Lakhs</span>
+              </div>
+              <p class="text-gray-400 text-2xs sm:text-base text-right hidden sm:block ">3 months ago</p>
+              <div class="sm:hidden h-2"></div>
+              <div class="w-full flex justify-end ">
+                <a href="../property_post/detail_post.php"><button class=" text-primary bg-darkGreen h-5 text-2xs px-2 sm:h-6 md:h-8 rounded-md sm:px-4 sm:text-sm  sm-static">
+                    Details
+                  </button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
       </div>
       <!-- Slider indicators -->
       <div class="absolute -bottom-10 z-30 flex -translate-x-1/2 left-1/2 space-x-3 rtl:space-x-reverse px-3 py-2 rounded-lg bg-gray-100 ">
@@ -304,6 +523,7 @@
     Lastest Rent Properties
   </h1>
   <div class=" px-2 flex w-full flex-col content-stretch  space-y-2 items-center lg:flex-row lg:justify-around mb-20">
+<<<<<<< HEAD
     <?php
     $maxItems = 3;
     $itemCount = 0;
@@ -317,7 +537,7 @@
       $itemCount++;
     ?>
       <div class="w-full  max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
+        <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
           <div class="relative h-56">
             <div class="<?php
                         if ($property['p_after'] == 1) {
@@ -444,12 +664,184 @@
 
           <div class="flex items-center justify-end">
             <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-            <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
+            <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
           </div>
         </div>
       </div>
     <?php } ?>
 
+=======
+    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <a href="#">
+        <div class="relative">
+          <div class="bg-darkGreen text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+            Rent</div>
+          <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
+        </div>
+      </a>
+      <div class="px-5 pb-5">
+        <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
+          <span>November 11 at 12:30</span>
+          <span>13 people interests</span>
+        </div>
+        <div class="my-2.5 flex items-center justify-between">
+          <a href="#" class="mt-2.5 mb-5">
+            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              4 Bed House in Golden Valley
+            </h5>
+          </a>
+          <div class="rounded-full bg-gray-50 w-16">
+            <img src="../resources/img/logo.png" alt="" />
+          </div>
+        </div>
+
+        <div class="mt-2.5 mb-5 text-darkGreen flex items-center text-xl">
+          <i class="fa-sharp fa-solid fa-money-bill pt-1.5"></i>
+          <span class="ml-3">7,000 Lakhs / Month</span>
+        </div>
+
+        <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
+          <div class="flex justify-between items-center">
+            <div><span class="font-playFair">Property ID: </span>
+              <span>1456</span>
+            </div>
+            <div><span class="font-playFair">Property Type: </span>
+              <span>House</span>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-2">
+            <div><span class="font-playFair">Township: </span>
+              <span>Bahan</span>
+            </div>
+            <div>
+              <span class="font-playFair">Property Size: </span>
+              <span>5,000
+                ft<sup>2</sup></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-end">
+          <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
+          <a href="#" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+        </div>
+      </div>
+    </div>
+    <!-- card 2 -->
+    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <a href="#">
+        <div class="relative">
+          <div class="bg-darkGreen text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+            Rent</div>
+          <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
+        </div>
+      </a>
+      <div class="px-5 pb-5">
+        <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
+          <span>November 11 at 12:30</span>
+          <span>13 people interests</span>
+        </div>
+        <div class="my-2.5 flex items-center justify-between">
+          <a href="#" class="mt-2.5 mb-5">
+            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              4 Bed House in Golden Valley
+            </h5>
+          </a>
+          <div class="rounded-full bg-gray-50 w-16">
+            <img src="../resources/img/logo.png" alt="" />
+          </div>
+        </div>
+
+        <div class="mt-2.5 mb-5 text-darkGreen flex items-center text-xl">
+          <i class="fa-sharp fa-solid fa-money-bill pt-1.5"></i>
+          <span class="ml-3">7,000 Lakhs / Month</span>
+        </div>
+
+        <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
+          <div class="flex justify-between items-center">
+            <div><span class="font-playFair">Property ID: </span>
+              <span>1456</span>
+            </div>
+            <div><span class="font-playFair">Property Type: </span>
+              <span>House</span>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-2">
+            <div><span class="font-playFair">Township: </span>
+              <span>Bahan</span>
+            </div>
+            <div>
+              <span class="font-playFair">Property Size: </span>
+              <span>5,000
+                ft<sup>2</sup></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-end">
+          <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
+          <a href="#" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+        </div>
+      </div>
+    </div>
+    <!-- card 3 -->
+    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <a href="#">
+        <div class="relative">
+          <div class="bg-darkGreen text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+            Rent</div>
+          <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
+        </div>
+      </a>
+      <div class="px-5 pb-5">
+        <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
+          <span>November 11 at 12:30</span>
+          <span>13 people interests</span>
+        </div>
+        <div class="my-2.5 flex items-center justify-between">
+          <a href="#" class="mt-2.5 mb-5">
+            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              4 Bed House in Golden Valley
+            </h5>
+          </a>
+          <div class="rounded-full bg-gray-50 w-16">
+            <img src="../resources/img/logo.png" alt="" />
+          </div>
+        </div>
+
+        <div class="mt-2.5 mb-5 text-darkGreen flex items-center text-xl">
+          <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
+          <span class="ml-3">7,000 Lakhs / Month</span>
+        </div>
+
+        <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
+          <div class="flex justify-between items-center">
+            <div><span class="font-playFair">Property ID: </span>
+              <span>1456</span>
+            </div>
+            <div><span class="font-playFair">Property Type: </span>
+              <span>House</span>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-2">
+            <div><span class="font-playFair">Township: </span>
+              <span>Bahan</span>
+            </div>
+            <div>
+              <span class="font-playFair">Property Size: </span>
+              <span>5,000
+                ft<sup>2</sup></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-end">
+          <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
+          <a href="#" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+        </div>
+      </div>
+    </div>
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
 
   </div>
 
@@ -458,6 +850,7 @@
   <h1 class="font-playFair text-2xl font-extrabold ml-12 mb-10 tracking-wider">
     Lastest Sale Properties
   </h1>
+<<<<<<< HEAD
   <div class=" px-2 flex w-full flex-col content-stretch  space-y-2 items-center lg:flex-row lg:justify-around mb-20">
     <?php
     $maxLimit = 3;
@@ -599,7 +992,7 @@
 
           <div class="flex items-center justify-end">
             <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-            <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
+            <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
           </div>
         </div>
       </div>
@@ -608,6 +1001,186 @@
   <!-- Testimonials -->
 
   <div data-aos="fade-right" data-aos-duration="700" class=" mb-28 bg-white rounded-md pt-10 w-11/12 m-auto pb-14">
+=======
+  <div class="px-2 flex w-full flex-col content-stretch  space-y-2 items-center lg:flex-row lg:justify-around mb-28">
+
+    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <a href="#">
+        <div class="relative">
+          <div class="bg-goldYellow text-black flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+            Sale</div>
+          <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
+        </div>
+      </a>
+      <div class="px-5 pb-5">
+        <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
+          <span>November 11 at 12:30</span>
+          <span>13 people interests</span>
+        </div>
+        <div class="my-2.5 flex items-center justify-between">
+          <a href="#" class="mt-2.5 mb-5">
+            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              4 Bed House in Golden Valley
+            </h5>
+          </a>
+          <div class="rounded-full bg-gray-50 w-16">
+            <img src="../resources/img/logo.png" alt="" />
+          </div>
+        </div>
+
+        <div class="mt-2.5 mb-5 text-darkGreen flex items-center text-xl">
+          <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
+          <span class="ml-3">7,000 Lakhs / Month</span>
+        </div>
+
+        <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
+          <div class="flex justify-between items-center">
+            <div><span class="font-playFair">Property ID: </span>
+              <span>1456</span>
+            </div>
+            <div><span class="font-playFair">Property Type: </span>
+              <span>House</span>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-2">
+            <div><span class="font-playFair">Township: </span>
+              <span>Bahan</span>
+            </div>
+            <div>
+              <span class="font-playFair">Property Size: </span>
+              <span>5,000
+                ft<sup>2</sup></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-end">
+          <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
+          <a href="#" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+        </div>
+      </div>
+    </div>
+    <!-- card 2 -->
+    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <a href="#">
+        <div class="relative">
+          <div class="bg-darkGreen text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+            Rent</div>
+          <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
+        </div>
+      </a>
+      <div class="px-5 pb-5">
+        <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
+          <span>November 11 at 12:30</span>
+          <span>13 people interests</span>
+        </div>
+        <div class="my-2.5 flex items-center justify-between">
+          <a href="#" class="mt-2.5 mb-5">
+            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              4 Bed House in Golden Valley
+            </h5>
+          </a>
+          <div class="rounded-full bg-gray-50 w-16">
+            <img src="../resources/img/logo.png" alt="" />
+          </div>
+        </div>
+
+        <div class="mt-2.5 mb-5 text-darkGreen flex items-center text-xl">
+          <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
+          <span class="ml-3">7,000 Lakhs / Month</span>
+        </div>
+
+        <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
+          <div class="flex justify-between items-center">
+            <div><span class="font-playFair">Property ID: </span>
+              <span>1456</span>
+            </div>
+            <div><span class="font-playFair">Property Type: </span>
+              <span>House</span>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-2">
+            <div><span class="font-playFair">Township: </span>
+              <span>Bahan</span>
+            </div>
+            <div>
+              <span class="font-playFair">Property Size: </span>
+              <span>5,000
+                ft<sup>2</sup></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-end">
+          <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
+          <a href="#" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+        </div>
+      </div>
+    </div>
+    <!-- card 3 -->
+    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <a href="#">
+        <div class="relative">
+          <div class="bg-darkGreen text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+            Rent</div>
+          <img class="pb-4 rounded-t-lg" src="../resources/img/kitchen.jpg" alt="product image" />
+        </div>
+      </a>
+      <div class="px-5 pb-5">
+        <div class="flex items-center text-black dark:text-white text-sm justify-between mb-2.5">
+          <span>November 11 at 12:30</span>
+          <span>13 people interests</span>
+        </div>
+        <div class="my-2.5 flex items-center justify-between">
+          <a href="#" class="mt-2.5 mb-5">
+            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              4 Bed House in Golden Valley
+            </h5>
+          </a>
+          <div class="rounded-full bg-gray-50 w-16">
+            <img src="../resources/img/logo.png" alt="" />
+          </div>
+        </div>
+
+        <div class="mt-2.5 mb-5 text-darkGreen flex items-center text-xl">
+          <i class="fa-sharp fa-solid fa-money-bill mt-1.5"></i>
+          <span class="ml-3">7,000 Lakhs / Month</span>
+        </div>
+
+        <div class="mt-2.5 mb-5 text-black dark:text-white font-thin">
+          <div class="flex justify-between items-center">
+            <div><span class="font-playFair">Property ID: </span>
+              <span>1456</span>
+            </div>
+            <div><span class="font-playFair">Property Type: </span>
+              <span>House</span>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-2">
+            <div><span class="font-playFair">Township: </span>
+              <span>Bahan</span>
+            </div>
+            <div>
+              <span class="font-playFair">Property Size: </span>
+              <span>5,000
+                ft<sup>2</sup></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-end">
+          <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
+          <a href="#" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-slate-50">Details</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Testimonials -->
+<div class="h-screen w-screen flex flex-col justify-center">
+  <div data-aos="fade-right" data-aos-duration="700" class=" bg-white rounded-md pt-10 w-11/12 m-auto pb-14">
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
     <!-- title -->
     <h1 class="font-playFair text-2xl font-extrabold ml-20 mb-7 tracking-wider">Testimonials</h1>
     <!-- maincontainer -->
@@ -645,6 +1218,7 @@
       </div>
     </div>
   </div>
+<<<<<<< HEAD
 
   <!-- our services -->
 
@@ -655,12 +1229,29 @@
       <div>
         <p data-aos-duration="700" data-aos="zoom-in-up" class="text-center font-semibold mb-2">Rent service</p>
         <div data-aos="zoom-in-up" data-aos-duration="700" class="w-40 sm:w-72 overflow-hidden rounded-md ">
+=======
+</div>
+  <!-- our services -->
+ 
+  <div   class="h-screen w-screen flex  flex-col justify-center" id='ourservices'>
+    <h1 data-aos="zoom-in" data-aos-duration="700"  class="tracking-wider font-playFair text-2xl font-extrabold text-center mb-10">Our Services</h1>
+    <p data-aos="fade-right"  data-aos-duration="700"  class="whitespace-pre-warp text-center tracking-wider px-5">At Home GuRu, experience seamless property transactions. From listing to closing deals, our expert team ensures satisfaction, making your real estate journey effortless and rewarding. Trust the experts.</p>
+     <div class="flex justify-evenly mt-16">
+      <div>
+        <p class="text-center font-semibold mb-2">Rent service</p>
+        <div data-aos="zoom-in-up" data-aos-duration="700"  class="w-40 sm:w-96 overflow-hidden rounded-md ">
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
           <img src="../resources/img/forrent.jpg" width="100%" alt="">
         </div>
       </div>
       <div>
+<<<<<<< HEAD
         <p data-aos-duration="700" data-aos="zoom-in-up" class="  text-center font-semibold mb-2 ">Sale service</p>
         <div data-aos-duration="700" data-aos="zoom-in-up" class="w-40 sm:w-72 overflow-hidden rounded-md">
+=======
+        <p class="text-center font-semibold mb-2 ">Sale service</p>
+        <div data-aos-duration="700"  data-aos="zoom-in-up" class="w-40 sm:w-96 overflow-hidden rounded-md">
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
 
           <img src="../resources/img/forsale.jpg" width="100%" alt="">
 
@@ -691,7 +1282,11 @@
   <!-- buy rent 2 cards -->
   <div class="flex mt-6 mb-10 flex-col lg:flex-row items-center w-auto justify-around">
     <!-- buy property card -->
+<<<<<<< HEAD
     <div data-aos="fade-up-right" data-aos-duration="700" class="w-3/4 lg:w-5/12 h-56 bg-cover flex items-center justify-center hover:opacity-80" style="background-image: url('../resources/img/pic1.png')">
+=======
+    <div data-aos="fade-up-right" data-aos-duration="700" class="w-3/4 lg:w-5/12 h-56 bg-cover flex items-center justify-center" style="background-image: url('../resources/img/pic1.png')">
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
       <ul class="list-disc text-white list-inside w-4/5 text-2xs lg:text-sm space-y-2.5">
         <span class="text-xl" style="font-family: 'Playfair Display'">Buy Property Requirements</span>
         <li>
@@ -711,7 +1306,11 @@
     </div>
 
     <!-- rent property card -->
+<<<<<<< HEAD
     <div data-aos="fade-up-left" data-aos-duration="700" class="w-3/4 lg:w-5/12 h-56 mt-16 lg:mt-auto bg-cover flex items-center justify-center hover:opacity-80" style="background-image: url('../resources/img/pic2.png')">
+=======
+    <div data-aos="fade-up-left" data-aos-duration="700" class="w-3/4 lg:w-5/12 h-56 mt-16 lg:mt-auto bg-cover flex items-center justify-center" style="background-image: url('../resources/img/pic2.png')">
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
       <ul class="list-disc text-white list-inside w-4/5 lg:text-sm text-2xs space-y-2.5">
         <span class="text-xl lg:text-xl" style="font-family: 'Playfair Display'">Rent Property Requirements</span>
         <li>
@@ -726,19 +1325,31 @@
         <li>
           Assist with lease renewals and ensuring a smooth transition between tenants.
         </li>
+<<<<<<< HEAD
+=======
+
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
       </ul>
     </div>
   </div>
   </div>
+<<<<<<< HEAD
   <?php include '../footer/footer.php' ?>
+=======
+
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
   <!-- flow bite-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
+<<<<<<< HEAD
 
 
+=======
+  <?php include '../footer/footer.php' ?>
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
 </body>
 
 </html>

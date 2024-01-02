@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 <?php include '../../Controller/common/colorsController.php' ?>
+=======
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +38,11 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
+<<<<<<< HEAD
 <body class="bg-primary" style=" background-color: <?= $colors[0]['background'] ?>;color:<?= $colors[0]['bd_text_color']?>">
+=======
+<body class="bg-primary">
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
     <!-- Navigation -->
     <?php include '../header/header.php' ?>
 

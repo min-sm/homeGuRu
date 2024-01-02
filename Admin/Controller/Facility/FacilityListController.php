@@ -1,5 +1,5 @@
 <?php
-include "../../Model/DBConnection.php";
+include_once "../../Model/DBConnection.php";
 
 $query = "SELECT * FROM facilities WHERE del_flg = 0 ORDER BY facility_type;";
 $sql = $pdo->prepare($query);
