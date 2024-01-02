@@ -67,7 +67,6 @@ if (isset($_POST["submit"])) {
                 $sql->bindValue(":message", $message);
                 $sql->bindValue(":status", $status);
                 $sql->bindValue(":date", date("Y/m/d"));
-
                 $sql->execute();
 
                 // Get the last inserted ID
@@ -89,21 +88,21 @@ if (isset($_POST["submit"])) {
                 }
 
                 // Redirect to the login page after successful registration
-                header("Location: ../../.././../View/errors/404.php");
+                header("Location: ../../View/collaborator/collaborator_register_success.php");
                 exit();
             } else {
                 $_SESSION["createadminerror"] = "File size exceeds the maximum allowed limit (2 MB).";
-                header("Location: ../your_form_page.php"); // Redirect to the form page with the error message
+                header("Location: ../../View/collaborator/collaborator_register.php"); // Redirect to the form page with the error message
                 exit();
             }
         } else {
             $_SESSION["createcollaboratorerror"] = "Invalid file format. Only JPG, JPEG, PNG, and GIF files are allowed.";
-            header("Location: ../your_form_page.php"); // Redirect to the form page with the error message
+            header("Location:../../View/collaborator/collaborator_register.php "); // Redirect to the form page with the error message
             exit();
         }
     } else {
         $_SESSION["createcollaboratorerror"] = "Error uploading file.";
-        header("Location: ../your_form_page.php"); // Redirect to the form page with the error message
+        header("Location:../../View/collaborator/collaborator_register.php"); // Redirect to the form page with the error message
         exit();
     }
 }

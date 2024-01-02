@@ -32,7 +32,6 @@ if (isset($_POST["register"])) {
         exit(); // Stop further execution
     }
     
-
     // Check if password and confirm password match
     if ($password !== $confirmpassword) {
         $_SESSION["registererror"] = "Please ensure that the passwords match";
