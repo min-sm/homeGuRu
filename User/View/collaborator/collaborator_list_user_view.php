@@ -1,5 +1,6 @@
 <?php include '../../Controller/sliderController.php' ?>
 <?php include '../../Controller/common/colorsController.php' ?>
+<?php include '../../Controller/collaboratorListController.php'?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,29 +66,27 @@ from {
     <!-- Start Collaborator Hero Section  -->
     <div class="w-full relative mb-20">
         <img class="w-full" src="../resources/img/<?= $resultSlider[0]['collaborator_slider']?>" alt="collaboratorHero.pngs" />
-      
+        <p class="text-white  w-96 lg:w-[600px] text-sm sm:text-xl lg:text-3xl font-playFair whitespace-nowrap font-bold overflow-hidden typing absolute top-14 sm:top-16 left-5 lg:top-52 lg:left-24 xl:left-20">Unlock Potential; Build The Future</p>
     </div>
     <!-- End Collaborator Hero Section  -->
 
     <!-- Start Partanership List Section  -->
     <div class=" mb-28 overflow-hidden whitespace-nowrap ">
         <h1 class="tracking-wider font-playFair text-3xl font-extrabold text-center mb-14">Our Partners</h1>
+        <div class="inline-block space-x-10 animate-slide   px-0 ">
+   <?php 
+
+ foreach ($collaborators as $collaborator) {
+ ?>
+  
+          <img src="../../../Storage/collaborator_img/gc<?= $collaborator['id'] . '/' . $collaborator['gc_logo'] ?>" alt="<?= $collaborator['gc_company_name']; ?>"class="inline h-20 w-20 lg:h-48 "   alt="logo">
+
+       
     
-        <div class="inline-block space-x-10 animate-slide  px-0 ">
-          <img src="../resources/img/ImeLogo.png" class="inline h-20 lg:h-48 "   alt="logo">
-          <img src="../resources/img/maga Logo.png" class="inline h-20 lg:h-48"   alt="logo">
-          <img src="../resources/img/collaborator-tpj-logo.png" class="inline h-20 lg:h-48"   alt="logo">
-          <img src="../resources/img/ShweTaungLogo.png" class="hidden h-20 lg:h-48  lg:inline"   alt="logo">
-          <img src="../resources/img/maga Logo.png" class="hidden h-20 lg:h-48  xl:inline"   alt="logo">
-        </div>
-        <div class="inline-block space-x-10 animate-slide  px-0 ">
-          <img src="../resources/img/ImeLogo.png" class="inline h-20 lg:h-48"   alt="logo">
-          <img src="../resources/img/maga Logo.png" class="inline h-20 lg:h-48"   alt="logo">
-          <img src="../resources/img/collaborator-tpj-logo.png" class="inline h-20 lg:h-48"   alt="logo">
-          <img src="../resources/img/ShweTaungLogo.png" class="hidden h-20 lg:h-48 lg:inline"   alt="logo">
-          <img src="../resources/img/maga Logo.png" class="hidden h-20 lg:h-48  xl:inline"   alt="logo">
-        </div>
-      </div>
+
+
+   <?php }?>
+   </div>
     <!-- End Partanership List Section  -->
 
     <!-- Start Collaborator register Section  -->

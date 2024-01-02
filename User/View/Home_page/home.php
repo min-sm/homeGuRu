@@ -68,60 +68,57 @@
     <p class="text-white w-[160px] lg:w-[343px] sm:w-[200px] text-sm sm:text-xl lg:text-3xl font-playFair whitespace-nowrap font-bold overflow-hidden typing absolute top-14 sm:top-16 left-5 lg:top-52 lg:left-24 xl:left-20">Guru knows every house</p>
     <!-- start search Bar -->
     <form action="../../Controller/common/SearchPropertiesController.php" method="post">
-    <div class="w-11/12 lg:w-3/4 h-8 sm:h-10 md:h-12 lg:h-14   bg-secondary rounded-md absolute -bottom-5 md:-bottom-8 left-4 md:left-10 lg:left-28 xl:left-44 2xl:left-72 py-2 px-2 flex text-xs lg:text-base">
-      <!-- location -->
-      <div class="flex w-1/4 items-center border-r">
-        <ion-icon name="location" class="text-alert mr-1 lg:mx-2"></ion-icon>
-        <div>
-          <select name="location" class="bg-secondary text-primary w-16 sm:w-20 md:w-28 lg:w-36 xl:w-48 2xl:w-52 border-none text-2xs sm:text-sm lg:text-base focus:ring-0">
-            <option value="12" disabled selected>Location</option>
-            <?php foreach ($locations as $region) : ?>
-              <option value="<?php echo $region['id']; ?>"><?php echo $region['name']; ?></option>
-            <?php endforeach; ?>
-          </select>
+      <div class="w-11/12 lg:w-3/4 h-8 sm:h-10 md:h-12 lg:h-14   bg-secondary rounded-md absolute -bottom-5 md:-bottom-8 left-4 md:left-10 lg:left-28 xl:left-44 2xl:left-72 py-2 px-2 flex text-xs lg:text-base">
+        <!-- location -->
+        <div class="flex w-1/4 items-center border-r">
+          <ion-icon name="location" class="text-alert mr-1 lg:mx-2"></ion-icon>
+          <div>
+            <select name="location" class="bg-secondary text-primary w-16 sm:w-20 md:w-28 lg:w-36 xl:w-48 2xl:w-52 border-none text-2xs sm:text-sm lg:text-base focus:ring-0">
+              <option value="12" disabled selected>Location</option>
+              <?php foreach ($locations as $region) : ?>
+                <option value="<?php echo $region['id']; ?>"><?php echo $region['name']; ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
         </div>
-      </div>
-      <!-- type -->
-      <div class="flex w-1/4 items-center border-r pr-1">
-        <ion-icon name="business" class="text-primary ml-1 sm:mx-2 lg:mx-3"></ion-icon>
-        <div>
-          <select name="type" class="bg-secondary text-primary w-16 sm:w-20 md:w-28 lg:w-36 xl:w-48 2xl:w-52 border-none text-2xs sm:text-small lg:text-base focus:ring-0">
-            <option value="" disabled selected>Type</option>
-            <?php foreach ($property_types as $property_type) : ?>
-              <option value="<?php echo $property_type['id']; ?>"><?php echo $property_type['pt_name']; ?></option>
-            <?php endforeach; ?>
-          </select>
+        <!-- type -->
+        <div class="flex w-1/4 items-center border-r pr-1">
+          <ion-icon name="business" class="text-primary ml-1 sm:mx-2 lg:mx-3"></ion-icon>
+          <div>
+            <select name="type" class="bg-secondary text-primary w-16 sm:w-20 md:w-28 lg:w-36 xl:w-48 2xl:w-52 border-none text-2xs sm:text-small lg:text-base focus:ring-0">
+              <option value="" disabled selected>Type</option>
+              <?php foreach ($property_types as $property_type) : ?>
+                <option value="<?php echo $property_type['id']; ?>"><?php echo $property_type['pt_name']; ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
         </div>
-      </div>
-      <!-- price -->
-      <div class="flex w-1/4 items-center mr-1 border-r">
-        <ion-icon name="cash-outline" class="text-darkGreen mx-1 sm:mx-2 lg:mx-3"></ion-icon>
-        <div>
-          <select name="price" class="bg-secondary text-primary w-16 sm:w-20 md:w-28 lg:w-36 xl:w-48 2xl:w-52 border-none text-2xs sm:text-small lg:text-base focus:ring-0">
-            <option value="" disabled selected>Price</option>
-            <option value="<$10000">
-              < $10000</option>
-            <option value=""> > $10000 </option>
-            <option value="">
-              < $100000 </option>
-            <option value=""> > $100000 </option>
-            <option value="">
-              < 500000kyat</option>
-            <option value=""> >Ks500000</option>
-            <option value="">
-              < 100,000,000kyat </option>
-            <option value=""> > Ks100,000,000 </option>
-          </select>
+        <!-- price -->
+        <div class="flex w-1/4 items-center mr-1 border-r">
+          <ion-icon name="cash-outline" class="text-darkGreen mx-1 sm:mx-2 lg:mx-3"></ion-icon>
+          <div>
+            <select name="price" class="bg-secondary text-primary w-16 sm:w-20 md:w-28 lg:w-36 xl:w-48 2xl:w-52 border-none text-2xs sm:text-small lg:text-base focus:ring-0">
+              <option value="" disabled selected>Price</option>
+              <option value="1,1000,5000">$1000 <br> to <br> $5000</option>
+              <option value="1,5000,10000"> $5000 <br> to <br> $10000 </option>
+              <option value="1,10000,100000"> $10000 <br> to <br> $100000 </option>
+              <option value="1,100000,500000">$100000 <br> to <br> $500000</option>
+              <option value="1,500000,INF"> $500000 <br> and <br> above  </option>
+              <option value="2,100000,1000000">1Lakh <br> to <br>10Lakh</option>
+              <option value="2,1000000,10000000">10Lakh<br> to <br> 100Lakh </option>
+              <option value="2,10000000,300000000">100Lakh <br> to <br>3000Lakh</option>
+              <option value="2,300000000,INF"> 3000Lakh <br> and <br> above  </option>
+            </select>
+          </div>
         </div>
-      </div>
-    
-      <!-- search btn -->
-      <div class=" w-1/4  flex justify-center items-center text-center">
-<button type="submit" name="submit" class="text-primary cursor-pointer  focus:outline-none bg-darkGreen hover:bg-teal-500 focus:ring-2 focus:ring-teal-400  h-5 md:h-8 rounded-md px-4 text-2xs md:text-sm">
+
+        <!-- search btn -->
+        <div class=" w-1/4  flex justify-center items-center text-center">
+          <button type="submit" name="submit" class="text-primary cursor-pointer  focus:outline-none bg-darkGreen hover:bg-teal-500 focus:ring-2 focus:ring-teal-400  h-5 md:h-8 rounded-md px-4 text-2xs md:text-sm">
             Search
           </button>
+        </div>
       </div>
-    </div>
     </form>
     <!-- end search bar -->
 
@@ -247,10 +244,10 @@
                                                                                               echo 'Ks' . $property['p_price'];
                                                                                             }
                                                                                           } ?> / <?php if ($property['p_duration'] == 0) {
-                                                                                          echo 'Month';
-                                                                                        } elseif ($property['p_duration'] == 1) {
-                                                                                          echo 'Year';
-                                                                                        } ?></span>
+                                                                                                    echo 'Month';
+                                                                                                  } elseif ($property['p_duration'] == 1) {
+                                                                                                    echo 'Year';
+                                                                                                  } ?></span>
                 </div>
                 <p class="text-gray-400 text-2xs sm:text-sm text-right hidden sm:block "> <?php
                                                                                           $dateTime = new DateTime($property['created_date']);
@@ -344,7 +341,7 @@
               };
 
               ?>
-              </div>
+            </div>
             <img class="pb-4 rounded-t-lg w-full h-full" src="../../../Storage/house/<?= $property["id"] ?>/<?= $property['p_photo_1'] ?>" alt=" product image" />
           </div>
         </a>
@@ -370,27 +367,27 @@
                     ?></span>
           </div>
           <div class="mt-2 flex items-center justify-between">
-                                <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
-                                    <h5 class="text-xl font-medium  text-gray-900 dark:text-white">
-                                        <?php
-                                        $maxLen = 25;
-                                        $property['p_title'] = ucwords(strtolower($property['p_title']));
-                                        if (strlen($property['p_title']) > $maxLen) {
-                                            $property['p_title'] = substr($property['p_title'], 0, $maxLen - 4) . '...';
-                                        }
-                                        echo $property['p_title'];
+            <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
+              <h5 class="text-xl font-medium  text-gray-900 dark:text-white">
+                <?php
+                $maxLen = 25;
+                $property['p_title'] = ucwords(strtolower($property['p_title']));
+                if (strlen($property['p_title']) > $maxLen) {
+                  $property['p_title'] = substr($property['p_title'], 0, $maxLen - 4) . '...';
+                }
+                echo $property['p_title'];
 
-                                        ?>
-                                    </h5>
-                                </a>
-                                <div class="rounded-full bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
-                                    <?php if ($property['uploader_id'] == 0) : ?>
-                                        <img src="../../../Storage/homeGuru_logo/dark/logo.png" class="w-16 h-16" alt="HomeGuRu" />
-                                    <?php else : ?>
-                                          <img class="w-14 h-14"  src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $property['gc_company_name']; ?>" />
-                                    <?php endif; ?>
-                                </div>
-                            </div>
+                ?>
+              </h5>
+            </a>
+            <div class="rounded-full bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
+              <?php if ($property['uploader_id'] == 0) : ?>
+                <img src="../../../Storage/homeGuru_logo/dark/logo.png" class="w-16 h-16" alt="HomeGuRu" />
+              <?php else : ?>
+                <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $property['gc_company_name']; ?>" />
+              <?php endif; ?>
+            </div>
+          </div>
 
           <div class=" mb-5 text-darkGreen flex items-center text-lg">
             <i class="fa-sharp fa-solid fa-money-bill pt-1"></i>
@@ -421,7 +418,7 @@
           <div class="mt-2.5 mb-7 text-black dark:text-white tracking-wide space-y-5  text-sm">
             <div class="flex justify-between items-center">
               <div><span class="font-playFair">Property Code: </span>
-                <span ><?= $property['p_code'] ?></span>
+                <span><?= $property['p_code'] ?></span>
               </div>
               <div><span class="font-playFair">Property Type: </span>
                 <span><?= $property['pt_name'] ?></span>
@@ -474,7 +471,7 @@
       // Increment the counter
       $count++;
     ?>
-       <div class="w-full  max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div class="w-full  max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
           <div class="relative h-56">
             <div class="<?php
@@ -499,7 +496,7 @@
               };
 
               ?>
-              </div>
+            </div>
             <img class="pb-4 rounded-t-lg w-full h-full" src="../../../Storage/house/<?= $property["id"] ?>/<?= $property['p_photo_1'] ?>" alt=" product image" />
           </div>
         </a>
@@ -525,27 +522,27 @@
                     ?></span>
           </div>
           <div class="mt-2 flex items-center justify-between">
-                                <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
-                                    <h5 class="text-xl font-medium  text-gray-900 dark:text-white">
-                                        <?php
-                                        $maxLen = 25;
-                                        $property['p_title'] = ucwords(strtolower($property['p_title']));
-                                        if (strlen($property['p_title']) > $maxLen) {
-                                            $property['p_title'] = substr($property['p_title'], 0, $maxLen - 4) . '...';
-                                        }
-                                        echo $property['p_title'];
+            <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
+              <h5 class="text-xl font-medium  text-gray-900 dark:text-white">
+                <?php
+                $maxLen = 25;
+                $property['p_title'] = ucwords(strtolower($property['p_title']));
+                if (strlen($property['p_title']) > $maxLen) {
+                  $property['p_title'] = substr($property['p_title'], 0, $maxLen - 4) . '...';
+                }
+                echo $property['p_title'];
 
-                                        ?>
-                                    </h5>
-                                </a>
-                                <div class="rounded-full bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
-                                    <?php if ($property['uploader_id'] == 0) : ?>
-                                        <img src="../../../Storage/homeGuru_logo/dark/logo.png" class="w-16 h-16" alt="HomeGuRu" />
-                                    <?php else : ?>
-                                          <img class="w-14 h-14"  src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $property['gc_company_name']; ?>" />
-                                    <?php endif; ?>
-                                </div>
-                            </div>
+                ?>
+              </h5>
+            </a>
+            <div class="rounded-full bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
+              <?php if ($property['uploader_id'] == 0) : ?>
+                <img src="../../../Storage/homeGuru_logo/dark/logo.png" class="w-16 h-16" alt="HomeGuRu" />
+              <?php else : ?>
+                <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $property['gc_company_name']; ?>" />
+              <?php endif; ?>
+            </div>
+          </div>
 
           <div class=" mb-5 text-darkGreen flex items-center text-lg">
             <i class="fa-sharp fa-solid fa-money-bill pt-1"></i>
@@ -576,7 +573,7 @@
           <div class="mt-2.5 mb-7 text-black dark:text-white tracking-wide space-y-5  text-sm">
             <div class="flex justify-between items-center">
               <div><span class="font-playFair">Property Code: </span>
-                <span ><?= $property['p_code'] ?></span>
+                <span><?= $property['p_code'] ?></span>
               </div>
               <div><span class="font-playFair">Property Type: </span>
                 <span><?= $property['pt_name'] ?></span>

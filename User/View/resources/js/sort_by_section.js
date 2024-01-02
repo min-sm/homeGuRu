@@ -1,6 +1,8 @@
 'use strict';
+console.log("hello world")
 document.querySelectorAll('input[name="sort_by"]').forEach(radio => {
   radio.addEventListener('change', event => {
+    console.log("hello world")
     const labels = document.querySelectorAll('.label');
     labels.forEach(label => {
       label.classList.remove('text-white');
