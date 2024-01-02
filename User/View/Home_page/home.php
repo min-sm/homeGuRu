@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php include '../../Controller/common/RentPropertiesController.php' ?>
 <?php include '../../Controller/common/SalePropertiesController.php' ?>
 <?php include '../../Controller/common/RecommendController.php' ?>
@@ -6,8 +5,6 @@
 <?php include '../../Controller/common/colorsController.php' ?>
 <?php include '../../Controller/common/LocationListController.php' ?>
 <?php include '../../Controller/PropertyTypeController.php' ?>
-=======
->>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
 <!DOCTYPE html>
 <html>
 
@@ -18,7 +15,6 @@
     .home {
       color: rgb(20, 184, 166) !important;
     }
-<<<<<<< HEAD
 
     .typing {
 
@@ -46,31 +42,6 @@
       cursor: pointer;
 
     }
-=======
-    .typing {
- 
-  width: 343px;
-  border-right: 2px solid black;
-  overflow: hidden;
-  animation: type 3s steps(30) , blink 0.8s linear infinite;
-
-
-}
-
-@keyframes type {
-  from {
-    width: 0;
-  }
-}
-
-
-@keyframes blink {
-  from {
-    border-right-color: transparent;
-  }
-}
-
->>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
   </style>
   <!-- Aos animation -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -720,11 +691,7 @@
   <!-- buy rent 2 cards -->
   <div class="flex mt-6 mb-10 flex-col lg:flex-row items-center w-auto justify-around">
     <!-- buy property card -->
-<<<<<<< HEAD
     <div data-aos="fade-up-right" data-aos-duration="700" class="w-3/4 lg:w-5/12 h-56 bg-cover flex items-center justify-center hover:opacity-80" style="background-image: url('../resources/img/pic1.png')">
-=======
-    <div data-aos="fade-up-right" data-aos-duration="700" class="w-3/4 lg:w-5/12 h-56 bg-cover flex items-center justify-center" style="background-image: url('../resources/img/pic1.png')">
->>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
       <ul class="list-disc text-white list-inside w-4/5 text-2xs lg:text-sm space-y-2.5">
         <span class="text-xl" style="font-family: 'Playfair Display'">Buy Property Requirements</span>
         <li>

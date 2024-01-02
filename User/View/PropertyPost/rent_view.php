@@ -7,7 +7,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<<<<<<< HEAD
   <title>Buy</title>
 
   <style>
@@ -15,14 +14,6 @@
       color: rgb(20, 184, 166) !important;
     }
   </style>
-=======
-  <title>Rent</title>
-  <style>
-        .rent{
-          color:rgb(20, 184, 166 ) !important;
-        }
-        </style>
->>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
   <!-- google font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

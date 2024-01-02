@@ -49,7 +49,6 @@
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
                 <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-gray-800 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-gray-800">
                     <li>
-<<<<<<< HEAD
                         <a href="../Home_page/home.php" class="home item block py-2 px-3 md:p-0 md:bg-transparent text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700">Home</a>
                     </li>
                     <li>
@@ -63,31 +62,6 @@
                     </li>
                     <li>
                         <a href="../collaborator/collaborator_list_user_view.php" class="item collaborator block py-2 px-3 md:p-0 text-white rounded md:bg-transparent  hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700 ">Collaborator</a>
-=======
-                        <a href="../Home_page/home.php"
-                            class="home item block py-2 px-3 md:p-0 md:bg-transparent text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700">Home</a>
-                    </li>
-                    <li>
-                        <a href="../property_post/buy_view.php"
-                            class="buy item block py-2 px-3 md:p-0 md:bg-transparent text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700">Buy</a>
-                    </li>
-                    <li>
-                        <a href="../property_post/rent_view.php"
-                            class="rent item block py-2 px-3 md:p-0 md:bg-transparent text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700">Rent</a>
-                    </li>
-                    <li>
-                        <a href="../property_post/property_post-Add-owner.php"
-                            class="sell item block py-2 px-3 md:p-0 md:bg-transparent text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700">Sell</a>
-                    </li>
-                    <li>
-                        <a href="../collaborator/collaborator_list_user_view.php"
-                            class="item collaborator block py-2 px-3 md:p-0 text-white rounded md:bg-transparent  hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700 ">Collaborator</a>
-                    </li>
-                    <li>
-                        <a href="#ourservices"
-                            class="item services block py-2 px-3  md:p-0 md:bg-transparent text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700">Our
-                            Services</a>
->>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
                     </li>
                     
                 </ul>
