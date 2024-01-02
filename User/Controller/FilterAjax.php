@@ -86,5 +86,5 @@ $stmt->execute();
 // Fetch the filtered properties
 $filteredProperties = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$_SESSION['filteredProperties']= $filteredProperties;
-print_r($filteredProperties);
+header('Content-Type: application/json');
+echo json_encode($filteredProperties);

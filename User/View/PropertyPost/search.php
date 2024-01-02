@@ -1,9 +1,9 @@
-User
+
 <?php
 session_start();
 include '../../Controller/common/colorsController.php';
 include '../../Controller/PropertyType/PropertyTypeListController.php';
-include '../../Controller/getTownships.php';
+
 include '../../Controller/common/LocationListController.php'
 ?>
 
@@ -88,7 +88,7 @@ include '../../Controller/common/LocationListController.php'
         <!-- search boxes sec row -->
         <div class="flex items-center justify-evenly my-5">
             <div>
-                <select name="state" class="hidden lg:w-52 w-28 px-5 py-2.5 rounded-lg border-2" id="pRegion">
+                <select name="state" class=" lg:w-52 w-28 px-5 py-2.5 rounded-lg border-2" id="pRegion">
                     <option value="" disabled selected>State</option>
                     <?php foreach ($locations as $region): ?>
         <option value="<?= $region['id']; ?>" <?php echo ($region['id'] == $_SESSION['region']) ? 'selected' : ''; ?>>
@@ -98,8 +98,8 @@ include '../../Controller/common/LocationListController.php'
                 </select>
             </div>
             <div>
-                <select name="p_township" class="hidden lg:w-52 w-28 px-5 py-2.5 rounded-lg border-2" id="pTownship">
-                    <option value="" disabled selected>Township</option>
+                <select name="p_township" class=" lg:w-52 w-28 px-5 py-2.5 rounded-lg border-2" id="pTownship">
+                  
                     
         </option>
        
@@ -160,7 +160,7 @@ include '../../Controller/common/LocationListController.php'
     </div>
 
     <!-- cards -->
-
+<div id="filteredResultsContainer"></div>
 
     <!-- pagination -->
     <div class="flex justify-center my-16">
@@ -200,51 +200,96 @@ include '../../Controller/common/LocationListController.php'
             </ul>
         </nav>
     </div>
-    <script>
-        $(document).ready(function() {
-            // Function to update filtered results
-            function updateFilteredResults() {
-                // Get selected values from select boxes
-                var pOffer = $("#pOffer").val();
-                var pType = $("#pType").val();
-                var pUnit = $("#pUnit").val();
-                var pRegion = $("#pRegion").val();
-                var pTownship = $('#pTownship').val();
-                var minimumPrice = $('#minimumPrice').val();
-                var maximumPrice = $('#maximumPrice').val();
-
-
-                // Send AJAX request to the PHP script
-                $.ajax({
-                    type: "POST",
-                    url: "../../Controller/FilterAjax.php",
-                    data: {
-                        pOffer: pOffer,
-                        pType: pType,
-                        pUnit: pUnit,
-                        pRegion: pRegion,
-                        pTownship: pTownship,
-                        minimumPrice: minimumPrice,
-                        maximumPrice: maximumPrice
-                    },
-                    success: function(response) {
-                        // Update the filtered results div
-                        console.log("AJAX request successful!");
-                        alert("Response: " + response);
-
-                        $("#filteredResults").html(response);
-                    },
-                });
-            }
-            updateFilteredResults();
-            // Attach change event handlers to select boxes
-            $("#pOffer, #pType, #pUnit, #pRegion, #pTownship, #minimumPrice, #maximumPrice").on("change", function() {
-                updateFilteredResults();
-            });
-        });
-    </script>
+    
     <!-- footer -->
     <?php include '../footer/footer.php' ?>
+<script>
+    $(document).ready(function() {
+        // Function to update filtered results
+        function updateFilteredResults() {
+            // Get selected values from select boxes
+            var pOffer = $("#pOffer").val();
+            var pType = $("#pType").val();
+            var pUnit = $("#pUnit").val();
+            var pRegion = $("#pRegion").val();
+            var pTownship = $('#pTownship').val();
+            var minimumPrice = $('#minimumPrice').val();
+            var maximumPrice = $('#maximumPrice').val();
+
+            // Send AJAX request to the PHP script
+            $.ajax({
+                type: "POST",
+                url: "../../Controller/FilterAjax.php",
+                data: {
+                    pOffer: pOffer,
+                    pType: pType,
+                    pUnit: pUnit,
+                    pRegion: pRegion,
+                    pTownship: pTownship,
+                    minimumPrice: minimumPrice,
+                    maximumPrice: maximumPrice
+                },
+                success: function(response) {
+                    // Update the filtered results div
+                    console.log("AJAX request successful!");
+                    console.log(".."+response)
+                    // Assuming your response is HTML content, update the container
+                    $("#filteredResultsContainer").html(response);
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    console.error('Error occurred: ' + textStatus, errorThrown);
+                }
+            });
+        }
+
+        // Attach change event handlers to select boxes
+        $("#pOffer, #pType, #pUnit, #pRegion, #pTownship, #minimumPrice, #maximumPrice").on("change", function() {
+            updateFilteredResults();
+        });
+
+    });
+</script>
+
+
+   <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var regionDropdown = document.getElementById("pRegion");
+        var townshipDropdown = document.getElementById("pTownship");
+
+        // Function to populate townships
+        function populateTownships() {
+            var regionId = regionDropdown.value;
+
+            // AJAX call to get townships of selected region
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        // On success, parse the response and populate the township dropdown
+                        var townships = JSON.parse(xhr.responseText);
+                        townshipDropdown.innerHTML = "<option value='' disabled selected>Select Township</option>";
+                        townships.forEach(function(township) {
+                            townshipDropdown.innerHTML += `<option value="${township.id}">${township.name}</option>`;
+                        });
+                    } else {
+                        // Handle error
+                        console.error('Error occurred: ' + xhr.status);
+                    }
+                }
+            };
+
+            xhr.open("GET", `getTownships.php?region_id=${regionId}`, true);
+            xhr.send();
+        }
+
+        // Run the function when the region dropdown changes
+        regionDropdown.addEventListener("change", populateTownships);
+
+        // Run the function initially when the document is loaded
+        populateTownships();
+    });
+</script>
+
 </body>
 
 </html>

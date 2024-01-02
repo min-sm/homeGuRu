@@ -53,11 +53,12 @@
                         </div>
                     </div>
                 </a>
-
+                 <a href="mailto:<?= $guru_data[0]['gd_email']  ?>">
                     <div class="flex items-center gap-3">
                         <i class="fa-solid fa-envelope"></i>
                         <p>   <?= $guru_data[0]['gd_email']  ?></p>
                     </div>
+                    </a>
                     <p class="text- opacity-50 pt-2 hidden md:block">Copyright &#169 2023. All Rights Reserved</p>
                 </div>
 
@@ -86,7 +87,7 @@
                     <a href="../collaborator/collaborator_list_user_view.php"><u>Collaborator</u></a>
                     <div class="text-2xl flex space-x-6 md:pt-2 pt-5 ">
                         <a href=<?= $guru_data[0]['gd_facebook']  ?>><i class="fa-brands fa-facebook fa-beat" style="color: #1877f2;"></i></a>
-                        <a href="<?= $guru_data[0]['gd_viber']  ?>"> <i class="fa-brands fa-viber fa-beat" style="color: #7360f2;"></i></a>
+                        <a href="viber://chat/?number=%2B<?= $guru_data[0]['gd_viber'] ?>"> <i class="fa-brands fa-viber fa-beat" style="color: #7360f2;"></i></a>
                         <a href="<?= $guru_data[0]['gd_telegram']  ?>"><i class="fa-brands fa-telegram fa-beat" style="color: #229ed9;"></i></a>
 
                     </div>

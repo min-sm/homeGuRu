@@ -73,7 +73,7 @@
         <div class="flex w-1/4 items-center border-r">
           <ion-icon name="location" class="text-alert mr-1 lg:mx-2"></ion-icon>
           <div>
-            <select name="location" class="bg-secondary text-primary w-16 sm:w-20 md:w-28 lg:w-36 xl:w-48 2xl:w-52 border-none text-2xs sm:text-sm lg:text-base focus:ring-0">
+            <select name="location" class="bg-secondary text-primary w-16 sm:w-20 md:w-28 lg:w-36 xl:w-48 2xl:w-52 border-none text-2xs sm:text-small lg:text-base focus:ring-0">
               <option value="12" disabled selected>Location</option>
               <?php foreach ($locations as $region) : ?>
                 <option value="<?php echo $region['id']; ?>"><?php echo $region['name']; ?></option>
@@ -303,7 +303,7 @@
   <h1 class="font-playFair text-2xl font-extrabold ml-12 mb-10 tracking-wider">
     Lastest Rent Properties
   </h1>
-  <div class=" px-2 flex w-full flex-col content-stretch  space-y-2 items-center lg:flex-row lg:justify-around mb-20">
+  <div class=" px-2 flex w-full flex-col content-stretch  space-y-2 items-center lg:flex-row lg:justify-around mb-5">
     <?php
     $maxItems = 3;
     $itemCount = 0;
@@ -452,13 +452,15 @@
 
 
   </div>
+  <div class=" text-right pr-14 mb-20">
+  <a href="../PropertyPost/rent_view.php" class=" underline text-blue-700 tracking-wide ">See all</a>
+  </div>
 
-
-  <!-- card container 2  -->
+  <!-- card container 2 sale -->
   <h1 class="font-playFair text-2xl font-extrabold ml-12 mb-10 tracking-wider">
     Lastest Sale Properties
   </h1>
-  <div class=" px-2 flex w-full flex-col content-stretch  space-y-2 items-center lg:flex-row lg:justify-around mb-20">
+  <div class=" px-2 flex w-full flex-col content-stretch  space-y-2 items-center lg:flex-row lg:justify-around mb-5">
     <?php
     $maxLimit = 3;
     $count = 0;
@@ -605,7 +607,10 @@
       </div>
     <?php } ?>
   </div>
-  <!-- Testimonials -->
+  <div class=" text-right pr-14 mb-20">
+  <a href="../PropertyPost/buy_view.php" class=" underline text-blue-700 tracking-wide ">See all</a>
+  </div>
+  <!-- Testimonials --> 
 
   <div data-aos="fade-right" data-aos-duration="700" class=" mb-28 bg-white rounded-md pt-10 w-11/12 m-auto pb-14">
     <!-- title -->
