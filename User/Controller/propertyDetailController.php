@@ -12,8 +12,5 @@ $sql = $pdo->prepare($query);
 $sql->bindValue(":id", $id);
 $sql->execute();
 $property_datas = $sql->fetchAll(PDO::FETCH_ASSOC);
-echo '<pre>';
-print_r($property_datas);
-ini_set('display_errors', '1');
-echo '</pre>';
+
 ?>

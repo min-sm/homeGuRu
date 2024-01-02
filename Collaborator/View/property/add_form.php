@@ -47,7 +47,7 @@
         <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">Add Property Post</h1>
 
         <!-- add image section -->
-        <div class="flex flex-col lg:flex-row items-center sm:items-start gap-4 overflow-x-auto">
+        <div class="flex flex-col lg:flex-row items-center sm:items-start gap-4 overflow-x-auto ">
             <!-- add photo button -->
             <div>
                 <label for="add_img" class="flex items-center justify-center w-96 h-56 bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg border dark:border-white border-black"><span>+ Add Photo</span></label>

@@ -52,12 +52,51 @@ include "../../Controller/PropertyType/PropertyTypeListController.php";
             /* Black w/ opacity */
         }
 
-        /* Modal Content */
-        #modal-content {
-            flex-direction: column;
-            background-color: rgba(255, 255, 255, 0.8);
-            width: fit-content;
-        }
+        .image-container {
+    width: 24rem;
+    height: 14rem;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 10px;
+    border-radius: 0.5rem;
+}
+
+.image-label-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+}
+
+/* The Modal (background) */
+#myModal {
+    display: none;
+    /* Hidden by default */
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+#modal-content {
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: fit-content;
+}
+        
     </style>
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -307,8 +346,16 @@ include "../../Controller/PropertyType/PropertyTypeListController.php";
                     <label for="p_map_location" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                         Location Map</label>
                     <div class=" flex ">
+<<<<<<< HEAD
                         <input type="text" name="p_map_location" id="" class="w-3/5 mr-16  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Paste google map link of location ">
 
+=======
+                        <input type="text" name="p_map_location" id="" class="w-3/5 mr-16  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for NearBy Name ">
+                        <button type="submit" class="text-white bg-darkGreen hover:bg-teal-800 
+                            focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium px-8 py-2 text-center 
+                            dark:bg-darkGreen dark:hover:bg-darkGreen dark:focus:ring-teal-800">
+                            Search</button>
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
                     </div>
                 </div>
                 <div class="w-5/6 mb-5 items-center justify-center ">
@@ -375,12 +422,21 @@ include "../../Controller/PropertyType/PropertyTypeListController.php";
                         </div>
                     </div>
 
+<<<<<<< HEAD
                     <div class="w-5/6 relative my-5">
                         <button type="submit" class="text-white bg-darkGreen hover:bg-green-800 
                     focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium
                     px-2 lg:px-8 py-2 text-center dark:bg-darkGreen dark:hover:bg-darkGreen dark:focus:ring-green-800">
                             Submit</button>
                         <button type="" class="mx-16 text-teal-700 border-2 border-teal-700 bg-transparent hover:bg-teal-800 hover:text-black
+=======
+                <div class="w-5/6 relative my-5">
+                    <button type="submit" class="text-white bg-darkGreen hover:bg-green-800 
+                    focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium
+                    px-2 lg:px-8 py-2 text-center dark:bg-darkGreen dark:hover:bg-darkGreen dark:focus:ring-green-800">
+                        Submit</button>
+                    <button type="" class="mx-16 text-teal-700 border-2 border-teal-700 bg-transparent hover:bg-teal-800 hover:text-black
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
                     focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium 
                     px-2 lg:px-7 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Cancel</button>
@@ -388,15 +444,25 @@ include "../../Controller/PropertyType/PropertyTypeListController.php";
                         <a href="./property_test_view.php"><button type="" class="absolute right-0 bg-red-600 hover:bg-red-800 
                     focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium text-white 
                     px-2 lg:px-8 py-2 text-center dark:bg-darkGreen dark:hover:bg-darkGreen dark:focus:ring-green-800">
+<<<<<<< HEAD
                                 Test View</button>
                         </a>
                     </div>
+=======
+                        Test View</button>
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
                 </div>
 
         </form>
+<<<<<<< HEAD
     </div>
     <script src="../resources/js/show-img.js"></script>
     <?php include '../footer/footer.php' ?>
+=======
+         <!-- <?php include '../footer/footer.php' ?> -->
+        <script src="../resources/js/show-img.js" ></script>
+
+>>>>>>> cb21674bc937154fbe4f4f2cf5cfda26dcd4b64f
 </body>
 
 </html>

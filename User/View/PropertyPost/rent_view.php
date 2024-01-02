@@ -77,6 +77,7 @@
         </select>
       </div>
     </div>
+    </div>
   </div>
 
   <!-- sort by -->
