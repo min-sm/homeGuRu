@@ -1,0 +1,78 @@
+      <div class="sm:w-3/4 w-11/12 sm:py-10 bg-gray-800 border-gray-200 rounded my-5 flex justify-around flex-col sm:flex-row items-center hover:p-2">
+            <div class="w-46 h-46  bg-[#F7F7F7] my-5">
+                <img class=" w-40 h-40" src="../resources/img/common/company Logo/TPL Myanmar.png" alt="company Logo" />
+            </div>
+            <div class=" text-center  sm:text-left h-46  my-5 text-white ">
+                <div class="font-bold  sm:text-xl mb-8 ">
+                    TPL Myanmar Real Estate & Service Co.,Ltd
+                </div>
+                <div class="mb-2">
+                    <ion-icon class="mr-2" name="person-outline"></ion-icon>
+                    <span>319, Rm 4, Yan Aung Lane (2), Ward (2), Yankin, Yangon , Myanmar</span>
+                </div>
+                <div class="mb-2">
+                    <ion-icon class="mr-2" name="call-outline"></ion-icon>
+                    <span>(+95) 95198105</span>
+                </div>
+                <div class="mb-2 whitespace-nowrap">
+                    <ion-icon class="mr-2" name="mail-outline"></ion-icon>
+                    <span>tplmyanmar@gmail.coms</span>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- Start  Company profile info Section  -->
+
+        <!-- Start  Company profile info Section  -->
+        <div class="sm:w-3/4 w-11/12 sm:py-10 bg-gray-800 border-gray-200 rounded my-5 flex justify-around flex-col sm:flex-row items-center hover:p-2">
+            <div class="w-46 h-46  bg-[#F7F7F7] my-5">
+                <img class=" w-40 h-40" src="../resources/img/common/company Logo/TPL Myanmar.png" alt="company Logo" />
+            </div>
+            <div class=" text-center  sm:text-left h-46  my-5 text-white ">
+                <div class="font-bold  sm:text-xl mb-8 ">
+                    TPL Myanmar Real Estate & Service Co.,Ltd
+                </div>
+                <div class="mb-2">
+                    <ion-icon class="mr-2" name="person-outline"></ion-icon>
+                    <span>319, Rm 4, Yan Aung Lane (2), Ward (2), Yankin, Yangon , Myanmar</span>
+                </div>
+                <div class="mb-2">
+                    <ion-icon class="mr-2" name="call-outline"></ion-icon>
+                    <span>(+95) 95198105</span>
+                </div>
+                <div class="mb-2 whitespace-nowrap">
+                    <ion-icon class="mr-2" name="mail-outline"></ion-icon>
+                    <span>tplmyanmar@gmail.coms</span>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- Start  Company profile info Section  -->
+
+        <!-- Start  Company profile info Section  -->
+        <div class="sm:w-3/4 w-11/12 sm:py-10 bg-gray-800 border-gray-200 rounded my-5 flex justify-around flex-col sm:flex-row items-center hover:p-2">
+            <div class="w-46 h-46  bg-[#F7F7F7] my-5">
+                <img class=" w-40 h-40" src="../resources/img/common/company Logo/TPL Myanmar.png" alt="company Logo" />
+            </div>
+            <div class=" text-center  sm:text-left h-46  my-5 text-white ">
+                <div class="font-bold  sm:text-xl mb-8 ">
+                    TPL Myanmar Real Estate & Service Co.,Ltd
+                </div>
+                <div class="mb-2">
+                    <ion-icon class="mr-2" name="person-outline"></ion-icon>
+                    <span>319, Rm 4, Yan Aung Lane (2), Ward (2), Yankin, Yangon , Myanmar</span>
+                </div>
+                <div class="mb-2">
+                    <ion-icon class="mr-2" name="call-outline"></ion-icon>
+                    <span>(+95) 95198105</span>
+                </div>
+                <div class="mb-2 whitespace-nowrap">
+                    <ion-icon class="mr-2" name="mail-outline"></ion-icon>
+                    <span>tplmyanmar@gmail.coms</span>
+                </div>
+            </div>
+
+
+        </div>
