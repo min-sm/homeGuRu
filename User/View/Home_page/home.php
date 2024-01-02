@@ -396,15 +396,15 @@
                     ?></span>
           </div>
           <div class="mt-2 flex items-center justify-between">
-            <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
-              <h5 class="text-xl font-medium  text-gray-900 dark:text-white">
-                <?php
-                $maxLen = 25;
-                $property['p_title'] = ucwords(strtolower($property['p_title']));
-                if (strlen($property['p_title']) > $maxLen) {
-                  $property['p_title'] = substr($property['p_title'], 0, $maxLen - 4) . '...';
-                }
-                echo $property['p_title'];
+                                <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
+                                    <h5 class="text-xl font-medium  text-gray-900 dark:text-white">
+                                        <?php
+                                        $maxLen = 25;
+                                        $property['p_title'] = ucwords(strtolower($property['p_title']));
+                                        if (strlen($property['p_title']) > $maxLen) {
+                                            $property['p_title'] = substr($property['p_title'], 0, $maxLen - 4) . '...';
+                                        }
+                                        echo $property['p_title'];
 
                 ?>
               </h5>
@@ -500,8 +500,8 @@
       // Increment the counter
       $count++;
     ?>
-      <div class="w-full  max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
+       <div class="w-full  max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
           <div class="relative h-56">
             <div class="<?php
                         if ($property['p_after'] == 1) {
@@ -551,15 +551,15 @@
                     ?></span>
           </div>
           <div class="mt-2 flex items-center justify-between">
-            <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
-              <h5 class="text-xl font-medium  text-gray-900 dark:text-white">
-                <?php
-                $maxLen = 25;
-                $property['p_title'] = ucwords(strtolower($property['p_title']));
-                if (strlen($property['p_title']) > $maxLen) {
-                  $property['p_title'] = substr($property['p_title'], 0, $maxLen - 4) . '...';
-                }
-                echo $property['p_title'];
+                                <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
+                                    <h5 class="text-xl font-medium  text-gray-900 dark:text-white">
+                                        <?php
+                                        $maxLen = 25;
+                                        $property['p_title'] = ucwords(strtolower($property['p_title']));
+                                        if (strlen($property['p_title']) > $maxLen) {
+                                            $property['p_title'] = substr($property['p_title'], 0, $maxLen - 4) . '...';
+                                        }
+                                        echo $property['p_title'];
 
                 ?>
               </h5>

@@ -1,4 +1,10 @@
+<?php
+
+session_start();?>
+
+
 <?php include '../../Controller/common/colorsController.php' ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,14 +42,19 @@
     <div class="flex flex-col w-full items-center justify-evenly my-10">
         <h1 class="font-semibold text-5xl text-center " style="font-family: 'Playfair Display';">Collaborator Register
         </h1>
-
-        <form class="w-3/5 mx-auto  my-16">
+        <form class="w-3/5 mx-auto  my-16"  action="../../Controller/Collaborator_register/CollaboratorRegisterController.php" method="Post"  enctype="multipart/form-data">
             <div class="grid md:grid-cols-2 md:gap-16 ">
                 <div class="">
                     <div class=" mb-5">
-                        <label for="clogo" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
-                            Company Logo</label>
-                        <img  name="clogo" class=" h-40 mb-2 " src="../resources/img/common/blank photo.png" alt="">
+                    <label for="clogo" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
+    Company Logo
+</label>
+<input type="file" name="clogo" id="clogo" class="hidden" onchange="previewFile()">
+<label for="clogo" class="cursor-pointer">
+    <img  id="previewImage" class="h-40 mb-2" src="../resources/img/common/blank photo.png" alt="">
+</label>
+<div class="mb-2 "><small class="block  font-medium text-left text-red-600">
+ <?= $_SESSION["createcollaboratorerror"] ?></small> </div>
                     </div>
                     <div class="mb-5">
                         <label for="cname" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
@@ -83,7 +94,7 @@
                     <div class="mb-5">
                         <label for="caddress" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Your
                             Message</label>
-                        <textarea name="cmessage" id="caddress" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write note Here....."></textarea>
+                        <textarea name="cmessage" id="cmessage" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write note Here....."></textarea>
                     </div>
                     <div class="flex items-end m-16 mb-3">
 
