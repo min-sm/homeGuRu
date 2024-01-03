@@ -2,8 +2,6 @@
 session_start();
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -72,7 +70,9 @@ session_start();
 <div class="mb-10">
     <label class="text-left block mb-2 font-medium text-secondary" for="">Password</label>
     <input name="password" class="inline-block w-full p-4 leading-6 text-lg placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="password" placeholder="•••••••••••••••••" />
-    <div class="mt-3">   <small class="block mb-5  font-medium text-left text-red-500"><?= $_SESSION["loginerror"] ?></small> </div> 
+    <!-- Error message display -->
+<p id="error-message" class="block mb-5 font-medium text-left text-red-500"><?= $_SESSION["loginerror"] ?></p>
+
 </div> 
 <a href="" class="text-center">
             <button name = "login" type="submit"

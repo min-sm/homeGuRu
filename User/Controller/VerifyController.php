@@ -2,7 +2,6 @@
 
 include "../Model/DBConnection.php";
 $gu_token = $_GET["token"];
-
 $sql = $pdo->prepare(
     "SELECT * FROM m_users WHERE gu_token = :token"
 );
@@ -20,7 +19,7 @@ $sql = $pdo->prepare(
 );
 $sql->bindValue(":id" , $id);
 $sql->execute();
-echo "Your Account is Verify! You can login our system.";
+header("Location: ../../User/View/user/user_login.php"); 
 
 }else{
 echo "Token key is wrong";
