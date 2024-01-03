@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 include "./common/mailSender.php";
@@ -16,9 +17,6 @@ if (isset($_POST["register"])) {
         header("Location: ../View/user/user_register.php");
         exit(); // Stop further execution
     }
-
-
-
     // Check password length
     if (strlen($password) < 8) {
         $_SESSION["registererror"] = "Password must be at least 8 characters long";
@@ -75,15 +73,21 @@ if (isset($_POST["register"])) {
         $mail = new SendMail();
         $mail->sendMail(
              $email,
-            "Verification Link",
+            "Secure your Home GuRu account with Login Verification ",
             "
-            <h2>Here is your verification link</h2> 
-            <a href='http://$domain/homeGuRu/homeGuRu/User/Controller/VerifyController.php?token=$gu_token'>Verify</a> 
+            <p>Dear User,</p>
+            <p>Thank you for choosing Home GuRu. To complete your login, please click on the button below:</p>
+            <button style='inline-block; tracking-wider; m-auto; py-2; w-40; mb-6; text-center; leading-6; text-black; font-medium; bg-blue; border-3; border-blue; shadow; rounded; transition; duration-200;'>
+                <a href='http://$domain/homeGuRu/homeGuRu/User/Controller/VerifyController.php?token=$gu_token' style='color: black; text-decoration: none;'>Login</a>
+            </button>
+        
+            <p>If you have any questions or concerns regarding the verification process, please do not hesitate to contact our customer support team at homeguru@gmail.com</p>
+            <p>Best regards,<br>Your Home GuRu Team</p>
              "
         );
 
         // redirect to login
-        header("Location: ../View/user/user_login.php");
+        header("Location: ../View/user/user_register_success.php");
     } else {
         $_SESSION["registererror"] = "Your email is already in our system";
         header("Location: ../View/user/user_register.php");
