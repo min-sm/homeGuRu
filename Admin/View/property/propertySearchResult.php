@@ -1,5 +1,5 @@
 <?php
-include_once "../../Controller/Property/PropertyListController.php";
+include_once "../../Controller/Property/PropertySearchResultController.php";
 
 ?>
 <!DOCTYPE html>
@@ -97,34 +97,7 @@ include_once "../../Controller/Property/PropertyListController.php";
 
     <!-- main body -->
     <div class="p-4 pt-20 sm:ml-64">
-        <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">All Stock List</h1>
-
-        <!-- results found -->
-        <div class="pt-4 pb-8 flex items-center">
-            <!-- 100 found -->
-            <span class="lg:ms-16 sm:ms-8 me-8 lg:text-2xl text-base text-black dark:text-white"><span><?= $resultCount['total_result'] ?></span> Found</span>
-            <!-- in stock / out of stock -->
-            <div class="lg:space-x-8 space-x-4 lg:text-base text-xs">
-                <label for="allStock" class="text-goldYellow cursor-pointer label "><a href="listAllStock.php">All Stocks</a></label>
-                <label for="outStock" class="text-gray-500 cursor-pointer label "><a href="listOutOfStock.php">Out of Stock</a>
-                </label>
-                <label for="inStock" class="text-gray-500 cursor-pointer label "><a href="listInStock.php">In Stock</a></label>
-                <input type="radio" id="allStock" name="sort_by" value="" class="hidden" />
-                <input type="radio" id="outStock" name="sort_by" value="" class="hidden" />
-                <input type="radio" id="inStock" name="sort_by" value="" class="hidden" />
-            </div>
-
-            <!-- 2 view options -->
-            <div class="flex-1 flex justify-end w-full">
-                <!-- in stock / out of stock -->
-                <div class="flex lg:space-x-8 space-x-4">
-                    <label for="table-view" class="text-goldYellow  cursor-pointer label1 text-center"><i class="fa-solid fa-bars w-8 lg:text-4xl text-lg"></i></label>
-                    <label for="card-view" class="text-gray-500 cursor-pointer label1 "><i class="fa-solid fa-table-cells w-8 lg:text-4xl text-lg"></i></label>
-                    <input type="radio" id="table-view" name="view_option" value="" class="hidden" checked />
-                    <input type="radio" id="card-view" name="view_option" value="" class="hidden" />
-                </div>
-            </div>
-        </div>
+        <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">Search Result</h1>
 
         <!-- search by id -->
         <div class="my-8 flex items-center justify-evenly w-full">
@@ -132,8 +105,27 @@ include_once "../../Controller/Property/PropertyListController.php";
             <a href="#" onclick="submitSearch()" type="submit" class="bg-darkGreen px-6 py-1.5 text-white rounded-lg border border-black">Search</a>
         </div>
 
+        <?php
+        $noRes = count($result) > 0 ? '' : 'hidden';
+        ?>
+
+        <p class="<?= count($result) > 0 ? 'hidden' : '' ?> text-black dark:text-white text-3xl text-center">
+            <?= "No result found for $search_code."; ?>
+        </p>
+
+        <!-- 2 view options -->
+        <div class="<?= $noRes; ?> flex-1 flex justify-end w-full my-4">
+            <!-- in stock / out of stock -->
+            <div class="flex lg:space-x-8 space-x-4">
+                <label for="table-view" class="text-goldYellow  cursor-pointer label1 text-center"><i class="fa-solid fa-bars w-8 lg:text-4xl text-lg"></i></label>
+                <label for="card-view" class="text-gray-500 cursor-pointer label1 "><i class="fa-solid fa-table-cells w-8 lg:text-4xl text-lg"></i></label>
+                <input type="radio" id="table-view" name="view_option" value="" class="hidden" checked />
+                <input type="radio" id="card-view" name="view_option" value="" class="hidden" />
+            </div>
+        </div>
+
         <!-- table -->
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg" id='table'>
+        <div class="<?= $noRes; ?> relative overflow-x-auto shadow-md sm:rounded-lg" id='table'>
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-base text-gray-700 uppercase bg-primary dark:bg-gray-800 dark:text-gray-400">
                     <tr>
@@ -170,7 +162,7 @@ include_once "../../Controller/Property/PropertyListController.php";
                     <?php
                     $counter = (isset($_GET['page'])) ? (1 + (6 * ($_GET['page'] - 1))) : 1;
 
-                    foreach ($properties as $property) {
+                    foreach ($result as $property) {
                     ?>
                         <!-- 1st row -->
                         <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
@@ -217,11 +209,10 @@ include_once "../../Controller/Property/PropertyListController.php";
         </div>
 
         <!-- cards -->
-
         <div class="hidden" id="cards">
             <div class="flex s justify-around gap-5  flex-wrap w-full  mb-10 ">
                 <?php
-                foreach ($properties as $property) {
+                foreach ($result as $property) {
                 ?>
                     <div class="w-full  max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="../Property/detail.php?id=<?= $property['id'] ?>">
@@ -363,50 +354,6 @@ include_once "../../Controller/Property/PropertyListController.php";
         </div>
 
         <!-- pagination -->
-        <?php include_once "../../Controller/Property/ListPaginationController.php";
-
-        $totalRecords = $result['total'];
-        $totalPages = ceil($totalRecords / $recordsPerPage);
-        ?>
-        <div class="flex justify-center my-16">
-            <nav aria-label="Page navigation example">
-                <ul class="flex items-center -space-x-px h-10 text-base">
-
-                    <!-- previous -->
-                    <li>
-                        <a href="listAllStock.php?page=<?= ($page == 1) ? 1 : $page - 1; ?>" class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                            <span class="sr-only">Previous</span>
-                            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
-                            </svg>
-                        </a>
-                    </li>
-                    <!-- all the pages -->
-                    <?php
-                    for ($i = 1; $i <= $totalPages; $i++) :
-                        $theCurrentPgCondition =  $i == $page;
-                    ?>
-                        <li>
-                            <a href='<?= $_SERVER['PHP_SELF']; ?>?page=<?= $i ?>' class="<?= $theCurrentPgCondition ? 'z-10' : ''; ?> flex items-center justify-center px-4 h-10 leading-tight <?= $theCurrentPgCondition ? 'text-blue-600' : 'text-gray-500'; ?> border border-<?= $theCurrentPgCondition ? 'blue' : 'gray'; ?>-300 bg-<?= $theCurrentPgCondition ? 'blue-50' : 'white'; ?> hover:bg-<?= $theCurrentPgCondition ? 'blue' : 'gray'; ?>-100 hover:text-<?= $theCurrentPgCondition ? 'blue' : 'gray'; ?>-700 dark:border-gray-700 dark:bg-gray-<?= $theCurrentPgCondition ? '700' : '800'; ?> dark:text-<?= $theCurrentPgCondition ? 'white' : 'gray-400 dark:hover:bg-gray-700 dark:hover:text-white'; ?>"><?= $i; ?></a>
-                        </li>
-                    <?php endfor ?>
-                    <!-- Next -->
-                    <li>
-                        <a href="listAllStock.php?page=<?php if ($page < $totalPages) {
-                                                            echo $page + 1;
-                                                        } else if ($page == $totalPages) {
-                                                            echo $totalPages;
-                                                        }
-                                                        ?>" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                            <span class="sr-only">Next</span>
-                            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
     </div>
 
     <!-- The Modal -->

@@ -128,9 +128,8 @@ include_once "../../Controller/Property/ListOutOfStockController.php";
 
         <!-- search by id -->
         <div class="my-8 flex items-center justify-evenly w-full">
-            <input type="text" placeholder="Property ID" class="rounded-lg dark:bg-gray-800 bg-white">
-            <button type="submit" class="bg-darkGreen px-6 py-1.5 text-white rounded-lg border border-black">Search</button>
-
+            <input type="text" id="propertyID" placeholder="Property ID" class="rounded-lg text-black dark:text-white dark:bg-gray-800 bg-white">
+            <a href="#" onclick="submitSearch()" type="submit" class="bg-darkGreen px-6 py-1.5 text-white rounded-lg border border-black">Search</a>
         </div>
 
         <!-- table -->
@@ -439,6 +438,11 @@ include_once "../../Controller/Property/ListOutOfStockController.php";
                 delConfirmBx.classList.remove("flex");
                 delConfirmBx.classList.add("hidden");
             }
+        }
+
+        function submitSearch() {
+            var propertyID = document.getElementById("propertyID").value;
+            window.location.href = `propertySearchResult.php?searchID=${propertyID}&p_status=2`;
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>

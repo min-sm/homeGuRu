@@ -1,5 +1,5 @@
 <?php
-include_once "../../Controller/Property/PropertyListController.php";
+include_once "../../Controller/Property/PropertyPendingController.php";
 
 ?>
 <!DOCTYPE html>
@@ -101,10 +101,10 @@ include_once "../../Controller/Property/PropertyListController.php";
 
         <!-- results found -->
         <div class="pt-4 pb-8 flex items-center">
-            <!-- 100 found -->
+            <!-- result found -->
             <span class="lg:ms-16 sm:ms-8 me-8 lg:text-2xl text-base text-black dark:text-white"><span><?= $resultCount['total_result'] ?></span> Found</span>
             <!-- in stock / out of stock -->
-            <div class="lg:space-x-8 space-x-4 lg:text-base text-xs">
+            <!-- <div class="lg:space-x-8 space-x-4 lg:text-base text-xs">
                 <label for="allStock" class="text-goldYellow cursor-pointer label "><a href="listAllStock.php">All Stocks</a></label>
                 <label for="outStock" class="text-gray-500 cursor-pointer label "><a href="listOutOfStock.php">Out of Stock</a>
                 </label>
@@ -112,7 +112,7 @@ include_once "../../Controller/Property/PropertyListController.php";
                 <input type="radio" id="allStock" name="sort_by" value="" class="hidden" />
                 <input type="radio" id="outStock" name="sort_by" value="" class="hidden" />
                 <input type="radio" id="inStock" name="sort_by" value="" class="hidden" />
-            </div>
+            </div> -->
 
             <!-- 2 view options -->
             <div class="flex-1 flex justify-end w-full">
@@ -170,7 +170,7 @@ include_once "../../Controller/Property/PropertyListController.php";
                     <?php
                     $counter = (isset($_GET['page'])) ? (1 + (6 * ($_GET['page'] - 1))) : 1;
 
-                    foreach ($properties as $property) {
+                    foreach ($properties_pending as $property) {
                     ?>
                         <!-- 1st row -->
                         <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
@@ -198,7 +198,7 @@ include_once "../../Controller/Property/PropertyListController.php";
                             </td>
 
                             <td class="px-6 py-4 text-center">
-                                <a href="detail.php?id=<?= $property['id'] ?>">
+                                <a href="pending.php?id=<?= $property['id'] ?>">
                                     <ion-icon name="document-text-outline" class="text-lg font-medium cursor-pointer text-blue-500"></ion-icon>
                                 </a>
                             </td>
@@ -221,10 +221,10 @@ include_once "../../Controller/Property/PropertyListController.php";
         <div class="hidden" id="cards">
             <div class="flex s justify-around gap-5  flex-wrap w-full  mb-10 ">
                 <?php
-                foreach ($properties as $property) {
+                foreach ($properties_pending as $property) {
                 ?>
                     <div class="w-full  max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                        <a href="../Property/detail.php?id=<?= $property['id'] ?>">
+                        <a href="../Property/pending.php?id=<?= $property['id'] ?>">
                             <div class="relative h-56">
                                 <div class="<?php
                                             if ($property['p_after'] == 1) {
@@ -350,20 +350,17 @@ include_once "../../Controller/Property/PropertyListController.php";
                             </div>
 
                             <div class="flex items-center justify-end">
-                                <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-                                <a href="../Property/detail.php?id=<?= $property['id'] ?>" class="text-darkGreen dark:text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
+                                <a href="../Property/pending.php?id=<?= $property['id'] ?>" class="text-darkGreen dark:text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
                             </div>
                         </div>
                     </div>
-
-
                 <?php }
                 ?>
             </div>
         </div>
 
         <!-- pagination -->
-        <?php include_once "../../Controller/Property/ListPaginationController.php";
+        <?php include_once "../../Controller/Property/PendingListPaginationController.php";
 
         $totalRecords = $result['total'];
         $totalPages = ceil($totalRecords / $recordsPerPage);
@@ -374,7 +371,7 @@ include_once "../../Controller/Property/PropertyListController.php";
 
                     <!-- previous -->
                     <li>
-                        <a href="listAllStock.php?page=<?= ($page == 1) ? 1 : $page - 1; ?>" class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <a href="<?= $_SERVER['PHP_SELF']; ?>?page=<?= ($page == 1) ? 1 : $page - 1; ?>" class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                             <span class="sr-only">Previous</span>
                             <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
@@ -392,12 +389,12 @@ include_once "../../Controller/Property/PropertyListController.php";
                     <?php endfor ?>
                     <!-- Next -->
                     <li>
-                        <a href="listAllStock.php?page=<?php if ($page < $totalPages) {
-                                                            echo $page + 1;
-                                                        } else if ($page == $totalPages) {
-                                                            echo $totalPages;
-                                                        }
-                                                        ?>" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <a href="<?= $_SERVER['PHP_SELF']; ?>?page=<?php if ($page < $totalPages) {
+                                                                        echo $page + 1;
+                                                                    } else if ($page == $totalPages) {
+                                                                        echo $totalPages;
+                                                                    }
+                                                                    ?>" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                             <span class="sr-only">Next</span>
                             <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
