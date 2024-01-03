@@ -55,11 +55,11 @@
             </div>
         </div>
         <div class=" flex  my-5 ">
-            <a href="../../Controller/Collaborator/CollaboratorAllRequestAcceptController.php?id=<?= $requestOne[0]['id'] ?>" class="tracking-wider text-white bg-darkGreen hover:bg-blue-800 
+            <a href="../../Controller/Collaborator/RequestListAcceptController.php?id=<?= $requestOne[0]['id'] ?>" class="tracking-wider text-white bg-darkGreen hover:bg-blue-800 
             focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium px-8 py-2 text-center 
             dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                 Make Appointment</a>
-            <a href="./admin_collaborator_all.php" type="" class="tracking-wider mx-10 text-white border-2 border-green-700 bg-alert opacity-80 hover:opacity-100
+            <a href="./collaborator_request_list.php" type="" class="tracking-wider mx-10 text-white border-2 border-green-700 bg-alert opacity-80 hover:opacity-100
             focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium  px-7 py-2 text-center 
             dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Decline</a>

@@ -43,9 +43,9 @@ if (!isset($_SESSION["cemailerror_Edit"])) {
     <?php include '../commonView/menu.php' ?>
 
     <!--Start  Collaborator Detail Edit-->
-    <div class="p-4 pt-20 sm:ml-64 flex flex-col items-center  dark:text-white ">
-        <h1 class=" text-center font-bold   text-2xl m-7 tracking-wide ">Collaborator Edit Detail</h1>
-        <form class="lg:w-3/5 w-full" action="../../Controller/Collaborator/CollaboratorAllUpdateController.php" method="post" enctype="multipart/form-data">
+    <div class="p-4 pt-20 sm:ml-64 flex flex-col items-center">
+        <h1 class=" text-center font-bold text-2xl m-7 tracking-wide   dark:text-white">Collaborator Edit Detail</h1>
+        <form class="lg:w-3/5 w-full" action="../../Controller/Collaborator/CollaboratorListUpdateController.php" method="post" enctype="multipart/form-data">
             <input type="text" class="hidden" name="gc_id" value="<?= $collaboratorOne[0]['id']; ?>">
             <div class="grid grid-cols-2 gap-20  mb-5">
                 <div class="flex items-center   lg:w-72 w-28">
@@ -137,7 +137,7 @@ if (!isset($_SESSION["cemailerror_Edit"])) {
                 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium px-8 py-2 text-center  ">
                     Update</button>
 
-                <a href="../../View/Collaborator/admin_collaborator_detail_preview.php?id=<?= $collaboratorOne[0]['id']; ?>" class="tracking-wider ml-10 text-white  bg-alert opacity-80 hover:opacity-100
+                <a href="../../View/Collaborator/collaborator_detail_preview.php?id=<?= $collaboratorOne[0]['id']; ?>" class="tracking-wider ml-10 text-white  bg-alert opacity-80 hover:opacity-100
                 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium  px-7 py-2 text-center ">
                     Cancel</a>
             </div>

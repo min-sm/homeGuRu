@@ -1,7 +1,4 @@
-<?php
-include '../../Controller/Collaborator/CollaboratorAllDetailPreviewContorller.php';
-include "../../Controller/Property/CollaboratorPropertyListController.php";
-?>
+<?php include '../../Controller/Collaborator/CollaboratorAllDetailPreviewContorller.php' ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +29,7 @@ include "../../Controller/Property/CollaboratorPropertyListController.php";
     <?php include '../commonView/menu.php' ?>
     <!--Start  Collaborator Detail-->
     <div class="p-4 pt-20 sm:ml-64 flex flex-col items-center  dark:text-gray-200">
-        <h1 class=" text-center font-bold text-2xl m-7 tracking-wide ">Collaborator Detail</h1>
+        <h1 class=" text-center font-bold text-2xl m-7 tracking-wide  ">Collaborator Detail</h1>
         <div class=" lg:w-1/2 w-full grid grid-row-13 gap-2">
             <img class="w-40 mb-5" src='<?php echo "../../../Storage/collaborator_img/gc" . $collaborator[0]['collaborator_id'] . "/" . $collaborator[0]['gc_logo'] ?>' alt="">
 
@@ -108,11 +105,11 @@ include "../../Controller/Property/CollaboratorPropertyListController.php";
             </div>
         </div>
         <div class=" flex  my-16 ">
-            <a href="./admin_collaborator_detail_edit.php?id=<?= $collaborator[0]['collaborator_id']  ?>" class="tracking-wider text-white bg-goldYellow opacity-75 hover:opacity-100
+            <a href="./collaborator_detail_edit.php?id=<?= $collaborator[0]['collaborator_id']  ?>" class="tracking-wider text-white bg-goldYellow opacity-75 hover:opacity-100
             focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium px-8 py-2 text-center  ">
                 Edit Detail</a>
 
-            <a href="./admin_collaborator_all.php" class="tracking-wider mx-10 text-white bg-alert opacity-80 hover:opacity-100
+            <a href="./collaborator_list.php" class="tracking-wider mx-10 text-white bg-alert opacity-80 hover:opacity-100
             focus:ring-4 focus:outline-none  focus:ring-blue-300 font-semibold rounded-lg text-medium  px-7 py-2 text-center ">
                 Cancel</a>
 
@@ -121,7 +118,7 @@ include "../../Controller/Property/CollaboratorPropertyListController.php";
             $activityColor = $activity == 0 ? "bg-darkGreen" :  "bg-paleGray ";
 
             ?>
-            <a name='activity_ban' href="#" onclick="confirmation( '../../Controller/Collaborator/CollaboratorAllActivityOnOffController.php?id=<?= $collaborator[0]['collaborator_id'] ?>')" class="tracking-wider <?= $activityColor  ?>  text-alert opacity-75 hover:opacity-100 hover:bg-darkGreen
+            <a name='activity_ban' href="#" onclick="confirmation( '../../Controller/Collaborator/CollaboratorListActivityOnOffController.php?id=<?= $collaborator[0]['collaborator_id'] ?>')" class="tracking-wider <?= $activityColor  ?>  text-alert opacity-75 hover:opacity-100 hover:bg-darkGreen
              border-2 border-darkGreen font-semibold rounded-lg text-medium px-8 py-2 text-center ">
                 <?= $activityStatus; ?>
             </a>
@@ -129,7 +126,7 @@ include "../../Controller/Property/CollaboratorPropertyListController.php";
         <hr class="w-[35rem] border-2 text-gray-500">
 
     </div>
-
+    
     <!--End  Collaborator Detail -->
 
     <div class="p-4 pt-20 sm:ml-64">
@@ -201,49 +198,132 @@ include "../../Controller/Property/CollaboratorPropertyListController.php";
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    $counter = (isset($_GET['page'])) ? (1 + (6 * ($_GET['page'] - 1))) : 1;
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                        <th scope="row" class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            01
+                        </th>
+                        <td class="px-4 py-4">
+                            GRC-2001
+                        </td>
 
-                    foreach ($properties as $property) {
-                    ?>
-                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <th scope="row" class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                <?= $counter ?>
-                            </th>
-                            <td class="px-4 py-4">
-                                <?= $property['p_code'] ?>
-                            </td>
-                            <td class="px-4 py-4">
-                                <?= $property['pt_name'] ?>
-                            </td>
-                            <?php
-                            $property_type = $property['p_offer'] == '0';
-                            ?>
-                            <td class="px-6 py-4 <?= $property_type ? 'text-goldYellow' : 'text-alert'; ?> font-semibold">
-                                <?= $property_type ? 'Rent' : 'Sale'; ?>
-                            </td>
-                            <td class="px-4 py-4 text-left">
-                                <span class="text-green-500 font-semibold"><?= $property['p_price_unit'] == '1' ? '$' . number_format($property['p_price']) : number_format($property['p_price']) . ' Kyats'; ?> / <?= $property['p_duration'] == '0' ? 'Per Month' : 'Per Year'; ?>
-                                </span>
-                            </td>
-                            <td class="px-4 py-4  font-bold tracking-wide">
-                                <?= $property["township_name"] ?>
-                            </td>
+                        <td class="px-4 py-4">
+                            Condo
+                        </td>
+                        <td class="px-4 py-4 text-goldYellow font-semibold">
+                            Rent
+                        </td>
 
-                            <td class="px-4 py-4 flex justify-center">
-                                <a href="../Property/detail.php?id=<?= $property['id'] ?>">
-                                    <ion-icon name="document-text-outline" class="text-lg font-medium cursor-pointer text-blue-500"></ion-icon>
-                                </a>
-                                <!-- <img class="w-5" src="../resources/img/icon/view-details.png" alt=""> -->
-                            </td>
-                            <td class="px-4 py-4 text-center">
-                                <ion-icon name="trash-bin" class="text-xl font-medium cursor-pointer text-alert"></ion-icon>
-                            </td>
-                        </tr>
-                    <?php
-                        $counter++;
-                    }
-                    ?>
+                        <td class="px-4 py-4 text-left">
+                            <span class="text-alert font-semibold">30,000,000</span><span>kyats</span> <span>/permonth</span>
+                        </td>
+                        <td class="px-4 py-4  font-bold tracking-wide">
+                            Bahan
+                        </td>
+
+                        <td class="px-4 py-4 flex justify-center">
+                            <!-- <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> -->
+                            <img class="w-5" src="../resources/img/icon/view-details.png" alt="">
+                        </td>
+                        <td class="px-4 py-4 text-center">
+                            
+            <a href="./admin_collaborator_all.php" class="tracking-wider mx-10 text-white bg-alert opacity-80 hover:opacity-100
+            focus:ring-4 focus:outline-none  focus:ring-blue-300 font-semibold rounded-lg text-medium  px-7 py-2 text-center ">
+                Cancel</a>
+                            <!-- <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> -->
+                            <ion-icon name="trash-bin" class="text-xl font-medium cursor-pointer text-alert"></ion-icon>
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                        <th scope="row" class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            02
+                        </th>
+                        <td class="px-4 py-4">
+                            GSH-3092
+                        </td>
+
+                        <td class="px-4 py-4">
+                            House
+                        </td>
+                        <td class="px-4 py-4 text-alert font-semibold">
+                            Sale
+                        </td>
+
+                        <td class="px-4 py-4 text-left">
+                            <span class="text-alert font-semibold">30,000,000</span><span>$</span>
+                        </td>
+                        <td class="px-4 py-4  font-bold tracking-wide">
+                            Kamayut
+                        </td>
+
+                        <td class="px-4 py-4 flex justify-center">
+                            <!-- <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> -->
+                            <img class="w-5" src="../resources/img/icon/view-details.png" alt="">
+                        </td>
+                        <td class="px-4 py-4 text-center">
+                            <!-- <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> -->
+                            <ion-icon name="trash-bin" class="text-xl font-medium cursor-pointer text-alert"></ion-icon>
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                        <th scope="row" class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            03
+                        </th>
+                        <td class="px-4 py-4">
+                            GRC-2005
+                        </td>
+                        <td class="px-4 py-4">
+                            Condo
+                        </td>
+                        <td class="px-4 py-4 text-goldYellow font-semibold">
+                            Rent
+                        </td>
+
+                        <td class="px-4 py-4 text-left">
+                            <span class="text-alert font-semibold">30,000,000</span><span>kyats</span> <span>/permonth</span>
+                        </td>
+                        <td class="px-4 py-4  font-bold tracking-wide">
+                            Bahan
+                        </td>
+
+                        <td class="px-4 py-4 flex justify-center">
+                            <!-- <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> -->
+                            <img class="w-5" src="../resources/img/icon/view-details.png" alt="">
+                        </td>
+                        <td class="px-4 py-4 text-center">
+                            <!-- <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> -->
+                            <ion-icon name="trash-bin" class="text-xl font-medium cursor-pointer text-alert"></ion-icon>
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                        <th scope="row" class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            04
+                        </th>
+                        <td class="px-4 py-4">
+                            GSH-3098
+                        </td>
+                        <td class="px-4 py-4">
+                            House
+                        </td>
+                        <td class="px-4 py-4 text-alert font-semibold">
+                            Sale
+                        </td>
+
+                        <td class="px-4 py-4 text-left">
+                            <span class="text-alert font-semibold">30,000,000</span><span>Kyats</span>
+                        </td>
+                        <td class="px-4 py-4  font-bold tracking-wide">
+                            Kamayut
+                        </td>
+
+                        <td class="px-4 py-4 flex justify-center">
+                            <!-- <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> -->
+                            <img class="w-5" src="../resources/img/icon/view-details.png" alt="">
+                        </td>
+                        <td class="px-4 py-4 text-center">
+                            <!-- <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> -->
+                            <ion-icon name="trash-bin" class="text-xl font-medium cursor-pointer text-alert"></ion-icon>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -836,15 +916,15 @@ include "../../Controller/Property/CollaboratorPropertyListController.php";
 
     <!-- Modal-->
     <div id="activityModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center;">
-        <div style="background: white; padding: 40px; border-radius: 8px; width: 300px; text-align: center;">
-            <p class="mb-5">Are you sure to
-                <span class="font-semibold text-alert"> <?= $activityStatus; ?></span>?
-                this <span class="font-semibold"> <?= $collaborator[0]['gc_company_name']; ?></span>
-            </p>
-            <button class="text-white rounded hover:bg-goldYellow bg-alert py-1 px-4 " onclick="confirmActivity()">Confirm</button>
-            <button class="text-white rounded hover:bg-goldYellow bg-darkGreen py-1 px-4 " onclick="hideModal()">Cancel</button>
-        </div>
-    </div>
+                <div style="background: white; padding: 40px; border-radius: 8px; width: 300px; text-align: center;">
+                    <p class="mb-5">Are you sure to
+                        <span class="font-semibold text-alert"> <?= $activityStatus; ?></span>? 
+                        this <span class="font-semibold"> <?= $collaborator[0]['gc_company_name']; ?></span>
+                    </p>
+                    <button class="text-white rounded hover:bg-goldYellow bg-alert py-1 px-4 " onclick="confirmActivity()">Confirm</button>
+                    <button class="text-white rounded hover:bg-goldYellow bg-darkGreen py-1 px-4 " onclick="hideModal()">Cancel</button>
+                </div>
+            </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 
 </body>

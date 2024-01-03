@@ -49,7 +49,7 @@ if( (!isset($_SESSION["ccompanyName"])) || (!isset($_SESSION["ccompanyId"]))
     <!--Start  Collaborator  Add-->
     <div class="p-4 pt-20 sm:ml-64 flex flex-col items-center">
         <h1 class="text-center font-bold text-3xl  dark:text-gray-400 m-7 tracking-wide ">Collaborator Add </h1>
-        <form id="aForm" class="lg:w-3/5 w-full" action="../../Controller/collaborator/CollaboratorAllAddController.php" method="post" enctype="multipart/form-data">
+        <form id="aForm" class="lg:w-3/5 w-full" action="../../Controller/collaborator/CollaboratorListAddController.php" method="post" enctype="multipart/form-data">
             <div class="grid grid-cols-2 gap-20  mb-5">
                 <div class="flex items-center   lg:w-72 w-28">
                     <label for="imageInput" id="imageLabel">
@@ -91,7 +91,7 @@ if( (!isset($_SESSION["ccompanyName"])) || (!isset($_SESSION["ccompanyId"]))
                         <label for="gc_password" class="block mb-2 text-md font-semibold text-gray-500 dark:text-white">
                             Password
                         </label>
-                        <input type="password" name="gc_password" id="gc_password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" >
+                        <input type="password" name="gc_password" id="gc_password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=""  >
                         <div class="mb-2">
                             <small class="text-alert text-sm"><?= $_SESSION["passworderror"] ?></small>
                         </div>
@@ -136,7 +136,7 @@ if( (!isset($_SESSION["ccompanyName"])) || (!isset($_SESSION["ccompanyId"]))
                 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium px-8 py-2 text-center  ">
                     Add
                 </button>
-                <a href="./admin_collaborator_list.php" class="tracking-wider ml-10 text-white  bg-alert opacity-80 hover:opacity-100
+                <a href="./collaborator_list.php" class="tracking-wider ml-10 text-white  bg-alert opacity-80 hover:opacity-100
                 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium  px-7 py-2 text-center ">
                     Cancel
                 </a>
