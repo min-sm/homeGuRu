@@ -2,6 +2,10 @@
 include "../../Controller/Property/PropertyEditController.php";
 include "../../Controller/PropertyType/PropertyTypeListController.php";
 include "../../Controller/Facility/FacilityListController.php";
+include "../../Controller/Township/TownshipListController.php";
+
+// $townships_result = [];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +39,19 @@ include "../../Controller/Facility/FacilityListController.php";
     <!-- JS -->
     <script src="../resources/js/show-img.js" defer></script>
     <script src="../resources/js/modal (add).js" defer></script>
+    <script src="../resources/js/modal.js" defer></script>
+    <?php
+    $phpValue = $property['p_township'];
+
+    // Embedding the PHP value in a JavaScript variable
+    echo "<script>";
+    echo "let jsVariable = '" . $phpValue . "';";
+    echo "</script>";
+    ?>
+
     <script src="../resources/js/selectBx.js" defer></script>
+
+    <script src="../resources/js/townships.js" defer></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="../resources/css/property_post_add_form.css">
@@ -72,7 +88,6 @@ include "../../Controller/Facility/FacilityListController.php";
                     <?php foreach ($photos as $photo) : ?>
                         <div class="image-label-container">
                             <div class="image-container property-img" style="background-image: url('../../../Storage/house/<?= $_GET["id"] ?>/<?= $photo ?>');"></div>
-                            <p><?= $photo; ?></p>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -255,14 +270,35 @@ include "../../Controller/Facility/FacilityListController.php";
                             </select>
                         </div>
                     </div>
-                    <!-- Township -->
-                    <div class="flex flex-col">
-                        <label for="township" class="font-medium">Township</label>
-                        <select id="township" name="p_township" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white">
-                            <option value="" disabled selected>Select Township</option>
-                            <option value="">Bahan</option>
-                            <option value="">Tamwe</option>
-                        </select>
+                    <div class="flex flex-col gap-4">
+                        <!-- Region -->
+                        <div class="flex flex-col">
+                            <label for="region" class="font-medium">Region</label>
+                            <select name="region" id="region" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white">
+                                <option value="" disabled selected>Select Region</option>
+                                <?php foreach ($regions_result as $row) : ?>
+                                    <?php $selected = ($row['id'] == $property['region_id']) ? 'selected' : ''; //$record so tr ma shi thy bu 
+                                    ?>
+                                    <option value="<?php echo $row['id']; ?>" <?= $selected; ?>>
+                                        <?php echo $row['name']; ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <!-- Township -->
+                        <div class="flex flex-col">
+                            <label for="township" class="font-medium">Township</label>
+                            <select id="township" name="p_township" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
+                                <!-- <option value="" disabled>Select Township</option> -->
+                                <?php foreach ($townships_result as $township) : ?>
+                                    <?php $selected = ($township['id'] == $property['p_township']) ? 'selected' : ''; ?>
+                                    <option value="<?= $township['id']; ?>" <?= $selected; ?>>
+                                        <?= $township['name']; ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+
                     </div>
                 </div>
 

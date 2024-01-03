@@ -265,7 +265,7 @@ include "../../Controller/Property/PropertyPendingController.php";
                                 </td>
 
                                 <td class="px-6 py-4 text-center">
-                                    <a href="detail.php?id=<?= $property['id'] ?>">
+                                    <a href="req_detail.php?id=<?= $property['id'] ?>">
                                         <ion-icon name="document-text-outline" class="text-lg font-medium cursor-pointer text-blue-500"></ion-icon>
                                     </a>
                                 </td>
@@ -358,7 +358,7 @@ include "../../Controller/Property/PropertyPendingController.php";
                                 </td>
 
                                 <td class="px-6 py-4 text-center">
-                                    <a href="detail.php?id=<?= $property['id'] ?>">
+                                    <a href="pending.php?id=<?= $property['id'] ?>">
                                         <ion-icon name="document-text-outline" class="text-lg font-medium cursor-pointer text-blue-500"></ion-icon>
                                     </a>
                                 </td>

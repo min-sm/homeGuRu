@@ -267,5 +267,5 @@ if (isset($_POST["submit"])) {
     $propertyUpdateStmt->execute();
 
     $propertyID = $_GET['id'];
-    // header("Location: ../../View/Property/detail.php?id=$propertyID");
+    header("Location: ../../View/Property/detail.php?id=$propertyID");
 }
