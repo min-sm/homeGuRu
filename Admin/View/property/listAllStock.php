@@ -1,5 +1,6 @@
 <?php
 include_once "../../Controller/Property/PropertyListController.php";
+include "../../Controller/Property/CollaboratorInPropertyController.php";
 
 ?>
 <!DOCTYPE html>
@@ -88,6 +89,11 @@ include_once "../../Controller/Property/PropertyListController.php";
 
     <!-- JS -->
     <script src="../resources/js/sort_by.js" defer></script>
+    <script src="../resources/js/search_Fn.js" defer></script>
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon"  href="../resources/img/common/logo-confirm.ico">
+
     <title>All Stock List</title>
 </head>
 
@@ -128,9 +134,8 @@ include_once "../../Controller/Property/PropertyListController.php";
 
         <!-- search by id -->
         <div class="my-8 flex items-center justify-evenly w-full">
-            <input type="text" placeholder="Property ID" class="rounded-lg dark:bg-gray-800 bg-white">
-            <button type="submit" class="bg-darkGreen px-6 py-1.5 text-white rounded-lg border border-black">Search</button>
-
+            <input type="text" id="propertyID" placeholder="Property ID" class="rounded-lg text-black dark:text-white dark:bg-gray-800 bg-white">
+            <a href="#" onclick="submitSearch()" type="submit" class="bg-darkGreen px-6 py-1.5 text-white rounded-lg border border-black">Search</a>
         </div>
 
         <!-- table -->
@@ -292,7 +297,7 @@ include_once "../../Controller/Property/PropertyListController.php";
                                     <?php if ($property['uploader_id'] == 0) : ?>
                                         <img src="../../../Storage/homeGuru_logo/dark/logo.png" class="w-16 h-16" alt="HomeGuRu" />
                                     <?php else : ?>
-                                        <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $guruCollaborator['gc_company_name']; ?>" />
+                                        <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $guruCollaborator[$property['uploader_id'] - 1]['gc_logo'] ?>" alt="<?= $guruCollaborator[$property['uploader_id'] - 1]['gc_company_name']; ?>" />
                                     <?php endif; ?>
                                 </div>
                             </div>
@@ -301,15 +306,15 @@ include_once "../../Controller/Property/PropertyListController.php";
                                 <i class="fa-sharp fa-solid fa-money-bill pt-1"></i>
                                 <span class="ml-3 mt-2 font-meduim">
                                     <?php if ($property['p_price_unit'] == 1) {
-                                        echo '$' . number_format($property['p_price']);
+                                        echo '$ ' . number_format($property['p_price']);
                                     } elseif ($property['p_price_unit'] == 2) {
-                                        if ($property['p_price'] > 999999) {
+                                        if ($property['p_price'] > 999_999) {
 
-                                            $formatted_price = substr_replace($property['p_price'], 'lakh', -5);
+                                            $formatted_price = substr_replace($property['p_price'], ' lakh', -5);
                                             echo $formatted_price;
                                         } else {
 
-                                            echo ' Ks' . $property['p_price'];
+                                            echo 'Ks ' . number_format($property['p_price']);
                                         }
                                     } ?>
                                     /
@@ -338,7 +343,7 @@ include_once "../../Controller/Property/PropertyListController.php";
                                     </div>
                                     <div>
                                         <span class="font-playFair">Property Size: </span>
-                                        <span><?= $property['p_width'] ?>x<?= $property['p_length'] ?>
+                                        <span><?= number_format($property['p_width']) ?> x <?= number_format($property['p_length']) ?>
                                             <?php
                                             if ($property['p_size_unit'] == 1) {
                                                 echo 'm';
@@ -351,7 +356,6 @@ include_once "../../Controller/Property/PropertyListController.php";
                             </div>
 
                             <div class="flex items-center justify-end">
-                                <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
                                 <a href="../Property/detail.php?id=<?= $property['id'] ?>" class="text-darkGreen dark:text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
                             </div>
                         </div>

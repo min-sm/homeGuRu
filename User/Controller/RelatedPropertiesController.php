@@ -14,9 +14,9 @@ $p_township = $_GET['p_township'];
 
 $sql_count = 'SELECT DISTINCT Count(*) as counts
 FROM properties p 
-JOIN property_type pt ON p.pt_id = pt.id
-JOIN m_townships mt ON p.p_township=mt.id
-JOIN m_collaborators mc ON p.uploader_id
+LEFT JOIN property_type pt ON p.pt_id = pt.id
+LEFT JOIN m_townships mt ON p.p_township=mt.id
+LEFT JOIN m_collaborators mc ON p.uploader_id
 WHERE p.p_status=2
 AND mc.gc_activity_ban=0 
 AND (pt_id = :pt_id 
@@ -36,9 +36,9 @@ $totalPages = ceil($total/$limit);//no of pages
 // Your SQL query with placeholders for each parameter
 $sql_limit = "SELECT DISTINCT p.*, pt.*,mt.*,mc.*
 FROM properties p 
-JOIN property_type pt ON p.pt_id = pt.id
-JOIN m_townships mt ON p.p_township=mt.id
-JOIN m_collaborators mc ON p.uploader_id
+LEFT JOIN m_townships mt ON p.p_township = mt.id
+LEFT JOIN property_type pt ON p.pt_id = pt.id
+LEFT JOIN m_collaborators mc ON p.uploader_id=mc.id
 WHERE p.p_status=2
 AND mc.gc_activity_ban=0 
 AND (pt_id = :pt_id 

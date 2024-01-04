@@ -1,5 +1,6 @@
 <?php
 include "../../Controller/Property/SinglePropertyDetailController.php";
+include "../../Controller/InterestForm/SinglePropertyInterestListController.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -262,6 +263,13 @@ include "../../Controller/Property/SinglePropertyDetailController.php";
                 <hr class="w-16 lg:w-64 h-1 bg-paleGray  my-3">
             </div>
 
+            <!-- Uploader -->
+            <div class="<?= $isCollaborator  ? 'hidden' : ''; ?> flex w-80 lg:w-3/4 flex-col">
+                <div class="flex items-center justify-between text-black dark:text-white">
+                    <span class="font-medium text-lg">Uploader</span>
+                    <span class="cursor-pointer text-blue-500 dark:text-blue-400 underline"><a href="../Collaborator/admin_collaborator_detail_preview.php?id=<?= $property['uploader_id']  ?>"><?= $property['gc_company_name']; ?></a></span>
+                </div>
+            </div>
             <!-- Owner Name -->
             <div class="flex w-80 lg:w-3/4 flex-col">
                 <div class="flex items-center justify-between text-black dark:text-white">
@@ -345,152 +353,48 @@ include "../../Controller/Property/SinglePropertyDetailController.php";
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    01
-                                </th>
-                                <td class="px-6 py-4">
-                                    Ko Ko Zay
-                                </td>
-                                <td class="px-6 py-4">
-                                    09980636388
-                                </td>
-                                <td class="px-6 py-4">
-                                    kkzedn99@gmail.com
-                                </td>
-                                <td class="px-6 py-4">
-                                    2023/12/03 12:20 PM
-                                </td>
-                                <td class="px-4 py-4 flex justify-center">
-                                    <a href="./interest_people_detail.php" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                        <img class="w-5" src="../resources/img/icon/view-details.png" alt="">
-                                    </a>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <!-- <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> -->
-                                    <ion-icon name="trash-bin" class="text-lg font-medium cursor-pointer text-alert"></ion-icon>
-                                </td>
-                            </tr>
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    02
-                                </th>
-                                <td class="px-6 py-4">
-                                    Min Soe Moe
-                                </td>
-                                <td class="px-6 py-4">
-                                    09757346631
-                                </td>
-                                <td class="px-6 py-4">
-                                    minsoemoe999@gmail.com
-                                </td>
-                                <td class="px-6 py-4">
-                                    2023/12/03 1:00 PM
-                                </td>
-                                <td class="px-4 py-4 flex justify-center">
-                                    <a href="./interest_people_detail.php" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                        <img class="w-5" src="../resources/img/icon/view-details.png" alt="">
-                                    </a>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <ion-icon name="trash-bin" class="text-lg font-medium cursor-pointer text-alert"></ion-icon>
-                                </td>
-                            </tr>
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    03
-                                </th>
-                                <td class="px-6 py-4">
-                                    Thi Thi Hlaing
-                                </td>
-                                <td class="px-6 py-4">
-                                    09971536999
-                                </td>
-                                <td class="px-6 py-4">
-                                    thithihlaing9999@gmail.com
-                                </td>
-                                <td class="px-6 py-4">
-                                    2023/12/03 3:15PM
-                                </td>
-                                <td class="px-4 py-4 flex justify-center">
-                                    <a href="./interest_people_detail.php" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                        <img class="w-5" src="../resources/img/icon/view-details.png" alt="">
-                                    </a>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <ion-icon name="trash-bin" class="text-lg font-medium cursor-pointer text-alert"></ion-icon>
-                                </td>
-                            </tr>
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    04
-                                </th>
-                                <td class="px-6 py-4">
-                                    Tan Wadi Aung
-                                </td>
-                                <td class="px-6 py-4">
-                                    09980636388
-                                </td>
-                                <td class="px-6 py-4">
-                                    tanwadiaung23@gmail.com
-                                </td>
-                                <td class="px-6 py-4">
-                                    2023/12/03 05:00 PM
-                                </td>
-                                <td class="px-4 py-4 flex justify-center">
-                                    <a href="./interest_people_detail.php" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                        <img class="w-5" src="../resources/img/icon/view-details.png" alt="">
-                                    </a>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <ion-icon name="trash-bin" class="text-lg font-medium cursor-pointer text-alert"></ion-icon>
-                                </td>
-                            </tr>
+                            <?php
+                            $counter = (isset($_GET['page'])) ? (1 + (6 * ($_GET['page'] - 1))) : 1;
+                            foreach ($interest_list as $interest) {
+                            ?>
+                                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <?= $counter ?>
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        <?= $interest['ilf_name']; ?>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <?= $interest['ilf_phone_num']; ?>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <?= $interest['ilf_email']; ?>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <?php
+                                        $date = new DateTime($interest['created_date']);
+                                        $formattedDate = $date->format('Y/m/d h:i A');
+                                        echo $formattedDate;
+                                        ?>
+                                    </td>
+                                    <td class="px-4 py-4 flex justify-center">
+                                        <a href="../InterestView/interest_people_detail.php">
+                                            <ion-icon name="document-text-outline" class="text-lg font-medium cursor-pointer text-blue-500"></ion-icon>
+                                        </a>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <ion-icon name="trash-bin" class="text-lg font-medium cursor-pointer text-alert"></ion-icon>
+                                    </td>
+                                </tr>
+                            <?php
+                                $counter++;
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
                 <!--End  Interest People  List Table -->
             </div>
-            <!--Start  pagination -->
-            <div class="flex justify-center my-16">
-                <nav aria-label="Page navigation example">
-                    <ul class="flex items-center -space-x-px h-10 text-base">
-                        <li>
-                            <a href="#" class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                                <span class="sr-only">Previous</span>
-                                <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" aria-current="page" class="z-10 flex items-center justify-center px-4 h-10 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">1</a>
-                        </li>
-
-                        <li>
-                            <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">3</a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                                <span class="sr-only">Next</span>
-                                <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-                                </svg>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <!--End  pagination -->
         </div>
         <!--End  Interest People  List -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>

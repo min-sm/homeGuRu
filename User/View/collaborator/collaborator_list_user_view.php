@@ -111,10 +111,11 @@
 
             <div class="w-full my-16 flex gap-5 justify-center">
                 <input type="text" name="collaboratorName" placeholder="Company Name" class=" sm:w-1/4 px-5 py-3 rounded-lg  border-2 ">
-                <button class="sm:w-32 w-20 text-lg lg:h-12 font-medium sm:text-xl text-white rounded-lg bg-darkGreen 
+                <a href="../collaborator//collaborator_register.php"><button class="sm:w-32 w-20 text-lg lg:h-12 font-medium sm:text-xl text-white rounded-lg bg-darkGreen 
             hover:bg-white-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                     Search
                 </button>
+                </a>
             </div>
 
 
@@ -127,7 +128,7 @@
             ?>
                 <div class="sm:w-3/4 w-11/12 sm:py-10 bg-gray-800 border-gray-200 rounded my-5 flex justify-around flex-col sm:flex-row items-center ">
                     <div class="w-2/6">
-                        <div class="w-46 h-46  bg-[#F7F7F7] my-5">
+                        <div class="w-46 h-46  my-5">
                             <img class=" w-40 h-40" src="../../../Storage/collaborator_img/gc<?= $collaborator['id'] . '/' . $collaborator['gc_logo'] ?>" alt="<?= $collaborator['gc_company_name']; ?>" alt="company Logo" />
                         </div>
                     </div>
