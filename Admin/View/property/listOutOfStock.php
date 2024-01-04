@@ -1,5 +1,6 @@
 <?php
 include_once "../../Controller/Property/ListOutOfStockController.php";
+include "../../Controller/Property/CollaboratorInPropertyController.php";
 
 ?>
 <!DOCTYPE html>
@@ -295,7 +296,7 @@ include_once "../../Controller/Property/ListOutOfStockController.php";
                                     <?php if ($property['uploader_id'] == 0) : ?>
                                         <img src="../../../Storage/homeGuru_logo/dark/logo.png" class="w-16 h-16" alt="HomeGuRu" />
                                     <?php else : ?>
-                                        <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $guruCollaborator['gc_company_name']; ?>" />
+                                        <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $guruCollaborator[$property['uploader_id'] - 1]['gc_logo'] ?>" alt="<?= $guruCollaborator[$property['uploader_id'] - 1]['gc_company_name']; ?>" />
                                     <?php endif; ?>
                                 </div>
                             </div>
@@ -304,15 +305,15 @@ include_once "../../Controller/Property/ListOutOfStockController.php";
                                 <i class="fa-sharp fa-solid fa-money-bill pt-1"></i>
                                 <span class="ml-3 mt-2 font-meduim">
                                     <?php if ($property['p_price_unit'] == 1) {
-                                        echo '$' . number_format($property['p_price']);
+                                        echo '$ ' . number_format($property['p_price']);
                                     } elseif ($property['p_price_unit'] == 2) {
-                                        if ($property['p_price'] > 999999) {
+                                        if ($property['p_price'] > 999_999) {
 
-                                            $formatted_price = substr_replace($property['p_price'], 'lakh', -5);
+                                            $formatted_price = substr_replace($property['p_price'], ' lakh', -5);
                                             echo $formatted_price;
                                         } else {
 
-                                            echo ' Ks' . $property['p_price'];
+                                            echo 'Ks ' . number_format($property['p_price']);
                                         }
                                     } ?>
                                     /

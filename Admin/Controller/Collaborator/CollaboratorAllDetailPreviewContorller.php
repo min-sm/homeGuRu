@@ -61,10 +61,11 @@ if (isset($_GET['id'])) {
         $collaborator = $collaboratorcount;
     } else {
         // redirect to error page
-        header("Location: ../../View/errors/404.php?err=1");
+        header("Location: ../../View/errors/404.php?error=1");
     }
 } else {
     // redirect to error page
+    // $err = ""
     header("Location: ../../View/errors/404.php");
 }
 
