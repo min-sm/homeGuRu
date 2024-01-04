@@ -7,4 +7,4 @@ $sql = $pdo->prepare($query);
 $sql->bindValue('p_id', $sent_ID);
 $sql->execute();
 $interest_list = $sql->fetchAll(PDO::FETCH_ASSOC);
-// used in dashboard.php
+// used in detail.php

@@ -263,6 +263,13 @@ include "../../Controller/InterestForm/SinglePropertyInterestListController.php"
                 <hr class="w-16 lg:w-64 h-1 bg-paleGray  my-3">
             </div>
 
+            <!-- Uploader -->
+            <div class="<?= $isCollaborator  ? 'hidden' : ''; ?> flex w-80 lg:w-3/4 flex-col">
+                <div class="flex items-center justify-between text-black dark:text-white">
+                    <span class="font-medium text-lg">Uploader</span>
+                    <span class="cursor-pointer text-blue-500 dark:text-blue-400 underline"><a href="../Collaborator/admin_collaborator_detail_preview.php?id=<?= $property['uploader_id']  ?>"><?= $property['gc_company_name']; ?></a></span>
+                </div>
+            </div>
             <!-- Owner Name -->
             <div class="flex w-80 lg:w-3/4 flex-col">
                 <div class="flex items-center justify-between text-black dark:text-white">

@@ -109,12 +109,10 @@ include "../../Controller/Property/CollaboratorPropertyListController.php";
             </div>
         </div>
         <div class=" flex  my-16 ">
-            <a href="./admin_collaborator_detail_edit.php?id=<?= $collaborator[0]['collaborator_id']  ?>" class="tracking-wider text-white bg-goldYellow opacity-75 hover:opacity-100
-            focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium px-8 py-2 text-center  ">
+            <a href="./admin_collaborator_detail_edit.php?id=<?= $collaborator[0]['collaborator_id']  ?>" class="tracking-wider bg-goldYellow py-2 px-6 rounded-lg border font-bold text-white flex justify-between">
                 Edit Detail</a>
 
-            <a href="./admin_collaborator_all.php" class="tracking-wider mx-10 text-white bg-alert opacity-80 hover:opacity-100
-            focus:ring-4 focus:outline-none  focus:ring-blue-300 font-semibold rounded-lg text-medium  px-7 py-2 text-center ">
+            <a href="./admin_collaborator_all.php" class="tracking-wider mx-10 bg-alert py-2 px-6 rounded-lg border font-bold text-white flex justify-between">
                 Cancel</a>
 
             <?php $activity = $collaborator[0]["gc_activity_ban"];
