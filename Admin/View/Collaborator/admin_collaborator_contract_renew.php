@@ -17,7 +17,7 @@
     <?php include '../commonView/menu.php' ?>
     <!--Start  Collaborator Renew Contract -->
     <div class="p-4 pt-20 sm:ml-64 flex flex-col items-center">
-        <h1 class=" text-center font-bold text-2xl m-7 tracking-wide ">Renewing Collaborator Contract</h1>
+        <h1 class=" text-center font-bold text-2xl m-7  dark:text-gray-400 tracking-wide ">Renewing Collaborator Contract</h1>
         <div class=" lg:w-1/2 w-full grid grid-row-13 gap-2 ">
             <img class="w-40" src="../resources/img/marga.png" alt="">
             <div class="grid grid-cols-2 gap-7 ">

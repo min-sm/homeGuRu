@@ -1,7 +1,7 @@
 <?php
 include "../../Controller/PropertyType/PropertyTypeListController.php";
 include "../../Controller/Facility/FacilityListController.php";
-include "../../Controller/Township/TownshipListController.php"
+include "../../Controller/Township/TownshipListController.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -65,12 +65,16 @@ function deleteBxShow() {
   delConfirmBx.classList.add("flex");
 }
 
+function noBtnClick() {
+  delConfirmBx.classList.remove("flex");
+  delConfirmBx.classList.add("hidden");
+}
+
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   } else if (event.target == delConfirmBx) {
-    delConfirmBx.classList.remove("flex");
-    delConfirmBx.classList.add("hidden");
+    noBtnClick();
   }
 };

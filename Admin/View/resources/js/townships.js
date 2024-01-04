@@ -1,15 +1,56 @@
-"use strict";
-let server_json_data; // data that comes from server in json data format
+console.log(jsVariable);
+let regionDropdown = document.getElementById("region");
+let townshipDropdown = document.getElementById("township");
+regionDropdown.addEventListener("change", () => {
+  let regionId = regionDropdown.value;
 
-async function getData() {
-  await fetch("http://localhost:3003/myanmar-townships")
-    .then((res) => res.json())
-    .then((data) => (server_json_data = data))
-    .catch((err) => console.log(err));
-  console.log(Object.keys(server_json_data)[0]);
-//   console.log(server_json_data);
-  console.log(JSON.parse(server_json_data));
+  // AJAX call to get townships of selected region
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // On success, parse the response and populate the township dropdown
+        var townships = JSON.parse(xhr.responseText);
+        townshipDropdown.innerHTML =
+          "<option value='' disabled selected>Select Township</option>";
+        townships.forEach(function (township) {
+          townshipDropdown.innerHTML += `<option value="${township.id}">${township.name}</option>`;
+        });
+      } else {
+        // Handle error
+        console.error("Error occurred: " + xhr.status);
+      }
+    }
+  };
 
-}
+  xhr.open("GET", `getTownships.php?region_id=${regionId}`, true);
+  xhr.send();
+});
 
-getData();
+document.addEventListener("DOMContentLoaded", () => {
+  let regionId = regionDropdown.value;
+
+  // AJAX call to get townships of selected region
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // On success, parse the response and populate the township dropdown
+        var townships = JSON.parse(xhr.responseText);
+        townshipDropdown.innerHTML =
+          "<option value='' disabled>Select Township</option>";
+        townships.forEach(function (township) {
+          townshipDropdown.innerHTML += `<option value="${township.id}" ${
+            township.id == jsVariable ? "selected" : ""
+          }>${township.name}</option>`;
+        });
+      } else {
+        // Handle error
+        console.error("Error occurred: " + xhr.status);
+      }
+    }
+  };
+
+  xhr.open("GET", `getTownships.php?region_id=${regionId}`, true);
+  xhr.send();
+});

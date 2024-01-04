@@ -10,4 +10,9 @@ $query = "SELECT p.*, pt.pt_name, township.name AS township_name FROM properties
 $sql = $pdo->prepare($query);
 $sql->execute();
 $properties_pending = $sql->fetchAll(PDO::FETCH_ASSOC);
-// used in list.php 
+// used in allList.php & propertyReqList.php
+
+$queryForResultCount = "SELECT COUNT(p.id) AS total_result FROM properties p WHERE p.del_flg = 0 AND p.p_status = 1";
+$sqlForResultCount = $pdo->prepare($queryForResultCount);
+$sqlForResultCount->execute();
+$resultCount = $sqlForResultCount->fetch(PDO::FETCH_ASSOC);

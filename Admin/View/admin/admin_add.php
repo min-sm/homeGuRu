@@ -23,6 +23,7 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- JS -->
     <script src="../resources/js/profile.js"></script>
+ 
     <title>Home Guru</title>
 </head>
 <body>
@@ -36,7 +37,7 @@ session_start();
                     <div class="lg:w-72 w-28">
                         <label for="ga_name" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
                             Full Name</label>
-                        <input type="text" name="ga_name" id="ga_name" class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" Aung Aung">
+                        <input type="text" name="ga_name" id="ga_name" class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" Aung Aung" onfocus="clearErrorMessage('createadminerror')">
                     </div>
                     <div class="lg:w-72 w-28">
                         <label for="ga_address" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
@@ -49,10 +50,10 @@ session_start();
                         <input type="text" name="ga_nrc" id="ga_nrc" class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" 12/TGG(N)123567">
                     </div>
                     <div class="lg:w-72 w-28">
-                        <label for="ga_dob" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
-                            Date of Birth</label>
-                        <input type="text" name="ga_dob" id="ga_dob" class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" 12/TGG(N)123567">
-                    </div>
+    <label for="ga_dob" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
+        Date of Birth</label>
+    <input type="date" name="ga_dob" id="ga_dob" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+</div>
                     <div class=" lg:w-72 w-28">
                         <label for="ga_phone" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
                             Gender</label>
@@ -70,7 +71,7 @@ session_start();
                             <img name="ga_photo" class="w-24 mr-10" id="preview" src="../resources/img/common/profile.png" alt="Image Preview" style="max-width: 300px; max-height: 300px; cursor: pointer;">
                         </label>
                         <span class="text-sm font-semibold text-gray-500 dark:text-white">Profile
-                            <div class="mb-2 "><small class="block  font-medium text-left text-red-600">  <?= $_SESSION["createadminerror"] ?></small> </div>
+                            <div class="mb-2 "><small class="block  font-medium text-left text-red-600"><?= $_SESSION["createadminerror"] ?></small> </div>
                         </span>
                         <input type="file" name="ga_photo" id="imageInput" class="hidden" accept="image/*" onchange="previewImage(event)">
                     </div>
@@ -82,12 +83,14 @@ session_start();
                     <div class=" lg:w-72 w-28">
                         <label for="ga_email" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
                             Email</label>
-                        <input type="text" name="ga_email" id="ga_email" class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="realestate777@gmail.com">
+                        <input type="text" name="ga_email" id="ga_email" class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="realestate777@gmail.com"  onclick="clearErrorMessage('emailerror')">
+                        <div class="mt-5">   <small class="block  font-medium text-left text-red-600 createadminerror"><?= $_SESSION["emailerror"] ?></small> </div> 
                     </div>
                     <div class=" lg:w-72 w-28">
                         <label for="ga_password" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
                             Password</label>
-                        <input type="text" name="ga_password" id="ga_password" class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="•••••••••••••••••">
+                        <input type="text" name="ga_password" id="ga_password" class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="•••••••••••••••••"  onclick="clearErrorMessage('passworderror')">
+                        <div class="mt-5">   <small class="block  font-medium text-left text-red-600 "><?= $_SESSION["passworderror"] ?></small> </div> 
                     </div>
                 </div>
             </div>
@@ -106,3 +109,5 @@ session_start();
 </body>
 </html>
 <?php $_SESSION["createadminerror"] = "" ?>
+<?php $_SESSION["passworderror"] = "" ?>
+<?php $_SESSION["emailerror"] = "" ?>
