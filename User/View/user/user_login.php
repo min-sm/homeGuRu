@@ -86,7 +86,7 @@ session_start();
       <label for="checkbox-1" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember Me</label>
   </div>
   <div class="text-center pl-1 mb-3">
-  <a href="./Forgot_password.php"  class="text-blue-700 text-sm tracking-wide">Forgot password?</a>
+  <a href="./forget_password.php"  class="text-blue-700 text-sm tracking-wide">Forgot password?</a>
 </div>
 <p class="text-sm tracking-wide mb-16">Don't have account ? <a href="./user_register.php" class="text-blue-700 text-sm tracking-wide">Register</a></p>
           </form>  

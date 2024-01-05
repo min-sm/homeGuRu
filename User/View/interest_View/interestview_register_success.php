@@ -153,22 +153,7 @@
     </div>
   
     
-    <div class="flex flex-col w-full bg-white items-center justify-evenly mt-5 py-10">
-        <h1 class="font-semibold text-3xl text-center  tracking-wide " >
-            Interest View Register
-        </h1>
-        <ion-icon class="w-36 h-36 m-10 text-darkGreen" name="checkmark-circle-outline"></ion-icon>
-        <p class="font-bold text-3xl tracking-wide mb-10">Success !</p>
-        <p class="font-medium text-xl tracking-wide mb-2">
-            Your account has been Send successfully.
-        </p>
-        
-
-        <button type="submit" class=" tracking-wide bg-darkGreen hover:bg-green-800 
-                      focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium text-white px-8 py-2 text-center 
-                      dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-            OK</button>
-    </div>
+  
 
       <!-- Start  Related Properties -->
 

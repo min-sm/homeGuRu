@@ -5,7 +5,7 @@ $limit = 12;//limit of show record per page
 $page  = isset($_GET['page'])? $_GET['page'] : 1;//Current page of pagination
 $start = ($page -1 ) * $limit;//Start number of record per page
 // Get selected values from AJAX request
-$pOffer = isset($_POST['pOffer']) ? $_POST['pOffer'] : "";
+
 $pType = isset($_POST['pType']) ? $_POST['pType'] : "";
 $pUnit = isset($_POST['pUnit']) ? $_POST['pUnit'] : "";
 $pRegion = isset($_POST['pRegion']) ? $_POST['pRegion'] : "";
@@ -13,7 +13,7 @@ $pTownship = isset($_POST['pTownship']) ? $_POST['pTownship'] : "";
 $minimumPrice = isset($_POST['minimumPrice']) ? $_POST['minimumPrice'] : "";
 $maximumPrice = isset($_POST['maximumPrice']) ? $_POST['maximumPrice'] : "";
 $sortBy=isset($_POST['sortBy']) ? $_POST['sortBy'] : "";
-$pCode=isset($_POST['pCode']) ? $_POST['pCode'] : "";
+
 
 // Prepare and execute the SQL query for properties
 $sql = "SELECT p.*,mt.*,pt.*,mc.*  
@@ -21,17 +21,13 @@ FROM properties p
 LEFT JOIN m_townships mt ON p.p_township = mt.id
 LEFT JOIN property_type pt ON p.pt_id = pt.id
 LEFT JOIN m_collaborators mc ON p.uploader_id=mc.id
-WHERE p.del_flg = 0 AND p.p_status = 2 AND p.p_after=0 AND mc.gc_activity_ban=0";
+WHERE p.del_flg = 0 AND p.p_status = 2 AND p.p_after=0 AND mc.gc_activity_ban=0 AND p.p_offer=0";
 
 
 // Include conditions based on selected values for properties
-if ($pOffer !== "") {
-    $sql .= " AND p_offer = :pOffer";
-}
 
-if ($pCode !== "") {
-  $sql .= " AND p_code = :pCode";
-}
+
+
 
 if ($pType !== "") {
     $sql .= " AND pt_id = :pType";
@@ -69,13 +65,7 @@ if ($sortBy == "newest") {
 $stmt = $pdo->prepare($sql);
 
 // Bind parameters for properties
-if ($pOffer !== "") {
-    $stmt->bindValue(':pOffer', $pOffer);
-}
 
-if ($pCode !== "") {
-  $stmt->bindValue(':pCode', $pCode);
-}
 
 if ($pType !== "") {
     $stmt->bindValue(':pType', $pType);
@@ -257,51 +247,9 @@ $propertyCount=count($filteredProperties);
 
 
     <?php }
-     ?>
 
-<div class="flex justify-center my-16">
-            <nav aria-label="Page navigation example">
-                <ul class="flex items-center -space-x-px h-10 text-base">
-                    <li>
-                        <a href="?page=<?= $page == $page > 1 ? $page - 1 : 1 ?>" class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                            <span class="sr-only">Previous</span>
-                            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
-                            </svg>
-                        </a>
-                    </li>
-                    <?php
-                    for ($i = 1; $i <= $totalPages; $i++) {
-                        if ($page == $i) {
-                    ?>
-                            <li>
-                                <a href="?page=<?= $i ?>" aria-current="page" class="z-10 flex items-center justify-center px-4 h-10 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">
-                                    <?= $i ?>
-                                </a>
-                            </li>
-                        <?php } else {
-                        ?>
-                            <li>
-                                <a href="?page=<?= $i ?>" class="  flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                                    <?= $i ?>
-                                </a>
-                            </li>
-                    <?php }
-                    }
-                    ?>
-                    <li>
-                        <a href="?page=<?= $page == $page < $totalPages ? $page + 1 : $totalPages ?>" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                            <span class="sr-only">Next</span>
-                            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
 
-  <!-- footer -->
+    ?>
 </div>
 
 
