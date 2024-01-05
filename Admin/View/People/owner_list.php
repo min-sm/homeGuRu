@@ -9,6 +9,7 @@ include "../../Controller/Owner/OwnerListController.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- tailwind -->
     <link href="../resources/css/dist/output.css" rel="stylesheet" />
 
     <title>Owner List</title>
@@ -147,7 +148,7 @@ include "../../Controller/Owner/OwnerListController.php";
 
     </div>
 
-    <!-- The Modal -->
+    <!-- DELETE The Modal -->
     <div id="delConfirmBx" class="hidden fixed top-0 left-0 z-50 w-full h-full overflow-auto bg-black bg-opacity-75 justify-center items-center">
         <!-- Modal content -->
         <div class="bg-paleGray p-10 border border-black border-solid w-3/4 flex gap-8 flex-col items-center rounded-lg">

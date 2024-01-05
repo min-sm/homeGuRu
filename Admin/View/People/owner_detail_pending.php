@@ -1,7 +1,8 @@
 <?php
-$the_called_file = "owner_detail.php";
+$the_called_file = "owner_detail_pending.php";
 include "../../Controller/Owner/OwnerDetailController.php";
 include "../../Controller/Property/OwnerPropertyListController.php";
+
 
 ?>
 <!DOCTYPE html>
@@ -78,12 +79,12 @@ include "../../Controller/Property/OwnerPropertyListController.php";
             <span class="lg:ms-16 sm:ms-8 me-8 lg:text-2xl text-base text-black dark:text-white"><span><?= $resultCount['total_result'] ?></span> Found</span>
             <!-- in stock / out of stock -->
             <div class="lg:space-x-8 space-x-4 lg:text-base text-xs">
-                <label for="allStock" class="text-goldYellow cursor-pointer label "><a href="../People/owner_detail.php?id=<?= $_GET['id'] ?>">All Stocks</a></label>
+                <label for="allStock" class="text-gray-500 cursor-pointer label "><a href="../People/owner_detail.php?id=<?= $_GET['id'] ?>">All Stocks</a></label>
                 <label for="outStock" class="text-gray-500 cursor-pointer label "><a href="../People/owner_detail_out_of_stock.php?id=<?= $_GET['id']; ?>">Out of Stock</a>
                 </label>
                 <label for="inStock" class="text-gray-500 cursor-pointer label "><a href="../People/owner_detail_in_stock.php?id=<?= $_GET['id']; ?>">In Stock</a></label>
                 <label for="req" class="text-gray-500 cursor-pointer label "><a href="../People/owner_detail_req.php?id=<?= $_GET['id']; ?>">Req</a></label>
-                <label for="pending" class="text-gray-500 cursor-pointer label "><a href="../People/owner_detail_pending.php?id=<?= $_GET['id']; ?>">Pending</a></label>
+                <label for="pending" class="text-goldYellow cursor-pointer label "><a href="../People/owner_detail_pending.php?id=<?= $_GET['id']; ?>">Pending</a></label>
                 <input type="radio" id="allStock" name="sort_by" value="" class="hidden" />
                 <input type="radio" id="outStock" name="sort_by" value="" class="hidden" />
                 <input type="radio" id="inStock" name="sort_by" value="" class="hidden" />
@@ -331,6 +332,7 @@ include "../../Controller/Property/OwnerPropertyListController.php";
                                 </div>
                             </div>
                             <div class="flex items-center justify-end">
+
                                 <a href="<?= $directoryToDetail; ?>?id=<?= $property['id'] ?>" class="text-darkGreen dark:text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
                             </div>
                         </div>
