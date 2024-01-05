@@ -1,4 +1,5 @@
 <?php
+$the_called_file = "user_list.php";
 include "../../Controller/User/UserListController.php";
 ?>
 
@@ -17,11 +18,13 @@ include "../../Controller/User/UserListController.php";
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 
-<body>
+<body class="bg-primary dark:bg-gray-700">
     <?php include '../commonView/menu.php' ?>
     <!-- main body -->
-    <div class="p-4 pt-20 sm:ml-64">
-        <h1 class="text-center font-bold text-2xl mb-8">User List</h1>
+    <div class="p-4 pt-20 sm:ml-64 ">
+        <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">User List</h1>
+        <!-- 100 found -->
+        <p class="lg:ms-16 sm:ms-8 me-8 lg:text-2xl text-base text-black dark:text-white my-4"><span><?= $resultCount['total_result'] ?></span> Found</p>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-base text-gray-700 uppercase bg-primary dark:bg-gray-800 dark:text-gray-400">
@@ -119,11 +122,11 @@ include "../../Controller/User/UserListController.php";
                     <!-- Next -->
                     <li>
                         <a href="<?= $_SERVER['PHP_SELF']; ?>?page=<?php if ($page < $totalPages) {
-                                                            echo $page + 1;
-                                                        } else if ($page == $totalPages) {
-                                                            echo $totalPages;
-                                                        }
-                                                        ?>" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                                                        echo $page + 1;
+                                                                    } else if ($page == $totalPages) {
+                                                                        echo $totalPages;
+                                                                    }
+                                                                    ?>" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                             <span class="sr-only">Next</span>
                             <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
