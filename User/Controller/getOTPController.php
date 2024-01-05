@@ -9,7 +9,7 @@ function generateOTP() {
     return str_pad(mt_rand(1, 9999), 4, '0', STR_PAD_LEFT);
 }
 
-if (isset($_POST["sendOTP"])) {
+if (isset($_POST["sendOTP"]) ){
     $email = $_POST["email"];
 
     // Check if the email exists in the database
@@ -39,11 +39,11 @@ $_SESSION["generatedOTP"] = $gu_token;
             " Reset Your Account Password",
             "
             <p>Dear User,</p>
-            <p>Thank you for choosing Home GuRu. Your OTP code for password reset is: <strong>$gu_token</strong></p>
-        
-            <p>If you didn't request this, please ignore this email. The code is valid for a limited time.</p>
+            <p>Thank you for choosing Home GuRu.Your OTP code for password reset is: <strong>$gu_token</strong></p>
         
             <p>If you have any questions or concerns, please do not hesitate to contact our customer support team at homeguru@gmail.com</p>
+        
+            <p>Thank you for your cooperation in maintaining the security of your account.</p>
             <p>Best regards,<br>Your Home GuRu Team</p>
             "
         );
