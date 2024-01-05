@@ -31,10 +31,6 @@ include "../../Controller/Property/CollaboratorInPropertyController.php";
 
     <!-- delete btn -->
     <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
         /* The Modal (background) */
         .delete-modal {
             display: none;
