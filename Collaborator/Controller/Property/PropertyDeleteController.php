@@ -9,8 +9,16 @@ $uploader_id = $_SESSION['collaboratorID'];
 $sql = $pdo->prepare("UPDATE properties SET del_flg = 1 WHERE id= :id AND uploader_id = :uploader_id");
 $sql->bindValue(":id", $sent_id);
 $sql->bindValue(":uploader_id", $uploader_id);
-$sql->execute();
+$querySuccess = $sql->execute();
+
+if ($querySuccess) {
+    // echo "The query executed successfully. Rows affected: " . $sql->rowCount();
+    echo $uploader_id;
+    header("Location: ../../View/DashboardView/dashboard.php");
+} else {
+    $err = print_r($pdo->errorInfo(), true);
+    header("Location: ../../View/errors/404.php?error = $err");
+}
 
 
-header("Location: ../../View/DashboardView/dashboard.php");
 // used in detail.php & list.php
