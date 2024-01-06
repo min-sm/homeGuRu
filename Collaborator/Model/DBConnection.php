@@ -1,8 +1,8 @@
 <?php
 
 $hostname = "localhost";
-$port = 3307;
-$dbname = "";
+$port = 3306;
+$dbname = "guru_db";
 $username = "root";
 $password = "";
 
@@ -11,8 +11,3 @@ $pdo = new PDO("mysql:host=$hostname;port=$port;dbname=$dbname", $username, $pas
 
 //Error Exception
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-?>
-
-
