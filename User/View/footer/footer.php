@@ -36,25 +36,26 @@
     <footer class="bg-secondary text-primary pt-10 md:pt-16 pb-10 w-full" style=" background-color: <?= $colors[0]['footer'] ?>; color: <?= $colors[0]['hf_text_color']  ?>">
         <div class="flex justify-around md:flex-row flex-col md:gap-0 gap-12 items-center md:items-start">
             <!-- Address -->
-            <div>
+            <div class=" w-48 lg:w-96">
                 <h1 class="md:text-2xl text-xl text-center mb-7"><u>Address</u></h1>
                 <div class="space-y-6 text-paleGray ">
-                <a href="<?= $guru_data[0]['gd_maplink']  ?>"> <div class="flex items-center gap-3">
+                <a href="<?= $guru_data[0]['gd_maplink']  ?>"> <div class="flex items-center gap-3 whitespace-break-spaces ">
                         <i class="fa-solid fa-map-location-dot"></i>
                         <p><?= $guru_data[0]['gd_address']  ?>
                         </p>
                     </div>
                 </a>
                     <a href="tel:<?= $guru_data[0]['gd_phone_num']  ?>">
-                        <div class="flex items-center gap-3 mt-5">
-                        <i class="fa-solid fa-phone"></i>
+                        <div class="flex items-center gap-3 mt-5 ">
+                        <i class="fa-solid fa-phone self-start pt-1 "></i>
                         <div >
-                        <?= $guru_data[0]['gd_phone_num']  ?>
+                        <p><?= $guru_data[0]['gd_phone_num']  ?></p>
+                        <p><?= $guru_data[0]['gd_phone_2']  ?></p>
                         </div>
                     </div>
                 </a>
                  <a href="mailto:<?= $guru_data[0]['gd_email']  ?>">
-                    <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-3 mt-5">
                         <i class="fa-solid fa-envelope"></i>
                         <p>   <?= $guru_data[0]['gd_email']  ?></p>
                     </div>

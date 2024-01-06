@@ -11,6 +11,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $resultSlider[0]["fav_icon"]?>">
   <style>
     .home {
       color: rgb(20, 184, 166) !important;
@@ -199,9 +200,9 @@
                                                                                                   } ?></span>
                     </div>
                   </div>
-                  <div class="rounded-full bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
+                  <div class="rounded-full hidden sm:block bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
                     <?php if ($property['uploader_id'] == 0) : ?>
-                      <img src="../../../Storage/homeGuru_logo/dark/logo.png" class="w-16 h-16" alt="HomeGuRu" />
+                      <img src="../../../Storage/slider/<?= $resultSlider[0]['fav_icon'] ?>" class="w-14 h-14" alt="HomeGuRu" />
                     <?php else : ?>
                       <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $property['gc_company_name']; ?>" />
                     <?php endif; ?>
@@ -400,7 +401,7 @@
             <!-- logo -->
             <div class="rounded-full bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
               <?php if ($property['uploader_id'] == 0) : ?>
-                <img src="../../../Storage/homeGuru_logo/dark/logo.png" class="w-16 h-16" alt="HomeGuRu" />
+                <img src="../../../Storage/slider/<?= $resultSlider[0]['fav_icon'] ?>" class="w-16 h-16" alt="HomeGuRu" />
               <?php else : ?>
                 <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $property['gc_company_name']; ?>" />
               <?php endif; ?>
@@ -557,7 +558,7 @@
             </a>
             <div class="rounded-full bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
               <?php if ($property['uploader_id'] == 0) : ?>
-                <img src="../../../Storage/homeGuru_logo/dark/logo.png" class="w-16 h-16" alt="HomeGuRu" />
+                <img src="../../../Storage/slider/<?= $resultSlider[0]['fav_icon'] ?>" class="w-16 h-16" alt="HomeGuRu" />
               <?php else : ?>
                 <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $property['gc_company_name']; ?>" />
               <?php endif; ?>
