@@ -109,10 +109,7 @@ session_start();
       />
     </div>
     <p  class="block ml-8 font-medium text-left text-red-500"><?= $_SESSION["otperror"] ?></p>
-    <p class="ml-8 mt-3 text-gray-400 ">Didn’t received an (OTP) ?</p>
-    <a  href="./OTP_verification.php" class="ml-8 mt-8 text-sm"><u>Resend OTP ?</u></a>
-
-    <div class="flex ml-8 mt-6">
+    <div class="flex ml-8 mt-10">
   <button
     class="text-white bg-darkGreen hover:bg-green-600 font-medium rounded-lg text-sm px-4 py-2 mr-4" 
     type="submit" name = "verify"

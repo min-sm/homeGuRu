@@ -1,6 +1,7 @@
 <?php include '../../Controller/common/colorsController.php' ?>
 <?php include '../../Controller/PropertyDetailController.php' ?>
 <?php include '../../Controller/RelatedPropertiesController.php' ?>
+<?php include '../../Controller/SliderController.php'?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -133,6 +134,7 @@
             $photos[] = $property_datas[0]["p_photo_$i"];
           }
         }
+        print_r($photos);
         ?>
         <?php foreach ($photos as $photo) : ?>
           <div class="image-label-container">
@@ -341,22 +343,23 @@
         Alternatively, you can fill out the contact form below and we will get back to you . We contact with email
         and phone to Look the Propety house of Location,Date & Time .
       </p>
-      <form method="post" action="../../Controller/interestFormController.php" class="w-3/5 my-10">
-        <input type="text" name="name" id="name" class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Name">
+      <form method="post" action="../../Controller/InterestFormController.php" class="w-3/5 my-10">
+        <input type="text" required name="name" id="name" class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Name">
         <div class="grid md:grid-cols-2 md:gap-16 ">
           <div>
-            <input type="text" name="email" id="email" class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email">
-            <input type="text" name="phone" id="phone" class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Phone">
+         
+            <input type="text" required name="email" id="email" class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email">
+            <input type="text" required name="phone" id="phone" class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Phone">
           </div>
           <div>
-            <input type="date" name="date" id="date" class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="date">
-            <input type="time" name="time" id="time" class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Time">
-          </div>
+            <h1 class="text-sm font-medium  mb-2">Appointment Date</h1>
+            <input type="date" required name="date" id="date" class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="date">
+        </div>
         </div>
 
         <textarea name="note" id="note" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write note Here....."></textarea>
         <div class="w-full flex items-center relative mt-5 mb-10">
-          <input id="link-checkbox" name="aggree" type="checkbox" value="" class=" absolute left-0  w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+          <input id="link-checkbox" required name="aggree" type="checkbox" value="" class=" absolute left-0  w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
           <label for="link-checkbox" class=" px-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300 tracking-wide">
             I consent to having this website store my submitted information
           </label>
@@ -457,8 +460,8 @@
               </h5>
             </a>
             <div class="rounded-full bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
-              <?php if ($property['uploader_id'] == 0) : ?>
-                <img src="../../../Storage/homeGuru_logo/dark/logo.png" class="w-16 h-16" alt="HomeGuRu" />
+            <?php if ($property['uploader_id']== 0) : ?>
+              <img src="../../../Storage/slider/<?= $resultSlider[0]['fav_icon'] ?>" class="w-13 h-13" alt="HomeGuRu" />
               <?php else : ?>
                 <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $property['gc_company_name']; ?>" />
               <?php endif; ?>

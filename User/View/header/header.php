@@ -1,4 +1,5 @@
 <?php include '../../Controller/common/colorsController.php' ?>
+<?php include '../../Controller/SliderController.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,10 +31,10 @@
 
 <body class="bg-[#F7F7F7]">
     <!-- Navigation -->
-    <nav class=" border-gray-200" style=" background-color: <?= $colors[0]['footer'] ?>; color: <?= $colors[0]['hf_text_color']  ?>">
+    <nav class=" border-gray-200" style=" background-color: <?= $colors[0]['header'] ?>; color: <?= $colors[0]['hf_text_color']  ?>">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="../Home_page/home.php" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="../resources/img/common/logo-confirm.png" class="md:h-12  h-11" alt="HomeGuRu Logo" />
+                <img src="../../../Storage/logo/<?= $resultSlider[0]['logo'] ?>" class="md:h-12  h-11" alt="HomeGuRu Logo" />
             </a>
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                 <a href="../Login/user_login.php"><button type="button" class="text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800">
@@ -46,8 +47,8 @@
                     </svg>
                 </button>
             </div>
-            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
-                <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-gray-800 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-gray-800">
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" style=" background-color: <?= $colors[0]['header'] ?>; color: <?= $colors[0]['hf_text_color']  ?>" id="navbar-cta">
+                <ul style=" background-color: <?= $colors[0]['header'] ?>; color: <?= $colors[0]['hf_text_color']  ?>" class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-gray-800 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-gray-800">
                     <li>
                         <a href="../Home_page/home.php" class="home item block py-2 px-3 md:p-0 md:bg-transparent text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700">Home</a>
                     </li>
