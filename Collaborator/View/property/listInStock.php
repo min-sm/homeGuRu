@@ -1,5 +1,11 @@
 <?php
-include_once "../../Controller/Property/ListInStockController.php";
+session_start();
+$the_called_file = "listInStock.php";
+// $current_collaborator = $_SESSION["collaboratorId"];
+$current_collaborator = 1; // to comment this line of code
+include_once "../../Controller/Property/PropertyListController.php";
+include "../../Controller/Property/CollaboratorInPropertyController.php";
+
 
 ?>
 <!DOCTYPE html>
@@ -28,66 +34,14 @@ include_once "../../Controller/Property/ListInStockController.php";
         }
     </script>
 
-    <!-- delete btn -->
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        /* The Modal (background) */
-        .delete-modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 1;
-            /* Sit on top */
-            padding-top: 100px;
-            /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%;
-            /* Full width */
-            height: 100%;
-            /* Full height */
-            overflow: auto;
-            /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
-            /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.4);
-            /* Black w/ opacity */
-        }
-
-        /* Modal Content */
-        .delete-modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-        }
-
-        /* The Close Button */
-        .delete-close {
-            color: #aaaaaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .delete-close:hover,
-        .delete-close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
     <!-- ionic icons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <!-- JS -->
     <script src="../resources/js/sort_by.js" defer></script>
+    <script src="../resources/js/search_Fn.js" defer></script>
+
     <title>In Stock Property List</title>
 </head>
 
@@ -367,7 +321,7 @@ include_once "../../Controller/Property/ListInStockController.php";
         </div>
 
         <!-- pagination -->
-        <?php include_once "../../Controller/Property/ListInStockPaginationController.php";
+        <?php include_once "../../Controller/Property/ListPaginationController.php";
 
         $totalRecords = $result['total'];
         $totalPages = ceil($totalRecords / $recordsPerPage);
@@ -419,7 +373,7 @@ include_once "../../Controller/Property/ListInStockController.php";
         <div class="bg-paleGray p-10 border border-black border-solid w-3/4 flex gap-8 flex-col items-center rounded-lg">
             <p class="text-xl">Are you sure you want to delete?</p>
             <div class="flex gap-4">
-                <a href="listAllStock.php?id=<?= $page ?>" class="py-2 px-8 bg-darkGreen text-white rounded-xl cursor-pointer">No</a>
+                <button onclick="noBtnClick()" class="py-2 px-8 bg-darkGreen text-white rounded-xl cursor-pointer">No</button>
                 <a href="../../Controller/Property/PropertyDeleteController.php?id=<?= $property['id'] ?>" class="py-2 px-8 bg-alert text-white rounded-xl cursor-pointer">Delete</a>
             </div>
         </div>
@@ -433,16 +387,15 @@ include_once "../../Controller/Property/ListInStockController.php";
             delConfirmBx.classList.add("flex");
         }
 
-        window.onclick = function(event) {
-            if (event.target == delConfirmBx) {
-                delConfirmBx.classList.remove("flex");
-                delConfirmBx.classList.add("hidden");
-            }
+        function noBtnClick() {
+            delConfirmBx.classList.remove("flex");
+            delConfirmBx.classList.add("hidden");
         }
 
-        function submitSearch() {
-            var propertyID = document.getElementById("propertyID").value;
-            window.location.href = `propertySearchResult.php?searchID=${propertyID}&p_status=2`;
+        window.onclick = function(event) {
+            if (event.target == delConfirmBx) {
+                noBtnClick();
+            }
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
