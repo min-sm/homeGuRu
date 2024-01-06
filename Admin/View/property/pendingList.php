@@ -1,5 +1,6 @@
 <?php
 include_once "../../Controller/Property/PropertyPendingController.php";
+include "../../Controller/Property/CollaboratorInPropertyController.php";
 
 ?>
 <!DOCTYPE html>
@@ -28,67 +29,13 @@ include_once "../../Controller/Property/PropertyPendingController.php";
         }
     </script>
 
-    <!-- delete btn -->
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        /* The Modal (background) */
-        .delete-modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 1;
-            /* Sit on top */
-            padding-top: 100px;
-            /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%;
-            /* Full width */
-            height: 100%;
-            /* Full height */
-            overflow: auto;
-            /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
-            /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.4);
-            /* Black w/ opacity */
-        }
-
-        /* Modal Content */
-        .delete-modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-        }
-
-        /* The Close Button */
-        .delete-close {
-            color: #aaaaaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .delete-close:hover,
-        .delete-close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
     <!-- ionic icons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <!-- JS -->
     <script src="../resources/js/sort_by.js" defer></script>
-    <title>All Stock List</title>
+    <title>Property Pending List</title>
 </head>
 
 <body class="bg-primary dark:bg-gray-700">
@@ -97,7 +44,7 @@ include_once "../../Controller/Property/PropertyPendingController.php";
 
     <!-- main body -->
     <div class="p-4 pt-20 sm:ml-64">
-        <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">All Stock List</h1>
+        <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">Pending Properties List</h1>
 
         <!-- results found -->
         <div class="pt-4 pb-8 flex items-center">
@@ -274,7 +221,7 @@ include_once "../../Controller/Property/PropertyPendingController.php";
                                         ?></span>
                             </div>
                             <div class="mt-2 flex items-center justify-between">
-                                <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
+                                <a href="../property_post/detail.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
                                     <h5 class="text-xl font-medium  text-gray-900 dark:text-white">
                                         <?php
                                         $maxLen = 25;
@@ -291,7 +238,7 @@ include_once "../../Controller/Property/PropertyPendingController.php";
                                     <?php if ($property['uploader_id'] == 0) : ?>
                                         <img src="../../../Storage/homeGuru_logo/dark/logo.png" class="w-16 h-16" alt="HomeGuRu" />
                                     <?php else : ?>
-                                        <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $guruCollaborator['gc_company_name']; ?>" />
+                                        <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $guruCollaborator[$property['uploader_id'] - 1]['gc_logo'] ?>" alt="<?= $guruCollaborator[$property['uploader_id'] - 1]['gc_company_name']; ?>" />
                                     <?php endif; ?>
                                 </div>
                             </div>

@@ -8,4 +8,8 @@ $sql->bindValue(":id", $sent_id);
 $sql->execute();
 $properties = $sql->fetchAll(PDO::FETCH_ASSOC);
 $property = $properties[0];
+if ($property['uploader_id'] != 0) {
+    $err = "Unauthorise Access.";
+    header("Location: ../../View/errors/404.php?error=$err&err_code=401");
+}
 // used in edit.php
