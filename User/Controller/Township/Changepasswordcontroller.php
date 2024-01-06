@@ -36,13 +36,12 @@ if (isset($_POST["submit"])) {
     $updateSql->bindValue(":userId", $userId);
     $updateSql->execute();
 
-    // Redirect to a success page or profile page
-   
+    // Redirect to a success page 
     header("Location: ../../View/user/password_change_success.php");
     exit();
 } else {
     // If the form was not submitted, redirect to a 404 page or appropriate error page
-    header("Location: ../View/errors/404.php");
+    header("Location: ../../View/errors/404.php");
     exit();
 }
 ?>

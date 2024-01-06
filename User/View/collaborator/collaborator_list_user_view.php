@@ -20,8 +20,6 @@
         .collaborator {
             color: rgb(20, 184, 166) !important;
         }
-
-
         .typing {
 
 

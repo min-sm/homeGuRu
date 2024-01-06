@@ -2,5 +2,5 @@
 include_once "../../Model/DBConnection.php";
 
 // Calculate total number of pages
-$totalPagesQuery = "SELECT COUNT(*) as total FROM properties WHERE del_flg = 0 AND p_status = 2";
+$totalPagesQuery = "SELECT COUNT(*) as total FROM properties WHERE del_flg = 0 AND p_status = 2 AND uploader_id = $current_collaborator";
 $result = $pdo->query($totalPagesQuery)->fetch(); // query Fn - Prepares and executes an SQL statement without placeholders
