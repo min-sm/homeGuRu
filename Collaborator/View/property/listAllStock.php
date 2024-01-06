@@ -1,4 +1,11 @@
 <?php
+session_start();
+echo "<pre>";
+// var_dump($_SESSION);
+echo "</pre>";
+
+// $current_collaborator = $_SESSION["collaboratorId"];
+$current_collaborator = 1; // to comment this line of code
 include_once "../../Controller/Property/PropertyListController.php";
 include "../../Controller/Property/CollaboratorInPropertyController.php";
 
