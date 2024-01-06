@@ -1,4 +1,5 @@
 <?php include '../../Controller/common/colorsController.php' ?>
+<?php include '../../Controller/SliderController.php'?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +7,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Property Details</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $resultSlider[0]["fav_icon"]?>">
   <style>
     /* The Modal (background) */
     #myModal {

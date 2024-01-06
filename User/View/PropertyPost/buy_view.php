@@ -1,6 +1,7 @@
 <?php include '../../Controller/common/colorsController.php' ?>
 <?php include '../../Controller/PropertyTypeController.php' ?>
 <?php include '../../Controller/common/LocationListController.php' ?>
+<?php include '../../Controller/SliderController.php'?>
 
 
 <!DOCTYPE html>
@@ -9,7 +10,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rent</title>
+    <title>Buy</title>
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $resultSlider[0]["fav_icon"]?>">
 
     <style>
         .buy {
@@ -115,16 +118,7 @@
     </div>
 
     <div id="filteredResultsContainer"></div>
-
-
-
-
-
-
-
-
-
-    <!-- footer -->
+<!-- footer -->
     <?php include '../footer/footer.php' ?>
     <script src="../resources/js/getTownship.js"></script>
     <script src="../resources/js/buyAjax.js"></script>

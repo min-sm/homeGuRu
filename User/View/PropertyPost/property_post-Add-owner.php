@@ -1,7 +1,8 @@
 <?php include '../../Controller/common/colorsController.php';
 include "../../Controller/PropertyType/PropertyTypeListController.php";
 include "../../Controller/Facility/FacilityListController.php";
-include "../../Controller/Township/TownshipListController.php"
+include "../../Controller/Township/TownshipListController.php";
+ include '../../Controller/SliderController.php';
 
 ?>
 
@@ -12,6 +13,8 @@ include "../../Controller/Township/TownshipListController.php"
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Property Post Form</title>
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $resultSlider[0]["fav_icon"]?>">
     <style>
         .sell {
             color: rgb(20, 184, 166) !important;
