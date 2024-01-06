@@ -24,7 +24,7 @@ if(count($result) ==0){
         if($result[0]["gu_verify"] == 1){
              // correct
         $_SESSION["userId"] = $result[0]["id"] ;
-        header("Location: ../View/user/user-profile.php");
+        header("Location: ../View/user/user_profile.php");
         } else{
             $_SESSION["loginerror"] = "You need to activate your account.Please check your email!";
             header("Location: ../View/user/user_login.php");
@@ -36,13 +36,7 @@ if(count($result) ==0){
         header("Location: ../View/user/user_login.php");
 
     }
-
-
-
-
-}
-
- 
+} 
 }else {
     header("Location: ../View/errors/404.php");
 }
