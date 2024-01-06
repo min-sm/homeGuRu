@@ -22,18 +22,18 @@ if (isset($_POST["login"])) {
         } else {
             // Incorrect password or inactive account
             $_SESSION["loginerror"] = "Check your password!";
+            header("Location: ../../View/admin/admin_login.php");
+            exit(); // Make sure to exit after redirection
         }
     } else {
         // Invalid email
         $_SESSION["loginerror"] = "Invalid email and password!";
+        header("Location: ../../View/admin/admin_login.php");
+        exit(); // Make sure to exit after redirection
     }
 } else {
     // Invalid request
     header("Location: ../../View/errors/404.php");
     exit(); // Make sure to exit after redirection
 }
-
-// Redirect regardless of login success or failure
-header("Location: ../../View/admin/admin_login.php");
-exit(); // Make sure to exit after redirection
 ?>

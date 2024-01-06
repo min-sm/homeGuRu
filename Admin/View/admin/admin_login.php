@@ -46,7 +46,7 @@ session_start();
       <label class="text-left ml-8 block mb-2 font-medium text-secondary" for="password">Password</label>
       <input name="password" class="inline-block w-80 p-4 leading-6 text-lg placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="password" placeholder="•••••••••••••••••" />
     </div>
-    <button  name="login" class="inline-block tracking-wider mx-auto  py-2 w-28 mb-6 text-center  leading-6 text-white font-medium bg-darkGreen hover:bg-darkGreen border-3 border-darkGreen shadow rounded transition duration-200">
+    <button  name="login"  type = "submit"class="inline-block tracking-wider mx-auto  py-2 w-28 mb-6 text-center  leading-6 text-white font-medium bg-darkGreen hover:bg-darkGreen border-3 border-darkGreen shadow rounded transition duration-200">
       Log in
     </button>
     <div class="block mb-5 ml-8 font-medium text-left text-red-500"><?= $_SESSION["loginerror"] ?></div>
