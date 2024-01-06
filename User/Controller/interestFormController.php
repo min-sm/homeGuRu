@@ -30,9 +30,12 @@ $sql->bindValue(':time',$time);
 $sql->bindValue(':note',$note);
 $sql->bindValue(':post_id',$post_id);
 $sql->execute();
+$sqlUpdateInterestCount = "UPDATE properties SET p_interest_count = p_interest_count + 1 WHERE id = $post_id";
+$countIncrease=$pdo->prepare($sqlUpdateInterestCount);
+$countIncrease->execute();
 ini_set('display_errors', 1);
 
-header('Location: ' . '../PropertyPost/detail_post.php');
+header('Location: ' . '../View/interest_View/interestview_register_success.php');
 }else{
 
 }

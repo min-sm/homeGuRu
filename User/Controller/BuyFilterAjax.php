@@ -26,7 +26,7 @@ FROM properties p
 LEFT JOIN m_townships mt ON p.p_township = mt.id
 LEFT JOIN property_type pt ON p.pt_id = pt.id
 LEFT JOIN m_collaborators mc ON p.uploader_id=mc.id
-WHERE p.del_flg = 0 AND p.p_status = 2 AND p.p_after=0 AND mc.gc_activity_ban=0 AND p.p_offer=0";
+WHERE p.del_flg = 0 AND p.p_status = 2 AND p.p_after=0 AND mc.gc_activity_ban=0 AND p.p_offer=1";
 
 
 // Include conditions based on selected values for properties
@@ -108,7 +108,7 @@ $stmt->execute();
 $filteredProperties = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Fetch the total number of records for pagination
-$totalRecordsStmt = $pdo->prepare("SELECT COUNT(*) FROM properties p LEFT JOIN m_collaborators mc ON p.uploader_id=mc.id WHERE p.del_flg = 0 AND p_status = 2 AND p_after = 0 AND mc.gc_activity_ban = 0 AND p.p_offer = 0");
+$totalRecordsStmt = $pdo->prepare("SELECT COUNT(*) FROM properties p LEFT JOIN m_collaborators mc ON p.uploader_id=mc.id WHERE p.del_flg = 0 AND p_status = 2 AND p_after = 0 AND mc.gc_activity_ban = 0 AND p.p_offer = 1");
 $totalRecordsStmt->execute();
 $totalRecords = $totalRecordsStmt->fetchColumn();
 
