@@ -1,17 +1,13 @@
 <?php
-$the_called_file = "owner_detail.php";
-include "../../Controller/Owner/OwnerDetailController.php";
-include "../../Controller/Property/OwnerPropertyListController.php";
+include_once "../../Controller/Property/ListInStockController.php";
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Property Owner Detail</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- tailwind -->
     <link href="../resources/css/dist/output.css" rel="stylesheet" />
 
@@ -19,58 +15,89 @@ include "../../Controller/Property/OwnerPropertyListController.php";
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <!-- fontawsome -->
     <script src="https://kit.fontawesome.com/b9864528d4.js" crossorigin="anonymous"></script>
+    <!-- dark mode -->
+    <script>
+        if (
+            localStorage.getItem("color-theme") === "dark" ||
+            (!("color-theme" in localStorage) &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
+    </script>
 
+    <!-- delete btn -->
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* The Modal (background) */
+        .delete-modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .delete-modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* The Close Button */
+        .delete-close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .delete-close:hover,
+        .delete-close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
     <!-- ionic icons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <!--JS-->
+
+    <!-- JS -->
     <script src="../resources/js/sort_by.js" defer></script>
-    <script src="../resources/js/search_Fn.js" defer></script>
+    <title>In Stock Property List</title>
 </head>
 
 <body class="bg-primary dark:bg-gray-700">
-    <?php include '../commonView/menu.php' ?>
-    <!--Start  Owner Detail-->
-    <div class="p-4 pt-20 sm:ml-64 flex flex-col items-center text-black dark:text-white">
-        <h1 class=" text-center font-bold text-2xl m-7 tracking-wide ">Property Owner Detail</h1>
-        <div class=" lg:w-1/2 w-full grid grid-row-13 gap-4">
-            <div class="grid grid-cols-2 gap-7 ">
-                <p class="font-medium text-lg">Owner Name</p>
-                <p name="go_owner_name"><?= $owner['go_name']; ?></p>
-            </div>
-            <div class="grid grid-cols-2 gap-7 ">
-                <p class="font-medium text-lg">National ID</p>
-                <p name="go_owner_nrc"><?= $owner['go_nrc']; ?></p>
-            </div>
-            <div class="grid grid-cols-2 gap-7 ">
-                <p class="font-medium text-lg">Email Address</p>
-                <p name="go_email"><?= $owner['go_email']; ?></p>
-            </div>
-            <div class="grid grid-cols-2 gap-7 ">
-                <p class="font-medium text-lg">Phone Number</p>
-                <p name="go_phone"><?= $owner['go_phone_num']; ?></p>
-            </div>
-            <div class="grid grid-cols-2 gap-7 ">
-                <p class="font-medium text-lg">Joined Date</p>
-                <p name="">
-                    <?php
-                    $date = new DateTime($owner['updated_date']);
-                    $formattedDate = $date->format('d/m/Y');
-                    echo $formattedDate;
-                    ?>
-                </p>
-            </div>
-        </div>
-        <div class=" flex  my-16 space-x-4 ">
-            <a href="./owner_list.php" type="submit" class="tracking-wider text-white bg-goldYellow opacity-75 hover:opacity-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium px-8 py-2 text-center">Back</a>
-            <button id="deleteBtn" onclick="deleteBxShow()" class="text-white px-8 py-3 bg-alert rounded-lg">Delete</button>
-        </div>
-        <hr class="w-[35rem] border-2 text-gray-500">
-    </div>
-    <!--End  Owner Detail -->
+    <!-- heading navigation -->
+    <?php include '../common/menu.php' ?>
 
+    <!-- main body -->
     <div class="p-4 pt-20 sm:ml-64">
-        <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">Property List</h1>
+        <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">In Stock Property List</h1>
 
         <!-- results found -->
         <div class="pt-4 pb-8 flex items-center">
@@ -78,17 +105,13 @@ include "../../Controller/Property/OwnerPropertyListController.php";
             <span class="lg:ms-16 sm:ms-8 me-8 lg:text-2xl text-base text-black dark:text-white"><span><?= $resultCount['total_result'] ?></span> Found</span>
             <!-- in stock / out of stock -->
             <div class="lg:space-x-8 space-x-4 lg:text-base text-xs">
-                <label for="allStock" class="text-goldYellow cursor-pointer label "><a href="../People/owner_detail.php?id=<?= $_GET['id'] ?>">All Stocks</a></label>
-                <label for="outStock" class="text-gray-500 cursor-pointer label "><a href="../People/owner_detail_out_of_stock.php?id=<?= $_GET['id']; ?>">Out of Stock</a>
+                <label for="allStock" class="text-gray-500 cursor-pointer label "><a href="listAllStock.php">All Stocks</a></label>
+                <label for="outStock" class="text-gray-500 cursor-pointer label "><a href="listOutOfStock.php">Out of Stock</a>
                 </label>
-                <label for="inStock" class="text-gray-500 cursor-pointer label "><a href="../People/owner_detail_in_stock.php?id=<?= $_GET['id']; ?>">In Stock</a></label>
-                <label for="req" class="text-gray-500 cursor-pointer label "><a href="../People/owner_detail_req.php?id=<?= $_GET['id']; ?>">Req</a></label>
-                <label for="pending" class="text-gray-500 cursor-pointer label "><a href="../People/owner_detail_pending.php?id=<?= $_GET['id']; ?>">Pending</a></label>
+                <label for="inStock" class="text-goldYellow cursor-pointer label "><a href="listInStock.php">In Stock</a></label>
                 <input type="radio" id="allStock" name="sort_by" value="" class="hidden" />
                 <input type="radio" id="outStock" name="sort_by" value="" class="hidden" />
                 <input type="radio" id="inStock" name="sort_by" value="" class="hidden" />
-                <input type="radio" id="req" name="sort_by" value="" class="hidden" />
-                <input type="radio" id="pending" name="sort_by" value="" class="hidden" />
             </div>
 
             <!-- 2 view options -->
@@ -114,76 +137,80 @@ include "../../Controller/Property/OwnerPropertyListController.php";
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-base text-gray-700 uppercase bg-primary dark:bg-gray-800 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-4 py-3">
+                        <th scope="col" class="px-6 py-3">
                             No
                         </th>
-                        <th scope="col" class="px-4 py-3">
+                        <th scope="col" class="px-6 py-3">
                             Code
                         </th>
-                        <th scope="col" class="px-4 py-3">
+                        <th scope="col" class="px-6 py-3">
                             Property
                         </th>
-                        <th scope="col" class="px-4 py-3 ">
+                        <th scope="col" class="px-6 py-3">
                             Offer
                         </th>
-                        <th scope="col" class="px-4 py-3">
+                        <th scope="col" class="px-6 py-3">
+                            Size
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Price
                         </th>
-                        <th scope="col" class="px-4 py-3">
+                        <th scope="col" class="px-6 py-3">
                             Township
                         </th>
-                        <th scope="col" class="px-4 py-3">
-                            Detail
+                        <th scope="col" class="px-6 py-3">
+                            Details
                         </th>
-                        <th scope="col" class="px-4 py-3">
+                        <th scope="col" class="px-6 py-3">
                             Delete
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
+                    // if (isset($_GET['page'])) {
+                    //     $counter = 1 + (6 * ($_GET['page'] - 1));
+                    // } else {
+                    //     $counter = 1;
+                    // }
                     $counter = (isset($_GET['page'])) ? (1 + (6 * ($_GET['page'] - 1))) : 1;
 
                     foreach ($properties as $property) {
-                        if ($property['p_status'] == 2) {
-                            $directoryToDetail = '../Property/detail.php';
-                        } else if ($property['p_status'] == 1) {
-                            $directoryToDetail = '../Property/pending.php';
-                        } else if ($property['p_status'] == 0) {
-                            $directoryToDetail = '../Property/req_detail.php';
-                        }
                     ?>
+                        <!-- 1st row -->
                         <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <th scope="row" class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 <?= $counter ?>
                             </th>
-                            <td class="px-4 py-4">
+                            <td class="px-6 py-4">
                                 <?= $property['p_code'] ?>
                             </td>
-                            <td class="px-4 py-4">
+                            <td class="px-6 py-4">
                                 <?= $property['pt_name'] ?>
                             </td>
-                            <?php
-                            $property_type = $property['p_offer'] == '0';
-                            ?>
-                            <td class="px-6 py-4 <?= $property_type ? 'text-goldYellow' : 'text-alert'; ?> font-semibold">
-                                <?= $property_type ? 'Rent' : 'Sale'; ?>
+                            <td class="px-6 py-4">
+                                <?= $property['p_offer'] == '0' ? 'Rent' : 'Sale'; ?>
                             </td>
-                            <td class="px-4 py-4 text-left">
-                                <span class="text-green-500 font-semibold"><?= $property['p_price_unit'] == '1' ? '$' . number_format($property['p_price']) : number_format($property['p_price']) . ' Kyats'; ?> / <?= $property['p_duration'] == '0' ? 'Per Month' : 'Per Year'; ?>
-                                </span>
+                            <td class="px-6 py-4">
+                                <?= number_format($property['p_width'] * $property['p_length']); ?> <?= $property['p_size_unit'] == '1' ? 'm' : 'ft'; ?><sup>2</sup>
                             </td>
-                            <td class="px-4 py-4  font-bold tracking-wide">
+                            <td class="px-6 py-4">
+                                <?= $property['p_price_unit'] == '1' ? '$' . number_format($property['p_price']) : number_format($property['p_price']) . ' Kyats';
+                                ?> / <?= $property['p_duration'] == '0' ? 'Per Month' : 'Per Year'; ?>
+                            </td>
+                            <td class="px-6 py-4">
                                 <?= $property["township_name"] ?>
                             </td>
 
-                            <td class="px-4 py-4 flex justify-center">
-                                <a href="<?= $directoryToDetail; ?>?id=<?= $property['id'] ?>">
+                            <td class="px-6 py-4 text-center">
+                                <a href="detail.php?id=<?= $property['id'] ?>">
                                     <ion-icon name="document-text-outline" class="text-lg font-medium cursor-pointer text-blue-500"></ion-icon>
                                 </a>
                             </td>
-                            <td class="px-4 py-4 text-center">
-                                <ion-icon name="trash-bin" class="text-xl font-medium cursor-pointer text-alert"></ion-icon>
+                            <td class="px-6 py-4 text-center">
+                                <button id="deleteBtn" onclick="deleteBxShow()">
+                                    <ion-icon name="trash-bin" class="text-lg font-medium cursor-pointer text-alert"></ion-icon>
+                                </button>
                             </td>
                         </tr>
                     <?php
@@ -199,16 +226,9 @@ include "../../Controller/Property/OwnerPropertyListController.php";
             <div class="flex s justify-around gap-5  flex-wrap w-full  mb-10 ">
                 <?php
                 foreach ($properties as $property) {
-                    if ($property['p_status'] == 2) {
-                        $directoryToDetail = '../Property/detail.php';
-                    } else if ($property['p_status'] == 1) {
-                        $directoryToDetail = '../Property/pending.php';
-                    } else if ($property['p_status'] == 0) {
-                        $directoryToDetail = '../Property/req_detail.php';
-                    }
                 ?>
                     <div class="w-full  max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                        <a href="<?= $directoryToDetail; ?>?id=<?= $property['id'] ?>">
+                        <a href="../Property/detail.php?id=<?= $property['id'] ?>">
                             <div class="relative h-56">
                                 <div class="<?php
                                             if ($property['p_after'] == 1) {
@@ -275,10 +295,11 @@ include "../../Controller/Property/OwnerPropertyListController.php";
                                     <?php if ($property['uploader_id'] == 0) : ?>
                                         <img src="../../../Storage/homeGuru_logo/dark/logo.png" class="w-16 h-16" alt="HomeGuRu" />
                                     <?php else : ?>
-                                        <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $collaborator[0]['gc_logo'] ?>" alt="<?= $guruCollaborator[$property['uploader_id'] - 1]['gc_company_name']; ?>" />
+                                        <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $guruCollaborator[$property['uploader_id'] - 1]['gc_logo'] ?>" alt="<?= $guruCollaborator[$property['uploader_id'] - 1]['gc_company_name']; ?>" />
                                     <?php endif; ?>
                                 </div>
                             </div>
+
                             <div class=" mb-5 text-darkGreen dark:text-green-500 flex items-center text-lg">
                                 <i class="fa-sharp fa-solid fa-money-bill pt-1"></i>
                                 <span class="ml-3 mt-2 font-meduim">
@@ -304,6 +325,7 @@ include "../../Controller/Property/OwnerPropertyListController.php";
                                     ?>
                                 </span>
                             </div>
+
                             <div class="mt-2.5 mb-7 text-black dark:text-white tracking-wide space-y-5  text-sm">
                                 <div class="flex justify-between items-center">
                                     <div><span class="font-playFair">Property Code: </span>
@@ -319,7 +341,7 @@ include "../../Controller/Property/OwnerPropertyListController.php";
                                     </div>
                                     <div>
                                         <span class="font-playFair">Property Size: </span>
-                                        <span><?= number_format($property['p_width']) ?> x <?= number_format($property['p_length']) ?>
+                                        <span><?= $property['p_width'] ?>x<?= $property['p_length'] ?>
                                             <?php
                                             if ($property['p_size_unit'] == 1) {
                                                 echo 'm';
@@ -330,31 +352,79 @@ include "../../Controller/Property/OwnerPropertyListController.php";
                                     </div>
                                 </div>
                             </div>
+
                             <div class="flex items-center justify-end">
-                                <a href="<?= $directoryToDetail; ?>?id=<?= $property['id'] ?>" class="text-darkGreen dark:text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
+                                <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
+                                <a href="../Property/detail.php?id=<?= $property['id'] ?>" class="text-darkGreen dark:text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
                             </div>
                         </div>
                     </div>
+
+
                 <?php }
                 ?>
             </div>
         </div>
+
+        <!-- pagination -->
+        <?php include_once "../../Controller/Property/ListInStockPaginationController.php";
+
+        $totalRecords = $result['total'];
+        $totalPages = ceil($totalRecords / $recordsPerPage);
+        ?>
+        <div class="flex justify-center my-16">
+            <nav aria-label="Page navigation example">
+                <ul class="flex items-center -space-x-px h-10 text-base">
+
+                    <!-- previous -->
+                    <li>
+                        <a href="listInStock.php?page=<?= ($page == 1) ? 1 : $page - 1; ?>" class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                            <span class="sr-only">Previous</span>
+                            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+                            </svg>
+                        </a>
+                    </li>
+                    <!-- all the pages -->
+                    <?php
+                    for ($i = 1; $i <= $totalPages; $i++) :
+                        $theCurrentPgCondition =  $i == $page;
+                    ?>
+                        <li>
+                            <a href='listInStock.php?page=<?= $i ?>' class="<?= $theCurrentPgCondition ? 'z-10' : ''; ?> flex items-center justify-center px-4 h-10 leading-tight <?= $theCurrentPgCondition ? 'text-blue-600' : 'text-gray-500'; ?> border border-<?= $theCurrentPgCondition ? 'blue' : 'gray'; ?>-300 bg-<?= $theCurrentPgCondition ? 'blue-50' : 'white'; ?> hover:bg-<?= $theCurrentPgCondition ? 'blue' : 'gray'; ?>-100 hover:text-<?= $theCurrentPgCondition ? 'blue' : 'gray'; ?>-700 dark:border-gray-700 dark:bg-gray-<?= $theCurrentPgCondition ? '700' : '800'; ?> dark:text-<?= $theCurrentPgCondition ? 'white' : 'gray-400 dark:hover:bg-gray-700 dark:hover:text-white'; ?>"><?= $i; ?></a>
+                        </li>
+                    <?php endfor ?>
+                    <!-- Next -->
+                    <li>
+                        <a href="listInStock.php?page=<?php if ($page < $totalPages) {
+                                                            echo $page + 1;
+                                                        } else if ($page == $totalPages) {
+                                                            echo $totalPages;
+                                                        }
+                                                        ?>" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                            <span class="sr-only">Next</span>
+                            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
 
-    <!-- DELETE The Modal -->
+    <!-- The Modal -->
     <div id="delConfirmBx" class="hidden fixed top-0 left-0 z-50 w-full h-full overflow-auto bg-black bg-opacity-75 justify-center items-center">
         <!-- Modal content -->
         <div class="bg-paleGray p-10 border border-black border-solid w-3/4 flex gap-8 flex-col items-center rounded-lg">
             <p class="text-xl">Are you sure you want to delete?</p>
             <div class="flex gap-4">
-                <button onclick="noBtnClick()" class="py-2 px-8 bg-darkGreen text-white rounded-xl cursor-pointer">No</button>
-                <a href="../../Controller/Owner/OwnerDeleteController.php?id=<?= $owner['id'] ?>" class="py-2 px-8 bg-alert text-white rounded-xl cursor-pointer">Delete</a>
+                <a href="listAllStock.php?id=<?= $page ?>" class="py-2 px-8 bg-darkGreen text-white rounded-xl cursor-pointer">No</a>
+                <a href="../../Controller/Property/PropertyDeleteController.php?id=<?= $property['id'] ?>" class="py-2 px-8 bg-alert text-white rounded-xl cursor-pointer">Delete</a>
             </div>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 
-    <!-- delete modal -->
     <script>
         let delConfirmBx = document.getElementById('delConfirmBx');
 
@@ -363,17 +433,19 @@ include "../../Controller/Property/OwnerPropertyListController.php";
             delConfirmBx.classList.add("flex");
         }
 
-        function noBtnClick() {
-            delConfirmBx.classList.remove("flex");
-            delConfirmBx.classList.add("hidden");
-        }
-
         window.onclick = function(event) {
             if (event.target == delConfirmBx) {
-                noBtnClick();
+                delConfirmBx.classList.remove("flex");
+                delConfirmBx.classList.add("hidden");
             }
         }
+
+        function submitSearch() {
+            var propertyID = document.getElementById("propertyID").value;
+            window.location.href = `propertySearchResult.php?searchID=${propertyID}&p_status=2`;
+        }
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 </body>
 
 </html>
