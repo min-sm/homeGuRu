@@ -226,6 +226,7 @@ if (isset($_POST["submit"])) {
         p_description,
         p_facilities,
         go_id,
+        p_status,
         uploader_id
         )
         VALUES(
@@ -252,7 +253,8 @@ if (isset($_POST["submit"])) {
         :p_description,
         :p_facilities,
         :go_id,
-        0)"; // default 0 for admin 
+        2, 
+        0)"; // default 0 for uploader_id (admin) & 2 for (p_status, approved stage) 
 
     $propertyInsertStmt = $pdo->prepare($queryForProperty);
     $propertyInsertStmt->bindValue("p_code", $p_code);

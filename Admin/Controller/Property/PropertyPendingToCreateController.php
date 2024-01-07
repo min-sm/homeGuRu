@@ -207,7 +207,6 @@ if (isset($_POST["submit"])) {
     $p_township = isset($_POST["p_township"]) ? $_POST['p_township']  : '';
     $p_note = $_POST["p_note"];
     $p_description = $_POST["p_description"];
-    $p_after = $_POST['p_after'];
     // p code related
     $p_code = 'G' . ($p_offer === '0' ? 'R' : 'S') . 'A' . $_GET['id'];
     // facility
@@ -237,7 +236,6 @@ if (isset($_POST["submit"])) {
         p_note = :p_note,
         p_description = :p_description,
         p_facilities = :p_facilities,
-        p_after = :p_after,
         go_id = :go_id
     WHERE p_code = :p_code;
     ";
@@ -265,7 +263,6 @@ if (isset($_POST["submit"])) {
     $propertyUpdateStmt->bindValue("p_description", $p_description);
     $propertyUpdateStmt->bindValue("p_facilities", $p_facilities);
     $propertyUpdateStmt->bindValue("go_id", $go_id);
-    $propertyUpdateStmt->bindValue("p_after", $p_after);
     $propertyUpdateStmt->bindValue("id", $_GET['id']);
     $propertyUpdateStmt->execute();
 

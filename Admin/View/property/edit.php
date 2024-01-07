@@ -1,4 +1,5 @@
 <?php
+$the_called_file = 'edit.php';
 include "../../Controller/Property/PropertyEditController.php";
 include "../../Controller/PropertyType/PropertyTypeListController.php";
 include "../../Controller/Facility/FacilityListController.php";
@@ -305,11 +306,11 @@ include "../../Controller/Township/TownshipListController.php";
                 <!-- location -->
                 <div class="w-3/4">
                     <label for="location_map" class="font-medium">Location Map</label>
-                    <input type="text" placeholder="Enter google map's embed share link" id="location_map" name="p_location" value="<?= htmlspecialchars($property['p_location']); ?>" class="w-full px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2">
+                    <input type="text" placeholder="Enter google map's embed share link" id="location_map" name="p_location" value="<?= htmlspecialchars($property['p_location']); ?>" oninput="handleInputChange()" class="w-full px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2">
                 </div>
 
                 <!-- map -->
-                <?= str_replace('<iframe', '<iframe class="w-3/4 h-72 unimportant-detail block-unimportant"', $property['p_location']); ?>
+                <?= str_replace('<iframe', '<iframe id="mapIframe" class="w-3/4 h-72 unimportant-detail block-unimportant"', $property['p_location']); ?>
 
                 <!-- additional_features -->
                 <div class="w-3/4">
@@ -380,6 +381,22 @@ include "../../Controller/Township/TownshipListController.php";
                     <textarea name="p_description" id="description" class="w-full h-96 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2 overflow-x-hidden" required><?= $property['p_description']; ?></textarea>
                 </div>
 
+                <!-- Out of stock / in stock -->
+                <?php
+                $defaultPAfter = $property['p_after'] == 0;
+                ?>
+                <div class="w-3/4 flex justify-between">
+                    <div class="flex flex-col items-center gap-2">
+                        <input type="radio" name="p_after" id="in_stock" value="0" <?= $defaultPAfter ? 'checked' : ''; ?>>
+                        <label for="in_stock">In Stock</label>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <input type="radio" name="p_after" id="out_of_stock" value="1" <?= $defaultPAfter ? '' : 'checked'; ?>>
+                        <label for="out_of_stock">Out Of Stock</label>
+                    </div>
+
+                </div>
+
 
                 <div class="w-3/4 flex justify-between">
                     <button type="submit" name="submit" class="bg-darkGreen py-2 px-6 rounded-lg border border-black dark:border-white text-white">Update</button>
@@ -399,6 +416,20 @@ include "../../Controller/Township/TownshipListController.php";
             <span id="img-description" class="mt-4"></span>
         </div>
     </div>
+
+    <script>
+        let defaultIFrameValue = '<?= $property['p_location']; ?>';
+        const locationInput = document.getElementById('location_map');
+        const mapIframe = document.getElementById('mapIframe');
+
+        function handleInputChange() {
+            if (locationInput.value !== defaultIFrameValue) {
+                mapIframe.classList.add('hidden');
+            } else {
+                mapIframe.classList.remove('hidden');
+            }
+        }
+    </script>
 </body>
 
 </html>

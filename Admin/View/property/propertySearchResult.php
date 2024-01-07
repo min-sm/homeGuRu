@@ -30,60 +30,6 @@ include "../../Controller/Property/CollaboratorInPropertyController.php";
         }
     </script>
 
-    <!-- delete btn -->
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        /* The Modal (background) */
-        .delete-modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 1;
-            /* Sit on top */
-            padding-top: 100px;
-            /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%;
-            /* Full width */
-            height: 100%;
-            /* Full height */
-            overflow: auto;
-            /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
-            /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.4);
-            /* Black w/ opacity */
-        }
-
-        /* Modal Content */
-        .delete-modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-        }
-
-        /* The Close Button */
-        .delete-close {
-            color: #aaaaaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .delete-close:hover,
-        .delete-close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
     <!-- ionic icons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -165,6 +111,13 @@ include "../../Controller/Property/CollaboratorInPropertyController.php";
                     $counter = (isset($_GET['page'])) ? (1 + (6 * ($_GET['page'] - 1))) : 1;
 
                     foreach ($result as $property) {
+                        if ($property['p_status'] == 2) {
+                            $directoryToDetail = '../Property/detail.php';
+                        } else if ($property['p_status'] == 1) {
+                            $directoryToDetail = '../Property/pending.php';
+                        } else if ($property['p_status'] == 0) {
+                            $directoryToDetail = '../Property/req_detail.php';
+                        }
                     ?>
                         <!-- 1st row -->
                         <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
@@ -192,7 +145,7 @@ include "../../Controller/Property/CollaboratorInPropertyController.php";
                             </td>
 
                             <td class="px-6 py-4 text-center">
-                                <a href="detail.php?id=<?= $property['id'] ?>">
+                                <a href="<?= $directoryToDetail; ?>?id=<?= $property['id'] ?>">
                                     <ion-icon name="document-text-outline" class="text-lg font-medium cursor-pointer text-blue-500"></ion-icon>
                                 </a>
                             </td>
@@ -215,6 +168,13 @@ include "../../Controller/Property/CollaboratorInPropertyController.php";
             <div class="flex s justify-around gap-5  flex-wrap w-full  mb-10 ">
                 <?php
                 foreach ($result as $property) {
+                    if ($property['p_status'] == 2) {
+                        $directoryToDetail = '../Property/detail.php';
+                    } else if ($property['p_status'] == 1) {
+                        $directoryToDetail = '../Property/pending.php';
+                    } else if ($property['p_status'] == 0) {
+                        $directoryToDetail = '../Property/req_detail.php';
+                    }
                 ?>
                     <div class="w-full  max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="../Property/detail.php?id=<?= $property['id'] ?>">
@@ -325,12 +285,14 @@ include "../../Controller/Property/CollaboratorInPropertyController.php";
                                     </div>
                                 </div>
                                 <div class="flex justify-between items-center mt-2">
+                                    <!-- township in card -->
                                     <div><span class="font-playFair">Township: </span>
                                         <span><?= $property['township_name'] ?></span>
                                     </div>
+                                    <!-- property size in card -->
                                     <div>
                                         <span class="font-playFair">Property Size: </span>
-                                        <span><?= $property['p_width'] ?>x<?= $property['p_length'] ?>
+                                        <span><?= $property['p_width'] ?> x <?= $property['p_length'] ?>
                                             <?php
                                             if ($property['p_size_unit'] == 1) {
                                                 echo 'm';
@@ -341,10 +303,9 @@ include "../../Controller/Property/CollaboratorInPropertyController.php";
                                     </div>
                                 </div>
                             </div>
-
+                            <!-- detail in card -->
                             <div class="flex items-center justify-end">
-                                <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-                                <a href="../Property/detail.php?id=<?= $property['id'] ?>" class="text-darkGreen dark:text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
+                                <a href="<?= $directoryToDetail; ?>?id=<?= $property['id'] ?>" class="text-darkGreen dark:text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
                             </div>
                         </div>
                     </div>

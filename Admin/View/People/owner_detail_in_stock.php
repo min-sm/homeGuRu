@@ -315,9 +315,11 @@ include "../../Controller/Property/OwnerPropertyListController.php";
                                     </div>
                                 </div>
                                 <div class="flex justify-between items-center mt-2">
+                                    <!-- township in card -->
                                     <div><span class="font-playFair">Township: </span>
                                         <span><?= $property['township_name'] ?></span>
                                     </div>
+                                    <!-- property size in card -->
                                     <div>
                                         <span class="font-playFair">Property Size: </span>
                                         <span><?= number_format($property['p_width']) ?> x <?= number_format($property['p_length']) ?>
@@ -331,6 +333,7 @@ include "../../Controller/Property/OwnerPropertyListController.php";
                                     </div>
                                 </div>
                             </div>
+                            <!-- detail in card -->
                             <div class="flex items-center justify-end">
                                 <a href="<?= $directoryToDetail; ?>?id=<?= $property['id'] ?>" class="text-darkGreen dark:text-green-500 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
                             </div>

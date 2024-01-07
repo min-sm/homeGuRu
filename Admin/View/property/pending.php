@@ -1,4 +1,6 @@
 <?php
+$the_called_file = 'pending.php';
+
 include "../../Controller/Property/PropertyEditController.php";
 include "../../Controller/PropertyType/PropertyTypeListController.php";
 include "../../Controller/Facility/FacilityListController.php";
@@ -55,7 +57,7 @@ include "../../Controller/Township/TownshipListController.php";
 
     <!-- CSS -->
     <link rel="stylesheet" href="../resources/css/property_post_add_form.css">
-    <title>Property Post Edit</title>
+    <title>Pending Property Details</title>
 </head>
 
 <body class="bg-primary dark:bg-gray-700 tracking-wide">
@@ -65,8 +67,8 @@ include "../../Controller/Township/TownshipListController.php";
     <!-- main body -->
     <div class="p-4 pt-20 sm:ml-64">
         <!-- add property post -->
-        <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">Edit Property Post</h1>
-        <form action="../../Controller/Property/PropertyUpdateController.php?id=<?= $_GET['id']; ?>" method="POST" enctype="multipart/form-data">
+        <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">Pending Property</h1>
+        <form action="../../Controller/Property/PropertyPendingToCreateController.php?id=<?= $_GET['id']; ?>" method="POST" enctype="multipart/form-data">
             <!-- add image section -->
             <div class="flex flex-col lg:flex-row items-center sm:items-start gap-4 overflow-x-auto">
                 <!-- add photo button -->
@@ -382,7 +384,6 @@ include "../../Controller/Township/TownshipListController.php";
 
 
                 <div class="w-3/4 flex justify-between">
-                    <!-- <a href="../../Controller/Property/PStatusUpgrade.php?id=<?= $_GET['id']; ?>&p_status=2" class="bg-darkGreen py-2 px-6 rounded-lg border text-sm sm:text-base text-white">Post the property</a> -->
                     <button type="submit" name="submit" class="bg-darkGreen py-2 px-6 rounded-lg border border-black dark:border-white text-white">Post the property</button>
                     <button class="bg-goldYellow py-2 px-6 rounded-lg border border-black dark:border-white">Test View</button>
                 </div>

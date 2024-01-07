@@ -1,5 +1,5 @@
 <?php
-include "../../Controller/Property/SinglePropertyDetailController.php";
+include "../../Controller/Property/ReqPropertyDetailController.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +29,7 @@ include "../../Controller/Property/SinglePropertyDetailController.php";
 
     <!-- CSS -->
     <link rel="stylesheet" href="../resources/css/property_post_add_form.css">
-    <title>Property Detail</title>
+    <title>Requesting Property Details</title>
 
     <!-- tailwind -->
     <link href="../resources/css/dist/output.css" rel="stylesheet" />
@@ -46,7 +46,7 @@ include "../../Controller/Property/SinglePropertyDetailController.php";
     <!-- main body -->
     <div class="p-4 pt-20 sm:ml-64">
         <!-- add property post -->
-        <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">Property Details</h1>
+        <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">Requesting Property Details</h1>
         <!-- image section -->
         <div class="flex flex-col lg:flex-row items-center sm:items-start gap-4 text-black dark:text-white overflow-x-auto">
             <!--  images -->
