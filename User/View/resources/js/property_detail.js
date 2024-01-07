@@ -2,9 +2,19 @@
 var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
+const slider =document.getElementById('slider');
 let imgs = document.getElementsByClassName("property-img");
-
+let smalls=document.getElementsByClassName("property-imgs");
 let fullImg = document.getElementById("display-full-img");
+console.log
+for (const small of smalls) {
+  small.addEventListener("click", () => {
+    // Input string
+    const inputString = img.style.backgroundImage;
+    console.log(inputString)
+slider.style.backgroundImage=inputString;
+  });
+}
 // When the user clicks the button, open the modal
 for (const img of imgs) {
   img.addEventListener("click", () => {
