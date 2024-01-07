@@ -234,7 +234,6 @@ include "../../Controller/Property/CollaboratorPropertyInStockListController.php
                                 <a href="../Property/detail.php?id=<?= $property['id'] ?>">
                                     <ion-icon name="document-text-outline" class="text-lg font-medium cursor-pointer text-blue-500"></ion-icon>
                                 </a>
-                                <!-- <img class="w-5" src="../resources/img/icon/view-details.png" alt=""> -->
                             </td>
                             <td class="px-4 py-4 text-center">
                                 <ion-icon name="trash-bin" class="text-xl font-medium cursor-pointer text-alert"></ion-icon>
@@ -305,7 +304,7 @@ include "../../Controller/Property/CollaboratorPropertyInStockListController.php
                                         ?></span>
                             </div>
                             <div class="mt-2 flex items-center justify-between">
-                                <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
+                                <a href="../Property/detail.php?id=<?= $property['id'] ?>" class="mt-2.5 mb-5">
                                     <h5 class="text-xl font-medium  text-gray-900 dark:text-white">
                                         <?php
                                         $maxLen = 25;

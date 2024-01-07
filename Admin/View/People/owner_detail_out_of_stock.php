@@ -2,6 +2,7 @@
 $the_called_file = "owner_detail_out_of_stock.php";
 include "../../Controller/Owner/OwnerDetailController.php";
 include "../../Controller/Property/OwnerPropertyListController.php";
+include "../../Controller/Property/CollaboratorInPropertyController.php";
 
 
 ?>
@@ -259,7 +260,8 @@ include "../../Controller/Property/OwnerPropertyListController.php";
                                         ?></span>
                             </div>
                             <div class="mt-2 flex items-center justify-between">
-                                <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
+                                <a href="<?= $directoryToDetail; ?>?id=<?= $property['id'] ?>" class="mt-2.5 mb-5">
+                                <!-- card property title -->
                                     <h5 class="text-xl font-medium  text-gray-900 dark:text-white">
                                         <?php
                                         $maxLen = 25;
@@ -276,7 +278,7 @@ include "../../Controller/Property/OwnerPropertyListController.php";
                                     <?php if ($property['uploader_id'] == 0) : ?>
                                         <img src="../../../Storage/homeGuru_logo/dark/logo.png" class="w-16 h-16" alt="HomeGuRu" />
                                     <?php else : ?>
-                                        <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $collaborator[0]['gc_logo'] ?>" alt="<?= $guruCollaborator[$property['uploader_id'] - 1]['gc_company_name']; ?>" />
+                                        <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $guruCollaborator[$property['uploader_id'] - 1]['gc_logo'] ?>" alt="<?= $guruCollaborator[$property['uploader_id'] - 1]['gc_company_name']; ?>" />
                                     <?php endif; ?>
                                 </div>
                             </div>

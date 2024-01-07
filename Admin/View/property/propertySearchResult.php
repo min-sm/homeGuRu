@@ -227,7 +227,7 @@ include "../../Controller/Property/CollaboratorInPropertyController.php";
                                         ?></span>
                             </div>
                             <div class="mt-2 flex items-center justify-between">
-                                <a href="../property_post/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
+                                <a href="<?= $directoryToDetail; ?>?id=<?= $property['id'] ?>" class="mt-2.5 mb-5">
                                     <h5 class="text-xl font-medium  text-gray-900 dark:text-white">
                                         <?php
                                         $maxLen = 25;
