@@ -14,21 +14,22 @@ if (isset($_POST["login"])) {
 
     if ($result) {
         // Check password and status
-        if (password_verify($password, $result["ga_password"]) && $result["ga_status"] == 1) {
+        if (password_verify($password, $result["ga_password"]) ) {
             // Correct credentials and approved status
             $_SESSION["adminId"] = $result["id"];
+            $_SESSION['authority']=$result['ga_status'];
             header("Location: ../../View/DashboardView/dashboard.php");
             exit(); // Make sure to exit after redirection
         } else {
             // Incorrect password or inactive account
             $_SESSION["loginerror"] = "Check your password!";
-            header("Location: ../../View/admin/admin_login.php");
+            header("Location: ../../View/login/admin_login.php");
             exit(); // Make sure to exit after redirection
         }
     } else {
         // Invalid email
         $_SESSION["loginerror"] = "Invalid email and password!";
-        header("Location: ../../View/admin/admin_login.php");
+        header("Location: ../../View/login/admin_login.php");
         exit(); // Make sure to exit after redirection
     }
 } else {
