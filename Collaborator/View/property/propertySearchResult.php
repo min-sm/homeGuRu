@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 // $current_collaborator = $_SESSION['collaboratorID'];
 $current_collaborator = 1;
 include_once "../../Controller/Property/PropertySearchResultController.php";

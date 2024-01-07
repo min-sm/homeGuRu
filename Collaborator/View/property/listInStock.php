@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 $the_called_file = "listInStock.php";
 // $current_collaborator = $_SESSION["collaboratorId"];
 $current_collaborator = 1; // to comment this line of code
@@ -52,6 +54,11 @@ include "../../Controller/Property/CollaboratorInPropertyController.php";
     <!-- main body -->
     <div class="p-4 pt-20 sm:ml-64">
         <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">In Stock Property List</h1>
+
+        <!-- Add property button -->
+        <div class="w-full text-right">
+            <a href="../Property/add_form.php" type="submit" class=" bg-goldYellow px-6 py-1.5 text-white font-semibold rounded-lg border border-black">+ Add Property</a>
+        </div>
 
         <!-- results found -->
         <div class="pt-4 pb-8 flex items-center">

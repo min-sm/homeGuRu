@@ -1,14 +1,18 @@
 <?php
 ini_set('display_errors', 1);
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 include "../../Model/DBConnection.php";
 
 $sent_id = $_GET["id"];
-$uploader_id = $_SESSION['collaboratorID'];
+// $current_collaborator = $_SESSION['collaboratorID'];
+$current_collaborator = 1;
+
 
 $sql = $pdo->prepare("UPDATE properties SET del_flg = 1 WHERE id= :id AND uploader_id = :uploader_id");
 $sql->bindValue(":id", $sent_id);
-$sql->bindValue(":uploader_id", $uploader_id);
+$sql->bindValue(":uploader_id", $current_collaborator);
 $querySuccess = $sql->execute();
 
 if ($querySuccess) {

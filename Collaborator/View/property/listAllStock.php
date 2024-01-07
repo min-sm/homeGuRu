@@ -1,11 +1,14 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 $the_called_file = "listAllStock.php";
 
 // $current_collaborator = $_SESSION["collaboratorId"];
 $current_collaborator = 1; // to comment this line of code
 include_once "../../Controller/Property/PropertyListController.php";
 include "../../Controller/Property/CollaboratorInPropertyController.php";
+include "../../Controller/sliderController.php";
 
 ?>
 <!DOCTYPE html>
@@ -43,7 +46,8 @@ include "../../Controller/Property/CollaboratorInPropertyController.php";
     <script src="../resources/js/search_Fn.js" defer></script>
 
     <!-- favicon -->
-    <link rel="icon" type="image/x-icon"  href="../resources/img/common/logo-confirm.ico">
+    <!-- <link rel="icon" type="image/png" href="../../../Storage/logo/<?= $resultSlider[0]["fav_icon"] ?>"> -->
+    <link rel="icon" type="image/png" href="../../../Storage/logo/fav_icon.png">
 
     <title>All Stock List</title>
 </head>
@@ -55,6 +59,11 @@ include "../../Controller/Property/CollaboratorInPropertyController.php";
     <!-- main body -->
     <div class="p-4 pt-20 sm:ml-64">
         <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">All Stock List</h1>
+
+        <!-- Add property button -->
+        <div class="w-full text-right">
+            <a href="../Property/add_form.php" type="submit" class=" bg-goldYellow px-6 py-1.5 text-white font-semibold rounded-lg border border-black">+ Add Property</a>
+        </div>
 
         <!-- results found -->
         <div class="pt-4 pb-8 flex items-center">

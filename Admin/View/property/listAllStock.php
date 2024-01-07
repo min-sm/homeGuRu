@@ -38,7 +38,7 @@ include "../../Controller/Property/CollaboratorInPropertyController.php";
     <script src="../resources/js/search_Fn.js" defer></script>
 
     <!-- favicon -->
-    <link rel="icon" type="image/x-icon"  href="../resources/img/common/logo-confirm.ico">
+    <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $resultSlider[0]["fav_icon"]?>">
 
     <title>All Stock List</title>
 </head>
