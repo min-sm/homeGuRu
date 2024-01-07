@@ -1,7 +1,8 @@
 <?php include '../../Controller/common/colorsController.php' ?>
 <?php include '../../Controller/PropertyDetailController.php' ?>
 <?php include '../../Controller/RelatedPropertiesController.php' ?>
-<?php include '../../Controller/SliderController.php'?>
+<?php include '../../Controller/SliderController.php' ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +10,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Property Details</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $resultSlider[0]["fav_icon"] ?>">
   <style>
     /* The Modal (background) */
     #myModal {
@@ -47,14 +50,7 @@
 
   <!-- flowbite -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-
-  <!-- tailwind -->
-  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-
-  <link href="../resources/css/dist/output.css" rel="stylesheet" />
-
-  <!-- ionic icon -->
+ <!-- ionic icon -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <!-- jquery-->
@@ -64,7 +60,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- share api -->
   <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=657dfb21954d790019bcd913&product=inline-share-buttons&source=platform" async="async"></script>
-  <script src="../resources/js/property_detail.js" defer></script>
+ <!-- tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+<link href="../resources/css/dist/output.css" rel="stylesheet" />
 </head>
 
 <body class="bg-[#F7F7F7] tracking-wide" style=" background-color: <?= $colors[0]['background'] ?>;color:<?= $colors[0]['bd_text_color'] ?>">
@@ -123,10 +121,12 @@
   <div>
     <!-- imgs -->
     <div class="lg:w-2/3 w-full flex flex-col items-center justify-around float-left">
-      <div class="w-96 lg:w-[674.86px] lg:h-96 h-56 bg-cover bg-center rounded-lg property-img" style="background-image: url('../../../Storage/house/<?= $property_datas[0]["id"] ?>/<?= $property_datas[0]["p_photo_1"] ?>')">
-      </div>
-      <div class="flex flex-row items-center w-3/4 justify-evenly mt-7">
-        <!--  images -->
+      <div id="slider" class="w-96 lg:w-[674.86px] lg:h-96 h-56 bg-cover bg-center rounded-lg property-img" style="background-image: url('../../../Storage/house/<?= $property_datas[0]["id"] ?>/<?= $property_datas[0]["p_photo_1"] ?>')"></div>
+
+
+      <!--  images -->
+
+      <div class="flex flex-row items-center w-4/5 sm:w-full justify-evenly mt-7">
         <?php
         $photos = [];
         for ($i = 1; $i <= 5; $i++) {
@@ -134,15 +134,14 @@
             $photos[] = $property_datas[0]["p_photo_$i"];
           }
         }
-        print_r($photos);
         ?>
         <?php foreach ($photos as $photo) : ?>
-          <div class="image-label-container">
-            <div class="image-container property-img" style="background-image: url('../../../Storage/house/<?= $property_datas[0]["id"] ?>/<?= $photo ?>')"></div>
-          </div>
+          <div class="w-20 lg:w-36 h-12 lg:h-24 bg-cover bg-center rounded-lg property-imgs" style="background-image:url('../../../Storage/house/<?= $property_datas[0]["id"] ?>/<?= $photo ?>')"></div>
         <?php endforeach; ?>
       </div>
+
     </div>
+
 
     <!-- property info -->
     <div class="mt-5 lg:mt-0 space-y-4 text-center lg:text-left w-full lg:w-1/3 lg:sticky top-0 h-fit float-left">
@@ -157,12 +156,12 @@
           echo $property_datas[0]['p_price'] . ' Kyat';
         }
         ?> / <?php
-              if ($property_datas[0]['p_duration'] == 0) {
-                echo 'Month';
-              } elseif ($property_datas[0]['p_duration'] == 1) {
-                echo 'Year';
-              }
-              ?>
+            if ($property_datas[0]['p_duration'] == 0) {
+              echo 'Month';
+            } elseif ($property_datas[0]['p_duration'] == 1) {
+              echo 'Year';
+            }
+            ?>
       </div>
       <div>
         <span class="font-playFair font-semibold">Property ID: </span><?= $property_datas[0]['p_code'] ?>
@@ -192,27 +191,33 @@
       <div>
         <span class="font-playFair font-semibold">Township: </span><?= $property_datas[0]['name'] ?>
       </div>
-      <div class="flex pl-20 sm:pl-0 ">
+      <div class="flex pl-16 lg:pl-0 ">
         <div class="sharethis-inline-share-buttons "></div>
       </div>
-      <div class="flex h-10 items-start  justify-start pl-9 sm:pl-0 ">
-        <a href="tel:+959980636388"><button type="button" class="text-white bg-green-600   rounded-lg text-sm px-5 py-2 text-center inline-flex items-center me-2 mb-2">
+      <div class="flex h-10 items-start  justify-start pl-16 lg:pl-0 ">
+        <a href="tel:<?= $property_datas[0]['gc_phone_num']  ?>"><button type="button" class="text-white bg-green-600 hover:opacity-60    rounded-lg text-sm px-5 py-2 text-center inline-flex items-center me-2 mb-2">
             <ion-icon name="call" class="text-lg mr-2"></ion-icon> Contact
           </button></a>
-
-        <button id="interestRegister" type="button" class="text-white bg-goldYellow  rounded-lg text-sm px-5 py-2 text-center inline-flex items-center me-2 mb-2">
+          <a href="mailto:<?= $property_datas[0]['gc_email']  ?>"><button type="button" class="text-white bg-blue-500 hover:opacity-60    rounded-lg text-sm px-5 py-2 text-center inline-flex items-center me-2 mb-2">
+          <i class="fa-solid fa-envelope" class="text-lg "></i> <span class="ml-2">Mail</span>
+          </button></a>
+      </div>
+      <div class="">
+      <button id="interestRegister" type="button" class="text-white bg-goldYellow hover:opacity-60  rounded-lg text-sm px-5 py-2 text-center inline-flex items-center me-2 mb-2">
           <i class="fa-solid fa-file-lines text-lg mr-2"></i>
           Interest Register
         </button>
-
       </div>
 
     </div>
+
     <!-- The Modal -->
     <div id="myModal">
       <!-- Modal content -->
-      <div id="modal-content" class="flex items-center justify-center">
+      <div id="modal-content" class="flex items-center relative justify-center">
         <img id="display-full-img" class="w-4/5 h-auto lg:w-auto lg:h-[80vh]" src="" />
+        <div id="prevButton" class="px-2 py-1 bg-gray-400 rounded-lg opacity-60 hover:bg-gray-600 hover:right-3 absolute bottom-1/2 right-5"><i  class="fa-solid text-3xl fa-greater-than "></i></div>
+        <div id="nextButton" class="px-2 py-1 bg-gray-400 rounded-lg opacity-60 hover:bg-gray-600 hover:left-3 absolute bottom-1/2 left-5"><i  class="fa-solid text-3xl fa-less-than "></i></div>
         <span id="img-description" class="mt-4"></span>
       </div>
     </div>
@@ -347,14 +352,14 @@
         <input type="text" required name="name" id="name" class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Name">
         <div class="grid md:grid-cols-2 md:gap-16 ">
           <div>
-         
+
             <input type="text" required name="email" id="email" class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email">
             <input type="text" required name="phone" id="phone" class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Phone">
           </div>
           <div>
             <h1 class="text-sm font-medium  mb-2">Appointment Date</h1>
             <input type="date" required name="date" id="date" class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="date">
-        </div>
+          </div>
         </div>
 
         <textarea name="note" id="note" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write note Here....."></textarea>
@@ -367,11 +372,11 @@
 
         <input type="hidden" name="post_id" value="<?= $property_datas[0]['id'] ?>">
         <div class="w-full flex items-end justify-end space-x-5  ">
-  <button type="submit" name="submit" class=" text-white border-2 bg-darkGreen  hover:bg-teal-500
+          <button type="submit" name="submit" class=" text-white border-2 bg-darkGreen  hover:bg-teal-500
     focus:ring-4 focus:outline-none font-semibold rounded-lg  px-5 py-2 text-center 
     dark:bg-blue-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-      Submit
-  </button>
+            Submit
+          </button>
           <button type="button" class="text-darkGreen border-2 border-darkGreen bg-transparent hover:text-alert 
     focus:ring-4 focus:outline-none focus:ring-green-300 font-semibold rounded-lg  px-5 py-2 text-center 
     dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="cancel">
@@ -460,8 +465,8 @@
               </h5>
             </a>
             <div class="rounded-full bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
-            <?php if ($property['uploader_id']== 0) : ?>
-              <img src="../../../Storage/slider/<?= $resultSlider[0]['fav_icon'] ?>" class="w-13 h-13" alt="HomeGuRu" />
+              <?php if ($property['uploader_id'] == 0) : ?>
+                <img src="../../../Storage/slider/<?= $resultSlider[0]['fav_icon'] ?>" class="w-13 h-13" alt="HomeGuRu" />
               <?php else : ?>
                 <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $property['gc_company_name']; ?>" />
               <?php endif; ?>
@@ -579,7 +584,97 @@
   </div>
   <!-- footer -->
   <?php include '../footer/footer.php' ?>
+
   <script src="../resources/js/interestForm.js"></script>
+ 
+   <script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    const slider = document.getElementById('slider');
+    
+    let smalls = document.getElementsByClassName("property-imgs");
+    let fullImg = document.getElementById("display-full-img");
+
+    // Previous and Next buttons
+    const prevButton = document.getElementById("prevButton");
+    const nextButton = document.getElementById("nextButton");
+
+    let currentIndex = 0;
+
+    // Function to update the slider background image based on the current index
+    function updateSlider(index) {
+      const inputString = smalls[index].style.backgroundImage;
+      slider.style.backgroundImage = inputString;
+    }
+
+    // Function to update the fullImg src based on the current index
+    function updateFullImgSrc(index) {
+      const inputString = smalls[index].style.backgroundImage;
+      const regex = /url\("([^"]+)"\)/;
+      const match = inputString.match(regex);
+      
+      const extractedURL = match ? match[1] : null;
+      const filename = extractedURL
+      .split("/")
+      .pop()
+      .replace(/\.[^/.]+$/, "");
+      const extractedText = filename.replace(/[-_]/g, " ");
+      fullImg.src = extractedURL;
+      document.getElementById("img-description").innerText =
+      extractedText.replace(/\b\w/g, (char) => char.toUpperCase());
+    }
+
+    // Event listener for the Previous button
+    prevButton.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + smalls.length) % smalls.length;
+      updateSlider(currentIndex);
+      updateFullImgSrc(currentIndex);
+    });
+
+    // Event listener for the Next button
+    nextButton.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % smalls.length;
+      updateSlider(currentIndex);
+      updateFullImgSrc(currentIndex);
+    });
+
+    // Event listeners for small images
+    for (const small of smalls) {
+      small.addEventListener("click", () => {
+        currentIndex = Array.from(smalls).indexOf(small);
+        updateSlider(currentIndex);
+        updateFullImgSrc(currentIndex);
+      });
+    }
+
+    // Event listener for the slider
+    slider.addEventListener("click", () => {
+      const inputString = slider.style.backgroundImage;
+      const regex = /url\("([^"]+)"\)/;
+      const match = inputString.match(regex);
+      const extractedURL = match ? match[1] : null;
+      const filename = extractedURL
+      .split("/")
+      .pop()
+      .replace(/\.[^/.]+$/, "");
+      modal.style.display = "flex";
+      const extractedText = filename.replace(/[-_]/g, " ");
+      fullImg.src = extractedURL;
+      document.getElementById("img-description").innerText =
+      extractedText.replace(/\b\w/g, (char) => char.toUpperCase());
+    });
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+</script>
+
+  =
 </body>
 
 </html>

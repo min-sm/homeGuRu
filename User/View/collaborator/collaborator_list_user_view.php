@@ -1,13 +1,16 @@
 <?php include '../../Controller/sliderController.php' ?>
 <?php include '../../Controller/common/colorsController.php' ?>
 <?php include '../../Controller/collaboratorListController.php' ?>
+<?php include '../../Controller/SliderController.php'?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Collaborator Profile</title>
+    <title>Collaborator List</title>
+    <!-- favicon -->
+  <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $resultSlider[0]["fav_icon"] ?>">
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -94,9 +97,10 @@
             <div class=" text-white bottom-10 right-5 xl:right-40  absolute lg:bottom-2/4 lg:right-16 tracking-wide ">
                 <h1 class="font-bold text-sm lg:text-3xl mb-2 tracking-wide lg:px-5 font-playFair">To Be Our
                     Partner</h1>
-                <button class="absolute text-xs h-7 w-full lg:h-16 bg-darkGreen  lg:text-lg  lg:my-10 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                <a href="./collaborator_register.php"><button class="absolute text-xs h-7 w-full lg:h-16 bg-darkGreen  lg:text-lg  lg:my-10 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                     Collaborator Register
                 </button>
+                </a>
             </div>
         </div>
 
@@ -105,16 +109,9 @@
         <!-- Start Search Company name Section  -->
 
         <div class="flex flex-col w-full items-center justify-evenly my-8">
-            <h1 class="font-bold text-3xl text-center " style="font-family: 'Playfair Display';">Property Contact</h1>
+            <h1 class="font-bold text-3xl text-center mb-5 " style="font-family: 'Playfair Display';">Property Contact</h1>
 
-            <div class="w-full my-16 flex gap-5 justify-center">
-                <input type="text" name="collaboratorName" placeholder="Company Name" class=" sm:w-1/4 px-5 py-3 rounded-lg  border-2 ">
-                <a href="../collaborator//collaborator_register.php"><button class="sm:w-32 w-20 text-lg lg:h-12 font-medium sm:text-xl text-white rounded-lg bg-darkGreen 
-            hover:bg-white-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                    Search
-                </button>
-                </a>
-            </div>
+       
 
 
             <!-- Start  Company profile info Section  -->

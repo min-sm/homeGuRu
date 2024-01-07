@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Collaborator Profile</title>
+ 
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -59,7 +59,7 @@
                         <a href="../PropertyPost/rent_view.php" class="rent item block py-2 px-3 md:p-0 md:bg-transparent text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700">Rent</a>
                     </li>
                     <li>
-                        <a href="../PropertyPost/PropertyPost-Add-owner.php" class="sell item block py-2 px-3 md:p-0 md:bg-transparent text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700">Sell</a>
+                        <a href="../PropertyPost/property_post-Add-owner.php" class="sell item block py-2 px-3 md:p-0 md:bg-transparent text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700">Sell</a>
                     </li>
                     <li>
                         <a href="../collaborator/collaborator_list_user_view.php" class="item collaborator block py-2 px-3 md:p-0 text-white rounded md:bg-transparent  hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700 ">Collaborator</a>
