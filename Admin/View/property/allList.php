@@ -29,61 +29,6 @@ include "../../Controller/Property/PropertyPendingController.php";
             document.documentElement.classList.remove("dark");
         }
     </script>
-
-    <!-- delete btn -->
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        /* The Modal (background) */
-        .delete-modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 1;
-            /* Sit on top */
-            padding-top: 100px;
-            /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%;
-            /* Full width */
-            height: 100%;
-            /* Full height */
-            overflow: auto;
-            /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
-            /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.4);
-            /* Black w/ opacity */
-        }
-
-        /* Modal Content */
-        .delete-modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-        }
-
-        /* The Close Button */
-        .delete-close {
-            color: #aaaaaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .delete-close:hover,
-        .delete-close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
     <!-- ionic icons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -101,7 +46,7 @@ include "../../Controller/Property/PropertyPendingController.php";
     <div class="p-4 pt-20 sm:ml-64">
         <!-- all property list -->
         <div>
-            <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">All Property List</h1>
+            <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">All Posted Property List</h1>
             <div class="flex justify-end">
                 <a href="listAllStock.php" class="bg-goldYellow py-2 px-6 rounded-lg border text-sm sm:text-base text-white flex justify-between w-fit mb-4 float-right">See All</a>
             </div>

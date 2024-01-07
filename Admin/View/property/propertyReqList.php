@@ -1,5 +1,7 @@
 <?php
 include_once "../../Controller/Property/PropertyReqController.php";
+include "../../Controller/Property/CollaboratorInPropertyController.php";
+
 
 ?>
 <!DOCTYPE html>
@@ -28,67 +30,13 @@ include_once "../../Controller/Property/PropertyReqController.php";
         }
     </script>
 
-    <!-- delete btn -->
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        /* The Modal (background) */
-        .delete-modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 1;
-            /* Sit on top */
-            padding-top: 100px;
-            /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%;
-            /* Full width */
-            height: 100%;
-            /* Full height */
-            overflow: auto;
-            /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
-            /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.4);
-            /* Black w/ opacity */
-        }
-
-        /* Modal Content */
-        .delete-modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-        }
-
-        /* The Close Button */
-        .delete-close {
-            color: #aaaaaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .delete-close:hover,
-        .delete-close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
     <!-- ionic icons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <!-- JS -->
     <script src="../resources/js/sort_by.js" defer></script>
-    <title>All Stock List</title>
+    <title>Property Request List</title>
 </head>
 
 <body class="bg-primary dark:bg-gray-700">
@@ -97,7 +45,7 @@ include_once "../../Controller/Property/PropertyReqController.php";
 
     <!-- main body -->
     <div class="p-4 pt-20 sm:ml-64">
-        <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">All Stock List</h1>
+        <h1 class="text-center font-bold text-2xl mb-8 text-black dark:text-white">Requesting Properties List</h1>
 
         <!-- results found -->
         <div class="pt-4 pb-8 flex items-center">
@@ -291,7 +239,7 @@ include_once "../../Controller/Property/PropertyReqController.php";
                                     <?php if ($property['uploader_id'] == 0) : ?>
                                         <img src="../../../Storage/homeGuru_logo/dark/logo.png" class="w-16 h-16" alt="HomeGuRu" />
                                     <?php else : ?>
-                                        <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $guruCollaborator['gc_company_name']; ?>" />
+                                        <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $guruCollaborator[$property['uploader_id'] - 1]['gc_logo'] ?>" alt="<?= $guruCollaborator[$property['uploader_id'] - 1]['gc_company_name']; ?>" />
                                     <?php endif; ?>
                                 </div>
                             </div>
@@ -390,11 +338,11 @@ include_once "../../Controller/Property/PropertyReqController.php";
                     <!-- Next -->
                     <li>
                         <a href="<?= $_SERVER['PHP_SELF']; ?>?page=<?php if ($page < $totalPages) {
-                                                            echo $page + 1;
-                                                        } else if ($page == $totalPages) {
-                                                            echo $totalPages;
-                                                        }
-                                                        ?>" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                                                        echo $page + 1;
+                                                                    } else if ($page == $totalPages) {
+                                                                        echo $totalPages;
+                                                                    }
+                                                                    ?>" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                             <span class="sr-only">Next</span>
                             <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />

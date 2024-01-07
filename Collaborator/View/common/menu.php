@@ -18,6 +18,7 @@
     } else {
       document.documentElement.classList.remove("dark");
     }
+    console.log(document.getElementById('guru_logo'));
   </script>
   <!-- tailwind -->
   <link href="../resources/css/dist/output.css" rel="stylesheet" />
@@ -36,7 +37,8 @@
             </svg>
           </button>
           <a href="https://HomeGuRu.com" class="flex ms-2 md:me-24">
-            <img src="../resources/img/common/logo-confirm.png" class="h-10 me-3" alt="Guru Logo" />
+            <img src="../resources/img/common/logo-light.png" class="hidden h-10 me-3" id="guru_logo_light" alt="" />
+            <img src="../resources/img/common/logo-confirm.png" class="hidden h-10 me-3" id="guru_logo_dark" alt="" />
             <span class="self-center text-lg font-semibold sm:text-lg whitespace-nowrap dark:text-white">Home Guru</span>
           </a>
         </div>
@@ -182,6 +184,35 @@
   <script src="../resources/js/select.js"></script>
   <script src="../resources/js/darkmode.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+  <script>
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.getElementById('guru_logo_dark').classList.remove('hidden');
+        document.getElementById('guru_logo_light').classList.add('hidden');
+      } else {
+        document.getElementById('guru_logo_dark').classList.add('hidden');
+        document.getElementById('guru_logo_light').classList.remove('hidden');
+      }
+    });
+
+    if (
+      localStorage.getItem("color-theme") === "dark" ||
+      (!("color-theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.getElementById('guru_logo_dark').classList.remove('hidden');
+      document.getElementById('guru_logo_light').classList.add('hidden');
+    } else {
+      document.getElementById('guru_logo_dark').classList.add('hidden');
+      document.getElementById('guru_logo_light').classList.remove('hidden');
+    }
+
+    console.log(document.getElementById('guru_logo'));
+  </script>
 </body>
 
 </html>

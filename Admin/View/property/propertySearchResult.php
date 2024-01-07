@@ -1,5 +1,7 @@
 <?php
 include_once "../../Controller/Property/PropertySearchResultController.php";
+include "../../Controller/Property/CollaboratorInPropertyController.php";
+
 
 ?>
 <!DOCTYPE html>
@@ -282,7 +284,7 @@ include_once "../../Controller/Property/PropertySearchResultController.php";
                                     <?php if ($property['uploader_id'] == 0) : ?>
                                         <img src="../../../Storage/homeGuru_logo/dark/logo.png" class="w-16 h-16" alt="HomeGuRu" />
                                     <?php else : ?>
-                                        <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $guruCollaborator['gc_company_name']; ?>" />
+                                        <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $guruCollaborator[$property['uploader_id'] - 1]['gc_logo'] ?>" alt="<?= $guruCollaborator[$property['uploader_id'] - 1]['gc_company_name']; ?>" />
                                     <?php endif; ?>
                                 </div>
                             </div>

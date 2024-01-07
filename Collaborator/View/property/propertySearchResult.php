@@ -1,5 +1,9 @@
 <?php
+session_start();
+// $current_collaborator = $_SESSION['collaboratorID'];
+$current_collaborator = 1;
 include_once "../../Controller/Property/PropertySearchResultController.php";
+include "../../Controller/Collaborator/CollaboratorDetailForImgInCardController.php";
 
 ?>
 <!DOCTYPE html>
@@ -27,61 +31,6 @@ include_once "../../Controller/Property/PropertySearchResultController.php";
             document.documentElement.classList.remove("dark");
         }
     </script>
-
-    <!-- delete btn -->
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        /* The Modal (background) */
-        .delete-modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 1;
-            /* Sit on top */
-            padding-top: 100px;
-            /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%;
-            /* Full width */
-            height: 100%;
-            /* Full height */
-            overflow: auto;
-            /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
-            /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.4);
-            /* Black w/ opacity */
-        }
-
-        /* Modal Content */
-        .delete-modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-        }
-
-        /* The Close Button */
-        .delete-close {
-            color: #aaaaaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .delete-close:hover,
-        .delete-close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
     <!-- ionic icons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -93,7 +42,7 @@ include_once "../../Controller/Property/PropertySearchResultController.php";
 
 <body class="bg-primary dark:bg-gray-700">
     <!-- heading navigation -->
-    <?php include '../commonView/menu.php' ?>
+    <?php include '../common/menu.php' ?>
 
     <!-- main body -->
     <div class="p-4 pt-20 sm:ml-64">
@@ -282,7 +231,7 @@ include_once "../../Controller/Property/PropertySearchResultController.php";
                                     <?php if ($property['uploader_id'] == 0) : ?>
                                         <img src="../../../Storage/homeGuru_logo/dark/logo.png" class="w-16 h-16" alt="HomeGuRu" />
                                     <?php else : ?>
-                                        <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $guruCollaborator['gc_company_name']; ?>" />
+                                        <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $curr_collab_detail['id'] . '/' . $curr_collab_detail['gc_logo'] ?>" alt="<?= $curr_collab_detail['gc_company_name']; ?>" />
                                     <?php endif; ?>
                                 </div>
                             </div>

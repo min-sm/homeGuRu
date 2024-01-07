@@ -14,5 +14,3 @@ $sql->execute();
 $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 $currentDirectory = __DIR__;
 // echo "Current directory: " . $currentDirectory;
-// header("Location: RedirectorForSearchController.php");
-// header("Location: ../../View/Property/propertySearchResult.php");
