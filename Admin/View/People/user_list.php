@@ -1,5 +1,13 @@
 <?php
 $the_called_file = "user_list.php";
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+include '../../Controller/Setting/SliderController.php';
+// if (!isset($_SESSION["authority"])) {
+//     header('Location: ../../View/errors/wrongPath.php ');
+//     exit();
+// }
 include "../../Controller/User/UserListController.php";
 ?>
 
@@ -10,7 +18,8 @@ include "../../Controller/User/UserListController.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../resources/css/dist/output.css" rel="stylesheet" />
-
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $sliders[0]["fav_icon"] ?>">
     <title>User List</title>
 
     <!-- ionic icons -->

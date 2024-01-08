@@ -1,5 +1,13 @@
 <?php
 $the_called_file = "owner_list.php";
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+include '../../Controller/Setting/SliderController.php';
+// if (!isset($_SESSION["authority"])) {
+//     header('Location: ../../View/errors/wrongPath.php ');
+//     exit();
+// }
 include "../../Controller/Owner/OwnerListController.php";
 ?>
 
@@ -11,7 +19,8 @@ include "../../Controller/Owner/OwnerListController.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- tailwind -->
     <link href="../resources/css/dist/output.css" rel="stylesheet" />
-
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $sliders[0]["fav_icon"] ?>">
     <title>Owner List</title>
 
     <!-- ionic icons -->

@@ -1,5 +1,13 @@
 <?php
 $the_called_file = "owner_detail_out_of_stock.php";
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+include '../../Controller/Setting/SliderController.php';
+// if (!isset($_SESSION["authority"])) {
+//     header('Location: ../../View/errors/wrongPath.php ');
+//     exit();
+// }
 include "../../Controller/Owner/OwnerDetailController.php";
 include "../../Controller/Property/OwnerPropertyListController.php";
 include "../../Controller/Property/CollaboratorInPropertyController.php";
@@ -16,7 +24,8 @@ include "../../Controller/Property/CollaboratorInPropertyController.php";
     <title>Property Owner Detail</title>
     <!-- tailwind -->
     <link href="../resources/css/dist/output.css" rel="stylesheet" />
-
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $sliders[0]["fav_icon"] ?>">
     <!-- flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <!-- fontawsome -->
@@ -261,7 +270,7 @@ include "../../Controller/Property/CollaboratorInPropertyController.php";
                             </div>
                             <div class="mt-2 flex items-center justify-between">
                                 <a href="<?= $directoryToDetail; ?>?id=<?= $property['id'] ?>" class="mt-2.5 mb-5">
-                                <!-- card property title -->
+                                    <!-- card property title -->
                                     <h5 class="text-xl font-medium  text-gray-900 dark:text-white">
                                         <?php
                                         $maxLen = 25;

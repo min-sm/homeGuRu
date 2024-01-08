@@ -7,7 +7,7 @@ include '../../Controller/Setting/SliderController.php';
 //     header('Location: ../../View/errors/wrongPath.php ');
 //     exit();
 // }
-include_once "../../Controller/Property/PropertyListController.php";
+include "../../Controller/Property/PropertyListController.php";
 include "../../Controller/Property/CollaboratorInPropertyController.php";
 
 ?>
