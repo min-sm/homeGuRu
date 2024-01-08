@@ -2,7 +2,7 @@
 include "../../Controller/PropertyType/PropertyTypeListController.php";
 include "../../Controller/Facility/FacilityListController.php";
 include "../../Controller/Township/TownshipListController.php";
- include '../../Controller/SliderController.php';
+include '../../Controller/SliderController.php';
 
 ?>
 
@@ -13,8 +13,9 @@ include "../../Controller/Township/TownshipListController.php";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Property Post Form</title>
+
     <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $resultSlider[0]["fav_icon"]?>">
+    <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $resultSlider[0]["fav_icon"] ?>">
     <style>
         .sell {
             color: rgb(20, 184, 166) !important;
@@ -64,6 +65,22 @@ include "../../Controller/Township/TownshipListController.php";
             background-color: rgba(255, 255, 255, 0.8);
             width: fit-content;
         }
+
+        #inputContainer {
+            order: 99;
+        }
+
+        @media only screen and (max-width: 450px) {
+
+            .addImg {
+                width: 340px !important;
+            }
+            
+            #inputContainer{
+                margin-left: 0;
+                padding-left: 0;
+            }
+        }
     </style>
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -105,8 +122,8 @@ include "../../Controller/Township/TownshipListController.php";
             <!-- add image section -->
             <div class="flex flex-col lg:flex-row items-center sm:items-start gap-4 overflow-x-auto">
                 <!-- add photo button -->
-                <div>
-                    <label for="add_img" class="flex items-center justify-center w-96 h-56 bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg border dark:border-white border-black"><span>+ Add Photo</span></label>
+                <div id="inputContainer" class="ml-20 pl-20 order-last">
+                    <label for="add_img" class="flex items-center justify-center w-96 addImg  h-56   bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg border dark:border-white border-black"><span>+ Add Photo</span></label>
                     <input type="file" name="p_photos[]" multiple class=" hidden" id="add_img" accept=".jpg, .jpeg, .png" />
                 </div>
 
@@ -116,13 +133,13 @@ include "../../Controller/Township/TownshipListController.php";
             </div>
 
             <!-- form text boxes -->
-            <div class="flex flex-col gap-8 items-center mt-8 text-black dark:text-white">
+            <div class="flex flex-col gap-8 items-center mt-8 text-black dark:text-white text-sm lg:text-base">
                 <!-- property type and owner name -->
-                <div class="flex w-3/4 justify-between ">
+                <div class="flex w-full lg:w-3/4 justify-between text-sm lg:text-base ">
                     <!-- property type -->
                     <div class="flex flex-col ">
                         <label for="p_type" class="font-medium">Property Type</label>
-                        <select id="p_type" name="pt_id" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
+                        <select id="p_type" name="pt_id" class=" w-28 lg:w-96 px-5 py-2.5 text-sm lg:text-base rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
                             <option value='' disabled selected>Select Property Type</option>
                             <?php
                             foreach ($property_types as $p_type) {
@@ -134,11 +151,11 @@ include "../../Controller/Township/TownshipListController.php";
                     <!-- owner name -->
                     <div class="flex flex-col">
                         <label for="owner_name" class="font-medium">Owner Name</label>
-                        <input type="text" placeholder="Min Soe Moe" id="owner_name" name="go_name" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
+                        <input type="text" placeholder="Min Soe Moe" id="owner_name" name="go_name" class="lg:w-96 w-full text-sm lg:text-base px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
                     </div>
                 </div>
                 <!-- floor lvl & national ID -->
-                <div class="flex w-3/4 justify-between">
+                <div class="flex w-full lg:w-3/4 justify-between text-sm lg:text-base ">
                     <!-- floor level -->
                     <div class=" flex-col hidden" id="floor_lvl_section_element">
                         <label for="floor_lvl" class="font-medium">Floor Level</label>
@@ -162,11 +179,11 @@ include "../../Controller/Township/TownshipListController.php";
                     <!-- national_ID -->
                     <div class="flex flex-col">
                         <label for="national_ID" class="font-medium">National ID</label>
-                        <input type="text" placeholder="12/TaTaTa(N)123456" id="national_ID" name="go_nrc" class="lg:w-96 w-28 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2" required>
+                        <input type="text" placeholder="12/TaTaTa(N)123456" id="national_ID" name="go_nrc" class="lg:w-96 w-full text-sm lg:text-base px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2" required>
                     </div>
                 </div>
                 <!-- offer type & ph num -->
-                <div class="flex w-3/4 justify-between">
+                <div class="flex w-full lg:w-3/4 justify-between text-sm lg:text-base ">
                     <!-- Offer type -->
                     <div class="flex flex-col">
                         <label class="font-medium">Offer Type</label>
@@ -184,11 +201,11 @@ include "../../Controller/Township/TownshipListController.php";
                     <!-- phone number -->
                     <div class="flex flex-col">
                         <label for="ph_num" class="font-medium">Phone number</label>
-                        <input type="text" placeholder="09757346631" id="ph_num" name="go_phone_num" class="lg:w-96 w-28 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2" required>
+                        <input type="text" placeholder="09757346631" id="ph_num" name="go_phone_num" class="lg:w-96 w-full text-sm lg:text-base px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2" required>
                     </div>
                 </div>
                 <!-- duration & email -->
-                <div class="flex w-3/4 justify-between">
+                <div class="flex w-full lg:w-3/4 justify-between ">
                     <!-- Duration -->
                     <div class=" flex-col hidden" id="duration">
                         <label class="font-medium">Duration</label>
@@ -206,23 +223,21 @@ include "../../Controller/Township/TownshipListController.php";
                     <!-- email -->
                     <div class="flex flex-col">
                         <label for="email" class="font-medium">Email</label>
-                        <input type="text" placeholder="blahblah@gmail.com" id="email" name="go_email" class="lg:w-96 w-28 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2">
+                        <input type="text" placeholder="blahblah@gmail.com" id="email" name="go_email" class="lg:w-96 text-sm lg:text-base pl-2 lg:pl-5  py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2">
                     </div>
                 </div>
-
-
                 <!-- (price (price & price_unit) & bedrooms) & note -->
-                <div class="flex w-3/4 justify-between ">
+                <div class="flex w-full lg:w-3/4 justify-between  ">
                     <!-- price & bedrooms -->
                     <div class="flex flex-col gap-16">
                         <!-- Price -->
                         <div class="flex flex-col ">
-                            <label>Price</label>
-                            <div class="flex justify-between">
+                            <label class="font-semibold">Price</label>
+                            <div class="flex justify-between flex-wrap">
                                 <!-- price -->
-                                <input type="number" placeholder="300,000" id="price" name="p_price" class="lg:w-48 w-28 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2" min="0" required>
+                                <input type="number" placeholder="300,000" id="price" name="p_price" class="lg:w-48 mb-2 w-36 text-sm mr-1 lg:text-base pl-1 lg:pl-5 px-5 py-1 lg:py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2" min="0" required>
                                 <!-- price unit -->
-                                <select id="property_type" name="p_price_unit" class="lg:w-32 w-8 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
+                                <select id="property_type" name="p_price_unit" class="lg:w-32 w-20 pl-1  py-1 lg:py-2.5 text-sm lg:text-base rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
                                     <option value="" disabled selected>Unit</option>
                                     <option value="1">Dollar</option>
                                     <option value="2">Kyat</option>
@@ -234,7 +249,7 @@ include "../../Controller/Township/TownshipListController.php";
                         <!-- bedroom -->
                         <div class="flex flex-col ">
                             <label for="bedroom" class="font-medium">Bedroom</label>
-                            <select id="bedroom" name="p_bed" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
+                            <select id="bedroom" name="p_bed" class="lg:w-96 w-28 px-1 lg:px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
                                 <option value="" disabled selected>Select Number</option>
                                 <?php
                                 for ($i = 1; $i < 9; $i++) { ?>
@@ -255,30 +270,30 @@ include "../../Controller/Township/TownshipListController.php";
                     <!-- note -->
                     <div class="flex flex-col ">
                         <label for="note" class="font-medium">Note</label>
-                        <textarea id="note" name="p_note" class="lg:w-96 w-28 h-full px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2 overflow-x-hidden" placeholder="Write notes you want to say to admins. for example: title for this property"></textarea>
+                        <textarea id="note" name="p_note" class="lg:w-96 w-full h-full px-1 lg:px-5  py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2 overflow-x-hidden" placeholder="Write notes you want to say to admins. for example: title for this property"></textarea>
                     </div>
                 </div>
 
                 <!-- size & unit -->
-                <div class="flex w-3/4 justify-between ">
+                <div class="flex w-full lg:w-3/4 justify-between  ">
                     <!-- size & unit -->
                     <div class="flex flex-col gap-4">
                         <!-- width & length -->
                         <div class="flex flex-col ">
-                            <label>Size</label>
+                            <label class="font-semibold">Size</label>
                             <div class="flex flex-col ">
-                                <div class="flex justify-between">
+                                <div class="flex justify-between flex-wrap">
                                     <!-- width -->
-                                    <input type="number" placeholder="Width" id="price" name="p_width" class="w-28 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2" required>
+                                    <input type="number" placeholder="Width" id="price" name="p_width" class="w-28 mb-2 text-sm lg:text-base px-1 lg:px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2" required>
                                     <!-- length -->
-                                    <input type="number" placeholder="Length" id="price" name="p_length" class="w-28 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2 " required>
+                                    <input type="number" placeholder="Length" id="price" name="p_length" class="w-28 text-sm lg:text-base px-1 lg:px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2 " required>
                                 </div>
                             </div>
                         </div>
 
                         <!-- unit -->
                         <div class="flex flex-col ">
-                            <select name="p_size_unit" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
+                            <select name="p_size_unit" class="lg:w-96 w-28 text-sm lg:text-base px-1 lg:px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
                                 <option value="" disabled selected>Unit</option>
                                 <option value="1">meter</option>
                                 <option value="2">feet</option>
@@ -289,7 +304,7 @@ include "../../Controller/Township/TownshipListController.php";
                         <!-- Region -->
                         <div class="flex flex-col">
                             <label for="region" class="font-medium">Region</label>
-                            <select name="region" id="region" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white">
+                            <select name="region" id="region" class="lg:w-96 w-full px-1  lg:px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white">
                                 <option value="" disabled selected>Select Region</option>
                                 <?php foreach ($regions_result as $row) : ?>
                                     <option value="<?php echo $row['id']; ?>">
@@ -301,7 +316,7 @@ include "../../Controller/Township/TownshipListController.php";
                         <!-- Township -->
                         <div class="flex flex-col">
                             <label for="township" class="font-medium">Township</label>
-                            <select id="township" name="p_township" class="lg:w-96 w-28 px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white">
+                            <select id="township" name="p_township" class="lg:w-96 w-full px-1  lg:px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white">
                                 <option value="" disabled selected>Select Township</option>
                             </select>
                         </div>
@@ -309,15 +324,15 @@ include "../../Controller/Township/TownshipListController.php";
                 </div>
 
                 <!-- location -->
-                <div class="w-3/4">
-                    <label for="location_map" class="font-medium">Location Map</label>
+                <div class="w-full lg:w-3/4 ">
+                    <label for="location_map" class="font-medium mb-1">Location Map</label>
                     <input type="text" placeholder="Enter google map's embed share link" id="location_map" name="p_location" class="w-full px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2">
                 </div>
 
                 <!-- additional_features -->
-                <div class="w-3/4">
-                    <label class="mb-4 font-medium" for="additional_features">Additional Features</label>
-                    <div class="w-full grid grid-cols-3 lg:text-base text-sm">
+                <div class="w-full lg:w-3/4">
+                    <label class=" font-semibold" for="additional_features">Additional Features</label>
+                    <div class="w-full mt-5 grid grid-cols-3 lg:text-base text-sm">
                         <?php
                         $chunkCount = count($facilities) / 3;
                         $first = (int)$chunkCount;
@@ -377,13 +392,13 @@ include "../../Controller/Township/TownshipListController.php";
                 </div>
 
                 <!-- detailed description -->
-                <div class="w-3/4">
+                <div class="w-full lg:w-3/4">
                     <label for="description" class="font-medium">Detailed Description</label>
                     <textarea name="p_description" id="description" class="w-full h-96 px-5 py-2.5 text-black bg-white dark:bg-gray-800 dark:text-white rounded-lg border-2 overflow-x-hidden" required></textarea>
                 </div>
 
 
-                <div class="w-3/4 flex justify-between">
+                <div class="w-full lg:w-3/4 flex justify-between">
                     <button type="submit" name="submit" class="bg-darkGreen py-2 px-6 rounded-lg border border-black dark:border-white text-white">Submit</button>
                     <a href="" class="bg-goldYellow py-2 px-6 rounded-lg border border-black dark:border-white">Test View</a>
                 </div>

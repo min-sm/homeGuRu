@@ -6,13 +6,11 @@
     <title>404 Not Found</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 h-screen flex items-center justify-center">
-
-    <div class="text-center">
-        <h1 class="text-6xl font-bold text-gray-800">404</h1>
-        <p class="text-2xl text-gray-600 mt-4"><?= isset($_GET['error']) ? $_GET['error'] : "Oops! Page not found."; ?></p>
-        <p class="text-gray-500 mt-2">The page you are looking for might be in another castle.</p>
-        <!-- <a href="../DashboardView/dashboard.php" class="text-blue-500 hover:underline mt-4 block">Go back home</a> -->
-    </div>
+<body class="bg-gray-700 h-screen flex items-center justify-center">
+<div class="text-center">
+        <h1 class="text-6xl font-bold text-white mb-14">403</h1>
+        <p class="text-2xl text-red-500 mt-4"><?= isset($_GET['error']) ? $_GET['error'] : "Forbidden"; ?></p>
+        <p class="text-blue-600 mt-6">You are not allowed.</p>
+</div>
 </body>
 </html>

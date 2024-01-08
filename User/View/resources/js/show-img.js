@@ -1,15 +1,15 @@
 "use strict";
-const fileInput = document.getElementById("add_img");
+const fileInput2 = document.getElementById("add_img");
 const imageList = document.getElementById("imageList");
 
-fileInput.addEventListener("change", (event) => {
+fileInput2.addEventListener("change", (event) => {
   const files = event.target.files;
 
   // Check if the number of selected files is greater than 5
   if (files.length > 5) {
     alert("You can only select up to 5 files.");
     // Clear the file input
-    fileInput.value = "";
+    fileInput2.value = "";
     return;
   }
   // Clear previous images displayed
