@@ -1,4 +1,12 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+include '../../Controller/Setting/SliderController.php';
+if (!isset($_SESSION["authority"])) {
+    header('Location: ../../View/errors/wrongPath.php ');
+    exit();
+}
 include "../../Controller/PropertyType/PropertyTypeListController.php";
 include "../../Controller/Facility/FacilityListController.php";
 include "../../Controller/Township/TownshipListController.php";
@@ -29,6 +37,9 @@ include "../../Controller/Township/TownshipListController.php";
         }
     </script>
 
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $sliders[0]["fav_icon"] ?>">
+
     <!-- ionic icons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -37,6 +48,7 @@ include "../../Controller/Township/TownshipListController.php";
     <script src="../resources/js/show-img.js" defer></script>
     <script src="../resources/js/modal (add).js" defer></script>
     <script src="../resources/js/selectBx.js" defer></script>
+    <script src="../resources/js/townships.js" defer></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="../resources/css/property_post_add_form.css">
@@ -362,39 +374,6 @@ include "../../Controller/Township/TownshipListController.php";
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-
-    <!-- for region & township -->
-    <!-- JavaScript to populate township dropdown on change of region -->
-    <script>
-        var regionDropdown = document.getElementById("region");
-        var townshipDropdown = document.getElementById("township");
-
-        regionDropdown.addEventListener("change", function() {
-            var regionId = this.value;
-
-            // AJAX call to get townships of selected region
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        // On success, parse the response and populate the township dropdown
-                        var townships = JSON.parse(xhr.responseText);
-                        townshipDropdown.innerHTML = "<option value='' disabled selected>Select Township</option>";
-                        townships.forEach(function(township) {
-                            townshipDropdown.innerHTML += `<option value="${township.id}">${township.name}</option>`;
-                        });
-                    } else {
-                        // Handle error
-                        console.error('Error occurred: ' + xhr.status);
-                    }
-                }
-            };
-
-            xhr.open("GET", `getTownships.php?region_id=${regionId}`, true);
-            xhr.send();
-        });
-    </script>
-
 </body>
 
 </html>

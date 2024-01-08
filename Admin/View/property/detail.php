@@ -1,4 +1,12 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+include '../../Controller/Setting/SliderController.php';
+// if (!isset($_SESSION["authority"])) {
+//     header('Location: ../../View/errors/wrongPath.php ');
+//     exit();
+// }
 include "../../Controller/Property/SinglePropertyDetailController.php";
 include "../../Controller/InterestForm/SinglePropertyInterestListController.php";
 
@@ -35,6 +43,9 @@ include "../../Controller/InterestForm/SinglePropertyInterestListController.php"
 
     <!-- tailwind -->
     <link href="../resources/css/dist/output.css" rel="stylesheet" />
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $sliders[0]["fav_icon"] ?>">
 
     <!-- JS -->
     <script src="../resources/js/modal.js" defer></script>
