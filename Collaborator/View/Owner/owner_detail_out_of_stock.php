@@ -1,14 +1,13 @@
 <?php
-$the_called_file = "owner_detail.php";
+$the_called_file = "owner_detail_out_of_stock.php";
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-
-// $current_collaborator = $_SESSION["collaboratorId"];
-$current_collaborator = 1; // to comment this line of code
-
 include '../../Controller/Setting/SliderController.php';
-
+// if (!isset($_SESSION["authority"])) {
+//     header('Location: ../../View/errors/wrongPath.php ');
+//     exit();
+// }
 include "../../Controller/Owner/OwnerDetailController.php";
 include "../../Controller/Property/OwnerPropertyListController.php";
 include "../../Controller/Property/CollaboratorInPropertyController.php";
@@ -41,7 +40,7 @@ include "../../Controller/Property/CollaboratorInPropertyController.php";
 </head>
 
 <body class="bg-primary dark:bg-gray-700">
-    <?php include '../common/menu.php' ?>
+    <?php include '../commonView/menu.php' ?>
     <!--Start  Owner Detail-->
     <div class="p-4 pt-20 sm:ml-64 flex flex-col items-center text-black dark:text-white">
         <h1 class=" text-center font-bold text-2xl m-7 tracking-wide ">Property Owner Detail</h1>
@@ -90,13 +89,17 @@ include "../../Controller/Property/CollaboratorInPropertyController.php";
             <span class="lg:ms-16 sm:ms-8 me-8 lg:text-2xl text-base text-black dark:text-white"><span><?= $resultCount['total_result'] ?></span> Found</span>
             <!-- in stock / out of stock -->
             <div class="lg:space-x-8 space-x-4 lg:text-base text-xs">
-                <label for="allStock" class="text-goldYellow cursor-pointer label "><a href="../People/owner_detail.php?id=<?= $_GET['id'] ?>">All Stocks</a></label>
-                <label for="outStock" class="text-gray-500 cursor-pointer label "><a href="../People/owner_detail_out_of_stock.php?id=<?= $_GET['id']; ?>">Out of Stock</a>
+                <label for="allStock" class="text-gray-500 cursor-pointer label "><a href="../People/owner_detail.php?id=<?= $_GET['id'] ?>">All Stocks</a></label>
+                <label for="outStock" class="text-goldYellow cursor-pointer label "><a href="../People/owner_detail_out_of_stock.php?id=<?= $_GET['id']; ?>">Out of Stock</a>
                 </label>
                 <label for="inStock" class="text-gray-500 cursor-pointer label "><a href="../People/owner_detail_in_stock.php?id=<?= $_GET['id']; ?>">In Stock</a></label>
+                <label for="req" class="text-gray-500 cursor-pointer label "><a href="../People/owner_detail_req.php?id=<?= $_GET['id']; ?>">Req</a></label>
+                <label for="pending" class="text-gray-500 cursor-pointer label "><a href="../People/owner_detail_pending.php?id=<?= $_GET['id']; ?>">Pending</a></label>
                 <input type="radio" id="allStock" name="sort_by" value="" class="hidden" />
                 <input type="radio" id="outStock" name="sort_by" value="" class="hidden" />
                 <input type="radio" id="inStock" name="sort_by" value="" class="hidden" />
+                <input type="radio" id="req" name="sort_by" value="" class="hidden" />
+                <input type="radio" id="pending" name="sort_by" value="" class="hidden" />
             </div>
 
             <!-- 2 view options -->
@@ -267,6 +270,7 @@ include "../../Controller/Property/CollaboratorInPropertyController.php";
                             </div>
                             <div class="mt-2 flex items-center justify-between">
                                 <a href="<?= $directoryToDetail; ?>?id=<?= $property['id'] ?>" class="mt-2.5 mb-5">
+                                    <!-- card property title -->
                                     <h5 class="text-xl font-medium  text-gray-900 dark:text-white">
                                         <?php
                                         $maxLen = 25;
