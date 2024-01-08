@@ -6,8 +6,7 @@ if (!isset($_SESSION["authority"])) {
     exit();
 }
 ?>
-
-<?php include '../../Controller/Financial/CollaboratorServiceCashInController.php' ?>
+<?php include '../../Controller/Financial/FinancialListCollaboratorServiceCashInController.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +26,7 @@ if (!isset($_SESSION["authority"])) {
     <!-- heading navigation -->
     <?php include '../commonView/menu.php' ?>
     <!--Start  Collaborator Service Cash In Detail -->
-    <div class="p-4 pt-20 sm:ml-64 flex flex-col items-center">
+    <div class="p-4 pt-20 sm:ml-64 flex flex-col items-center dark:text-gray-200" >
         <div class=" lg:w-2/5 w-full grid grid-row-9 gap-5">
             <h1 class=" font-bold text-2xl my-7 tracking-wide ">Collaborator Service Cash In</h1>
 
@@ -83,7 +82,7 @@ if (!isset($_SESSION["authority"])) {
             </div>
         </div>
         <div class=" flex  my-20 ">
-            <a href="./financial_collaborator_list.php" type="" class="tracking-wider mx-10 text-white border-2 border-green-700 bg-alert opacity-80 hover:opacity-100
+            <a href="../../Controller/financial/FinancialListBackController.php?value=<?= $value?>" type="" class="tracking-wider mx-10 text-white border-2 border-green-700 bg-alert opacity-80 hover:opacity-100
             focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium  px-7 py-2 text-center ">
                 Back</a>
         </div>

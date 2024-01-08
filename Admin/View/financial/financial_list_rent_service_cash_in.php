@@ -6,7 +6,6 @@ if (!isset($_SESSION["authority"])) {
     exit();
 }
 ?>
-
 <?php include'../../Controller/Financial/RentServiceCashInController.php' ?>
 
 <!DOCTYPE html>
@@ -28,7 +27,7 @@ if (!isset($_SESSION["authority"])) {
  <!-- heading navigation -->
  <?php include '../commonView/menu.php' ?>
   <!--Start  Rent Service Cash In Detail -->
-    <div class="p-4 pt-20 sm:ml-64 flex flex-col items-center">
+    <div class="p-4 pt-20 sm:ml-64 flex flex-col items-center dark:text-gray-200">
         <div class=" lg:w-2/5 w-full grid grid-row-6 gap-6">
             <h1 class=" font-bold text-4xl my-7 tracking-wide ">Rent Service Cash In</h1>
             <div class="grid grid-cols-2 gap-4 ">
@@ -72,7 +71,7 @@ if (!isset($_SESSION["authority"])) {
             </div>     
         </div>
         <div class=" my-28 ">        
-            <a href="./financial_rent_list.php" type=""
+            <a href="./financial_list_filter.php" type=""
                 class="tracking-wider  text-white border-2 border-green-700 bg-alert opacity-80 hover:opacity-100
             focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium  px-7 py-2 text-center ">
                Back</a>

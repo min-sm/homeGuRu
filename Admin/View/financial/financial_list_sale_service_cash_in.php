@@ -6,8 +6,7 @@ if (!isset($_SESSION["authority"])) {
     exit();
 }
 ?>
-
-<?php include'../../Controller/Financial/RentServiceCashInController.php' ?>
+<?php include'../../Controller/Financial/FinancialListSaleServiceCashInController.php' ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,21 +26,22 @@ if (!isset($_SESSION["authority"])) {
 <body class="dark:bg-gray-400">
  <!-- heading navigation -->
  <?php include '../commonView/menu.php' ?>
-  <!--Start  Rent Service Cash In Detail -->
-    <div class="p-4 pt-20 sm:ml-64 flex flex-col items-center">
-        <div class=" lg:w-2/5 w-full grid grid-row-6 gap-6">
-            <h1 class=" font-bold text-4xl my-7 tracking-wide ">Rent Service Cash In</h1>
+  <!--Start  Sale Service Cash In Detail -->
+    <div class="p-4 pt-20 sm:ml-64 flex flex-col items-center dark:text-gray-200">
+        <div class=" lg:w-2/5 w-full grid grid-row-6 gap-5">
+            <h1 class=" font-bold text-2xl my-7 tracking-wide ">Sale Service Cash In</h1>
+
             <div class="grid grid-cols-2 gap-4 ">
-                <p class="font-medium text-lg">Property Code</p>
-                <p name="p_code"  class="font-semibold text-sm"><?=$rentOne[0]["p_code"]?></p>
+                <p class="font-medium text-lg">Property Code <?= $id;$value;?></p>
+                <p name="p_code"  class="font-semibold text-sm"><?=$saleOne[0]["p_code"] ?></p>
             </div>
          
             <div class="grid grid-cols-2 gap-4 ">
                 <p class="font-medium text-lg" > Cash Amount</p>
                 <p name="pcash_amount" class="font-semibold text-alert text-sm">
-                    <span><?= number_format($rentOne[0]["p_cash_amount"]); ?></span>
+                    <span><?= number_format($saleOne[0]["p_cash_amount"]); ?></span>
                                 <?php
-                                if ($rentOne[0]["p_cash_unit"] == 1) {
+                                if ($saleOne[0]["p_cash_unit"] == 1) {
                                 ?>
                                     <span>$</span>
                                 <?php
@@ -54,32 +54,30 @@ if (!isset($_SESSION["authority"])) {
             </div>
             <div class="grid grid-cols-2 gap-4 ">
                 <p class="font-medium text-lg" >Payer Name</p>
-                <p name="pcash_payer_name" class="font-normal text-sm"><?=$rentOne[0]["p_cash_payer_name"]?></p>
+                <p name="pcash_payer_name" class="font-normal text-sm"><?=$saleOne[0]["p_cash_payer_name"]?></p>
             </div>
             <div class="grid grid-cols-2 gap-4 ">
                 <p class="font-medium text-lg" >Payer Phone</p>
-                <p name="pcash_phone" class="font-normal text-sm"><?=$rentOne[0]["p_cash_phone"]?></p>
+                <p name="pcash_phone" class="font-normal text-sm"><?=$saleOne[0]["p_cash_phone"]?></p>
             </div>
             <div class="grid grid-cols-2 gap-4 ">
                 <p class="font-medium text-lg" >Recipient Name</p>
-                <p name="pcash_recipient_name" class="font-normal text-sm"><?=$rentOne[0]["p_cash_payer_name"]?></p>
-            </div>
-           
+                <p name="pcash_recipient_name" class="font-normal text-sm"><?=$saleOne[0]["p_cash_payer_name"]?></p>
+            </div>           
             <div class="grid grid-cols-2 gap-4 ">
                 <p class="font-medium text-lg" >Pay Date</p>
-                <p name="created_date" class="font-bold text-sm"> <?= $rentOne[0]["created_date"]
-                                    =date("d-m-Y  g:i A", strtotime($rentOne[0]["created_date"])) ?> </p>
+                <p name="created_date" class="font-bold text-sm"> <?= $saleOne[0]["created_date"]
+                                    =date("d-m-Y  g:i A", strtotime($saleOne[0]["created_date"])) ?> </p>
             </div>     
         </div>
-        <div class=" my-28 ">        
-            <a href="./financial_rent_list.php" type=""
+        <div class=" my-28 ">
+            <a href='../../Controller/financial/FinancialListBackController.php?value=<?= $value ?>' 
                 class="tracking-wider  text-white border-2 border-green-700 bg-alert opacity-80 hover:opacity-100
             focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium  px-7 py-2 text-center ">
-               Back</a>
+                Back</a>
         </div>
     </div>
- <!--End  Rent Service Cash In Detail  -->
-
+ <!--End  Sale Service Cash In Detail  -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 </body>
 </html>
