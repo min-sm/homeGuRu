@@ -1,8 +1,19 @@
-<?php include '../../Controller/Setting/CompanyDataController.php'?>
+<?php
+session_start();
+include '../../Controller/Setting/CompanyDataController.php'?>
+<?php 
+include '../../Controller/Setting/SliderController.php';
+if (!isset($_SESSION["authority"]) && $_SESSION['authority']!=0) {
+     header('Location: ../../View/errors/wrongPath.php ');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+      <!-- favicon -->
+      <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?=$sliders[0]["fav_icon"]?>">
   <title>Dashboard</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />

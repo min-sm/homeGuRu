@@ -68,18 +68,24 @@
     <!-- End Collaborator Hero Section  -->
 
     <!-- Start Partanership List Section  -->
-    <div class=" mb-28 overflow-hidden whitespace-nowrap  ">
-        <h1 class="tracking-wider font-playFair text-3xl font-extrabold text-center mb-14">Our Partners</h1>
-        <div class="inline-block space-x-10 animate-slide bg-transparent  px-0 ">
-            <?php
+    <div class=" mb-28  overflow-hidden whitespace-nowrap ">
+    <h1 class="tracking-wider font-playFair text-2xl font-extrabold text-center mb-14">Our Partners</h1>
 
-            foreach ($collaborators as $collaborator) {
-            ?>
-
-                <img src="../../../Storage/collaborator_img/gc<?= $collaborator['id'] . '/' . $collaborator['gc_logo'] ?>" alt="<?= $collaborator['gc_company_name']; ?>" class="inline h-20 bg-transparent  lg:h-48 " alt="logo">
-          <?php } ?>
-        </div>
+    <div class="inline-block space-x-10 animate-slide  px-0 ">
+      <img src="../resources/img/ImeLogo.png" class="inline h-20 lg:h-48 " alt="logo">
+      <img src="../resources/img/maga Logo.png" class="inline h-20 lg:h-48" alt="logo">
+      <img src="../resources/img/collaborator-tpj-logo.png" class="inline h-20 lg:h-48" alt="logo">
+      <img src="../resources/img/ShweTaungLogo.png" class="hidden h-20 lg:h-48  lg:inline" alt="logo">
+      <img src="../resources/img/maga Logo.png" class="hidden h-20 lg:h-48  xl:inline" alt="logo">
     </div>
+    <div class="inline-block space-x-10 animate-slide  px-0 ">
+      <img src="../resources/img/ImeLogo.png" class="inline h-20 lg:h-48" alt="logo">
+      <img src="../resources/img/maga Logo.png" class="inline h-20 lg:h-48" alt="logo">
+      <img src="../resources/img/collaborator-tpj-logo.png" class="inline h-20 lg:h-48" alt="logo">
+      <img src="../resources/img/ShweTaungLogo.png" class="hidden h-20 lg:h-48 lg:inline" alt="logo">
+      <img src="../resources/img/maga Logo.png" class="hidden h-20 lg:h-48  xl:inline" alt="logo">
+    </div>
+  </div>
         <!-- End Partanership List Section  -->
 
         <!-- Start Collaborator register Section  -->
@@ -121,8 +127,8 @@
 
             foreach ($collaborators as $collaborator) {
             ?>
-                <div class="sm:w-3/4 w-11/12 sm:py-10 bg-gray-800 border-gray-200 rounded my-5 flex justify-around flex-col sm:flex-row items-center ">
-                    <div class="w-2/6">
+                <div class="sm:w-3/4 w-11/12 sm:py-10 bg-gray-800 border-gray-200 rounded my-5 flex justify-evenly flex-col sm:flex-row items-center ">
+                    <div class="w-1/4  flex justify-center">
                         <div class="w-46 h-46  my-5">
                             <img class=" w-40 h-40" src="../../../Storage/collaborator_img/gc<?= $collaborator['id'] . '/' . $collaborator['gc_logo'] ?>" alt="<?= $collaborator['gc_company_name']; ?>" alt="company Logo" />
                         </div>
@@ -132,10 +138,10 @@
                             <?= $collaborator['gc_company_name'] ?>
                         </div>
                         <div class="mb-2 flex ">
-                            <ion-icon class="mr-2  shrink-0" name="person-outline"></ion-icon>
+                        <i class="fa-solid fa-map-location-dot mr-2 shrink-0"></i>
                             <p class="whitespace-normal"> <?= $collaborator['gc_address'] ?></p>
                         </div>
-                        <div class="mb-2">
+                        <div class="mb-2"> 
                             <ion-icon class="mr-2" name="call-outline"></ion-icon>
                             <a href="tel:<?= $collaborator['gc_phone_num'] ?>"> <?= $collaborator['gc_phone_num'] ?></a>
                         </div>

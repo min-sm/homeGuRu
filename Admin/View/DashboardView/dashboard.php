@@ -1,3 +1,11 @@
+<?php 
+session_start();
+include '../../Controller/Setting/SliderController.php';
+if (!isset($_SESSION["authority"])) {
+     header('Location: ../../View/errors/wrongPath.php ');
+    exit();
+}
+?>
 <?php
 include "../../Controller/Property/CategoryListController.php";
 include "../../Controller/Property/NumOfPropertyController.php";
