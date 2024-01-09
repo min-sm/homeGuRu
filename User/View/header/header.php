@@ -47,8 +47,8 @@
                     </svg>
                 </button>
             </div>
-            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" style=" background-color: <?= $colors[0]['header'] ?>; color: <?= $colors[0]['hf_text_color']  ?>" id="navbar-cta">
-                <ul style=" background-color: <?= $colors[0]['header'] ?>; color: <?= $colors[0]['hf_text_color']  ?>" class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-gray-800 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-gray-800">
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 trans" style=" background-color: <?= $colors[0]['header'] ?>; color: <?= $colors[0]['hf_text_color']  ?>" id="navbar-cta">
+                <ul  style=" background-color: <?= $colors[0]['header'] ?>; color: <?= $colors[0]['hf_text_color']  ?>" class="trans flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-gray-800 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-gray-800">
                     <li>
                         <a href="../Home_page/home.php" class="home item block py-2 px-3 md:p-0 md:bg-transparent text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-500 hover:text-white border-gray-700">Home</a>
                     </li>

@@ -200,13 +200,23 @@
                                                                                                   } ?></span>
                     </div>
                   </div>
-                  <div class="rounded-full hidden sm:block bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
+                  <a href="
+      <?php
+      if ($property['uploader_id'] == 0) {
+
+      echo '../ContactUs/contactUs.php';
+      }else{
+      echo '../collaborator/profile.php?collaborator_id=' . $property['uploader_id'];
+      }
+      ?>">
+                  <div class="rounded-full border-gray-500 border hover:opacity-50 hidden sm:block bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
                     <?php if ($property['uploader_id'] == 0) : ?>
                       <img src="../../../Storage/slider/<?= $resultSlider[0]['fav_icon'] ?>" class="w-14 h-14" alt="HomeGuRu" />
                     <?php else : ?>
                       <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $property['gc_company_name']; ?>" />
                     <?php endif; ?>
                   </div>
+                  </a>
                 </div>
               
               <!-- Description -->
@@ -399,13 +409,24 @@
               </h5>
             </a>
             <!-- logo -->
-            <div class="rounded-full bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
+            <a href="
+      <?php
+      if ($property['uploader_id'] == 0) {
+
+      echo '../ContactUs/contactUs.php';
+      }else{
+      echo '../collaborator/profile.php?collaborator_id='.$property['uploader_id'];
+      }
+      ?>">
+            <div class="rounded-full border-gray-500 border hover:opacity-50 bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
+              
               <?php if ($property['uploader_id'] == 0) : ?>
                 <img src="../../../Storage/slider/<?= $resultSlider[0]['fav_icon'] ?>" class="w-16 h-16" alt="HomeGuRu" />
               <?php else : ?>
                 <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $property['gc_company_name']; ?>" />
               <?php endif; ?>
             </div>
+            </a>
           </div>
 
           <div class=" mb-5 text-darkGreen flex items-center text-lg">
@@ -463,7 +484,7 @@
 
           <div class="flex items-center justify-end">
             <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-            <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
+            <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen border-2 hover:opacity-50 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
           </div>
         </div>
       </div>
@@ -556,15 +577,26 @@
                 ?>
               </h5>
             </a>
-            <div class="rounded-full bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
+            <a href="
+      <?php
+      if ($property['uploader_id'] == 0) {
+
+      echo '../ContactUs/contactUs.php';
+      }else{
+      echo '../collaborator/profile.php?collaborator_id='.$property['uploader_id'];
+      }
+      ?>">
+            <div class="rounded-full border-gray-500 border hover:opacity-50 bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
+              
               <?php if ($property['uploader_id'] == 0) : ?>
                 <img src="../../../Storage/slider/<?= $resultSlider[0]['fav_icon'] ?>" class="w-16 h-16" alt="HomeGuRu" />
               <?php else : ?>
                 <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $property['gc_company_name']; ?>" />
               <?php endif; ?>
             </div>
+            </a>
           </div>
-
+       
           <div class=" mb-5 text-darkGreen flex items-center text-lg">
             <i class="fa-sharp fa-solid fa-money-bill pt-1"></i>
             <span class="ml-3 mt-2 font-meduim">
@@ -620,7 +652,7 @@
 
           <div class="flex items-center justify-end">
             <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-            <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
+            <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen hover:opacity-50 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
           </div>
         </div>
       </div>

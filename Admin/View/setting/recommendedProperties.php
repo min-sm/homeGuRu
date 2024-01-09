@@ -1,8 +1,12 @@
-<?php 
-session_start();
+<?php
+session_start(); 
 include '../../Controller/Setting/SliderController.php';
-if (!isset($_SESSION["authority"]) && $_SESSION['authority']!=0) {
-     header('Location: ../../View/errors/wrongPath.php ');
+if (!isset($_SESSION["authority"])) {
+     header('Location: ../../View/errors/wrongPath.php');
+    exit();
+};
+if( $_SESSION['authority']!=0){
+    header('Location: ../../View/errors/noPermission.php');
     exit();
 }
 ?>

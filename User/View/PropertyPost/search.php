@@ -35,6 +35,8 @@ include '../../Controller/SliderController.php';
 
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- swiper -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -51,7 +53,7 @@ include '../../Controller/SliderController.php';
         <!-- Search Property Title and filter btn -->
         <div class="relative">
             <div class="flex justify-center items-center my-8">
-                <h1 class="text-xl font-bold">Explore Your Properties</h1>
+                <h1 class="text-2xl font-semibold">Explore Your Properties</h1>
             </div>
             <div class="absolute top-0 right-5 lg:right-20">
                 <button type="button" id="toggleFilterBtn" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-1.5 text-center dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">
@@ -89,7 +91,7 @@ include '../../Controller/SliderController.php';
         </div>
 
         <!-- search boxes sec row -->
-        <div class="flex items-center justify-evenly my-5">
+        <div class="flex items-center justify-evenly toggle my-5">
             <div>
                 <select name="state" class=" lg:w-52 w-28 px-5 py-2.5 rounded-lg border-2" id="pRegion">
                     <option value="" disabled selected>State</option>
@@ -108,7 +110,7 @@ include '../../Controller/SliderController.php';
 
         <!-- search boxes third row -->
 
-        <div class="flex items-center justify-evenly mb-5">
+        <div class="flex items-center justify-evenly toggle mb-5">
             <div class="pt-3">
                 <label class="text-sm">Price Unit : </label>
                 <select id="pUnit" class=" w-16 text-center text-sm py-1 rounded-lg border-2">
@@ -150,8 +152,7 @@ include '../../Controller/SliderController.php';
 
     <!-- cards -->
 
-    <div id="filteredResultsContainer">
-   </div>
+    <div id="filteredResultsContainer" class="swiper-container"></div>
 
     <!-- pagination -->
   
@@ -159,6 +160,7 @@ include '../../Controller/SliderController.php';
     <?php include '../footer/footer.php' ?>
     <script >
         $(document).ready(function() {
+            
     // Function to update filtered results
     function updateFilteredResults(page) {
         // Get selected values from select boxes
@@ -193,12 +195,17 @@ include '../../Controller/SliderController.php';
               
                 // Assuming your response is HTML content, update the container
                 $("#filteredResultsContainer").html(response);
+               
             },
             error: function(xhr, textStatus, errorThrown) {
                 console.error('Error occurred: ' + textStatus, errorThrown);
             }
         });
     }
+
+
+// ... (Rest of your code)
+
 
     // Attach change event handlers to select boxes and radio buttons
     $("#pCode, #pOffer, #pType, #pUnit, #pRegion, #pTownship, #minimumPrice, #maximumPrice, input[name='sort_by']").on("change", function() {
@@ -219,6 +226,11 @@ include '../../Controller/SliderController.php';
     });
 
     updateFilteredResults(1);
+    //toggle btn for filters
+    $('.toggle').hide();
+$('#toggleFilterBtn').click(function() {
+  $('.toggle').slideToggle(150);
+});
 });
     </script>
     <script src="../resources/js/getTownship.js"></script>
