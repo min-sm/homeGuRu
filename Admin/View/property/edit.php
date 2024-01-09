@@ -1,5 +1,13 @@
 <?php
 $the_called_file = 'edit.php';
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+include '../../Controller/Setting/SliderController.php';
+// if (!isset($_SESSION["authority"])) {
+//     header('Location: ../../View/errors/wrongPath.php ');
+//     exit();
+// }
 include "../../Controller/Property/PropertyEditController.php";
 include "../../Controller/PropertyType/PropertyTypeListController.php";
 include "../../Controller/Facility/FacilityListController.php";
@@ -16,6 +24,9 @@ include "../../Controller/Township/TownshipListController.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- tailwind -->
     <link href="../resources/css/dist/output.css" rel="stylesheet" />
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $sliders[0]["fav_icon"] ?>">
 
     <!-- flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
@@ -51,7 +62,6 @@ include "../../Controller/Township/TownshipListController.php";
     ?>
 
     <script src="../resources/js/selectBx.js" defer></script>
-
     <script src="../resources/js/townships.js" defer></script>
 
     <!-- CSS -->

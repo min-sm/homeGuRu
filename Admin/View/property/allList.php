@@ -1,4 +1,12 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+include '../../Controller/Setting/SliderController.php';
+// if (!isset($_SESSION["authority"])) {
+//     header('Location: ../../View/errors/wrongPath.php ');
+//     exit();
+// }
 include_once "../../Controller/Property/PropertyListController.php";
 include "../../Controller/Property/PropertyReqController.php";
 include "../../Controller/Property/PropertyPendingController.php";
@@ -32,6 +40,9 @@ include "../../Controller/Property/PropertyPendingController.php";
     <!-- ionic icons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $sliders[0]["fav_icon"] ?>">
 
     <!-- JS -->
     <script src="../resources/js/sort_by.js" defer></script>

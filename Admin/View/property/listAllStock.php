@@ -1,5 +1,13 @@
 <?php
-include_once "../../Controller/Property/PropertyListController.php";
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+include '../../Controller/Setting/SliderController.php';
+// if (!isset($_SESSION["authority"])) {
+//     header('Location: ../../View/errors/wrongPath.php ');
+//     exit();
+// }
+include "../../Controller/Property/PropertyListController.php";
 include "../../Controller/Property/CollaboratorInPropertyController.php";
 
 ?>
@@ -11,6 +19,9 @@ include "../../Controller/Property/CollaboratorInPropertyController.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- tailwind -->
     <link href="../resources/css/dist/output.css" rel="stylesheet" />
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $sliders[0]["fav_icon"] ?>">
 
     <!-- flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
@@ -36,9 +47,6 @@ include "../../Controller/Property/CollaboratorInPropertyController.php";
     <!-- JS -->
     <script src="../resources/js/sort_by.js" defer></script>
     <script src="../resources/js/search_Fn.js" defer></script>
-
-    <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $resultSlider[0]["fav_icon"]?>">
 
     <title>All Stock List</title>
 </head>
