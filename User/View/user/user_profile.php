@@ -1,6 +1,7 @@
 
 <?php include '../../Controller/UserDataController.php' ?>
-
+<?php include '../../Controller/common/colorsController.php' ?>
+<?php include '../../Controller/SliderController.php'?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="../../../User/Controller/lib/userprofile.js"></script>
     <title>user profile</title>
+    <!--favicon -->
+    <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $resultSlider[0]["fav_icon"]?>">
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -34,7 +37,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="bg-primary">
+<body class="bg-[#F7F7F7]" style=" background-color: <?= $colors[0]['background'] ?>;color:<?= $colors[0]['bd_text_color'] ?>">
     <!-- Start Navigation -->
     <?php include '../header/header.php'   ?>
     <!-- component -->

@@ -2,7 +2,8 @@
 session_start();
 
 ?>
-
+<?php include '../../Controller/common/colorsController.php' ?>
+<?php include '../../Controller/SliderController.php'?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +26,8 @@ session_start();
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 
   <!-- tailwind -->
-
+<!--favicon -->
+<link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $resultSlider[0]["fav_icon"]?>">
   <link href="../resources/css/dist/output.css" rel="stylesheet" />
 
   <!-- ionic icon -->
@@ -35,7 +37,7 @@ session_start();
   <!-- font awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class="bg-primary ">
+<body class="bg-[#F7F7F7]" style=" background-color: <?= $colors[0]['background'] ?>;color:<?= $colors[0]['bd_text_color'] ?>">
 <?php include '../header/header.php'   ?>
   <!-- Start Navigation -->
   <!-- component -->

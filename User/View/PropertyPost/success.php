@@ -1,17 +1,14 @@
 <?php
 session_start();
 ?>
-<?php include '../../Controller/common/colorsController.php' ?>
 <?php include '../../Controller/SliderController.php'?>
-
+<?php include '../../Controller/common/colorsController.php' ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Forget Password</title>
-    <!--favicon -->
-    <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $resultSlider[0]["fav_icon"]?>">
+    <title>Property Add Success</title>
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,6 +32,8 @@ session_start();
     <!-- tailwind -->
 
     <link href="../resources/css/dist/output.css" rel="stylesheet" />
+<!--favicon -->
+    <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $resultSlider[0]["fav_icon"]?>">
 
     <!-- ionic icon -->
     <script
@@ -55,7 +54,6 @@ session_start();
       referrerpolicy="no-referrer"
     />
   </head>
-
   <body class="bg-[#F7F7F7]" style=" background-color: <?= $colors[0]['background'] ?>;color:<?= $colors[0]['bd_text_color'] ?>">
     <!-- Start Navigation -->
     <?php include '../header/header.php'   ?>
@@ -63,29 +61,50 @@ session_start();
      <!-- component -->
 <section  class="pb-20" >
   <div class="container px-4 mx-auto">
-          <form action="../../Controller//getOTPController.php" method="post" metacharset >
+          <form action="" method="post" metacharset >
             
-          <div class="flex flex-col items-start mt-9">
-      <span class="text-gray-800 font-bold text-xl mb-1 ml-9">Forgot Password</span>
-    
-<span class="text-gray-500 ml-9 mt-3 mb-2">Enter your account email address and we’ll send you a One Time Password (OTP) to reset your password.</span>
-
-      <input type="text" id="email" name="email" placeholder="" class="p-1 mt-8 ml-8 border border-gray-300 rounded-md w-64">
-
-      <!-- Tailwind CSS classes for the "Send OTP" button -->
-      <button class="bg-darkGreen text-white px-4 py-2 rounded-md mt-8 ml-8" name = "sendOTP">Send OTP</button>
-  </div>
-  <div class="container mx-auto flex items-center justify-center pt-8">
-  <a href="#" class="text-gray-500 text-center">
-    Go back to
-  </a>
-  <span class="text-blue-500 mx-1"></span> <!-- Add a separator, adjust styling as needed -->
-        <a href="./user_login.php" class="text-blue-500 text-center">
-          Log in
+          <div class="mt-7">
+      <div class="flex flex-col items-center space-y-7">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="text-darkGreen w-28 h-28"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="1"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        <h1 class="text-4xl font-bold">Success!</h1>
+        <p class="w-5/6 whitespace-pre-wrap">Thank you for submitting your property to homeGuru. We will promptly process and verify the information before adding your listing to the website.</p>
+        <a
+        href="../Home_page/home.php"
+          class="inline-flex items-center px-4 py-2 text-white bg-darkGreen border border-darkGreen rounded-full hover:bg-teal-500 focus:outline-none focus:ring"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-3 h-3 mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M7 16l-4-4m0 0l4-4m-4 4h18"
+            />
+          </svg>
+          <span class="text-sm font-medium"> Go to Home </span>
         </a>
+      </div>
 
-
-
+      
+    </div>
 
           </form>  
          </div>
