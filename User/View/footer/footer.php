@@ -72,7 +72,7 @@
                     <a href="#ourservices"><u>Our Services</u></a>
                     <a href=""><u>FAQ</u></a>
                     <a href=""><u>Guide</u></a>
-                    <a href=""><u>Contact Us</u></a>
+                    <a href="../ContactUs/contactUs.php"><u>Contact Us</u></a>
                 </div>
 
             </div>

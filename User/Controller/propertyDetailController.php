@@ -6,11 +6,11 @@ FROM properties p
 LEFT JOIN m_townships mt ON p.p_township = mt.id
 LEFT JOIN property_type pt ON p.pt_id = pt.id
 LEFT JOIN m_collaborators mc ON p.uploader_id=mc.id
-WHERE p.del_flg = 0 AND p.id= :id
-ORDER BY p.id';  
+WHERE p.del_flg = 0 AND p.id= :id';
 $sql = $pdo->prepare($query);
 $sql->bindValue(":id", $id);
 $sql->execute();
 $property_datas = $sql->fetchAll(PDO::FETCH_ASSOC);
+
 
 ?>

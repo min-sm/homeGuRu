@@ -59,7 +59,7 @@ session_start();
           <label class="text-left block mb-2 font-medium text-secondary" for="confirmpassword">Confirm Password</label>
           <input name="confirmword" class="inline-block w-full p-4 leading-6 text-lg  placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="password" placeholder="•••••••••••••••••" required />
         </div>
-        <div class="mb-5">   <small class="block  font-medium text-left text-red-600"><?= $_SESSION["registererror"] ?></small> </div> 
+        <div class="mb-5">   <small class="block  font-medium text-left text-red-600"><?php  if($_SESSION["registererror"]){ echo $_SESSION['registererror'];} ?></small> </div> 
         <a href="" class="text-center">
           <button type="submit" name="register" class="inline-block tracking-wider m-auto  py-2 w-28 mb-6 text-center  leading-6 text-white font-medium bg-darkGreen hover:bg-darkGreen border-3 border-darkGreen shadow rounded transition duration-200">
             Register

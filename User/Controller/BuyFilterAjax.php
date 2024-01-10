@@ -21,7 +21,7 @@ $sortBy = isset($_POST['sortBy']) ? $_POST['sortBy'] : "";
 
 
 // Prepare and execute the SQL query for properties
-$sql = "SELECT p.*,mt.*,pt.*,mc.*  
+$sql = "SELECT p.id as pid, p.*,mt.*,pt.*,mc.*  
 FROM properties p
 LEFT JOIN m_townships mt ON p.p_township = mt.id
 LEFT JOIN property_type pt ON p.pt_id = pt.id
@@ -106,9 +106,68 @@ $stmt->execute();
 
 // Fetch the filtered properties
 $filteredProperties = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//
 
+$limit_query='SELECT COUNT(*) FROM properties p 
+LEFT JOIN m_townships mt ON p.p_township = mt.id
+LEFT JOIN property_type pt ON p.pt_id = pt.id
+LEFT JOIN m_collaborators mc ON p.uploader_id=mc.id
+WHERE p.del_flg = 0 AND p_status = 2 AND p_after = 0 AND mc.gc_activity_ban = 0 AND p.p_offer = 1';
+
+
+if ($pType !== "") {
+  $limit_query .= " AND pt_id = :pType";
+}
+
+if ($pUnit !== "") {
+  $limit_query .= " AND p_price_unit = :pUnit";
+}
+
+if ($pRegion !== "") {
+  $limit_query .= " AND mt.region_id = :pRegion";
+}
+
+if ($pTownship !== "") {
+  $limit_query .= " AND p_township = :pTownship";
+}
+
+if ($minimumPrice !== "") {
+  $limit_query .= " AND p_price >= :minimumPrice";
+}
+
+if ($maximumPrice !== "") {
+  $limit_query .= " AND p_price <= :maximumPrice";
+}
 // Fetch the total number of records for pagination
-$totalRecordsStmt = $pdo->prepare("SELECT COUNT(*) FROM properties p LEFT JOIN m_collaborators mc ON p.uploader_id=mc.id WHERE p.del_flg = 0 AND p_status = 2 AND p_after = 0 AND mc.gc_activity_ban = 0 AND p.p_offer = 1");
+$totalRecordsStmt = $pdo->prepare($limit_query);
+
+
+
+if ($pType !== "") {
+  $totalRecordsStmt->bindValue(':pType', $pType);
+}
+
+if ($pUnit !== "") {
+  $totalRecordsStmt->bindValue(':pUnit', $pUnit);
+}
+
+if ($pRegion !== "") {
+  $totalRecordsStmt->bindValue(':pRegion', $pRegion);
+}
+
+if ($pTownship !== "") {
+  $totalRecordsStmt->bindValue(':pTownship', $pTownship);
+}
+
+if ($minimumPrice !== "") {
+  $totalRecordsStmt->bindValue(':minimumPrice', $minimumPrice);
+}
+
+if ($maximumPrice !== "") {
+  $totalRecordsStmt->bindValue(':maximumPrice', $maximumPrice);
+}
+// Fetch the total number of records for pagination
+
 $totalRecordsStmt->execute();
 $totalRecords = $totalRecordsStmt->fetchColumn();
 
@@ -133,8 +192,8 @@ $totalPages = ceil($totalRecords / $recordsPerPage);
   <?php foreach ($filteredProperties as $property) {
   ?>
     <div class="w-full  max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
-        <div class="relative h-56">
+      <a href="../PropertyPost/detail_post.php?id=<?= $property['pid'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
+        <div class="relative h-56 overflow-hidden">
           <div class="<?php
                       if ($property['p_after'] == 1) {
                         echo 'bg-alert';
@@ -144,7 +203,7 @@ $totalPages = ceil($totalRecords / $recordsPerPage);
                         echo 'bg-secondary';
                       };
 
-                      ?> text-white flex items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
+                      ?> text-white flex  items-center justify-center rounded-tl-lg rounded-bl-lg w-20 h-8 absolute right-0 top-8">
             <?php
             if ($property['p_after'] == 1 && $property['p_offer'] == 0) {
               echo 'Rent Out';
@@ -158,7 +217,7 @@ $totalPages = ceil($totalRecords / $recordsPerPage);
 
             ?>
           </div>
-          <img class="pb-4 rounded-t-lg w-full h-full" src="../../../Storage/house/<?= $property["id"] ?>/<?= $property['p_photo_1'] ?>" alt=" product image" />
+          <img class="pb-4 rounded-t-lg w-full h-full hover:scale-110 duration-75 ease-in transition-all" src="../../../Storage/house/<?= $property["pid"] ?>/<?= $property['p_photo_1'] ?>" alt=" product image" />
         </div>
       </a>
       <div class="px-5 pb-5">
@@ -183,7 +242,7 @@ $totalPages = ceil($totalRecords / $recordsPerPage);
                   ?></span>
         </div>
         <div class="mt-2 flex items-center justify-between">
-          <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
+          <a href="../PropertyPost/detail_post.php?id=<?= $property['pid'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
             <h5 class="text-xl font-medium  text-gray-900 dark:text-white">
               <?php
               $maxLen = 25;
@@ -270,7 +329,7 @@ $totalPages = ceil($totalRecords / $recordsPerPage);
 
         <div class="flex items-center justify-end">
           <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-          <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen border-2 hover:opacity-50 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
+          <a href="../PropertyPost/detail_post.php?id=<?= $property['pid'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen border-2 hover:opacity-50 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
         </div>
       </div>
     </div>

@@ -22,7 +22,7 @@ $sortBy = isset($_POST['sortBy']) ? $_POST['sortBy'] : "";
 $pCode = isset($_POST['pCode']) ? $_POST['pCode'] : "";
 
 // Prepare and execute the SQL query for properties
-$sql = "SELECT p.*,mt.*,pt.*,mc.*  
+$sql = "SELECT p.id as pid , p.*,mt.*,pt.*,mc.*  
 FROM properties p
 LEFT JOIN m_townships mt ON p.p_township = mt.id
 LEFT JOIN property_type pt ON p.pt_id = pt.id
@@ -214,7 +214,7 @@ $totalPages = ceil($totalRecords / $recordsPerPage);
   <?php foreach ($filteredProperties as $property) {
   ?>
     <div class="w-full  max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
+      <a href="../PropertyPost/detail_post.php?id=<?= $property['pid'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
         <div class="relative h-56">
           <div class="<?php
                       if ($property['p_after'] == 1) {
@@ -239,7 +239,7 @@ $totalPages = ceil($totalRecords / $recordsPerPage);
 
             ?>
           </div>
-          <img class="pb-4 rounded-t-lg w-full h-full" src="../../../Storage/house/<?= $property["id"] ?>/<?= $property['p_photo_1'] ?>" alt=" product image" />
+          <img class="pb-4 rounded-t-lg w-full h-full" src="../../../Storage/house/<?= $property["pid"] ?>/<?= $property['p_photo_1'] ?>" alt=" product image" />
         </div>
       </a>
       <div class="px-5 pb-5">
@@ -264,7 +264,7 @@ $totalPages = ceil($totalRecords / $recordsPerPage);
                   ?></span>
         </div>
         <div class="mt-2 flex items-center justify-between">
-          <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
+          <a href="../PropertyPost/detail_post.php?id=<?= $property['pid'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
             <h5 class="text-xl font-medium  text-gray-900 dark:text-white">
               <?php
               $maxLen = 25;
@@ -351,7 +351,7 @@ $totalPages = ceil($totalRecords / $recordsPerPage);
 
         <div class="flex items-center justify-end">
           <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-          <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen border-2 hover:opacity-50 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
+          <a href="../PropertyPost/detail_post.php?id=<?= $property['pid'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen border-2 hover:opacity-50 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
         </div>
       </div>
     </div>

@@ -5,6 +5,8 @@
 <?php include '../../Controller/common/colorsController.php' ?>
 <?php include '../../Controller/common/LocationListController.php' ?>
 <?php include '../../Controller/PropertyTypeController.php' ?>
+<?php include '../../Controller/common/collaboratorController.php'?>
+
 <!DOCTYPE html>
 <html>
 
@@ -143,7 +145,7 @@
 
               <div class="relative w-1/2 sm:h-5/6  rounded-md overflow-hidden flex  items-center  sm:mb-0 ">
 
-                <img src="../../../Storage/house/<?= $property["id"] ?>/<?= $property['p_photo_1'] ?>" width="100%" height="100%" alt="" />
+                <img src="../../../Storage/house/<?= $property['pid'] ?>/<?= $property['p_photo_1'] ?>"  width="100%" height="100%" alt="" />
                 <div class="  <?php
                               if ($property['p_after'] == 1) {
                                 echo 'bg-alert';
@@ -286,7 +288,7 @@
                                                                                         ?></p>
               <div class="sm:hidden h-2"></div>
               <div class="w-full flex justify-end ">
-                <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
+                <a href="../PropertyPost/detail_post.php?id=<?= $property['pid'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
                   <button class="cursor-pointer focus:outline-none hover:bg-teal-400 focus:ring-2 focus:ring-teal-300 text-primary bg-darkGreen h-5 text-2xs px-2 sm:h-6 md:h-8 rounded-md sm:px-4 sm:text-sm sm-static">
                     Details
                   </button>
@@ -345,7 +347,7 @@
       $itemCount++;
     ?>
       <div class="w-full  max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
+        <a href="../PropertyPost/detail_post.php?id=<?= $property['pid'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
           <div class="relative h-56">
             <div class="<?php
                         if ($property['p_after'] == 1) {
@@ -370,7 +372,7 @@
 
               ?>
             </div>
-            <img class="pb-4 rounded-t-lg w-full h-full" src="../../../Storage/house/<?= $property["id"] ?>/<?= $property['p_photo_1'] ?>" alt=" product image" />
+            <img class="pb-4 rounded-t-lg w-full h-full hover:scale-150 duration-75 ease-in transition-all" src="../../../Storage/house/<?= $property['pid'] ?>/<?= $property['p_photo_1'] ?>" alt=" product image" />
           </div>
         </a>
         <div class="px-5 pb-5">
@@ -395,7 +397,7 @@
                     ?></span>
           </div>
           <div class="mt-2 flex items-center justify-between">
-            <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
+            <a href="../PropertyPost/detail_post.php?id=<?= $property['pid'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
               <h5 class="text-xl font-medium  text-gray-900 dark:text-white">
                 <?php
                 $maxLen = 25;
@@ -484,7 +486,7 @@
 
           <div class="flex items-center justify-end">
             <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-            <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen border-2 hover:opacity-50 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
+            <a href="../PropertyPost/detail_post.php?id=<?= $property['pid'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen border-2 hover:opacity-50 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
           </div>
         </div>
       </div>
@@ -514,7 +516,7 @@
       $count++;
     ?>
       <div class="w-full  max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
+        <a href="../PropertyPost/detail_post.php?id=<?= $property['pid'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
           <div class="relative h-56">
             <div class="<?php
                         if ($property['p_after'] == 1) {
@@ -539,7 +541,7 @@
 
               ?>
             </div>
-            <img class="pb-4 rounded-t-lg w-full h-full" src="../../../Storage/house/<?= $property["id"] ?>/<?= $property['p_photo_1'] ?>" alt=" product image" />
+            <img class="pb-4 rounded-t-lg w-full h-full" src="../../../Storage/house/<?= $property['pid'] ?>/<?= $property['p_photo_1'] ?>" alt=" product image" />
           </div>
         </a>
         <div class="px-5 pb-5">
@@ -564,7 +566,7 @@
                     ?></span>
           </div>
           <div class="mt-2 flex items-center justify-between">
-            <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
+            <a href="../PropertyPost/detail_post.php?id=<?= $property['pid'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
               <h5 class="text-xl font-medium  text-gray-900 dark:text-white">
                 <?php
                 $maxLen = 25;
@@ -652,7 +654,7 @@
 
           <div class="flex items-center justify-end">
             <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-            <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen hover:opacity-50 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
+            <a href="../PropertyPost/detail_post.php?id=<?= $property['pid'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen hover:opacity-50 border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
           </div>
         </div>
       </div>
@@ -686,16 +688,16 @@
       <div class="flex flex-col justify-center  w-full gap-5 sm:flex-row  sm:justify-evenly sm:w-1/3 items-center">
         <div class="flex flex-col justify-center w-16 space-y-2">
           <ion-icon name="business" class="text-5xl text-center text-secondary"></ion-icon>
-          <p class="text-xl font-semibold text-center">500+</p>
+          <p class="text-xl font-semibold text-center"><?= $property_total?>+</p>
           <p class="text-center font-medium">Properties</p>
         </div>
         <div class="flex flex-col justify-center w-16 space-y-2">
           <ion-icon name="people" class="text-5xl text-secondary "></ion-icon>
-          <p class="text-xl font-semibold text-center">150+</p>
+          <p class="text-xl font-semibold text-center"><?= $collab_total ?>+</p>
           <p class="text-center font-medium">Collaborators</p>
         </div>
         <div class="flex flex-col justify-center w-16 space-y-2"><i class="fa-solid fa-map-location-dot text-5xl text-center text-secondary"></i>
-          <p class="text-xl font-semibold text-center">50+</p>
+          <p class="text-xl font-semibold text-center"><?= $town_total?>+</p>
           <p class="text-center font-medium">Townships</p>
         </div>
       </div>

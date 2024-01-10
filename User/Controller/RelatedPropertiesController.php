@@ -34,7 +34,7 @@ $total = $result[0]['counts'];// total number of record
 $totalPages = ceil($total/$limit);//no of pages
 
 // Your SQL query with placeholders for each parameter
-$sql_limit = "SELECT DISTINCT p.*, pt.*,mt.*,mc.*
+$sql_limit = "SELECT DISTINCT p.id as pid, p.*, pt.*,mt.*,mc.*
 FROM properties p 
 LEFT JOIN m_townships mt ON p.p_township = mt.id
 LEFT JOIN property_type pt ON p.pt_id = pt.id

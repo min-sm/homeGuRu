@@ -9,9 +9,9 @@ function generateOTP() {
     return str_pad(mt_rand(1, 9999), 4, '0', STR_PAD_LEFT);
 }
 
-if (isset($_POST["sendOTP"]) ){
+if (isset($_POST["sendOTP"])) {
     $email = $_POST["email"];
-
+  $_SESSION['uEmail']=$email;
     // Check if the email exists in the database
     $stmt = $pdo->prepare("SELECT * FROM m_users WHERE gu_email = :email");
     $stmt->bindValue(":email", $email);
@@ -27,8 +27,15 @@ if (isset($_POST["sendOTP"]) ){
         $updateTokenStmt->bindValue(":token", $gu_token);
         $updateTokenStmt->bindValue(":email", $email);
         $updateTokenStmt->execute();
+
+        // Update the user's password with the generated OTP
+        $updatePasswordStmt = $pdo->prepare("UPDATE m_users SET gu_password = :password WHERE gu_email = :email");
+        $updatePasswordStmt->bindValue(":password", password_hash($gu_token, PASSWORD_DEFAULT)); // Hash the OTP for security
+        $updatePasswordStmt->bindValue(":email", $email);
+        $updatePasswordStmt->execute();
+
         // Store the generated OTP in the session
-$_SESSION["generatedOTP"] = $gu_token;
+        $_SESSION["generatedOTP"] = $gu_token;
 
         $domain = $_SERVER["SERVER_NAME"];
 
@@ -39,7 +46,7 @@ $_SESSION["generatedOTP"] = $gu_token;
             " Reset Your Account Password",
             "
             <p>Dear User,</p>
-            <p>Thank you for choosing Home GuRu.Your OTP code for password reset is: <strong>$gu_token</strong></p>
+            <p>Thank you for choosing Home GuRu. Your OTP code for password reset is: <strong>$gu_token</strong></p>
         
             <p>If you have any questions or concerns, please do not hesitate to contact our customer support team at homeguru@gmail.com</p>
         
@@ -49,7 +56,7 @@ $_SESSION["generatedOTP"] = $gu_token;
         );
 
         // Redirect to a page for entering OTP
-        header("Location: ../View/user/OTP_verification.php");
+        header("Location: ../../View/user/OTP_verification.php");
         exit();
     } else {
         // Email not found in the database
