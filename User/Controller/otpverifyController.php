@@ -15,7 +15,7 @@ if (isset($_POST["verify"])) {
 
     if ($enteredOTP == $gu_token) {
         // OTP is correct, show success page
-        header("Location: ../View/user/OTP_success.php");
+        header("Location: ../View/user/change_password.php");
     } else {
         // OTP is incorrect, set error message and redirect back to the OTP verification page
         $_SESSION["otperror"] = "Incorrect OTP. Please try again.";

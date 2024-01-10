@@ -59,17 +59,12 @@ session_start();
      <!-- component -->
 <section  class="pb-20" >
   <div class="container px-4 mx-auto">
-          <form action="../../Controller/getOTPController.php" method="post" metacharset >
+          <form action="../../Controller//getOTPController.php" method="post" metacharset >
             
           <div class="flex flex-col items-start mt-9">
       <span class="text-gray-800 font-bold text-xl mb-1 ml-9">Forgot Password</span>
     
-
-
-
-
-
-      <span class="text-gray-500 ml-9 mt-3 mb-2">Enter your account email address and we’ll send you a One Time Password (OTP) to reset your password.</span>
+<span class="text-gray-500 ml-9 mt-3 mb-2">Enter your account email address and we’ll send you a One Time Password (OTP) to reset your password.</span>
 
       <input type="text" id="email" name="email" placeholder="" class="p-1 mt-8 ml-8 border border-gray-300 rounded-md w-64">
 

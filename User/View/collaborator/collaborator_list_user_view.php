@@ -127,8 +127,9 @@
 
             foreach ($collaborators as $collaborator) {
             ?>
-                <div class="sm:w-3/4 w-11/12 sm:py-10 bg-gray-800 border-gray-200 rounded my-5 flex justify-evenly flex-col sm:flex-row items-center ">
-                    <div class="w-1/4  flex justify-center">
+            <a href="./profile.php?collaborator_id=<?= $collaborator['id'] ?>">
+                <div class="sm:w-3/4 w-11/12 sm:py-10 bg-gray-800 border-gray-200 rounded my-5 flex justify-evenly flex-col sm:flex-row items-center hover:animate-pulse cursor-pointer  ">
+                    <div class=" flex justify-center">
                         <div class="w-46 h-46  my-5">
                             <img class=" w-40 h-40" src="../../../Storage/collaborator_img/gc<?= $collaborator['id'] . '/' . $collaborator['gc_logo'] ?>" alt="<?= $collaborator['gc_company_name']; ?>" alt="company Logo" />
                         </div>
@@ -153,6 +154,7 @@
 
 
                 </div>
+            </a>
                 <!-- Start  Company profile info Section  -->
             <?php } ?>
         </div>

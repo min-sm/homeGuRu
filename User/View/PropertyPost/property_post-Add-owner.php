@@ -151,7 +151,7 @@ include '../../Controller/SliderController.php';
                     <!-- owner name -->
                     <div class="flex flex-col">
                         <label for="owner_name" class="font-medium">Owner Name</label>
-                        <input type="text" placeholder="Min Soe Moe" id="owner_name" name="go_name" class="lg:w-96 w-full text-sm lg:text-base px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
+                        <input type="text" placeholder="Name" id="owner_name" name="go_name" class="lg:w-96 w-full text-sm lg:text-base px-5 py-2.5 rounded-lg border-2 text-black bg-white dark:bg-gray-800 dark:text-white" required>
                     </div>
                 </div>
                 <!-- floor lvl & national ID -->

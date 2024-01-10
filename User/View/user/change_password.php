@@ -39,11 +39,8 @@ session_start();
   <section class="pb-20">
     <div class="container px-4 mx-auto">
       <h2 class="text-xl text-left md:text-3xl font-bold my-10 ml-10 sm:ml-20 md:ml-24 lg:ml-28">Change Password</h2>
-      <form action="../../Controller/Township/Changepasswordcontroller.php" method="post" metacharset class="w-3/4 max-w-sm  m-auto text-center ">
-        <div class="mb-10">
-          <label class="text-left block mb-2 font-medium text-secondary" for="">Old Password</label>
-          <input name = "oldword"  class="inline-block w-full p-4 leading-6 text-lg  placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="password" placeholder="•••••••••••••••••" />
-        </div>
+      <form action="../../Controller/Changepasswordcontroller.php" method="post" metacharset class="w-3/4 max-w-sm  m-auto text-center ">
+       
         <div class="mb-10">
           <label class="text-left block mb-2 font-medium text-secondary" for="">New Password</label>
           <input name = "newword"  class="inline-block w-full p-4 leading-6 text-lg  placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="password" placeholder="•••••••••••••••••" />

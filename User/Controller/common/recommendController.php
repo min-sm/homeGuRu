@@ -1,6 +1,6 @@
 <?php 
 include "../../Model/DBConnection.php";
-$query='SELECT gr.*, p.*,pt.*,mt.*,mc.*
+$query='SELECT gr.*,p.id as pid, p.*,pt.*,mt.*,mc.*
 FROM guru_recommendation gr
 JOIN properties p ON gr.property_code = p.p_code
 JOIN property_type pt ON p.pt_id=pt.id

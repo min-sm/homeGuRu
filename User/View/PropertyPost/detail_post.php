@@ -50,7 +50,7 @@
 
   <!-- flowbite -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
- <!-- ionic icon -->
+  <!-- ionic icon -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <!-- jquery-->
@@ -60,9 +60,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- share api -->
   <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=657dfb21954d790019bcd913&product=inline-share-buttons&source=platform" async="async"></script>
- <!-- tailwind -->
+  <!-- tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-<link href="../resources/css/dist/output.css" rel="stylesheet" />
+  <!-- phone number library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/libphonenumber-js/1.7.50/libphonenumber-js.min.js"></script>
+  <link href="../resources/css/dist/output.css" rel="stylesheet" />
 </head>
 
 <body class="bg-[#F7F7F7] tracking-wide" style=" background-color: <?= $colors[0]['background'] ?>;color:<?= $colors[0]['bd_text_color'] ?>">
@@ -73,14 +75,24 @@
   <div class="flex flex-row items-center gap-3 w-4/5 lg:w-1/2 my-6  ms-4 lg:ms-24">
     <!-- collaborator logo -->
     <div class=" mr-2 sm:mr-0">
-      <div class="rounded-full bg-[#D9D9D9] w-20 h-20 overflow-hidden">
-        <img class="w-full h-full" src='<?php
-                                        if ($property_datas[0]['uploader_id'] == 0) {
-                                          echo "../../../Storage/admin_img/guru_logo.png";
-                                        } else {
-                                          echo "../../../Storage/collaborator_img/gc" . $property_datas[0]['uploader_id'] . "/" . $property_datas[0]['gc_logo'];
-                                        } ?>' alt="">
-      </div>
+      <a href="
+      <?php
+      if ($property_datas[0]['uploader_id'] == 0) {
+
+        echo '../ContactUs/contactUs.php';
+      } else {
+        echo '../collaborator/profile.php?collaborator_id=' . $property_datas[0]['uploader_id'];
+      }
+      ?>">
+        <div class="rounded-full border-gray-500 border hover:opacity-50 bg-[#D9D9D9] w-20 h-20 overflow-hidden">
+          <img class="w-full h-full" src='<?php
+                                          if ($property_datas[0]['uploader_id'] == 0) {
+                                            echo "../../../Storage/logo/" . $resultSlider['fav_icon'];
+                                          } else {
+                                            echo "../../../Storage/collaborator_img/gc" . $property_datas[0]['uploader_id'] . "/" . $property_datas[0]['gc_logo'];
+                                          } ?>' alt="">
+        </div>
+      </a>
     </div>
 
     <div class=" w-fit">
@@ -126,7 +138,7 @@
 
       <!--  images -->
 
-      <div class="flex flex-row items-center w-4/5 sm:w-full justify-evenly mt-7">
+      <div class="flex flex-row items-center w-full lg:w-5/6 justify-evenly mt-7">
         <?php
         $photos = [];
         for ($i = 1; $i <= 5; $i++) {
@@ -136,7 +148,7 @@
         }
         ?>
         <?php foreach ($photos as $photo) : ?>
-          <div class="w-20 lg:w-36 h-12 lg:h-24 bg-cover bg-center rounded-lg property-imgs" style="background-image:url('../../../Storage/house/<?= $property_datas[0]["id"] ?>/<?= $photo ?>')"></div>
+          <div class="w-20 lg:w-36 h-12 mb-5 lg:h-24 bg-cover bg-center rounded-lg property-imgs" style="background-image:url('../../../Storage/house/<?= $property_datas[0]["id"] ?>/<?= $photo ?>')"></div>
         <?php endforeach; ?>
       </div>
 
@@ -156,12 +168,12 @@
           echo $property_datas[0]['p_price'] . ' Kyat';
         }
         ?> / <?php
-            if ($property_datas[0]['p_duration'] == 0) {
-              echo 'Month';
-            } elseif ($property_datas[0]['p_duration'] == 1) {
-              echo 'Year';
-            }
-            ?>
+              if ($property_datas[0]['p_duration'] == 0) {
+                echo 'Month';
+              } elseif ($property_datas[0]['p_duration'] == 1) {
+                echo 'Year';
+              }
+              ?>
       </div>
       <div>
         <span class="font-playFair font-semibold">Property ID: </span><?= $property_datas[0]['p_code'] ?>
@@ -198,12 +210,12 @@
         <a href="tel:<?= $property_datas[0]['gc_phone_num']  ?>"><button type="button" class="text-white bg-green-600 hover:opacity-60    rounded-lg text-sm px-5 py-2 text-center inline-flex items-center me-2 mb-2">
             <ion-icon name="call" class="text-lg mr-2"></ion-icon> Contact
           </button></a>
-          <a href="mailto:<?= $property_datas[0]['gc_email']  ?>"><button type="button" class="text-white bg-blue-500 hover:opacity-60    rounded-lg text-sm px-5 py-2 text-center inline-flex items-center me-2 mb-2">
-          <i class="fa-solid fa-envelope" class="text-lg "></i> <span class="ml-2">Mail</span>
+        <a href="mailto:<?= $property_datas[0]['gc_email']  ?>"><button type="button" class="text-white bg-blue-500 hover:opacity-60    rounded-lg text-sm px-5 py-2 text-center inline-flex items-center me-2 mb-2">
+            <i class="fa-solid fa-envelope" class="text-lg "></i> <span class="ml-2">Mail</span>
           </button></a>
       </div>
       <div class="">
-      <button id="interestRegister" type="button" class="text-white bg-goldYellow hover:opacity-60  rounded-lg text-sm px-5 py-2 text-center inline-flex items-center me-2 mb-2">
+        <button id="interestRegister" type="button" class="text-white bg-goldYellow hover:opacity-60  rounded-lg text-sm px-5 py-2 text-center inline-flex items-center me-2 mb-2">
           <i class="fa-solid fa-file-lines text-lg mr-2"></i>
           Interest Register
         </button>
@@ -216,8 +228,8 @@
       <!-- Modal content -->
       <div id="modal-content" class="flex items-center relative justify-center">
         <img id="display-full-img" class="w-4/5 h-auto lg:w-auto lg:h-[80vh]" src="" />
-        <div id="prevButton" class="px-2 py-1 bg-gray-400 rounded-lg opacity-60 hover:bg-gray-600 hover:right-3 absolute bottom-1/2 right-5"><i  class="fa-solid text-3xl fa-greater-than "></i></div>
-        <div id="nextButton" class="px-2 py-1 bg-gray-400 rounded-lg opacity-60 hover:bg-gray-600 hover:left-3 absolute bottom-1/2 left-5"><i  class="fa-solid text-3xl fa-less-than "></i></div>
+        <div id="prevButton" class="px-2 py-1 bg-gray-400 rounded-lg opacity-60 hover:bg-gray-600 hover:right-3 absolute bottom-1/2 right-5"><i class="fa-solid text-3xl fa-greater-than "></i></div>
+        <div id="nextButton" class="px-2 py-1 bg-gray-400 rounded-lg opacity-60 hover:bg-gray-600 hover:left-3 absolute bottom-1/2 left-5"><i class="fa-solid text-3xl fa-less-than "></i></div>
         <span id="img-description" class="mt-4"></span>
       </div>
     </div>
@@ -339,22 +351,24 @@
     </div>
     <!-- end toggle1 -->
     <!-- toggle 2 -->
-    <div class="flex flex-col mt-10 bg-white pt-8 rounded-lg  items-center lg:w-3/5 lg:ml-10 ml-0  w-full justify-evenly my-16" id="form">
+    <div class="flex flex-col  bg-white pt-8 rounded-lg  items-center lg:w-3/5 lg:ml-10 ml-0  w-full justify-evenly " id="form">
 
       <h1 class="font-semibold text-2xl   text-center tracking-wide mb-5 ">
         Interest Register Form
       </h1>
       <p class="w-4/5  text-center text-sm tracking-wide ">
         Alternatively, you can fill out the contact form below and we will get back to you . We contact with email
-        and phone to Look the Propety house of Location,Date & Time .
+        and phone to Look the Propety house of Location & Date .
       </p>
-      <form method="post" action="../../Controller/InterestFormController.php" class="w-3/5 my-10">
+      <form method="post" action="../../Controller/InterestFormController.php" id="ilfForm" class="w-3/5 my-10">
         <input type="text" required name="name" id="name" class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Name">
         <div class="grid md:grid-cols-2 md:gap-16 ">
           <div>
 
-            <input type="text" required name="email" id="email" class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email">
-            <input type="text" required name="phone" id="phone" class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Phone">
+            <input type="text" required name="email" id="email" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email">
+            <p id="errorEmail" class="text-alert text-xs mb-5"></p>
+            <input type="text" required name="phone" id="phone" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Phone">
+            <p id="errorPhone" class="text-alert text-xs mb-5 whitespace-nowrap"></p>
           </div>
           <div>
             <h1 class="text-sm font-medium  mb-2">Appointment Date</h1>
@@ -401,7 +415,7 @@
     foreach ($related_properties as $property) {
     ?>
       <div class="w-full    max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
+        <a href="../PropertyPost/detail_post.php?id=<?= $property['pid'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
           <div class="relative h-56">
             <div class="<?php
                         if ($property['p_after'] == 1) {
@@ -426,7 +440,7 @@
 
               ?>
             </div>
-            <img class="pb-4 rounded-t-lg w-full h-full" src="../../../Storage/house/<?= $property["id"] ?>/<?= $property['p_photo_1'] ?>" alt=" product image" />
+            <img class="pb-4 rounded-t-lg w-full h-full" src="../../../Storage/house/<?= $property["pid"] ?>/<?= $property['p_photo_1'] ?>" alt=" product image" />
           </div>
         </a>
         <div class="px-5 pb-5">
@@ -451,7 +465,7 @@
                     ?></span>
           </div>
           <div class="mt-2 flex items-center justify-between">
-            <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
+            <a href="../PropertyPost/detail_post.php?id=<?= $property['pid'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
               <h5 class="text-xl font-medium  text-gray-900 dark:text-white">
                 <?php
                 $maxLen = 25;
@@ -464,13 +478,24 @@
                 ?>
               </h5>
             </a>
-            <div class="rounded-full bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
-              <?php if ($property['uploader_id'] == 0) : ?>
-                <img src="../../../Storage/slider/<?= $resultSlider[0]['fav_icon'] ?>" class="w-13 h-13" alt="HomeGuRu" />
-              <?php else : ?>
-                <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $property['gc_company_name']; ?>" />
-              <?php endif; ?>
-            </div>
+            <a href="
+      <?php
+      if ($property['uploader_id'] == 0) {
+
+        echo '../ContactUs/contactUs.php';
+      } else {
+        echo '../collaborator/profile.php?collaborator_id=' . $property['uploader_id'];
+      }
+      ?>">
+              <div class="rounded-full border-gray-500 border hover:opacity-50 bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
+                <?php if ($property['uploader_id'] == 0) : ?>
+                  <img src="../../../Storage/slider/<?= $resultSlider[0]['fav_icon'] ?>" class="w-13 h-13" alt="HomeGuRu" />
+                <?php else : ?>
+                  <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $property['gc_company_name']; ?>" />
+                <?php endif; ?>
+              </div>
+            </a>
+
           </div>
 
           <div class=" mb-5 text-darkGreen flex items-center text-lg">
@@ -528,7 +553,7 @@
 
           <div class="flex items-center justify-end">
             <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-            <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
+            <a href="../PropertyPost/detail_post.php?id=<?= $property['pid'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen border-2 border-slate-500 hover:opacity-50 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
           </div>
         </div>
       </div>
@@ -584,16 +609,63 @@
   </div>
   <!-- footer -->
   <?php include '../footer/footer.php' ?>
+  <!-- interest form script -->
+  <script>
+    $(document).ready(function() {
+      $("#form").hide();
 
-  <script src="../resources/js/interestForm.js"></script>
- 
-   <script>
+      // Button click event
+      $("#interestRegister").click(function() {
+
+        $(this).fadeOut(200);
+        $("#info").fadeOut(200);
+        $("#form").delay(200).fadeIn(400);
+      });
+
+
+      // Cancel button click event inside the form
+      $("#cancel").click(function(event) {
+        event.preventDefault();
+        // Show the interestRegister button and hide the form with fadeOut animation (200ms duration)
+        $("#interestRegister").delay(200).fadeIn(400); // Add a 200ms delay and set fadeIn duration to 400ms
+        $("#info").delay(200).fadeIn(400); // Add a 200ms delay and set fadeIn duration to 400ms
+        $("#form").fadeOut(200);
+      });
+
+      // email input check
+      function isValidEmail(email) {
+        // Regular expression for a basic email validation
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+
+      function isValidPhoneNumber(phoneNumber) {
+        var phoneNumberRegex = /^\+\d{1,4}\d{7,14}$/;
+        return phoneNumberRegex.test(phoneNumber);
+      }
+      $("#ilfForm").submit(function(event) {
+        var userEmail = $("#email").val();
+        var userPhoneNumber = $("#phone").val();
+        if (!isValidEmail(userEmail)) {
+          $('#errorEmail').html("Email is not valid.")
+          event.preventDefault();
+        }
+        if (!isValidPhoneNumber(userPhoneNumber)) {
+          $('#errorPhone').html("Phone number is not valid. Please Enter with country code( i.e +959980636388 )");
+          event.preventDefault();
+        }
+
+      });
+    });
+  </script>
+  <!--image modal script -->
+  <script>
     // Get the modal
     var modal = document.getElementById("myModal");
 
     // Get the button that opens the modal
     const slider = document.getElementById('slider');
-    
+
     let smalls = document.getElementsByClassName("property-imgs");
     let fullImg = document.getElementById("display-full-img");
 
@@ -614,16 +686,16 @@
       const inputString = smalls[index].style.backgroundImage;
       const regex = /url\("([^"]+)"\)/;
       const match = inputString.match(regex);
-      
+
       const extractedURL = match ? match[1] : null;
       const filename = extractedURL
-      .split("/")
-      .pop()
-      .replace(/\.[^/.]+$/, "");
+        .split("/")
+        .pop()
+        .replace(/\.[^/.]+$/, "");
       const extractedText = filename.replace(/[-_]/g, " ");
       fullImg.src = extractedURL;
       document.getElementById("img-description").innerText =
-      extractedText.replace(/\b\w/g, (char) => char.toUpperCase());
+        extractedText.replace(/\b\w/g, (char) => char.toUpperCase());
     }
 
     // Event listener for the Previous button
@@ -656,14 +728,14 @@
       const match = inputString.match(regex);
       const extractedURL = match ? match[1] : null;
       const filename = extractedURL
-      .split("/")
-      .pop()
-      .replace(/\.[^/.]+$/, "");
+        .split("/")
+        .pop()
+        .replace(/\.[^/.]+$/, "");
       modal.style.display = "flex";
       const extractedText = filename.replace(/[-_]/g, " ");
       fullImg.src = extractedURL;
       document.getElementById("img-description").innerText =
-      extractedText.replace(/\b\w/g, (char) => char.toUpperCase());
+        extractedText.replace(/\b\w/g, (char) => char.toUpperCase());
     });
 
     // When the user clicks anywhere outside of the modal, close it
@@ -672,9 +744,9 @@
         modal.style.display = "none";
       }
     };
-</script>
+  </script>
 
-  =
+
 </body>
 
 </html>

@@ -22,7 +22,7 @@ $sortBy = isset($_POST['sortBy']) ? $_POST['sortBy'] : "";
 $pCode = isset($_POST['pCode']) ? $_POST['pCode'] : "";
 
 // Prepare and execute the SQL query for properties
-$sql = "SELECT p.*,mt.*,pt.*,mc.*  
+$sql = "SELECT p.id as pid , p.*,mt.*,pt.*,mc.*  
 FROM properties p
 LEFT JOIN m_townships mt ON p.p_township = mt.id
 LEFT JOIN property_type pt ON p.pt_id = pt.id
@@ -198,7 +198,7 @@ $totalPages = ceil($totalRecords / $recordsPerPage);
 
 $totalPages = ceil($totalRecords / $recordsPerPage);
 ?>
-<div class="py-7">
+<div class="ml-2 my-7">
   <span class="ms-10  text-base sm:text-xl font-bold <?php if ($totalRecords == 0) {
                                                         echo 'text-alert';
                                                       } else {
@@ -214,7 +214,7 @@ $totalPages = ceil($totalRecords / $recordsPerPage);
   <?php foreach ($filteredProperties as $property) {
   ?>
     <div class="w-full  max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
+      <a href="../PropertyPost/detail_post.php?id=<?= $property['pid'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
         <div class="relative h-56">
           <div class="<?php
                       if ($property['p_after'] == 1) {
@@ -239,7 +239,7 @@ $totalPages = ceil($totalRecords / $recordsPerPage);
 
             ?>
           </div>
-          <img class="pb-4 rounded-t-lg w-full h-full" src="../../../Storage/house/<?= $property["id"] ?>/<?= $property['p_photo_1'] ?>" alt=" product image" />
+          <img class="pb-4 rounded-t-lg w-full h-full" src="../../../Storage/house/<?= $property["pid"] ?>/<?= $property['p_photo_1'] ?>" alt=" product image" />
         </div>
       </a>
       <div class="px-5 pb-5">
@@ -264,7 +264,7 @@ $totalPages = ceil($totalRecords / $recordsPerPage);
                   ?></span>
         </div>
         <div class="mt-2 flex items-center justify-between">
-          <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
+          <a href="../PropertyPost/detail_post.php?id=<?= $property['pid'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="mt-2.5 mb-5">
             <h5 class="text-xl font-medium  text-gray-900 dark:text-white">
               <?php
               $maxLen = 25;
@@ -277,13 +277,23 @@ $totalPages = ceil($totalRecords / $recordsPerPage);
               ?>
             </h5>
           </a>
-          <div class="rounded-full bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
-            <?php if ($property['uploader_id']== 0) : ?>
+          <a href="
+      <?php
+      if ($property['uploader_id'] == 0) {
+
+      echo '../ContactUs/contactUs.php';
+      }else{
+      echo '../collaborator/profile.php?collaborator_id='.$property['uploader_id'];
+      }
+      ?>">
+          <div class="rounded-full border-gray-500 border hover:opacity-50 bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
+          <?php if ($property['uploader_id']== 0) : ?>
               <img src="../../../Storage/slider/<?= $resultSlider[0]['fav_icon'] ?>" class="w-13 h-13" alt="HomeGuRu" />
             <?php else : ?>
               <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $property['gc_company_name']; ?>" />
             <?php endif; ?>
           </div>
+          </a>
         </div>
 
         <div class=" mb-5 text-darkGreen flex items-center text-lg">
@@ -341,7 +351,7 @@ $totalPages = ceil($totalRecords / $recordsPerPage);
 
         <div class="flex items-center justify-end">
           <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> -->
-          <a href="../PropertyPost/detail_post.php?id=<?= $property['id'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen border-2 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
+          <a href="../PropertyPost/detail_post.php?id=<?= $property['pid'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>" class="text-darkGreen border-2 hover:opacity-50 border-slate-500 bg-transparent font-medium rounded-lg text-sm px-5 py-2 text-center dark:border-slate-50">Details</a>
         </div>
       </div>
     </div>
@@ -354,7 +364,7 @@ $totalPages = ceil($totalRecords / $recordsPerPage);
 <div class="flex justify-center my-16">
   <nav aria-label="Page navigation example">
     <ul class="flex items-center -space-x-px h-10 text-base pagination">
-      <li>
+      <li class="swiper-button-prev">
         <a href="?page=<?= $page == $page > 1 ? $page - 1 : 1 ?>" class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
           <span class="sr-only">Previous</span>
           <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
@@ -381,7 +391,7 @@ $totalPages = ceil($totalRecords / $recordsPerPage);
       <?php }
       }
       ?>
-      <li>
+      <li class="swiper-button-next">
         <a href="?page=<?= $page == $page < $totalPages ? $page + 1 : $totalPages ?>" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
           <span class="sr-only">Next</span>
           <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
