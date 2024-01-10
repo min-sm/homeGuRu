@@ -1,3 +1,5 @@
+<?php include'../../Controller/Financial/SaleServiceCashInController.php' ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +15,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 
-<body>
+<body class="dark:bg-gray-400">
  <!-- heading navigation -->
  <?php include '../common/menu.php' ?>
   <!--Start  Sale Service Cash In Detail -->
@@ -23,47 +25,50 @@
 
             <div class="grid grid-cols-2 gap-4 ">
                 <p class="font-medium text-lg">Property Code</p>
-                <p name="p_code"  class="font-normal text-sm">GS-1</p>
+                <p name="p_code"  class="font-semibold text-sm"><?=$saleOne[0]["p_code"]?></p>
             </div>
-         
             <div class="grid grid-cols-2 gap-4 ">
                 <p class="font-medium text-lg" > Cash Amount</p>
-                <p name="pcash_amount" class="font-normal text-sm">300,000 Kyats</p>
+                <p name="pcash_amount" class="font-semibold text-alert text-sm">
+                    <span><?= number_format($saleOne[0]["p_cash_amount"]); ?></span>
+                                <?php
+                                if ($saleOne[0]["p_cash_unit"] == 1) {
+                                ?>
+                                    <span>$</span>
+                                <?php
+                                } else {
+                                ?>
+                                    <span>Kyats</span>
+                                <?php
+                                }
+                                ?></p>
             </div>
             <div class="grid grid-cols-2 gap-4 ">
                 <p class="font-medium text-lg" >Payer Name</p>
-                <p name="pcash_payer_name" class="font-normal text-sm">John</p>
+                <p name="pcash_payer_name" class="font-normal text-sm"><?=$saleOne[0]["p_cash_payer_name"]?></p>
             </div>
             <div class="grid grid-cols-2 gap-4 ">
                 <p class="font-medium text-lg" >Payer Phone</p>
-                <p name="pcash_phone" class="font-normal text-sm">(+95) 9876543210</p>
+                <p name="pcash_phone" class="font-normal text-sm"><?=$saleOne[0]["p_cash_phone"]?></p>
             </div>
             <div class="grid grid-cols-2 gap-4 ">
                 <p class="font-medium text-lg" >Recipient Name</p>
-                <p name="pcash_recipient_name" class="font-normal text-sm">Mary</p>
-            </div>
-           
+                <p name="pcash_recipient_name" class="font-normal text-sm"><?=$saleOne[0]["p_cash_payer_name"]?></p>
+            </div>           
             <div class="grid grid-cols-2 gap-4 ">
                 <p class="font-medium text-lg" >Pay Date</p>
-                <p name="created_date" class="font-bold text-sm">30/ 09/ 2023  12:30 PM </p>
+                <p name="created_date" class="font-bold text-sm"> <?= $saleOne[0]["created_date"]
+                                    =date("d-m-Y  g:i A", strtotime($saleOne[0]["created_date"])) ?> </p>
             </div>     
         </div>
         <div class=" my-28 ">
-            <a href="./financial_sale_edit.php" type="submit"
-                class="tracking-wider mr-10 text-white bg-goldYellow opacity-75 hover:opacity-100
-            focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium px-8 py-2 text-center  ">
-                Edit </a>
-
             <a href="./financial_sale_list.php" type=""
                 class="tracking-wider  text-white border-2 border-green-700 bg-alert opacity-80 hover:opacity-100
             focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium  px-7 py-2 text-center ">
-                Cancel</a>
+                Back</a>
         </div>
     </div>
  <!--End  Sale Service Cash In Detail  -->
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-
 </body>
-
 </html>
