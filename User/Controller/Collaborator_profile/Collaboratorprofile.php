@@ -17,7 +17,7 @@ if (isset($_GET['collaborator_id'])) {
     // Fetch the collaborator data
     $collaborator = $statement->fetch(PDO::FETCH_ASSOC);
     //collab properties
-    $property_query='SELECT p.*,pt.*,mt.*,mc.*
+    $property_query='SELECT p.id as pid, p.*,pt.*,mt.*,mc.*
 FROM properties p
 LEFT JOIN property_type pt ON p.pt_id=pt.id
 LEFT JOIN m_townships mt ON p.p_township=mt.id
