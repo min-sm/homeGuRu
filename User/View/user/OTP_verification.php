@@ -111,7 +111,7 @@ session_start();
        
       />
     </div>
-    <p  class="block ml-8 font-medium text-left text-red-500"><?= $_SESSION["otperror"] ?></p>
+    <p  class="block ml-8 font-medium text-left text-red-500"><?php if(isset($_SESSION["otperror"])){ echo $_SESSION["otperror"];}?></p>
     <div class="flex ml-8 mt-10">
   <button
     class="text-white bg-darkGreen hover:bg-green-600 font-medium rounded-lg text-sm px-4 py-2 mr-4" 
@@ -132,5 +132,5 @@ session_start();
 <?php include '../footer/footer.php'   ?>
 </body>
 </html>
-<?php $_SESSION["otperror"] =""?>
+<?php if(isset($_SESSION["otperror"])){ $_SESSION["otperror"]="";}?>
 

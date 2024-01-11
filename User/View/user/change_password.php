@@ -52,7 +52,7 @@ session_start();
           <label class="text-left block mb-2 font-medium text-secondary" for="">Confirm Password</label>
           <input name = "confirmword" class="inline-block w-full p-4 leading-6 text-lg  placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="password" placeholder="•••••••••••••••••" />
         </div>
-        <div class="mb-5"> <small class="block  font-medium text-left text-red-600"><?= $_SESSION["passworderror"] ?></small> </div> 
+        <div class="mb-5"> <small class="block  font-medium text-left text-red-600"><?php if(isset($_SESSION["passworderror"])){ echo $_SESSION["passworderror"];}?></small> </div> 
         <a href="" class="text-center">
           <button  type = "submit" name = "submit" class="inline-block tracking-wider m-auto  py-2 w-28 mb-6 text-center  leading-6 text-white font-medium bg-darkGreen hover:bg-darkGreen border-3 border-darkGreen shadow rounded transition duration-200">
             Submit
@@ -66,4 +66,4 @@ session_start();
 </body>
 
 </html>
-<?php $_SESSION["passworderror"] =""?>
+<?php if(isset($_SESSION["passworderror"])){ $_SESSION["passworderror"]="";}?>

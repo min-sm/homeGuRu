@@ -39,7 +39,7 @@
             <div class=" w-48 lg:w-96">
                 <h1 class="md:text-2xl text-xl text-center mb-7"><u>Address</u></h1>
                 <div class="space-y-6 text-paleGray ">
-                <a href="<?= $guru_data[0]['gd_maplink']  ?>"> <div class="flex items-center gap-3 whitespace-break-spaces ">
+                <a href="<?= $guru_data[0]['gd_maplink']  ?>"><div class="flex items-center gap-3 whitespace-pre-wrap ">
                         <i class="fa-solid fa-map-location-dot"></i>
                         <p><?= $guru_data[0]['gd_address']  ?>
                         </p>

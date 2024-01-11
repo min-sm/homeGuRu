@@ -61,6 +61,7 @@ if (isset($_POST["sendOTP"])) {
     } else {
         // Email not found in the database
         header("Location: ../View/user/forget_password.php");
+        $_SESSION['emailnotfound']='Your Email not fond.';
         exit();
     }
 } else {

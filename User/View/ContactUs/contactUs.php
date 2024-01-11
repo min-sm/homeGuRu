@@ -105,7 +105,7 @@
     </div>
     <div class="flex flex-col justify-center items-center w-screen h-screen overflow-y-hidden text-white" id='body'>
         <h1 class="font-playFair text-4xl font-bold mb-14 ">Contact Us</h1>
-        <p class="lg:w-5/6 w-11/12 tracking-wider font-thin  whitespace-pre-wrap pb-10 text-center">Thank you for your interest in Home GuRu Real Estate. We are here to help you with all your real estate needs, whether you're looking to buy, sell, or rent a property. Please don't hesitate to contact us with any questions or inquiries you may have.</p>
+        <p class="lg:w-5/6 w-11/12 tracking-wider font-thin  whitespace-pre-wrap pb-14 text-center">Thank you for your interest in Home GuRu Real Estate. We are here to help you with all your real estate needs, whether you're looking to buy, sell, or rent a property. Please don't hesitate to contact us with any questions or inquiries you may have.</p>
 
         <div class="w-full flex justify-evenly flex-wrap gap-5">
             <div class=" w-48 lg:w-96">

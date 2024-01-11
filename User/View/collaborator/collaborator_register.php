@@ -1,8 +1,6 @@
 <?php
-
+include '../../Controller/SliderController.php';
 session_start();?>
-
-
 <?php include '../../Controller/common/colorsController.php' ?>
 
 <!DOCTYPE html>
@@ -12,6 +10,7 @@ session_start();?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="../resources/js/collaboratorprofile.js"></script>
     <title>Collaborator Registration</title>
+    <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $resultSlider[0]["fav_icon"] ?>">
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,7 +34,7 @@ session_start();?>
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class="bg-[#F7F7F7]">
+<body class="bg-primary " style=" background-color: <?= $colors[0]['background'] ?>;color:<?= $colors[0]['bd_text_color'] ?>">
     <!-- Navigation -->
     <?php include '../header/header.php' ?>
 
@@ -54,7 +53,7 @@ session_start();?>
     <img  id="previewImage" class="h-40 mb-2" src="../resources/img/common/blank photo.png" alt="">
 </label>
 <div class="mb-2 "><small class="block  font-medium text-left text-red-600">
- <?= $_SESSION["createcollaboratorerror"] ?></small> </div>
+<?php if(isset($_SESSION["createcollaboratorerror"])){ echo $_SESSION["createcollaboratorerror"];}?></small> </div>
                     </div>
                     <div class="mb-8">
                         <label for="cname" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
@@ -116,4 +115,4 @@ session_start();?>
 </body>
 
 </html>
-<?php $_SESSION["createcollaboratorerror"]=""?>
+<?php if(isset($_SESSION["createcollaboratorerror"])){ $_SESSION["createcollaboratorerror"]="";}?>

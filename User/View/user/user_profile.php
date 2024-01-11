@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="bg-[#F7F7F7]" style=" background-color: <?= $colors[0]['background'] ?>;color:<?= $colors[0]['bd_text_color'] ?>">
+<body class="bg-primary " style=" background-color: <?= $colors[0]['background'] ?>;color:<?= $colors[0]['bd_text_color'] ?>">
     <!-- Start Navigation -->
     <?php include '../header/header.php'   ?>
     <!-- component -->
@@ -77,7 +77,7 @@
                        
                     </div>
 
-                    <p class="block  mb-5 font-medium  text-red-500"><?= $_SESSION["createusererror"] ?></p>
+                    <p class="block  mb-5 font-medium  text-red-500"><?php if(isset($_SESSION["createusererror"])){ echo $_SESSION["createusererror"];}?></p>
                 </div>
             </div>
         </form>
@@ -90,4 +90,4 @@
 
 </html>
 
-<?php $_SESSION["createusererror"] = "" ?>
+<?php if(isset($_SESSION["createusererror"])){ $_SESSION["createusererror"]="";}?>

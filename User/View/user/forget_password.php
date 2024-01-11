@@ -75,6 +75,7 @@ session_start();
       <!-- Tailwind CSS classes for the "Send OTP" button -->
       <button class="bg-darkGreen text-white px-4 py-2 rounded-md mt-8 ml-8" name = "sendOTP">Send OTP</button>
   </div>
+  <small><?php if(isset($_SESSION['emailnotfound'])){ $_SESSION['emailnotfound'];}?></small>
   <div class="container mx-auto flex items-center justify-center pt-8">
   <a href="#" class="text-gray-500 text-center">
     Go back to
@@ -91,7 +92,7 @@ session_start();
          </div>
   </div>
 </section>
- 
+<?php if(isset($_SESSION['emailnotfound'])){ $_SESSION['emailnotfound']="";}?>
 <?php include '../footer/footer.php'   ?>
 </body>
 </html>
