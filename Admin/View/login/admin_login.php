@@ -1,7 +1,13 @@
 <?php
-session_start();
-include '../../Controller/Setting/SliderController.php'
+
+include '../../Controller/Setting/SliderController.php';
+
+
+if (!isset($_SESSION["loginerror"])) {
+  $_SESSION["loginerror"] = "";
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +71,6 @@ include '../../Controller/Setting/SliderController.php'
     <button  name="login"  type = "submit"class="inline-block tracking-wider mx-auto  py-2 w-28 mb-6 text-center  leading-6 text-white font-medium bg-darkGreen hover:bg-darkGreen border-3 border-darkGreen shadow rounded transition duration-200">
       Log in
     </button>
-    
   </form>
 </body>
 </html>

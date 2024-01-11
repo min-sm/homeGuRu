@@ -988,10 +988,13 @@ html {
   margin-top: 2.25rem;
 }
 
+<<<<<<< HEAD
+=======
 .mt-20{
   margin-top: 5rem;
 }
 
+>>>>>>> 8a19287c7fba228ae14fbe5a940b4cf4a8769b0a
 .block{
   display: block;
 }
@@ -1262,10 +1265,13 @@ html {
   width: 100vw;
 }
 
+<<<<<<< HEAD
+=======
 .w-11{
   width: 2.75rem;
 }
 
+>>>>>>> 8a19287c7fba228ae14fbe5a940b4cf4a8769b0a
 .max-w-screen-xl{
   max-width: 1280px;
 }
@@ -1314,6 +1320,8 @@ html {
   animation: slider 5s linear infinite;
 }
 
+<<<<<<< HEAD
+=======
 @keyframes bounce{
   0%, 100%{
     transform: translateY(-25%);
@@ -1340,6 +1348,7 @@ html {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
+>>>>>>> 8a19287c7fba228ae14fbe5a940b4cf4a8769b0a
 .cursor-pointer{
   cursor: pointer;
 }
@@ -1940,11 +1949,14 @@ html {
   padding-bottom: 1.25rem;
 }
 
+<<<<<<< HEAD
+=======
 .py-20{
   padding-top: 5rem;
   padding-bottom: 5rem;
 }
 
+>>>>>>> 8a19287c7fba228ae14fbe5a940b4cf4a8769b0a
 .pb-10{
   padding-bottom: 2.5rem;
 }
@@ -2265,6 +2277,8 @@ html {
   opacity: 0.6;
 }
 
+<<<<<<< HEAD
+=======
 .opacity-90{
   opacity: 0.9;
 }
@@ -2273,6 +2287,7 @@ html {
   opacity: 0.8;
 }
 
+>>>>>>> 8a19287c7fba228ae14fbe5a940b4cf4a8769b0a
 .shadow{
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);

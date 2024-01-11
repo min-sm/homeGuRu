@@ -1,5 +1,11 @@
 <?php
-session_start();
+if (!isset($_SESSION["authority"])) {
+    header('Location: ../../View/errors/wrongPath.php');
+    exit();
+};
+
+?>
+<?php
 if (!isset($_SESSION["emailerror"])) {
     $_SESSION["emailerror"] = "";
 }

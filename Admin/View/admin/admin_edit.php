@@ -1,6 +1,5 @@
 <?php
 session_start();
-include '../../Controller/Setting/SliderController.php';
 if (!isset($_SESSION["authority"])) {
     header('Location: ../../View/errors/wrongPath.php');
     exit();
@@ -10,11 +9,14 @@ if ($_SESSION['authority'] != 0) {
     exit();
 }
 ?>
+
+
+
 <?php include '../../Controller/admin/AdminEditController.php' ?>
 
 
 
-<?php session_start();
+<?php 
 if (!isset($_SESSION['gaphotoerror_Edit'])) {
     $_SESSION['gaphotoerror_Edit'] = '';
 }

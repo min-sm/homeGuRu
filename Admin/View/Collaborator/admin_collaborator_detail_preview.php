@@ -1,3 +1,12 @@
+
+<?php
+if (!isset($_SESSION["authority"])) {
+    header('Location: ../../View/errors/wrongPath.php');
+    exit();
+};
+
+?>
+
 <?php
 include '../../Controller/Collaborator/CollaboratorAllDetailPreviewContorller.php';
 include "../../Controller/Property/CollaboratorPropertyListController.php";

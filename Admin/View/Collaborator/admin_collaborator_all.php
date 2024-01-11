@@ -1,6 +1,12 @@
+<?php
+session_start();
+if (!isset($_SESSION["authority"])) {
+    header('Location: ../../View/errors/wrongPath.php');
+    exit();
+};
 
+?>
 <?php include '../../Controller/collaborator/CollaboratorAllController.php'; ?>
-<?php require_once  '../../View/commonView/ciphertext.php' ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -104,9 +110,11 @@
                                 $interval = $currentDate->diff($expiration);
                                 if ($currentDate < $expiration) {
                                     $expire_status = $interval->days . " days";
-                                } elseif ($currentDate > $expiration) {
+                                } else if ($currentDate > $expiration) {
                                     $expire_status = " Expired";
-                                } else {
+                                } else if ($currentDate == $expiration) {
+                                    $expire_status = "Expires today!";
+                                }else {
                                     $expire_status = "Expires today!";
                                 }
                                 ?>
