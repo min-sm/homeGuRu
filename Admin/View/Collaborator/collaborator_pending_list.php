@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION["authority"])) {
+    header('Location: ../../View/errors/wrongPath.php');
+    exit();
+};
+
+?>
 <?php include '../../Controller/collaborator/PendingListController.php' ?>
 
 <!DOCTYPE html>

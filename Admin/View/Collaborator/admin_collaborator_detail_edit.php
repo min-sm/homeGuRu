@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (!isset($_SESSION["authority"])) {
+    header('Location: ../../View/errors/wrongPath.php');
+    exit();
+};
+
+?>
+
 <?php include '../../Controller/Collaborator/CollaboratorAllEditController.php' ?>
 
 <?php session_start();

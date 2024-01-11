@@ -1,5 +1,29 @@
 <?php
 session_start();
+if (!isset($_SESSION["authority"])) {
+    header('Location: ../../View/errors/wrongPath.php');
+    exit();
+};
+if ($_SESSION['authority'] != 0) {
+    header('Location: ../../View/errors/noPermission.php');
+    exit();
+}
+?>
+
+
+<?php
+if (!isset($_SESSION["createadminerror"])) {
+    $_SESSION["createadminerror"] = "";
+}
+
+if (!isset($_SESSION["passworderror"])) {
+    $_SESSION["passworderror"] = "";
+}
+
+if (!isset($_SESSION["emailerror"])) {
+    $_SESSION["emailerror"] = "";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -23,10 +47,11 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- JS -->
     <script src="../resources/js/profile.js"></script>
- 
+
     <title>Home Guru</title>
 </head>
-<body>
+
+<body class="bg-primary dark:bg-gray-700 ">
     <?php include '../commonView/menu.php' ?>
     <div class="flex flex-col items-center pt-20 sm:ml-64">
         <h1 class=" text-center font-bold text-2xl m-7 tracking-wide ">Add Admin </h1>
@@ -50,24 +75,24 @@ session_start();
                         <input type="text" name="ga_nrc" id="ga_nrc" class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=" 12/TGG(N)123567">
                     </div>
                     <div class="lg:w-72 w-28">
-    <label for="ga_dob" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
-        Date of Birth</label>
-    <input type="date" name="ga_dob" id="ga_dob" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-</div>
+                        <label for="ga_dob" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
+                            Date of Birth</label>
+                        <input type="date" name="ga_dob" id="ga_dob" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    </div>
                     <div class=" lg:w-72 w-28">
                         <label for="ga_phone" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
                             Gender</label>
-                        <select name="ga_gender" class="lg:w-72 w-28 px-5 py-2.5 rounded-lg  border-2 border-gray-300">
+                        <select name="ga_gender" class="lg:w-72 w-28 px-5 py-2.5 rounded-lg  border-2 border-gray-300  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option value="" disabled selected>Select Gender</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Other">Other</option>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                            <option value="3">Other</option>
                         </select>
                     </div>
                 </div>
                 <div class="grid grid-rows-5 gap-5">
                     <div class="flex items-center   lg:w-72 w-28">
-                        <label  for="imageInput" id="imageLabel">
+                        <label for="imageInput" id="imageLabel">
                             <img name="ga_photo" class="w-24 mr-10" id="preview" src="../resources/img/common/profile.png" alt="Image Preview" style="max-width: 300px; max-height: 300px; cursor: pointer;">
                         </label>
                         <span class="text-sm font-semibold text-gray-500 dark:text-white">Profile
@@ -83,14 +108,14 @@ session_start();
                     <div class=" lg:w-72 w-28">
                         <label for="ga_email" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
                             Email</label>
-                        <input type="text" name="ga_email" id="ga_email" class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="realestate777@gmail.com"  onclick="clearErrorMessage('emailerror')">
-                        <div class="mt-5">   <small class="block  font-medium text-left text-red-600 createadminerror"><?= $_SESSION["emailerror"] ?></small> </div> 
+                        <input type="text" name="ga_email" id="ga_email" class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="realestate777@gmail.com" onclick="clearErrorMessage('emailerror')">
+                        <div class="mt-5"> <small class="block  font-medium text-left text-red-600 createadminerror"><?= $_SESSION["emailerror"] ?></small> </div>
                     </div>
                     <div class=" lg:w-72 w-28">
                         <label for="ga_password" class="block mb-2 text-sm font-semibold text-gray-500 dark:text-white">
                             Password</label>
-                        <input type="text" name="ga_password" id="ga_password" class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="•••••••••••••••••"  onclick="clearErrorMessage('passworderror')">
-                        <div class="mt-5">   <small class="block  font-medium text-left text-red-600 "><?= $_SESSION["passworderror"] ?></small> </div> 
+                        <input type="password" name="ga_password" id="ga_password" class="   bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="•••••••••••••••••" onclick="clearErrorMessage('passworderror')">
+                        <div class="mt-5"> <small class="block  font-medium text-left text-red-600 "><?= $_SESSION["passworderror"] ?></small> </div>
                     </div>
                 </div>
             </div>
@@ -99,14 +124,15 @@ session_start();
                 focus:ring-4 focus:outline-none focus:ring-blue-300 f0 ont-semibold rounded-lg text-medium px-8 py-2 text-center 
                 dark:bg-green-600 dark:hover:bg-green-70dark:focus:ring-green-800">
                     Create Admin</button>
-                <button type="" name="cancel" class="ml-5  text-darkGreen border-2 border-green-700 bg-transparent hover:bg-alert hover:text-white
+                <a href="./admin_list.php" name="cancel" class="ml-5  text-darkGreen border-2 border-green-700 bg-transparent hover:bg-alert hover:text-white
                 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium  px-7 py-2 text-center 
                 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    Cancel</button>
+                    Cancel</a>
             </div>
         </form>
     </div>
 </body>
+
 </html>
 <?php $_SESSION["createadminerror"] = "" ?>
 <?php $_SESSION["passworderror"] = "" ?>

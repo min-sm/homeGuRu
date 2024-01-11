@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 include "../../Model/DBConnection.php";
 
 // Check if form is submitted

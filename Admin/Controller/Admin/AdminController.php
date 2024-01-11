@@ -1,5 +1,5 @@
 <?php
-session_start();
+ session_start();
 include "../../Model/DBConnection.php";
 
 if (isset($_POST["login"])) {
@@ -7,7 +7,7 @@ if (isset($_POST["login"])) {
     $password = $_POST["password"];
 
     // Step 1: Check email, password, and status
-    $sql = $pdo->prepare("SELECT * FROM m_admins WHERE ga_email = :email");
+    $sql = $pdo->prepare("SELECT * FROM m_admins WHERE ga_email = :email AND del_flg = 0 ");
     $sql->bindValue(":email", $email);
     $sql->execute();
     $result = $sql->fetch(PDO::FETCH_ASSOC);
