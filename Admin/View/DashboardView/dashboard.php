@@ -22,8 +22,13 @@ include "../../Controller/Collaborator/NumOfCollaboratorController.php";
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- flowbite -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+  <!-- css -->
+  <!-- odometer -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/themes/odometer-theme-minimal.min.css"/>
   <!-- fontawsome -->
   <script src="https://kit.fontawesome.com/b9864528d4.js" crossorigin="anonymous"></script>
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script>
     if (
       localStorage.getItem("color-theme") === "dark" ||
@@ -37,7 +42,8 @@ include "../../Controller/Collaborator/NumOfCollaboratorController.php";
       // document.getElementsByTagName("text").style.fill = "black";
     }
   </script>
-
+  <!-- odometer -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/odometer.min.js" defer></script>
   <!-- ionic icons -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -158,28 +164,28 @@ include "../../Controller/Collaborator/NumOfCollaboratorController.php";
           <i class="text-2xl fa-solid fa-building"></i>
           <p>Property</p>
         </div>
-        <p class="text-3xl font-medium"><?= number_format($num_of_properties[0]['num_of_property']) ?></p>
+        <p class="text-3xl font-medium odometer" id="odometer_properties"><?= number_format($num_of_properties[0]['num_of_property']) ?></p>
       </div>
       <div class="flex flex-col bg-paleGray dark:bg-gray-800 w-40 h-40 rounded-lg justify-around items-center border-2 border-black dark:border-white">
         <div class="flex flex-col gap-2 items-center">
           <i class="text-2xl fa-solid fa-users "></i>
           <p>Users</p>
         </div>
-        <p class="text-3xl font-medium"><?= number_format($num_of_users[0]['num_of_user']) ?></p>
+        <p class="text-3xl font-medium odometer" id="odometer_users"><?= number_format($num_of_users[0]['num_of_user']) ?></p>
       </div>
       <div class="flex flex-col bg-paleGray dark:bg-gray-800 w-40 h-40 rounded-lg justify-around items-center border-2 border-black dark:border-white">
         <div class="flex flex-col gap-2 items-center">
           <i class="text-2xl fa-solid fa-house-chimney-user"></i>
           <p>Property Owners</p>
         </div>
-        <p class="text-3xl font-medium"><?= number_format($num_of_owners[0]['num_of_owner']) ?></p>
+        <p class="text-3xl font-medium odometer" id="odometer_owners"><?= number_format($num_of_owners[0]['num_of_owner']) ?></p>
       </div>
       <div class="flex flex-col bg-paleGray dark:bg-gray-800 w-40 h-40 rounded-lg justify-around items-center border-2 border-black dark:border-white">
         <div class="flex flex-col gap-2 items-center">
           <i class="text-2xl fa-solid fa-user-tie"></i>
           <p>Collaborator</p>
         </div>
-        <p class="text-3xl font-medium"><?= number_format($num_of_collaborators[0]['num_of_collaborator']) ?></p>
+        <p class="text-3xl font-medium odometer" id="odometer_collaborators"><?= number_format($num_of_collaborators[0]['num_of_collaborator']) ?></p>
       </div>
     </div>
 
@@ -193,6 +199,62 @@ include "../../Controller/Collaborator/NumOfCollaboratorController.php";
       </div>
     </div>
   </div>
-</body>
+  <script>
+  $(document).ready(function () {
+    // Request to Num of User
+    $.ajax({
+      url: "../../Controller/User/NumOfUserController.php",
+      type: "GET",
+      success: function(dataUser) {
+        var numOfUsers = dataUser.num_of_users;
+        $('#odometer_users').val(numOfUsers);
+      },
+      error: function(errorUser) {
+        console.error("Error from User controller:", errorUser);
+      }
+    });
+
+    // Request to NumOfOwnerController.php
+    $.ajax({
+      url: "../../Controller/Owner/NumOfOwnerController.php",
+      type: "GET",
+      success: function(dataOwner) {
+        var numOfOwners = dataOwner.num_of_owners;
+        $('#odometer_owners').val(numOfOwners);
+      },
+      error: function(errorOwner) {
+        console.error("Error from Owner controller:", errorOwner);
+      }
+    });
+
+    // Request to NumOfCollaboratorController.php
+    $.ajax({
+      url: "../../Controller/Collaborator/NumOfCollaboratorController.php",
+      type: "GET",
+      success: function(dataCollaborator) {
+        var numOfCollaborators = dataCollaborator.num_of_collaborators;
+        $('#odometer_collaborators').val(numOfCollaborators);
+      },
+      error: function(errorCollaborator) {
+        console.error("Error from Collaborator controller:", errorCollaborator);
+      }
+    });
+
+    // Request to NumOfPropertiesController.php
+    $.ajax({
+      url: "../../Controller/Collaborator/NumOfPropertyController.php",
+      type: "GET",
+      success: function(dataProperties) {
+        var numOfProperties = dataProperties.num_of_properties;
+        $('#odometer_properties').val(numOfProperties);
+      },
+      error: function(errorProperties) {
+        console.error("Error from Properties controller:", errorProperties);
+      }
+    });
+  });
+</script>
+
+  </body>
 
 </html>

@@ -5,4 +5,5 @@ $query = "SELECT COUNT(*) AS num_of_user FROM `m_users` WHERE del_flg = 0;";
 $sql = $pdo->prepare($query);
 $sql->execute();
 $num_of_users = $sql->fetchAll(PDO::FETCH_ASSOC);
+echo  json_encode($num_of_users);
 // used in dashboard.php
