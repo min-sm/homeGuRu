@@ -71,7 +71,7 @@
     <label class="text-left block mb-2 font-medium text-secondary" for="">Password</label>
     <input name="password" class="inline-block w-full p-4 leading-6 text-lg placeholder-gray-400 bg-white shadow border-gray-400 rounded h-12" type="password" placeholder="•••••••••••••••••" />
     <!-- Error message display -->
-<p id="error-message" class="block mb-5 font-medium text-left text-red-500"><?php  if($_SESSION["loginerror"]){ echo $_SESSION['loginerror'];} ?></p>
+<p id="error-message" class="block mb-5 font-medium text-left text-red-500"><?php  if(isset($_SESSION["loginerror"])){ echo $_SESSION['loginerror'];} ?></p>
 
 </div> 
 <a href="" class="text-center">
@@ -96,4 +96,4 @@
 <?php include '../footer/footer.php'   ?>
 </body>
 </html>
-<?php $_SESSION["loginerror"] =""?>
+<?php if(isset($_SESSION["loginerror"])){ $_SESSION["loginerror"]="";}?>

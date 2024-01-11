@@ -5,7 +5,7 @@
 <?php include '../../Controller/common/colorsController.php' ?>
 <?php include '../../Controller/common/LocationListController.php' ?>
 <?php include '../../Controller/PropertyTypeController.php' ?>
-<?php include '../../Controller/common/collaboratorController.php'?>
+<?php include '../../Controller/common/collaboratorController.php' ?>
 
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $resultSlider[0]["fav_icon"]?>">
+  <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $resultSlider[0]["fav_icon"] ?>">
   <style>
     .home {
       color: rgb(20, 184, 166) !important;
@@ -57,6 +57,11 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
   <!-- tailwind -->
   <link href="../resources/css/dist/output.css" rel="stylesheet" />
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+
   <title>home</title>
 </head>
 
@@ -134,7 +139,7 @@
   <div class="py-2 border-b-gray-500 mb-28">
     <div id="default-carousel" class="relative w-full" data-carousel="slide">
       <!-- Carousel wrapper -->
-      <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+      <div class="relative h-56 w-11/12 m-auto overflow-hidden rounded-lg md:h-96">
         <!-- Item 1 -->
         <?php foreach ($recommend_properties as $property) {
 
@@ -145,7 +150,7 @@
 
               <div class="relative w-1/2 sm:h-5/6  rounded-md overflow-hidden flex  items-center  sm:mb-0 ">
 
-                <img src="../../../Storage/house/<?= $property['pid'] ?>/<?= $property['p_photo_1'] ?>"  width="100%" height="100%" alt="" />
+                <img src="../../../Storage/house/<?= $property['pid'] ?>/<?= $property['p_photo_1'] ?>" width="100%" height="100%" alt="" />
                 <div class="  <?php
                               if ($property['p_after'] == 1) {
                                 echo 'bg-alert';
@@ -170,7 +175,7 @@
                   ?>
                 </div>
               </div>
-              <div class="space-y-0 sm:space-y-5  flex flex-col mt-1 ml-1  sm:mt-7 sm:ml-5 w-2/5 sm:w-1/2">
+              <div class="space-y-0 sm:space-y-5  flex flex-col mt-1  mx-auto w-2/5 max-w-lg sm:w-1/2">
                 <!-- main container -->
                 <div class="flex justify-between">
                   <!-- title and price  -->
@@ -184,149 +189,148 @@
                     <div class="sm:block hidden">
                       <ion-icon name="cash-outline" class="text-darkGreen pl-0 sm:pl-2"></ion-icon>
                       <span class="text-darkGreen ml-1 sm:ml-0 font-bold text-xs sm:text-xl"> <?php if ($property['p_price_unit'] == 1) {
-                                                                                                echo '$' . $property['p_price'];
+                                                                                                echo '$' . number_format($property['p_price']);
                                                                                               } elseif ($property['p_price_unit'] == 2) {
                                                                                                 if ($property['p_price'] > 999999) {
 
-                                                                                                  $formatted_price = substr_replace($property['p_price'], 'lakh', -5);
+                                                                                                  $formatted_price = substr_replace(number_format($property['p_price']), 'lakh', -5);
                                                                                                   echo $formatted_price;
                                                                                                 } else {
 
                                                                                                   echo 'Ks' . $property['p_price'];
                                                                                                 }
-                                                                                              }
-                                                                                              ?> / <?php if ($property['p_duration'] == 0) {
-                                                                                                    echo 'Month';
-                                                                                                  } elseif ($property['p_duration'] == 1) {
-                                                                                                    echo 'Year';
-                                                                                                  } ?></span>
+                                                                                              } ?> / <?php if ($property['p_duration'] == 0) {
+                                                                                                        echo 'Month';
+                                                                                                      } elseif ($property['p_duration'] == 1) {
+                                                                                                        echo 'Year';
+                                                                                                      } ?></span>
                     </div>
                   </div>
                   <a href="
       <?php
-      if ($property['uploader_id'] == 0) {
+          if ($property['uploader_id'] == 0) {
 
-      echo '../ContactUs/contactUs.php';
-      }else{
-      echo '../collaborator/profile.php?collaborator_id=' . $property['uploader_id'];
-      }
+            echo '../ContactUs/contactUs.php';
+          } else {
+            echo '../collaborator/profile.php?collaborator_id=' . $property['uploader_id'];
+          }
       ?>">
-                  <div class="rounded-full border-gray-500 border hover:opacity-50 hidden sm:block bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
-                    <?php if ($property['uploader_id'] == 0) : ?>
-                      <img src="../../../Storage/slider/<?= $resultSlider[0]['fav_icon'] ?>" class="w-14 h-14" alt="HomeGuRu" />
-                    <?php else : ?>
-                      <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $property['gc_company_name']; ?>" />
-                    <?php endif; ?>
-                  </div>
+                    <div class="rounded-full border-gray-500 border hover:opacity-50 hidden sm:block bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
+                      <?php if ($property['uploader_id'] == 0) : ?>
+                        <img src="../../../Storage/slider/<?= $resultSlider[0]['fav_icon'] ?>" class="w-14 h-14" alt="HomeGuRu" />
+                      <?php else : ?>
+                        <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $property['gc_company_name']; ?>" />
+                      <?php endif; ?>
+                    </div>
                   </a>
                 </div>
-              
-              <!-- Description -->
-              <p class="tracking-wide text-2xs sm:text-base hidden sm:block">
-                <?php
-                $limitedDescription = substr($property['p_description'], 0, 120);
-                echo strlen($property['p_description']) > 100 ? $limitedDescription . '...' : $limitedDescription;
-                ?>
 
-              </p>
-              <!-- facts -->
-              <div class="space-y-1 sm:space-y-5  ">
-                <div class="flex justify-between sm:gap-0 gap-1 flex-col sm:flex-row">
-                  <div>
-                    <span class="font-semibold text-2xs sm:text-base">Property ID:</span>
-                    <span class="text-2xs sm:text-base"><?= $property['p_code'] ?></span>
+                <!-- Description -->
+                <p class="tracking-wide text-2xs sm:text-base hidden sm:block">
+                  <?php
+                  $limitedDescription = substr($property['p_description'], 0, 120);
+                  echo strlen($property['p_description']) > 100 ? $limitedDescription . '...' : $limitedDescription;
+                  ?>
+
+                </p>
+                <!-- facts -->
+                <div class="space-y-1 sm:space-y-5  ">
+                  <div class="flex justify-between sm:gap-0 gap-1 flex-col sm:flex-row">
+                    <div>
+                      <span class="font-semibold text-2xs sm:text-base">Property ID:</span>
+                      <span class="text-2xs sm:text-base"><?= $property['p_code'] ?></span>
+                    </div>
+                    <div class="text-2xs sm:text-base ">
+                      <span class="font-semibold">Property Type:</span>
+                      <span><?= $property['pt_name'] ?></span>
+                    </div>
                   </div>
-                  <div class="text-2xs sm:text-base ">
-                    <span class="font-semibold">Property Type:</span>
-                    <span><?= $property['pt_name'] ?></span>
+                  <div class="flex justify-between text-2xs sm:gap-5 gap-1 sm:text-base flex-col sm:flex-row">
+                    <div>
+                      <span class="font-semibold">Size:</span>
+                      <span><?= $property['p_width'] ?>x<?= $property['p_length'] ?>
+                        <?php
+                        if ($property['p_size_unit'] == 1) {
+                          echo 'm';
+                        } elseif ($property['p_size_unit'] == 2) {
+                          echo 'ft';
+                        }
+                        ?><sup>2</sup></span>
+                    </div>
+                    <div>
+                      <span class="font-semibold">Township:</span>
+                      <span><?= $property['name'] ?></span>
+                    </div>
                   </div>
                 </div>
-                <div class="flex justify-between text-2xs sm:gap-5 gap-1 sm:text-base flex-col sm:flex-row">
-                  <div>
-                    <span class="font-semibold">Size:</span>
-                    <span><?= $property['p_width'] ?>x<?= $property['p_length'] ?>
-                      <?php
-                      if ($property['p_size_unit'] == 1) {
-                        echo 'm';
-                      } elseif ($property['p_size_unit'] == 2) {
-                        echo 'ft';
-                      }
-                      ?><sup>2</sup></span>
-                  </div>
-                  <div>
-                    <span class="font-semibold">Township:</span>
-                    <span><?= $property['name'] ?></span>
-                  </div>
-                </div>
-              </div>
 
-              <div class="sm:hidden flex pt-1 ">
-                <i class="fa-sharp fa-solid fa-money-bill mt-1.5 text-darkGreen text-sm pl-0  sm:pl-2"></i>
-                <span class="text-darkGreen ml-1 font-bold text-2xs pt-1  sm:text-xl"> <?php if ($property['p_price_unit'] == 1) {
-                                                                                          echo '$' . $property['p_price'];
-                                                                                        } elseif ($property['p_price_unit'] == 2) {
-                                                                                          if ($property['p_price'] > 999999) {
+                <div class="sm:hidden flex pt-1 ">
+                  <i class="fa-sharp fa-solid fa-money-bill mt-1.5 text-darkGreen text-sm pl-0  sm:pl-2"></i>
+                  <span class="text-darkGreen ml-1 font-bold text-2xs pt-1  sm:text-xl"> <?php if ($property['p_price_unit'] == 1) {
+                                                                                            echo '$' . number_format($property['p_price']);
+                                                                                          } elseif ($property['p_price_unit'] == 2) {
+                                                                                            if ($property['p_price'] > 999999) {
 
-                                                                                            $formatted_price = substr_replace($property['p_price'], 'lakh', -5);
-                                                                                            echo $formatted_price;
-                                                                                          } else {
+                                                                                              $formatted_price = substr_replace(number_format($property['p_price']), 'lakh', -5);
+                                                                                              echo $formatted_price;
+                                                                                            } else {
 
-                                                                                            echo 'Ks' . $property['p_price'];
-                                                                                          }
-                                                                                        } ?> / <?php if ($property['p_duration'] == 0) {
+                                                                                              echo 'Ks' . $property['p_price'];
+                                                                                            }
+                                                                                          } ?> / <?php if ($property['p_duration'] == 0) {
                                                                                                     echo 'Month';
                                                                                                   } elseif ($property['p_duration'] == 1) {
                                                                                                     echo 'Year';
                                                                                                   } ?></span>
-              </div>
-              <p class="text-gray-400 text-2xs sm:text-sm text-right hidden sm:block "> <?php
-                                                                                        $dateTime = new DateTime($property['created_date']);
+                </div>
+                <p class="text-gray-400 text-2xs sm:text-sm text-right hidden sm:block "> <?php
+                                                                                          $dateTime = new DateTime($property['updated_date']);
 
-                                                                                        $formattedDateTime = $dateTime->format('F j \a\t g:i A');
+                                                                                          $formattedDateTime = $dateTime->format('F j \a\t g:i A');
 
-                                                                                        echo $formattedDateTime;
-                                                                                        ?></p>
-              <div class="sm:hidden h-2"></div>
-              <div class="w-full flex justify-end ">
-                <a href="../PropertyPost/detail_post.php?id=<?= $property['pid'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
-                  <button class="cursor-pointer focus:outline-none hover:bg-teal-400 focus:ring-2 focus:ring-teal-300 text-primary bg-darkGreen h-5 text-2xs px-2 sm:h-6 md:h-8 rounded-md sm:px-4 sm:text-sm sm-static">
-                    Details
-                  </button>
-                </a>
+                                                                                          echo $formattedDateTime;
+                                                                                          ?></p>
+                <div class="sm:hidden h-2"></div>
+                <div class="w-full flex justify-end ">
+                  <a href="../PropertyPost/detail_post.php?id=<?= $property['pid'] ?>&pt_id=<?= $property['pt_id'] ?>&p_offer=<?= $property['p_offer'] ?>&p_township=<?= $property['p_township'] ?>">
+                    <button class="cursor-pointer focus:outline-none hover:bg-teal-400 focus:ring-2 focus:ring-teal-300 text-primary bg-darkGreen h-5 text-2xs px-2 sm:h-6 md:h-8 rounded-md sm:px-4 sm:text-sm sm-static">
+                      Details
+                    </button>
+                  </a>
 
+                </div>
               </div>
             </div>
           </div>
-      </div>
 
-    <?php } ?>
+        <?php } ?>
+      </div>
+      <!-- Slider indicators -->
+      <div class="absolute -bottom-10 z-30 flex -translate-x-1/2 left-1/2 space-x-3 rtl:space-x-reverse px-3 py-2 rounded-lg bg-gray-100 ">
+        <button type="button" class="w-3 h-3 rounded-full bg-paleGray" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+        <button type="button" class="w-3 h-3 rounded-full bg-paleGray" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+        <button type="button" class="w-3 h-3 rounded-full bg-paleGray" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+        <button type="button" class="w-3 h-3 rounded-full bg-paleGray" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+        <button type="button" class="w-3 h-3 rounded-full bg-paleGray" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+      </div>
+      <!-- Slider controls -->
+      <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+          <svg class="w-4 h-4 text-darkGreen dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+          </svg>
+          <span class="sr-only">Previous</span>
+        </span>
+      </button>
+      <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+          <svg class="w-4 h-4 text-darkGreen dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+          </svg>
+          <span class="sr-only">Next</span>
+        </span>
+      </button>
     </div>
-    <!-- Slider indicators -->
-    <div class="absolute -bottom-10 z-30 flex -translate-x-1/2 left-1/2 space-x-3 rtl:space-x-reverse px-3 py-2 rounded-lg bg-gray-100 ">
-      <button type="button" class="w-3 h-3 rounded-full bg-paleGray" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-      <button type="button" class="w-3 h-3 rounded-full bg-paleGray" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-      <button type="button" class="w-3 h-3 rounded-full bg-paleGray" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-      <button type="button" class="w-3 h-3 rounded-full bg-paleGray" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-      <button type="button" class="w-3 h-3 rounded-full bg-paleGray" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
-    </div>
-    <!-- Slider controls -->
-    <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-      <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-        <svg class="w-4 h-4 text-darkGreen dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
-        </svg>
-        <span class="sr-only">Previous</span>
-      </span>
-    </button>
-    <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-      <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-        <svg class="w-4 h-4 text-darkGreen dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-        </svg>
-        <span class="sr-only">Next</span>
-      </span>
-    </button>
-  </div>
   </div>
   <!-- card container 1 rent -->
 
@@ -378,7 +382,7 @@
         <div class="px-5 pb-5">
           <div class="flex items-center  dark:text-white text-xs justify-between mb-2.5">
             <span><?php
-                  $dateTime = new DateTime($property['created_date']);
+                  $dateTime = new DateTime($property['updated_date']);
 
                   $formattedDateTime = $dateTime->format('F j \a\t g:i A');
 
@@ -415,19 +419,19 @@
       <?php
       if ($property['uploader_id'] == 0) {
 
-      echo '../ContactUs/contactUs.php';
-      }else{
-      echo '../collaborator/profile.php?collaborator_id='.$property['uploader_id'];
+        echo '../ContactUs/contactUs.php';
+      } else {
+        echo '../collaborator/profile.php?collaborator_id=' . $property['uploader_id'];
       }
       ?>">
-            <div class="rounded-full border-gray-500 border hover:opacity-50 bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
-              
-              <?php if ($property['uploader_id'] == 0) : ?>
-                <img src="../../../Storage/slider/<?= $resultSlider[0]['fav_icon'] ?>" class="w-16 h-16" alt="HomeGuRu" />
-              <?php else : ?>
-                <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $property['gc_company_name']; ?>" />
-              <?php endif; ?>
-            </div>
+              <div class="rounded-full border-gray-500 border hover:opacity-50 bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
+
+                <?php if ($property['uploader_id'] == 0) : ?>
+                  <img src="../../../Storage/slider/<?= $resultSlider[0]['fav_icon'] ?>" class="w-16 h-16" alt="HomeGuRu" />
+                <?php else : ?>
+                  <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $property['gc_company_name']; ?>" />
+                <?php endif; ?>
+              </div>
             </a>
           </div>
 
@@ -435,11 +439,11 @@
             <i class="fa-sharp fa-solid fa-money-bill pt-1"></i>
             <span class="ml-3 mt-2 font-meduim">
               <?php if ($property['p_price_unit'] == 1) {
-                echo '$' . $property['p_price'];
+                echo '$' . number_format($property['p_price']);
               } elseif ($property['p_price_unit'] == 2) {
                 if ($property['p_price'] > 999999) {
 
-                  $formatted_price = substr_replace($property['p_price'], 'lakh', -5);
+                  $formatted_price = substr_replace(number_format($property['p_price']), 'lakh', -5);
                   echo $formatted_price;
                 } else {
 
@@ -547,7 +551,7 @@
         <div class="px-5 pb-5">
           <div class="flex items-center text-black dark:text-white text-xs justify-between mb-2.5">
             <span><?php
-                  $dateTime = new DateTime($property['created_date']);
+                  $dateTime = new DateTime($property['updated_date']);
 
                   $formattedDateTime = $dateTime->format('F j \a\t g:i A');
 
@@ -583,31 +587,31 @@
       <?php
       if ($property['uploader_id'] == 0) {
 
-      echo '../ContactUs/contactUs.php';
-      }else{
-      echo '../collaborator/profile.php?collaborator_id='.$property['uploader_id'];
+        echo '../ContactUs/contactUs.php';
+      } else {
+        echo '../collaborator/profile.php?collaborator_id=' . $property['uploader_id'];
       }
       ?>">
-            <div class="rounded-full border-gray-500 border hover:opacity-50 bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
-              
-              <?php if ($property['uploader_id'] == 0) : ?>
-                <img src="../../../Storage/slider/<?= $resultSlider[0]['fav_icon'] ?>" class="w-16 h-16" alt="HomeGuRu" />
-              <?php else : ?>
-                <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $property['gc_company_name']; ?>" />
-              <?php endif; ?>
-            </div>
+              <div class="rounded-full border-gray-500 border hover:opacity-50 bg-[#D9D9D9] w-14 h-14 overflow-hidden  ">
+
+                <?php if ($property['uploader_id'] == 0) : ?>
+                  <img src="../../../Storage/slider/<?= $resultSlider[0]['fav_icon'] ?>" class="w-16 h-16" alt="HomeGuRu" />
+                <?php else : ?>
+                  <img class="w-14 h-14" src="../../../Storage/collaborator_img/gc<?= $property['uploader_id'] . '/' . $property['gc_logo'] ?>" alt="<?= $property['gc_company_name']; ?>" />
+                <?php endif; ?>
+              </div>
             </a>
           </div>
-       
+
           <div class=" mb-5 text-darkGreen flex items-center text-lg">
             <i class="fa-sharp fa-solid fa-money-bill pt-1"></i>
             <span class="ml-3 mt-2 font-meduim">
               <?php if ($property['p_price_unit'] == 1) {
-                echo '$' . $property['p_price'];
+                echo '$' . number_format($property['p_price']);
               } elseif ($property['p_price_unit'] == 2) {
                 if ($property['p_price'] > 999999) {
 
-                  $formatted_price = substr_replace($property['p_price'], 'lakh', -5);
+                  $formatted_price = substr_replace(number_format($property['p_price']), 'lakh', -5);
                   echo $formatted_price;
                 } else {
 
@@ -687,17 +691,18 @@
       <!-- icons -->
       <div class="flex flex-col justify-center  w-full gap-5 sm:flex-row  sm:justify-evenly sm:w-1/3 items-center">
         <div class="flex flex-col justify-center w-16 space-y-2">
-          <ion-icon name="business" class="text-5xl text-center text-secondary"></ion-icon>
-          <p class="text-xl font-semibold text-center"><?= $property_total?>+</p>
+          <ion-icon name="business" class="text-5xl text-center opacity-80 text-secondary"></ion-icon>
+          <div class="text-xl font-semibold text-center"><span class="counting"><?= $property_total ?></span><span>+</span></div>
           <p class="text-center font-medium">Properties</p>
         </div>
         <div class="flex flex-col justify-center w-16 space-y-2">
-          <ion-icon name="people" class="text-5xl text-secondary "></ion-icon>
-          <p class="text-xl font-semibold text-center"><?= $collab_total ?>+</p>
+          <ion-icon name="people" class="text-5xl text-secondary  opacity-80"></ion-icon>
+          <div class="text-xl font-semibold text-center"><span class="counting"><?= $collab_total ?></span><span>+</span></div>
           <p class="text-center font-medium">Collaborators</p>
         </div>
-        <div class="flex flex-col justify-center w-16 space-y-2"><i class="fa-solid fa-map-location-dot text-5xl text-center text-secondary"></i>
-          <p class="text-xl font-semibold text-center"><?= $town_total?>+</p>
+
+        <div class="flex flex-col justify-center w-16 space-y-2  opacity-80"><i class="fa-solid fa-map-location-dot text-5xl text-center text-secondary"></i>
+          <div class="text-xl font-semibold text-center "><span class="counting"><?= $town_total ?></span><span>+</span></div>
           <p class="text-center font-medium">Townships</p>
         </div>
       </div>
@@ -795,7 +800,7 @@
   <script>
     AOS.init();
   </script>
-
+  <script src="../resources/js/countUp.js"></script>
 
 </body>
 

@@ -38,6 +38,9 @@
 
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
 </head>
 
 <body class="bg-[#F7F7F7] tracking-wide" style=" background-color: <?= $colors[0]['background'] ?>;color:<?= $colors[0]['bd_text_color']?>">
@@ -223,40 +226,40 @@
 
       
     </div>
-    <hr class="h-1 bg-black mb-10">
+    <hr class="h-1 bg-gray-400 mb-10">
 
     <!-- Collaborator detail section -->
-    <div class="flex items-center justify-center flex-col">
+    <div class="flex items-center justify-center flex-col py-20">
         <div class="rounded-full bg-[#D9D9D9] w-28 h-28 overflow-hidden border-gray-400 border-2 border-solid ">
         <img src="../../../Storage/collaborator_img/gc<?= $collaborator['id']. '/' . $collaborator['gc_logo'] ?>" alt="" class=" bg-[#D9D9D9] w-full h-full">
         </div>
 
-        <h1 class="font-semibold text-xl text-[#DD3C4A] mt-3 mb-5">
+        <h1 class="font-semibold text-xl text-[#DD3C4A] mt-3 mb-20">
             <?= $collaborator['gc_company_name'] ?>
         </h1>
 
         <!-- site stats -->
-        <div class="flex items-center w-3/4 justify-evenly mt-6">
+        <div class="flex items-center w-3/4 justify-evenly mb-20">
             <div class="flex flex-col justify-center items-center">
                 <i class="fa-solid fa-building text-5xl"></i>
-                <h1 class="font-semibold text-2xl mt-3"><?php $totalCount=$rentPropertiesCount+$salePropertiesCount;
-                echo $totalCount ?>+</h1>
-                <span class="text-xl text-center">Total Property</span>
+                <h1 class="font-bold text-2xl mt-3"><span class="counting"><?php $totalCount=$rentPropertiesCount+$salePropertiesCount;
+                echo $totalCount ?></span><span>+</span></h1>
+                <span class="text-xl text-center font-semibold">Total Property</span>
             </div>
             <div class="flex flex-col justify-center items-center">
                 <i class="fa-solid fa-building text-5xl"></i>
-                <h1 class="font-semibold text-2xl mt-3"><?=$salePropertiesCount?>+</h1>
-                <span class="text-xl text-center">Sale Property</span>
+                <h1 class="font-bold text-2xl mt-3"><span class="counting"><?=$salePropertiesCount?></span><span>+</span></h1>
+                <span class="text-xl text-center font-semibold">Sale Property</span>
             </div>
             <div class="flex flex-col justify-center items-center">
                 <i class="fa-solid fa-building text-5xl"></i>
-                <h1 class="font-semibold text-2xl mt-3"><?=$rentPropertiesCount?>+</h1>
-                <span class="text-xl text-center">Rent Property</span>
+                <h1 class="font-bold text-2xl mt-3"><span class="counting"><?=$rentPropertiesCount?></span><span>+</span></h1>
+                <span class="text-xl text-center font-semibold">Rent Property</span>
             </div>
         </div>
 
         <!-- buy rent 2 cards -->
-        <div class="flex mt-10 mb-10 flex-col lg:flex-row items-center w-auto justify-between">
+        <div class="flex mt-10 mb-16 flex-col lg:flex-row items-center w-auto justify-between ">
             <!-- buy property card -->
             <div class="w-3/4 lg:w-5/12 h-56 bg-cover flex items-center justify-center" style="background-image: url('../resources/img/pic1.png')">
                 <ul class="list-disc text-white list-inside w-4/5 text-2xs lg:text-sm space-y-2.5">
@@ -300,6 +303,7 @@
     </div>
     <!-- footer -->
     <?php include '../footer/footer.php' ?>
+    <script src="../resources/js/countUp.js"></script>
 </body>
 
 </html>

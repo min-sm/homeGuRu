@@ -59,7 +59,7 @@ if ($maximumPrice !== "") {
 }
 
 if ($sortBy == "newest") {
-  $sql .= " ORDER BY p.created_date DESC";
+  $sql .= " ORDER BY p.updated_date DESC";
 } else if ($sortBy == "lth") {
   $sql .= " ORDER BY p.p_price ";
 } else if ($sortBy = "htl") {
@@ -221,7 +221,7 @@ $totalPages = ceil($totalRecords / $recordsPerPage);
       <div class="px-5 pb-5">
         <div class="flex items-center text-black dark:text-white text-xs justify-between mb-2.5">
           <span><?php
-                $dateTime = new DateTime($property['created_date']);
+                $dateTime = new DateTime($property['updated_date']);
 
                 $formattedDateTime = $dateTime->format('F j \a\t g:i A');
 
@@ -275,18 +275,18 @@ $totalPages = ceil($totalRecords / $recordsPerPage);
         <div class=" mb-5 text-darkGreen flex items-center text-lg">
           <i class="fa-sharp fa-solid fa-money-bill pt-1"></i>
           <span class="ml-3 mt-2 font-meduim">
-            <?php if ($property['p_price_unit'] == 1) {
-              echo '$' . $property['p_price'];
-            } elseif ($property['p_price_unit'] == 2) {
-              if ($property['p_price'] > 999999) {
+          <?php if ($property['p_price_unit'] == 1) {
+                echo '$' . number_format($property['p_price']);
+              } elseif ($property['p_price_unit'] == 2) {
+                if ($property['p_price'] > 999999) {
 
-                $formatted_price = substr_replace($property['p_price'], 'lakh', -5);
-                echo $formatted_price;
-              } else {
+                  $formatted_price = substr_replace(number_format($property['p_price']), 'lakh', -5);
+                  echo $formatted_price;
+                } else {
 
-                echo 'Ks' . $property['p_price'];
-              }
-            } ?>
+                  echo 'Ks' . $property['p_price'];
+                }
+              } ?>
             /
             <?php
             if ($property['p_duration'] == 0) {
