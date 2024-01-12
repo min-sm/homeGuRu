@@ -85,12 +85,11 @@
       }
       ?>">
         <div class="rounded-full border-gray-500 border hover:opacity-50 bg-[#D9D9D9] w-20 h-20 overflow-hidden">
-          <img class="w-full h-full" src='<?php
-                                          if ($property_datas[0]['uploader_id'] == 0) {
-                                            echo "../../../Storage/logo/" . $resultSlider['fav_icon'];
-                                          } else {
-                                            echo "../../../Storage/collaborator_img/gc" . $property_datas[0]['uploader_id'] . "/" . $property_datas[0]['gc_logo'];
-                                          } ?>' alt="">
+        <?php if ($property_datas[0]['uploader_id']== 0) : ?>
+              <img src="../../../Storage/slider/<?= $resultSlider[0]['fav_icon'] ?>" alt="HomeGuRu" />
+            <?php else : ?>
+              <img class="w-full h-full" src="../../../Storage/collaborator_img/gc<?= $property_datas[0]['uploader_id'] . '/' . $property_datas[0]['gc_logo'] ?>" alt="<?= $property_datas[0]['gc_company_name']; ?>" />
+            <?php endif; ?>
         </div>
       </a>
     </div>
@@ -133,7 +132,7 @@
   <div>
     <!-- imgs -->
     <div class="lg:w-2/3 w-full flex flex-col items-center justify-around float-left">
-      <div id="slider" class="w-96 lg:w-[674.86px] lg:h-96 h-56 bg-cover bg-center rounded-lg property-img" style="background-image: url('../../../Storage/house/<?= $property_datas[0]["id"] ?>/<?= $property_datas[0]["p_photo_1"] ?>')"></div>
+      <div id="slider" class="w-96 lg:w-[674.86px] lg:h-96 h-56 bg-cover bg-center rounded-lg property-img" style="background-image: url('../../../Storage/house/<?= $property_datas[0]['pid']?>/<?= $property_datas[0]["p_photo_1"] ?>')"></div>
 
 
       <!--  images -->
@@ -148,7 +147,7 @@
         }
         ?>
         <?php foreach ($photos as $photo) : ?>
-          <div class="w-20 lg:w-36 h-12 mb-5 lg:h-24 bg-cover bg-center rounded-lg property-imgs" style="background-image:url('../../../Storage/house/<?= $property_datas[0]["id"] ?>/<?= $photo ?>')"></div>
+          <div class="w-20 lg:w-36 h-12 mb-5 lg:h-24 bg-cover bg-center rounded-lg property-imgs" style="background-image:url('../../../Storage/house/<?= $property_datas[0]['pid']?>/<?= $photo ?>')"></div>
         <?php endforeach; ?>
       </div>
 

@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
     $_SESSION['maximum_price']=$maximum_price;
 
   
-header('Location: ' . '../../View/PropertyPost/search.php');
+header('Location: ../../View/PropertyPost/search.php');
    
 
 }

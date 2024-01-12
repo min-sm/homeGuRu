@@ -119,8 +119,7 @@ include "../../Controller/Property/CategoryListController.php";
         for ($j = 4; $j < count($pt_name_and_count); $j++) {
           $numOfRestOfCategory += $pt_name_and_count[$j]["num_of"];
         }
-        ?>
-        ["Others", <?= $numOfRestOfCategory ?>],
+        ?>["Others", <?= $numOfRestOfCategory ?>],
       ]);
 
       var options = {
@@ -202,49 +201,65 @@ include "../../Controller/Property/CategoryListController.php";
   <script>
     //for property
     $(document).ready(function() {
-      function propertyOdometer() {
-  $.ajax({
+   function propertyOdometer(){
+      $.ajax({
     url: "../../Controller/Property/NumOfPropertyController.php",
     type: "GET",
     dataType: "json",
-    success: function (dataProperties) {
-      console.log(dataProperties);
-      $('#odometer_properties').html(dataProperties[0].num_of_property);
+    success: function(dataProperties) {
+        console.log(dataProperties);
+        $('#odometer_properties').html(dataProperties[0].num_of_property);
     }
-  });
+});
 }
-setInterval(propertyOdometer, 1000)
+setInterval(propertyOdometer,1000)
 
 // for collaborators
-function collaboratorOdometer() {
-  $.ajax({
+function collaboratorOdometer(){
+      $.ajax({
     url: "../../Controller/collaborator/NumOfCollaboratorController.php",
     type: "GET",
     dataType: "json",
-    success: function (dataCollab) {
-      console.log(dataCollab[0].num_of_collaborator);
-      $('#odometer_collaborators').html(dataCollab[0].num_of_collaborator);
+    success: function(dataCollab) {
+        console.log(dataCollab[0].num_of_collaborator);
+        $('#odometer_collaborators').html(dataCollab[0].num_of_collaborator);
     }
-  });
+});
 }
 
-setInterval(collaboratorOdometer, 1000)
+setInterval(collaboratorOdometer,1000)
 
 //for owners
-function ownerOdometer() {
-  $.ajax({
+function ownerOdometer(){
+      $.ajax({
     url: "../../Controller/owner/NumOfOwnerController.php",
     type: "GET",
     dataType: "json",
-    success: function (dataOwner) {
-      console.log(dataOwner[0].num_of_owner);
-      $('#odometer_owners').html(dataOwner[0].num_of_owner);
+    success: function(dataOwner) {
+        console.log(dataOwner[0].num_of_owner);
+        $('#odometer_owners').html(dataOwner[0].num_of_owner);
     }
-  });
+});
 }
 
-setInterval(ownerOdometer, 1000)
-}) 
+setInterval(ownerOdometer,1000)
+
+})
+
+function userOdometer(){
+      $.ajax({
+    url: "../../Controller/user/NumOfuserController.php",
+    type: "GET",
+    dataType: "json",
+    success: function(datauser) {
+        console.log(datauser[0].num_of_user);
+        $('#odometer_users').html(datauser[0].num_of_user);
+    }
+});
+}
+
+setInterval(userOdometer,1000)
+
 
 
 

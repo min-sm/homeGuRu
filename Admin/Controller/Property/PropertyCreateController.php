@@ -1,10 +1,6 @@
 <?php
-echo "<pre>";
-var_dump(isset($_POST["submit"]));
-var_dump(isset($_POST["go_email"]));
-print_r($_POST);
-print_r($_FILES);
-echo "</pre>";
+
+
 
 if (isset($_POST["submit"])) {
 
