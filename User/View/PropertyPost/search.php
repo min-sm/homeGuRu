@@ -2,7 +2,8 @@
 session_start();
 include '../../Controller/common/colorsController.php';
 include '../../Controller/PropertyTypeController.php';
-include '../../Controller/common/LocationListController.php'
+include '../../Controller/common/LocationListController.php';
+ include '../../Controller/SliderController.php';
 ?>
 
 <!DOCTYPE html>
@@ -11,8 +12,10 @@ include '../../Controller/common/LocationListController.php'
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <?php include '../../Controller/SliderController.php'?>
     <title>Search Result</title>
     <!-- google font -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet" />

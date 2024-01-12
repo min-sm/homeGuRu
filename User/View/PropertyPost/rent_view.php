@@ -118,16 +118,7 @@
     </div>
 
     <div id="filteredResultsContainer"></div>
-
-
-
-
-
-
-
-
-
-    <!-- footer -->
+<!-- footer -->
     <?php include '../footer/footer.php' ?>
     <script src="../resources/js/getTownship.js"></script>
     <script src="../resources/js/rentAjax.js"></script>

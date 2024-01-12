@@ -81,7 +81,7 @@ if (isset($_POST["register"])) {
                 <a href='http://$domain/homeGuRu/homeGuRu/User/Controller/VerifyController.php?token=$gu_token' style='color: black; text-decoration: none;'>Login</a>
             </button>
         
-            <p>If you have any questions or concerns regarding the verification process, please do not hesitate to contact our customer support team at homeguru@gmail.com</p>
+            <p>If you have any questions or concerns regarding the verification process, please do not hesitate to contact our customer support team at homeguru999@gmail.com</p>
             <p>Best regards,<br>Your Home GuRu Team</p>
              "
         );

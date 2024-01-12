@@ -9,5 +9,5 @@ $sql->bindValue(":id", $sent_id);
 $sql->bindValue(":p_status", $sent_p_status);
 $sql->execute();
 
-header("Location: ../../View/DashboardView/dashboard.php");
+header("Location: ../../View/property/allList.php");
 // used in req_detail.php
