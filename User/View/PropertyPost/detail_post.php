@@ -107,7 +107,7 @@
         </h1>
         <div class="flex flex-row items-center mt-3 justify-between w-1/2 text-xs whitespace-nowrap ">
           <p><?php
-              $dateTime = new DateTime($property_datas[0]['created_date']);
+              $dateTime = new DateTime($property_datas[0]['updated_date']);
 
               $formattedDateTime = $dateTime->format('F j \a\t g:i A');
 
@@ -161,13 +161,18 @@
         <?= $property_datas[0]['p_title'] ?>
       </h5>
       <div class="bg-gray-800 text-white text-center py-1.5 rounded-md text-xl font-semibold lg:mx-0 mx-5 lg:w-1/2 w-11/12">
-        <?php
-        if ($property_datas[0]['p_price_unit'] == 1) {
-          echo '$' . $property_datas[0]['p_price'];
-        } elseif ($property_datas[0]['p_price_unit'] == 2) {
-          echo $property_datas[0]['p_price'] . ' Kyat';
-        }
-        ?> / <?php
+      <?php if ($property_datas[0]['p_price_unit'] == 1) {
+                echo '$' . number_format($property_datas[0]['p_price']);
+              } elseif ($property_datas[0]['p_price_unit'] == 2) {
+                if ($property_datas[0]['p_price'] > 999999) {
+
+                  $formatted_price = substr_replace(number_format($property_datas[0]['p_price']), 'lakh', -5);
+                  echo $formatted_price;
+                } else {
+
+                  echo 'Ks' . $property_datas[0]['p_price'];
+                }
+              } ?> / <?php
               if ($property_datas[0]['p_duration'] == 0) {
                 echo 'Month';
               } elseif ($property_datas[0]['p_duration'] == 1) {
@@ -446,7 +451,7 @@
         <div class="px-5 pb-5">
           <div class="flex items-center text-black dark:text-white text-xs justify-between mb-2.5">
             <span><?php
-                  $dateTime = new DateTime($property['created_date']);
+                  $dateTime = new DateTime($property['updated_date']);
 
                   $formattedDateTime = $dateTime->format('F j \a\t g:i A');
 
@@ -501,12 +506,12 @@
           <div class=" mb-5 text-darkGreen flex items-center text-lg">
             <i class="fa-sharp fa-solid fa-money-bill pt-1"></i>
             <span class="ml-3 mt-2 font-meduim">
-              <?php if ($property['p_price_unit'] == 1) {
-                echo '$' . $property['p_price'];
+            <?php if ($property['p_price_unit'] == 1) {
+                echo '$' . number_format($property['p_price']);
               } elseif ($property['p_price_unit'] == 2) {
                 if ($property['p_price'] > 999999) {
 
-                  $formatted_price = substr_replace($property['p_price'], 'lakh', -5);
+                  $formatted_price = substr_replace(number_format($property['p_price']), 'lakh', -5);
                   echo $formatted_price;
                 } else {
 

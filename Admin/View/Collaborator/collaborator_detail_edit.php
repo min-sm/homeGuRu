@@ -1,6 +1,14 @@
+<?php
+session_start();
+if (!isset($_SESSION["authority"])) {
+    header('Location: ../../View/errors/wrongPath.php');
+    exit();
+};
+
+?>
 <?php include '../../Controller/Collaborator/CollaboratorAllEditController.php' ?>
 
-<?php session_start();
+<?php 
 if (!isset($_SESSION['cphotoerror_Edit'])) {
     $_SESSION['cphotoerror_Edit'] = '';
 }

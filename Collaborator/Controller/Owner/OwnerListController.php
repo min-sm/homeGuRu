@@ -5,8 +5,8 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-// $current_collaborator = $_SESSION["collaboratorId"];
-$current_collaborator = 1; // to comment this line of code
+$current_collaborator = $_SESSION["collaboratorId"];
+//$current_collaborator = 1; // to comment this line of code
 
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 if (isset($the_called_file)) {

@@ -1,3 +1,14 @@
+<?php if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}?>
+
+
+<?php 
+if (!isset($_SESSION["collaboratorId"])) {
+    header('Location: ../../View/errors/wrongPath.php');
+    exit();
+};
+?>
 <?php
 $the_called_file = 'edit.php'; // not necessarily needed
 include "../../Controller/Property/PropertyEditController.php";

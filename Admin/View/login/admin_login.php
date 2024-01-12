@@ -1,7 +1,13 @@
 <?php
-session_start();
-include '../../Controller/Setting/SliderController.php'
+
+include '../../Controller/Setting/SliderController.php';
+
+
+if (!isset($_SESSION["loginerror"])) {
+  $_SESSION["loginerror"] = "";
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -60,12 +66,11 @@ include '../../Controller/Setting/SliderController.php'
       <label class="text-left ml-8 block mb-2 font-medium text-secondary" for="password">Password</label>
       <input name="password" class="inline-block w-80 p-4 leading-6 text-lg placeholder-gray-400 bg-white dark:bg-gray-600 shadow border-gray-400 rounded h-12" type="password" placeholder="•••••••••••••••••" />
 </div>
-<p class="mb-5"><?php $_SESSION["loginerror"] =""?></p>
-<div class="block mb-2 ml-8 font-medium text-left text-red-500"><?= $_SESSION["loginerror"] ?></div>
+<p class="mb-5"><?php if(isset($_SESSION['loginerror'])){$_SESSION["loginerror"] ="";}?></p>
+<div class="block mb-2 ml-8 font-medium text-left text-red-500"><?php if(isset($_SESSION['loginerror'])){echo $_SESSION["loginerror"];}?></div>
     <button  name="login"  type = "submit"class="inline-block tracking-wider mx-auto  py-2 w-28 mb-6 text-center  leading-6 text-white font-medium bg-darkGreen hover:bg-darkGreen border-3 border-darkGreen shadow rounded transition duration-200">
       Log in
     </button>
-    
   </form>
 </body>
 </html>

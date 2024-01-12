@@ -1,6 +1,8 @@
 <?php
 session_start();
 ?>
+<?php include '../../Controller/common/colorsController.php' ?>
+<?php include '../../Controller/SliderController.php'?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,6 +10,8 @@ session_start();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Forget Password</title>
+    <!--favicon -->
+    <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $resultSlider[0]["fav_icon"]?>">
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -52,7 +56,7 @@ session_start();
     />
   </head>
 
-  <body class="bg-primary ">
+  <body class="bg-[#F7F7F7]" style=" background-color: <?= $colors[0]['background'] ?>;color:<?= $colors[0]['bd_text_color'] ?>">
     <!-- Start Navigation -->
     <?php include '../header/header.php'   ?>
 
@@ -71,6 +75,7 @@ session_start();
       <!-- Tailwind CSS classes for the "Send OTP" button -->
       <button class="bg-darkGreen text-white px-4 py-2 rounded-md mt-8 ml-8" name = "sendOTP">Send OTP</button>
   </div>
+  <small><?php if(isset($_SESSION['emailnotfound'])){ echo $_SESSION['emailnotfound'];}?></small>
   <div class="container mx-auto flex items-center justify-center pt-8">
   <a href="#" class="text-gray-500 text-center">
     Go back to
@@ -80,14 +85,14 @@ session_start();
           Log in
         </a>
 
-
+        <?php if(isset($_SESSION['emailnotfound'])){  $_SESSION['emailnotfound']='';}?>
 
 
           </form>  
          </div>
   </div>
 </section>
- 
+<?php if(isset($_SESSION['emailnotfound'])){ $_SESSION['emailnotfound']="";}?>
 <?php include '../footer/footer.php'   ?>
 </body>
 </html>

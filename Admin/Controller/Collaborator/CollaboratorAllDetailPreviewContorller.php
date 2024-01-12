@@ -1,6 +1,8 @@
 <?php
 include '../../Model/DBConnection.php';
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 
 if (isset($_GET['id'])) {
@@ -28,26 +30,28 @@ if (isset($_GET['id'])) {
                 ccc.created_date,
                 sd.s_duration_name,
                 sp.s_package_name 
-            FROM 
-                m_collaborators AS mc
-            INNER JOIN 
-                (SELECT gc_id, MAX(updated_date) AS latest_update
-                FROM collaborator_cash_closed
-                GROUP BY gc_id) AS latest_ccc 
-            ON 
-                mc.id = latest_ccc.gc_id
-            INNER JOIN 
-                collaborator_cash_closed AS ccc 
-            ON 
-                latest_ccc.gc_id = ccc.gc_id AND latest_ccc.latest_update = ccc.updated_date
-            INNER JOIN 
-                service_durations AS sd 
-            ON 
-                ccc.sduration_id = sd.id
-            INNER JOIN 
-                service_packages AS sp 
-            ON 
-                ccc.spackage_id = sp.id
+                FROM 
+        m_collaborators AS mc
+    LEFT JOIN 
+        (SELECT gc_id,del_flg, MAX(updated_date) AS latest_update
+        FROM collaborator_cash_closed
+        WHERE del_flg = 0
+        GROUP BY gc_id
+        ) AS latest_ccc 
+    ON 
+        mc.id = latest_ccc.gc_id
+    LEFT JOIN 
+        collaborator_cash_closed AS ccc 
+    ON 
+        latest_ccc.gc_id = ccc.gc_id AND latest_ccc.latest_update = ccc.updated_date
+    LEFT JOIN 
+        service_durations AS sd 
+    ON 
+        ccc.sduration_id = sd.id
+    LEFT JOIN 
+        service_packages AS sp 
+    ON 
+        ccc.spackage_id = sp.id
         ) AS subquery
         WHERE subquery.del_flg = 0
         AND subquery.collaborator_id = :id 

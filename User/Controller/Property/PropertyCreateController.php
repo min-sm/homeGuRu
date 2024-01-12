@@ -279,7 +279,7 @@ if (isset($_POST["submit"])) {
     $propertyInsertStmt->execute();
 
 
-    header("Location: ../../View/Property/detail_post.php?id=$currentlyCreatingPropertyID");
+    header("Location: ../../View/PropertyPost/success.php");
 }
 
 // used in add_form.php

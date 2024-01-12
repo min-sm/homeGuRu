@@ -1,5 +1,8 @@
 <?php include '../../Model/DBConnection.php'; ?>
-<?php session_start(); ?>
+<?php if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 
 <?php
 $dollar = 900;

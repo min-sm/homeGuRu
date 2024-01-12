@@ -1,13 +1,16 @@
 <?php
 session_start();
 ?>
-
+<?php include '../../Controller/SliderController.php'?>
+<?php include '../../Controller/common/colorsController.php' ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OTP Verification</title>
+    <!--favicon -->
+    <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?= $resultSlider[0]["fav_icon"]?>">
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -52,7 +55,7 @@ session_start();
     />
   </head>
 
-  <body class="bg-primary ">
+  <body class="bg-[#F7F7F7]" style=" background-color: <?= $colors[0]['background'] ?>;color:<?= $colors[0]['bd_text_color'] ?>">
     <!-- Start Navigation -->
     <?php include '../header/header.php'   ?>
   <!-- component -->
@@ -108,7 +111,7 @@ session_start();
        
       />
     </div>
-    <p  class="block ml-8 font-medium text-left text-red-500"><?= $_SESSION["otperror"] ?></p>
+    <p  class="block ml-8 font-medium text-left text-red-500"><?php if(isset($_SESSION["otperror"])){ echo $_SESSION["otperror"];}?></p>
     <div class="flex ml-8 mt-10">
   <button
     class="text-white bg-darkGreen hover:bg-green-600 font-medium rounded-lg text-sm px-4 py-2 mr-4" 
@@ -129,5 +132,5 @@ session_start();
 <?php include '../footer/footer.php'   ?>
 </body>
 </html>
-<?php $_SESSION["otperror"] =""?>
+<?php if(isset($_SESSION["otperror"])){ $_SESSION["otperror"]="";}?>
 
