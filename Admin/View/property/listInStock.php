@@ -3,10 +3,10 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 include '../../Controller/Setting/SliderController.php';
-// if (!isset($_SESSION["authority"])) {
-//     header('Location: ../../View/errors/wrongPath.php ');
-//     exit();
-// }
+if (!isset($_SESSION["authority"])) {
+    header('Location: ../../View/errors/wrongPath.php ');
+    exit();
+}
 include_once "../../Controller/Property/ListInStockController.php";
 include "../../Controller/Property/CollaboratorInPropertyController.php";
 
@@ -131,7 +131,7 @@ include "../../Controller/Property/CollaboratorInPropertyController.php";
                     // } else {
                     //     $counter = 1;
                     // }
-                    $counter = (isset($_GET['page'])) ? (1 + (6 * ($_GET['page'] - 1))) : 1;
+                    $counter = (isset($_GET['page'])) ? (1 + ($recordsPerPage * ($_GET['page'] - 1))) : 1;
 
                     foreach ($properties as $property) {
                     ?>

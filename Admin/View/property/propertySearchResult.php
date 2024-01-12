@@ -3,10 +3,10 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 include '../../Controller/Setting/SliderController.php';
-// if (!isset($_SESSION["authority"])) {
-//     header('Location: ../../View/errors/wrongPath.php ');
-//     exit();
-// }
+if (!isset($_SESSION["authority"])) {
+    header('Location: ../../View/errors/wrongPath.php ');
+    exit();
+}
 include_once "../../Controller/Property/PropertySearchResultController.php";
 include "../../Controller/Property/CollaboratorInPropertyController.php";
 
@@ -324,8 +324,6 @@ include "../../Controller/Property/CollaboratorInPropertyController.php";
                 ?>
             </div>
         </div>
-
-        <!-- pagination -->
     </div>
 
     <!-- The Modal -->
