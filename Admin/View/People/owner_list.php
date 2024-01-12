@@ -67,7 +67,7 @@ include "../../Controller/Owner/OwnerListController.php";
                 </thead>
                 <tbody>
                     <?php
-                    $counter = (isset($_GET['page'])) ? (1 + (6 * ($_GET['page'] - 1))) : 1;
+                    $counter = (isset($_GET['page'])) ? (1 + ($recordsPerPage * ($_GET['page'] - 1))) : 1;
 
                     foreach ($owners as $owner) {
                     ?>

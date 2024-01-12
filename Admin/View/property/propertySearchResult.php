@@ -324,8 +324,6 @@ include "../../Controller/Property/CollaboratorInPropertyController.php";
                 ?>
             </div>
         </div>
-
-        <!-- pagination -->
     </div>
 
     <!-- The Modal -->
