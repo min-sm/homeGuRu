@@ -231,8 +231,9 @@ if (isset($_POST["submit"])) {
         p_description,
         p_facilities,
         go_id,
-        uploader_id
-        )
+        uploader_id,
+        p_status
+               )
         VALUES(
             :p_code,
         :p_title,
@@ -257,7 +258,8 @@ if (isset($_POST["submit"])) {
         :p_description,
         :p_facilities,
         :go_id,
-        :uploader_id)"; // default 0 for admin 
+        :uploader_id,
+        2)"; // default 0 for admin 
 
     $propertyInsertStmt = $pdo->prepare($queryForProperty);
     $propertyInsertStmt->bindValue("p_code", $p_code);
@@ -288,7 +290,7 @@ if (isset($_POST["submit"])) {
 echo $_SESSION["collaboratorId"];
 
 
-    header("Location: ../../View/Property/detail.php?id=$currentlyCreatingPropertyID");
+    header("Location: ../../View/Property/listAllStock.php");
 }
 
 // used in add_form.php

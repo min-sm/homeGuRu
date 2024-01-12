@@ -15,7 +15,7 @@ if (isset($_POST["login"])) {
         if (password_verify($c_password, $result["gc_password"]) && $result["gc_status"] == 2) {
             // Correct credentials and approved status
             $_SESSION["collaboratorId"] = $result["id"];
-            header("Location: ../../View/financial/financial_list.php");
+            header("Location: ../../View/Property/listAllStock.php");
         } else {
             // Incorrect password
             $_SESSION["loginerror"] = "Check your password!";

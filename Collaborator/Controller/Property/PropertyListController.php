@@ -1,9 +1,15 @@
 <?php
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 include_once "../../Model/DBConnection.php";
 
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $recordsPerPage = 6;
 $offset = ($page - 1) * $recordsPerPage;
+$current_collaborator = $_SESSION["collaboratorId"];
+echo $current_collaborator;
 
 if (isset($the_called_file)) {
     switch ($the_called_file) {
@@ -20,7 +26,11 @@ if (isset($the_called_file)) {
 }
 
 if ($the_called_file == 'listAllStock.php') {
-    $query = "SELECT p.*, pt.pt_name, township.name AS township_name FROM properties p, property_type pt, m_townships township WHERE p.del_flg = 0 AND p.pt_id = pt.id AND p.p_township = township.id AND p.p_status = 2 AND p.uploader_id = :uploader_id ORDER BY p.id LIMIT $recordsPerPage OFFSET $offset";
+    $query = "SELECT p.*, pt.pt_name, township.name AS township_name
+     FROM properties p, property_type pt, m_townships township
+      WHERE p.del_flg = 0 AND p.pt_id = pt.id AND p.p_township = township.id
+       AND p.p_status = 2 AND p.uploader_id = :uploader_id 
+       ORDER BY p.id LIMIT $recordsPerPage OFFSET $offset";
 
     $sql = $pdo->prepare($query);
     $sql->bindValue("uploader_id", $current_collaborator);
