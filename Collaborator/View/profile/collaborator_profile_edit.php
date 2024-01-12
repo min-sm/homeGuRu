@@ -71,10 +71,6 @@
             </div>
 
         </form>
-
-
-
-
     </div>
     <!--End  Collaborator Request Preview  -->
 

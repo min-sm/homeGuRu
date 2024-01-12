@@ -5,8 +5,8 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-// $current_collaborator = $_SESSION["collaboratorId"];
-$current_collaborator = 1; // to comment this line of code
+$current_collaborator = $_SESSION["collaboratorId"];
+//$current_collaborator = 1; // to comment this line of code
 // Calculate total number of pages
 $totalPagesQuery = "SELECT COUNT(go.id) as total FROM owners go, properties p WHERE go.del_flg = 0 AND go.id = p.go_id AND p.uploader_id = :uploader_id";
 $sql = $pdo->prepare($totalPagesQuery);

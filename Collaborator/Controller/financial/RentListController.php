@@ -1,9 +1,15 @@
 <?php
 // Call DB connection
-include "../../Model/DBConnection.php";
+include "../../Model/DBConnection.php";?>
 
-$collaborator_id = 1;
 
+<?php if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}?>
+
+
+<?php
+$collaborator_id = $_SESSION["collaboratorId"];
 
 $pcode = isset($_GET['p_code'])? $_GET['p_code'] : '';
 $limit = 10;//limit of show record per page

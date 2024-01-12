@@ -1,15 +1,24 @@
+<?php if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}?>
+
+
+<?php 
+if (!isset($_SESSION["collaboratorId"])) {
+    header('Location: ../../View/errors/wrongPath.php');
+    exit();
+};
+?>
+
+
+
+
+
 <?php
 $the_called_file = "owner_list.php";
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-// $current_collaborator = $_SESSION["collaboratorId"];
-$current_collaborator = 1; // to comment this line of code
-include '../../Controller/Setting/SliderController.php';
-// if (!isset($_SESSION["authority"])) {
-//     header('Location: ../../View/errors/wrongPath.php ');
-//     exit();
-// }
+
+$current_collaborator = $_SESSION["collaboratorId"];
+
 include "../../Controller/Owner/OwnerListController.php";
 ?>
 

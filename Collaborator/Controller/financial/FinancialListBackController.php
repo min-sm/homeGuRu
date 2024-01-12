@@ -1,9 +1,16 @@
-<?php include '../../Model/DBConnection.php'; ?>
+<?php
+// Call DB connection
+include "../../Model/DBConnection.php";?>
 
-<?php 
-session_start();
+
+<?php if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}?>
+
+
+<?php
 $_SESSION['list_tag_value']=$_GET['value'];
 
 
- header("Location: ../../View/Financial/financial_list_filter.php");
+header("Location: ../../View/Financial/financial_list_filter.php");
 ?>

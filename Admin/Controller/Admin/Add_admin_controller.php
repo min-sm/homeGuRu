@@ -6,7 +6,7 @@ include "../../Model/DBConnection.php";
 
 // Check if form is submitted
 if (isset($_POST["addadmin"])) {
-    $photo = $_FILES["ga_photo"];
+    $photo = $_FILES["ga_photo"]['name'];
     $email = $_POST["ga_email"];
     $password = $_POST["ga_password"];
     $name = $_POST["ga_name"];

@@ -6,8 +6,8 @@ if (session_status() == PHP_SESSION_NONE) {
 include "../../Model/DBConnection.php";
 
 $sent_id = $_GET["id"];
-// $current_collaborator = $_SESSION['collaboratorID'];
-$current_collaborator = 1;
+ $current_collaborator = $_SESSION['collaboratorID'];
+//$current_collaborator = 1;
 
 
 $sql = $pdo->prepare("UPDATE properties SET del_flg = 1 WHERE id= :id AND uploader_id = :uploader_id");

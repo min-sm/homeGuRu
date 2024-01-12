@@ -1,3 +1,20 @@
+
+<?php if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}?>
+
+
+<?php 
+if (!isset($_SESSION["collaboratorId"])) {
+    header('Location: ../../View/errors/wrongPath.php');
+    exit();
+};
+?>
+
+<?php
+include '../../Controller/Collaborator/CollaboratorAllDetailPreviewContorller.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,70 +41,87 @@
 <body class="bg-primary dark:bg-gray-700">
     <?php include '../common/menu.php' ?>
     <!--Start  Collaborator Detail-->
-    <div class="p-4 pt-20 sm:ml-64 flex flex-col items-center">
-        <h1 class=" text-center font-bold text-2xl m-7 tracking-wide ">Company Name Profile</h1>
+    <div class="p-4 pt-20 sm:ml-64 flex flex-col items-center  dark:text-gray-200">
+        <h1 class=" text-center font-bold text-2xl m-7 tracking-wide ">Collaborator Detail</h1>
         <div class=" lg:w-1/2 w-full grid grid-row-13 gap-2">
-            <img class="w-40" src="../resources/img/marga.png" alt="">
+            <img class="w-40 mb-5" src='<?php echo "../../../Storage/collaborator_img/gc" . $collaborator[0]['collaborator_id'] . "/" . $collaborator[0]['gc_logo'] ?>' alt="">
+
+            <div class="grid grid-cols-2 gap-7 ">
+                <p class="font-medium text-lg">Collaborator Code</p>
+                <p name="gc_name" class="text-sm font-bold tracking-wider">GC-<?= $collaborator[0]['gc_code']; ?></p>
+            </div>
             <div class="grid grid-cols-2 gap-7 ">
                 <p class="font-medium text-lg">Company Name</p>
-                <p name="gc_name">MARGA GROUP Co.,Ltd</p>
+                <p name="gc_name" class="text-sm"><?= $collaborator[0]['gc_company_name']; ?></p>
             </div>
             <div class="grid grid-cols-2 gap-7 ">
                 <p class="font-medium text-lg">Company ID Number</p>
-                <p name="gc_company_Id">123456</p>
+                <p name="gc_company_Id" class="text-sm"><?= $collaborator[0]['gc_company_id']; ?></p>
             </div>
             <div class="grid grid-cols-2 gap-7 ">
                 <p class="font-medium text-lg">Owner Name</p>
-                <p name="gc_owner_name">U John Smith</p>
+                <p name="gc_owner_name" class="text-sm"><?= $collaborator[0]['gc_owner_name']; ?></p>
             </div>
             <div class="grid grid-cols-2 gap-7 ">
                 <p class="font-medium text-lg">National ID</p>
-                <p name="gc_owner_nrc">12/ TaTaTa (N) 123456</p>
+                <p name="gc_owner_nrc" class="text-sm"><?= $collaborator[0]['gc_owner_nrc']; ?></p>
             </div>
             <div class="grid grid-cols-2 gap-7 ">
                 <p class="font-medium text-lg">Email Address</p>
-                <p name="gc_email">info@margaglobal.com</p>
+                <p name="gc_email" class="text-sm tracking-wider"><?= $collaborator[0]['gc_email']; ?></p>
             </div>
             <div class="grid grid-cols-2 gap-7 ">
                 <p class="font-medium text-lg">Phone Number</p>
-                <p name="gc_phone">(+95) 1 4700 111</p>
+                <p name="gc_phone" class="text-sm"><?= $collaborator[0]['gc_phone_num']; ?></p>
             </div>
             <div class="grid grid-cols-2 gap-7 ">
                 <p class="font-medium text-lg">Address</p>
-                <p name="gc_address">Corner of Kabar Aye Pagoda Road and Kanbe Road, Shop 5, The Central Boulevard, Yankin Township, Yangon, Myanmar.</p>
+                <p name="gc_address" class="text-sm"><?= $collaborator[0]['gc_address']; ?></p>
             </div>
             <div class="grid grid-cols-2 gap-7 ">
                 <p class="font-medium text-lg">Service Package</p>
-                <p name="s_package_id" class="text-alert">Expired</p>
+                <p name="s_package_id" class="text-alert text-sm font-semibold"> <?= $collaborator[0]["s_package_name"]; ?></p>
             </div>
             <div class="grid grid-cols-2 gap-7 ">
                 <p class="font-medium text-lg">Service Duration</p>
-                <p name="s_duration">3months </p>
+                <p name="s_duration" class="text-sm"> <?= $collaborator[0]["s_duration_name"]; ?></p>
             </div>
             <div class="grid grid-cols-2 gap-7 ">
                 <p class="font-medium text-lg">Service Bought Date</p>
-                <p name="s_created_date">30/ 09/ 2023 </p>
+                <p name="s_created_date" class="text-sm font-semibold">
+                    <?= $collaborator[0]["created_date"]
+                        = date("d / m / Y", strtotime($collaborator[0]["created_date"])); ?>
+                </p>
             </div>
+            <?php
+            $currentDate = new DateTime();
+            $expiration = new DateTime($collaborator[0]["s_expire_date"]);
+            $interval = $currentDate->diff($expiration);
+            if ($currentDate < $expiration) {
+                $expire_status = $interval->days . " days";
+            } elseif ($currentDate > $expiration) {
+                $expire_status = " Expired";
+            } else {
+                $expire_status = "Expires today!";
+            }
+            ?>
             <div class="grid grid-cols-2 gap-7 ">
                 <p class="font-medium text-lg">Expire Date</p>
-                <p name="">01/ 12/ 2023 </p>
+                <p name="" class="text-goldYellow font-semibold text-sm">
+                    <?= $collaborator[0]["s_expire_date"]
+                        = date("d / m / Y", strtotime($collaborator[0]["s_expire_date"])); ?>
+                </p>
             </div>
             <div class="grid grid-cols-2 gap-7 ">
                 <p class="font-medium text-lg">Days Left B4 Expire</p>
-                <p name="gc_created_date" class="text-alert">30days </p>
+                <p name="gc_created_date" class="text-alert text-sm font-semibold"> <?= $expire_status; ?> </p>
             </div>
         </div>
-        <div class=" flex  my-16 ">
-            <a href="./collaborator_profile_edit.php" type="submit" class="tracking-wider text-white bg-goldYellow opacity-75 hover:opacity-100
-            focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium px-8 py-2 text-center  ">
-                Edit </a>
-
-            <button type="" class="tracking-wider mx-10 text-white border-2 border-green-700 bg-alert opacity-80 hover:opacity-100
-            focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium  px-7 py-2 text-center ">
-                Cancel</button>
-
+        <div class=" flex  my-16 ">          
+            <a href="" class="tracking-wider mx-10 bg-alert py-2 px-6 rounded-lg border font-bold text-white flex justify-between">
+                Bak</a>
         </div>
-        <hr class="w-[35rem] border-2 text-gray-500">
+
 
     </div>
     <!--End  Collaborator Detail -->
