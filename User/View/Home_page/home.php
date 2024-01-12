@@ -692,17 +692,17 @@
       <div class="flex flex-col justify-center  w-full gap-5 sm:flex-row  sm:justify-evenly sm:w-1/3 items-center">
         <div class="flex flex-col justify-center w-16 space-y-2">
           <ion-icon name="business" class="text-5xl text-center opacity-80 text-secondary"></ion-icon>
-          <div class="text-xl font-semibold text-center"><span class="counting"><?= $property_total ?></span><span>+</span></div>
+          <div class="text-xl font-semibold text-center"><span class="counting"><?= number_format($property_total)?></span><span>+</span></div>
           <p class="text-center font-medium">Properties</p>
         </div>
         <div class="flex flex-col justify-center w-16 space-y-2">
           <ion-icon name="people" class="text-5xl text-secondary  opacity-80"></ion-icon>
-          <div class="text-xl font-semibold text-center"><span class="counting"><?= $collab_total ?></span><span>+</span></div>
+          <div class="text-xl font-semibold text-center"><span class="counting"><?= number_format($collab_total)?></span><span>+</span></div>
           <p class="text-center font-medium">Collaborators</p>
         </div>
 
         <div class="flex flex-col justify-center w-16 space-y-2  opacity-80"><i class="fa-solid fa-map-location-dot text-5xl text-center text-secondary"></i>
-          <div class="text-xl font-semibold text-center "><span class="counting"><?= $town_total ?></span><span>+</span></div>
+          <div class="text-xl font-semibold text-center "><span class="counting"><?=number_format($town_total)?></span><span>+</span></div>
           <p class="text-center font-medium">Townships</p>
         </div>
       </div>

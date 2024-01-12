@@ -1,6 +1,6 @@
 
 <?php
-include'../../Model/DBConnection.php';
+ include '../../Model/DBConnection.php';
 
 
 if(isset($_GET['id'])){

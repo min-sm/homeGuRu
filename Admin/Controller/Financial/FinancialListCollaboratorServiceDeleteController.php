@@ -1,5 +1,8 @@
 <?php 
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 include "../../Model/DBConnection.php";
 
 $id = $_GET["id"];

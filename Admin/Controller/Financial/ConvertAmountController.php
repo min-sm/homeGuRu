@@ -1,6 +1,9 @@
 <?php include '../../Model/DBConnection.php'; 
 
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 
 
 $_SESSION['convert_amount']=$_POST['convert_amount'];
