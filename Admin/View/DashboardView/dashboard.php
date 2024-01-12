@@ -8,10 +8,7 @@ if (!isset($_SESSION["authority"])) {
 ?>
 <?php
 include "../../Controller/Property/CategoryListController.php";
-// include "../../Controller/Property/NumOfPropertyController.php";
-// include "../../Controller/User/NumOfUserController.php";
-// include "../../Controller/Owner/NumOfOwnerController.php";
-// include "../../Controller/Collaborator/NumOfCollaboratorController.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -100,57 +97,59 @@ include "../../Controller/Property/CategoryListController.php";
     }
   </script>
   <!-- pie chart -->
-  <script type="text/javascript">
-    google.charts.load("current", {
-      packages: ["corechart"],
-    });
-    google.charts.setOnLoadCallback(drawChart);
+<!-- pie chart -->
+<script type="text/javascript">
+  google.charts.load("current", {
+    packages: ["corechart"],
+  });
+  google.charts.setOnLoadCallback(drawPieChart); // Rename the function here
 
-    function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        ["Property Type", "Count"],
-        <?php
-        for ($i = 0; $i < 4; $i++) {
-        ?>["<?= $pt_name_and_count[$i]["pt_name"] ?>", <?= $pt_name_and_count[$i]["num_of"] ?>],
-        <?php } ?>
+  function drawPieChart() { // Rename the function here
+    var data = google.visualization.arrayToDataTable([
+      ["Property Type", "Count"],
+      <?php
+      for ($i = 0; $i < 4; $i++) {
+      ?>["<?= $pt_name_and_count[$i]["pt_name"] ?>", <?= $pt_name_and_count[$i]["num_of"] ?>],
+      <?php } ?>
 
-        <?php
-        $numOfRestOfCategory = 0;
-        for ($j = 4; $j < count($pt_name_and_count); $j++) {
-          $numOfRestOfCategory += $pt_name_and_count[$j]["num_of"];
+      <?php
+      $numOfRestOfCategory = 0;
+      for ($j = 4; $j < count($pt_name_and_count); $j++) {
+        $numOfRestOfCategory += $pt_name_and_count[$j]["num_of"];
+      }
+      ?>
+      ["Others", <?= $numOfRestOfCategory ?>],
+    ]);
+
+    var options = {
+      title: "Categories",
+      titleTextStyle: {
+        fontSize: 18,
+        fontName: 'Roboto'
+      },
+      legend: {
+        textStyle: {
+          fontSize: 14,
+          fontName: 'Arial, sans-serif',
+          color: '#555'
         }
-        ?>
-        ["Others", <?= $numOfRestOfCategory ?>],
-      ]);
+      },
+      is3D: true,
+      backgroundColor: "transparent",
+      chartArea: {
+        width: "100%",
+        height: "80%"
+      },
+    };
 
-      var options = {
-        title: "Categories",
-        titleTextStyle: {
-          fontSize: 18, // Set your desired font size in pixels
-          fontName: 'Roboto' // Set your desired font family        
-        },
-        legend: {
-          textStyle: {
-            fontSize: 14,
-            fontName: 'Arial, sans-serif',
-            color: '#555' // Legend text color
-          }
-        },
-        is3D: true,
-        backgroundColor: "transparent",
-        chartArea: {
-          width: "100%",
-          height: "80%"
-        },
-      };
+    var chart = new google.visualization.PieChart(
+      document.getElementById("piechart")
+    );
 
-      var chart = new google.visualization.PieChart(
-        document.getElementById("piechart")
-      );
+    chart.draw(data, options);
+  }
+</script>
 
-      chart.draw(data, options);
-    }
-  </script>
 </head>
 
 <body class="bg-primary dark:bg-gray-700 tracking-wide">

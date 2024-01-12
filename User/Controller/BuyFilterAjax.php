@@ -219,7 +219,7 @@ $totalPages = ceil($totalRecords / $recordsPerPage);
 
             ?>
           </div>
-          <img class="pb-4 rounded-t-lg w-full h-full hover:scale-110 duration-75 ease-in transition-all" src="../../../Storage/house/<?= $property["pid"] ?>/<?= $property['p_photo_1'] ?>" alt=" product image" />
+          <img class="pb-4 rounded-t-lg w-full h-full" src="../../../Storage/house/<?= $property["pid"] ?>/<?= $property['p_photo_1'] ?>" alt=" product image" />
         </div>
       </a>
       <div class="px-5 pb-5">

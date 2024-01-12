@@ -42,7 +42,7 @@ if( $_SESSION['authority']!=0){
 
 <body class="bg-primary dark:bg-gray-700 ">
     <?php include '../commonView/menu.php' ?>
-<form action="../../Controller/Setting//RecommendPropertiesController.php" method="post">
+<form action="../../Controller/Setting/RecommendPropertiesController.php" method="post">
     <div class="p-4 w-64 mt-36 sm:ml-96">
         <h1 class="text-2xl font-bold dark:text-white mb-16 whitespace-nowrap ">Recommendation Setting</h1>
         <div>

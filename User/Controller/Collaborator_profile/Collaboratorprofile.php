@@ -36,6 +36,7 @@ $rentCountsql = $pdo->prepare(
     'SELECT COUNT(*) as counts
     FROM properties p
     LEFT JOIN m_collaborators mc ON p.uploader_id=mc.id
+    LEFT JOIN (SELECT * FROM m_collaborators WHERE gc_activity_ban=0) AS collaborator_active ON collaborator_active.id=mc.id  
     WHERE p.del_flg = 0  
     AND p.p_status = 2 
     AND p.p_offer = 0
@@ -53,6 +54,7 @@ $saleCountsql = $pdo->prepare(
     'SELECT COUNT(*) as counts
     FROM properties p
     LEFT JOIN m_collaborators mc ON p.uploader_id=mc.id
+    LEFT JOIN (SELECT * FROM m_collaborators WHERE gc_activity_ban=0) AS collaborator_active ON collaborator_active.id=mc.id  
     WHERE p.del_flg = 0  
     AND p.p_status = 2 
     AND p.p_offer = 1

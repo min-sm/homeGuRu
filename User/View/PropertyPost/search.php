@@ -86,7 +86,7 @@ include '../../Controller/common/LocationListController.php'
         </div>
 
         <!-- search boxes sec row -->
-        <div class="flex items-center justify-evenly my-5">
+        <div class="flex items-center justify-evenly toggle my-5">
             <div>
                 <select name="state" class=" lg:w-52 w-28 px-5 py-2.5 rounded-lg border-2" id="pRegion">
                     <option value="" disabled selected>State</option>
@@ -105,7 +105,7 @@ include '../../Controller/common/LocationListController.php'
 
         <!-- search boxes third row -->
 
-        <div class="flex items-center justify-evenly mb-5">
+        <div class="flex items-center toggle justify-evenly mb-5">
             <div class="pt-3">
                 <label class="text-sm">Price Unit : </label>
                 <select id="pUnit" class=" w-16 text-center text-sm py-1 rounded-lg border-2">
@@ -216,6 +216,12 @@ include '../../Controller/common/LocationListController.php'
     });
 
     updateFilteredResults(1);
+
+  // for toggle filter
+  $('.toggle').hide();
+$('#toggleFilterBtn').click(function() {
+  $('.toggle').slideToggle(150);
+});
 });
     </script>
     <script src="../resources/js/getTownship.js"></script>

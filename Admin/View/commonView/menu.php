@@ -1,4 +1,5 @@
 <?php include '../../Controller/Admin/AdminProfileController.php' ?>
+<?php include '../../Controller/Setting/SliderController.php'?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +40,7 @@
           </button>
           <a href="../DashboardView/dashboard.php" class="flex ms-2 md:me-24">
             <img src="../resources/img/common/logo-light.png" class="hidden h-10 me-3" id="guru_logo_light" alt="" />
-            <img src="../resources/img/common/logo-dark.png" class="hidden h-10 me-3" id="guru_logo_dark" alt="" />
+            <img src="../../../Storage/logo/<?=$sliders[0]["logo"]?>" class="hidden h-10 me-3" id="guru_logo_dark" alt="" />
             <span class="self-center text-lg font-semibold sm:text-lg whitespace-nowrap dark:text-white">Home Guru</span>
           </a>
         </div>

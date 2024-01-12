@@ -5,4 +5,5 @@ $query = "SELECT pt.pt_name AS pt_name, COUNT(p.pt_id) AS num_of, pt.pt_status A
 $sql = $pdo->prepare($query);
 $sql->execute();
 $pt_name_and_count = $sql->fetchAll(PDO::FETCH_ASSOC);
+
 // used in dashboard.php
