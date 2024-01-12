@@ -22,6 +22,7 @@ include "../../Controller/Property/CategoryListController.php";
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- flowbite -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="../../../Storage/logo/<?=$sliders[0]["fav_icon"]?>">
   <!-- css -->
   <!-- odometer -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/themes/odometer-theme-minimal.min.css" />

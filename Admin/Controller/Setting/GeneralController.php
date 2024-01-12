@@ -12,6 +12,7 @@ if (isset($_POST['submit'])) {
     $phoneNumber2 = isset($_POST['phone_2']) ? $_POST['phone_2'] : '';
     $fbLink = isset($_POST['fb_link']) ? $_POST['fb_link'] : '';
     $telegramLink = isset($_POST['tg_link']) ? $_POST['tg_link'] : '';
+
     // Update the guru_data table
 $sql = "UPDATE guru_data SET
 gd_company_name = :companyName,
@@ -24,7 +25,7 @@ gd_phone_num = :phoneNumber1,
 gd_phone_2 = :phoneNumber2,
 gd_facebook = :fbLink,
 gd_telegram = :telegramLink
-WHERE id = 0";
+WHERE id = 1";
 
 // Prepare the SQL statement
 $stmt = $pdo->prepare($sql);

@@ -2,7 +2,7 @@
 session_start();
 include '../../Controller/Setting/CompanyDataController.php'?>
 <?php
-session_start(); 
+
 include '../../Controller/Setting/SliderController.php';
 if (!isset($_SESSION["authority"])) {
      header('Location: ../../View/errors/wrongPath.php');
