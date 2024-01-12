@@ -1,15 +1,15 @@
 <?php
-echo "<pre>";
-var_dump(isset($_POST["submit"]));
-var_dump(isset($_POST["go_email"]));
-print_r($_POST);
-print_r($_FILES);
-echo "</pre>";
+// echo "<pre>";
+// var_dump(isset($_POST["submit"]));
+// var_dump(isset($_POST["go_email"]));
+// print_r($_POST);
+// print_r($_FILES);
+// echo "</pre>";
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-$current_collaborator = $_SESSION['collaboratorID'];
+$current_collaborator = $_SESSION["collaboratorId"];
 //$current_collaborator = 1;
 
 if (isset($_POST["submit"])) {
@@ -285,6 +285,7 @@ if (isset($_POST["submit"])) {
     $propertyInsertStmt->bindValue("go_id", $go_id);
     $propertyInsertStmt->bindValue("uploader_id", $current_collaborator);
     $propertyInsertStmt->execute();
+echo $_SESSION["collaboratorId"];
 
 
     header("Location: ../../View/Property/detail.php?id=$currentlyCreatingPropertyID");

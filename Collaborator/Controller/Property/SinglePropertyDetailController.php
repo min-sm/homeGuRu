@@ -3,7 +3,7 @@ include "../../Model/DBConnection.php";
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-$current_collaborator = $_SESSION['collaboratorID'];
+$current_collaborator = $_SESSION['collaboratorId'];
 //$current_collaborator = 1;
 
 if (isset($_GET['id'])) {

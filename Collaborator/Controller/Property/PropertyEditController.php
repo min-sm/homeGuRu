@@ -5,7 +5,7 @@ $sent_id = $_GET["id"];
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-$current_collaborator = $_SESSION['collaboratorID'];
+$current_collaborator = $_SESSION['collaboratorId'];
 //$current_collaborator = 1;
 $p_status = 2; // all the p_status of posts of collaborators are gonna be 2, but wrote this just in case
 

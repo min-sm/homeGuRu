@@ -11,7 +11,7 @@ if (!isset($_SESSION["collaboratorId"])) {
 ?>
 <?php
 
-$current_collaborator = $_SESSION['collaboratorID'];
+$current_collaborator = $_SESSION['collaboratorId'];
 //$current_collaborator = 1;
 include_once "../../Controller/Property/PropertySearchResultController.php";
 include "../../Controller/Collaborator/CollaboratorDetailForImgInCardController.php";

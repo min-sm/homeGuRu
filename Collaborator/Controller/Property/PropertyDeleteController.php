@@ -6,7 +6,7 @@ if (session_status() == PHP_SESSION_NONE) {
 include "../../Model/DBConnection.php";
 
 $sent_id = $_GET["id"];
- $current_collaborator = $_SESSION['collaboratorID'];
+ $current_collaborator = $_SESSION['collaboratorId'];
 //$current_collaborator = 1;
 
 
