@@ -3,10 +3,10 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 include '../../Controller/Setting/SliderController.php';
-// if (!isset($_SESSION["authority"])) {
-//     header('Location: ../../View/errors/wrongPath.php ');
-//     exit();
-// }
+if (!isset($_SESSION["authority"])) {
+    header('Location: ../../View/errors/wrongPath.php ');
+    exit();
+}
 include_once "../../Controller/Property/PropertyListController.php";
 include "../../Controller/Property/PropertyReqController.php";
 include "../../Controller/Property/PropertyPendingController.php";

@@ -4,10 +4,10 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 include '../../Controller/Setting/SliderController.php';
-// if (!isset($_SESSION["authority"])) {
-//     header('Location: ../../View/errors/wrongPath.php ');
-//     exit();
-// }
+if (!isset($_SESSION["authority"])) {
+    header('Location: ../../View/errors/wrongPath.php ');
+    exit();
+}
 include "../../Controller/Property/PropertyEditController.php";
 include "../../Controller/PropertyType/PropertyTypeListController.php";
 include "../../Controller/Facility/FacilityListController.php";
