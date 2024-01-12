@@ -1,3 +1,14 @@
+<?php if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}?>
+
+
+<?php 
+if (!isset($_SESSION["collaboratorId"])) {
+    header('Location: ../../View/errors/wrongPath.php');
+    exit();
+};
+?>
 <?php
 include_once "../../Model/DBConnection.php";
 

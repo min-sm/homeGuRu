@@ -1,9 +1,18 @@
-<?php
-if (session_status() == PHP_SESSION_NONE) {
+<?php if (session_status() == PHP_SESSION_NONE) {
     session_start();
-}
-// $current_collaborator = $_SESSION['collaboratorID'];
-$current_collaborator = 1;
+}?>
+
+
+<?php 
+if (!isset($_SESSION["collaboratorId"])) {
+    header('Location: ../../View/errors/wrongPath.php');
+    exit();
+};
+?>
+<?php
+
+$current_collaborator = $_SESSION['collaboratorID'];
+//$current_collaborator = 1;
 include_once "../../Controller/Property/PropertySearchResultController.php";
 include "../../Controller/Collaborator/CollaboratorDetailForImgInCardController.php";
 

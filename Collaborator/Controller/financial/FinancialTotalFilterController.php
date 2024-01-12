@@ -1,9 +1,15 @@
-<?php include '../../Model/DBConnection.php'; ?>
-<?php session_start();?>
+<?php
+// Call DB connection
+include "../../Model/DBConnection.php";?>
 
-<?php $collaborator_id = 1;?>
+
+<?php if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}?>
+
 
 <?php
+$collaborator_id = $_SESSION["collaboratorId"];
 
 $dollar = floor($_SESSION['convert_amount']);
 

@@ -1,8 +1,15 @@
-<?php 
+<?php
+// Call DB connection
+include "../../Model/DBConnection.php";?>
 
-include "../../Model/DBConnection.php";
 
-$collaborator_id = 1;
+<?php if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}?>
+
+
+<?php
+$collaborator_id = $_SESSION["collaboratorId"];
 
 $id = $_GET["id"];
 

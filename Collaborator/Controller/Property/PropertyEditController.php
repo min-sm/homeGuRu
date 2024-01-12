@@ -5,8 +5,8 @@ $sent_id = $_GET["id"];
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-// $current_collaborator = $_SESSION['collaboratorID'];
-$current_collaborator = 1;
+$current_collaborator = $_SESSION['collaboratorID'];
+//$current_collaborator = 1;
 $p_status = 2; // all the p_status of posts of collaborators are gonna be 2, but wrote this just in case
 
 // not necessarily needed, since all the posts are gonna be accepted stage and there will be no req stage & pending stage

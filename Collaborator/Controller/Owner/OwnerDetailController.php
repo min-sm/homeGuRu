@@ -3,8 +3,8 @@ include "../../Model/DBConnection.php";
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-// $current_collaborator = $_SESSION["collaboratorId"];
-$current_collaborator = 1; // to comment this line of code
+$current_collaborator = $_SESSION["collaboratorId"];
+//$current_collaborator = 1; // to comment this line of code
 
 if (isset($_GET['id'])) {
     $sent_id = $_GET["id"];

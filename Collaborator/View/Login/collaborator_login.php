@@ -1,8 +1,11 @@
 <?php
 session_start();
 ?>
-
-
+<?php
+if (!isset($_SESSION["loginerror"])) {
+  $_SESSION["loginerror"] = "";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

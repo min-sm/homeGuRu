@@ -1,7 +1,18 @@
+<?php if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+} ?>
 
 
-<?php 
- include '../../Controller/financial/FinancialTotalFilterController.php' ?>
+<?php
+if (!isset($_SESSION["collaboratorId"])) {
+    header('Location: ../../View/errors/wrongPath.php');
+    exit();
+};
+?>
+
+
+<?php
+include '../../Controller/financial/FinancialTotalFilterController.php' ?>
 
 <?php if (!isset($_SESSION['start_date'])) {
     $_SESSION['start_date'] = '';
@@ -55,6 +66,7 @@ $sale_cash_total = array_sum(array_values($SaleCashTotal));
 
 <body class="dark:bg-gray-400">
     <!-- heading navigation -->
+    <?php include '../common/menu.php' ?>
     <div class="pt-20 sm:ml-64">
         <!--Start  Financial Total Filter Date -->
         <div class="flex flex-col items-center justify-center tracking-wider">

@@ -1,11 +1,21 @@
-<?php
-if (session_status() == PHP_SESSION_NONE) {
+<?php if (session_status() == PHP_SESSION_NONE) {
     session_start();
-}
+}?>
+
+
+<?php 
+if (!isset($_SESSION["collaboratorId"])) {
+    header('Location: ../../View/errors/wrongPath.php');
+    exit();
+};
+?>
+
+<?php
+
 $the_called_file = "listAllStock.php";
 
-// $current_collaborator = $_SESSION["collaboratorId"];
-$current_collaborator = 1; // to comment this line of code
+$current_collaborator = $_SESSION["collaboratorId"];
+//$current_collaborator = 1; // to comment this line of code
 include_once "../../Controller/Property/PropertyListController.php";
 include "../../Controller/Property/CollaboratorInPropertyController.php";
 include "../../Controller/sliderController.php";

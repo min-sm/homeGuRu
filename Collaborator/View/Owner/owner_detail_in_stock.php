@@ -1,13 +1,20 @@
+<?php if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}?>
+
+
+<?php 
+if (!isset($_SESSION["collaboratorId"])) {
+    header('Location: ../../View/errors/wrongPath.php');
+    exit();
+};
+?>
+
 <?php
 $the_called_file = "owner_detail_in_stock.php";
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+
 include '../../Controller/Setting/SliderController.php';
-// if (!isset($_SESSION["authority"])) {
-//     header('Location: ../../View/errors/wrongPath.php ');
-//     exit();
-// }
+
 include "../../Controller/Owner/OwnerDetailController.php";
 include "../../Controller/Property/OwnerPropertyListController.php";
 include "../../Controller/Property/CollaboratorInPropertyController.php";

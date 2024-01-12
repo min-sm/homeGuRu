@@ -1,9 +1,16 @@
-<?php include '../../Model/DBConnection.php'; ?>
-<?php session_start(); ?>
+<?php
+// Call DB connection
+include "../../Model/DBConnection.php";
+?>
+
+
+<?php if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}?>
+
 
 <?php
-
-$collaborator_id = 1;
+$collaborator_id = $_SESSION["collaboratorId"];
 
 if(isset($_GET['start_date']) && isset($_GET['end_date'])){
     $start_date = $_GET['start_date'];
