@@ -5,5 +5,9 @@ $query = "SELECT COUNT(*) AS num_of_collaborator FROM `m_collaborators` WHERE de
 $sql = $pdo->prepare($query);
 $sql->execute();
 $num_of_collaborators = $sql->fetchAll(PDO::FETCH_ASSOC);
-echo  json_encode($num_of_collaborators);
+// Encode data as JSON
+$response = json_encode($num_of_collaborators);
+
+// Output the JSON-encoded data
+die($response);
 // used in dashboard.php
