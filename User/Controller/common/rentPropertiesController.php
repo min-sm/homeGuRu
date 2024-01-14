@@ -8,8 +8,8 @@ include "../../Model/DBConnection.php";
 $sql_count = 'SELECT 
 COUNT(*) as a  
 FROM properties p
-JOIN m_collaborators mc ON p.uploader_id=mc.id
-LEFT JOIN (SELECT * FROM m_collaborators WHERE gc_activity_ban=0) AS collaborator_active ON collaborator_active.id=mc.id  
+LEFT JOIN m_collaborators mc ON p.uploader_id=mc.id
+LEFT JOIN (SELECT * FROM m_collaborators WHERE gc_activity_ban=0) AS collaborator_active ON collaborator_active.id = mc.id  
 WHERE p.del_flg = 0 AND p.p_status = 2 AND p.p_after=0  ';
 $sql = $pdo->prepare($sql_count);
 $sql->execute();
