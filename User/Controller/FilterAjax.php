@@ -65,7 +65,7 @@ if ($maximumPrice !== "") {
 }
 
 if ($sortBy == "newest") {
-  $sql .= " ORDER BY p.updated_date DESC";
+  $sql .= " ORDER BY p.updated_date";
 } else if ($sortBy == "lth") {
   $sql .= " ORDER BY p.p_price ";
 } else if ($sortBy = "htl") {
