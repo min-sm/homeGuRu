@@ -48,13 +48,13 @@
             You has been Registered successfully.
         </p>
         <p class="font-medium  tracking-wide mb-5">
-            We will Contact with Your Email.
+            We will send verify message to your Email.
         </p>
 
-        <a href="../Home_page/home.php"><button type="submit" class=" tracking-wide bg-darkGreen hover:bg-green-800 
+        <a href="https://mail.google.com/mail/u/0/#inbox"><button type="submit" class=" tracking-wide bg-darkGreen hover:bg-green-800 
                       focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-medium text-white px-8 py-2 text-center 
                       dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-            Go To Home</button></a>
+            Go To Mail</button></a>
     </div>
   <?php include '../footer/footer.php'   ?>
 </body>
